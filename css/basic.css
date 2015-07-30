@@ -26,6 +26,8 @@ h1,h2 {
 }
 h1 {
  border-bottom:2px solid #333;
+ background: url(../images/logo.png) right center no-repeat;
+ background-size: contain; 
 }
 h2 {
  margin-bottom:0;
