@@ -13,8 +13,11 @@ body {
 article,section,header,footer {
  margin:0.5em 0;
 }
+a {
+ color:#1d337d;
+}
 footer {
- border-top:1px solid;
+ border-top:1px solid #1d337d;
  font-size:81%;
 }
 p {
@@ -26,7 +29,7 @@ h1,h2 {
 }
 h1 {
  margin-top:0;
- border-bottom:2px solid #333;
+ border-bottom:3px solid #1d337d;
  background: url(../images/logo.png) right center no-repeat;
  height:60px;
  line-height:60px;
