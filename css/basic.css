@@ -13,11 +13,13 @@ body {
 article,section,header,footer {
  margin:0.5em 0;
 }
+section.post {
+ border-bottom:1px solid red;
+}
 a {
  color:#1d337d;
 }
 footer {
- border-top:1px solid #1d337d;
  font-size:81%;
 }
 p {
