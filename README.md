@@ -1,4 +1,5 @@
-# skybet.github.io
-Skybet Engineering Blog & Site
+Skybet Engineering Site
+=======================
 
-https://skybet.github.io
+http://engineering.skybettingandgaming.com
+
