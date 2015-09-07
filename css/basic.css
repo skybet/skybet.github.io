@@ -19,6 +19,11 @@ section.post {
 a {
  color:#1d337d;
 }
+a.feed {
+ background:url(/images/feed-icon-14x14.png) right center no-repeat;
+ padding-right:20px;
+ display:inline-block;  
+}
 footer {
  border-top:1px solid #1d337d;
  font-size:81%;
