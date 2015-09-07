@@ -14,7 +14,7 @@ article,section,header,footer {
  margin:0.5em 0;
 }
 section.post {
- border-top:1px solid red;
+ border-top:2px solid #d92231;
 }
 a {
  color:#1d337d;
@@ -25,11 +25,19 @@ a.feed {
  display:inline-block;  
 }
 footer {
- border-top:1px solid #1d337d;
+ border-top:2px solid #1d337d;
  font-size:81%;
 }
 p {
  margin:1em 0;
+}
+p.time {
+ margin-top:0;
+}
+p.time time {
+ display:inline-block;
+ background-color:#ddd;
+ padding:0 0.5em;
 }
 h1,h2 {
  font-family:Georgia,"Times New Roman",Times,serif;
@@ -37,7 +45,7 @@ h1,h2 {
 }
 h1 {
  margin-top:0;
- border-top:3px solid #1d337d;
+ border-top:2px solid #1d337d;
  background: url(../images/logo.png) right center no-repeat;
  min-height:60px;
  padding-right:50px;

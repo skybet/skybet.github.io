@@ -10,7 +10,7 @@ layout: default
 <article>
  <p><a href="/">&lt; index</a></p>
  <h1>{{ page.title }}</h1>
- <p>{{ page.date | date: "%b %-d, %Y" }} · {{ minutes }} minute read</p>
+ <p class="time"><time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%b %-d, %Y" }}</time> · {{ minutes }} minute read</p>
  {{ content }}
 </article>
 
