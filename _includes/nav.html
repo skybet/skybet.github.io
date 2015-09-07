@@ -1,0 +1,12 @@
+<nav>
+{% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
+<ul>
+{% for node in nav %}
+  {% if page.url == node.url %}
+    <li><a href="{{node.url}}" class="current">{{node.nav_title}}</a></li>
+  {% else %}
+    <li><a href="{{node.url}}">{{node.nav_title}}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>
+</nav>

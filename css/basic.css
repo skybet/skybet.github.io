@@ -10,7 +10,10 @@ body {
  font-family:Helvetica,Arial,Tahoma,sans-serif;
  padding:0 0.5em;
 }
-article,section,header,footer {
+article {
+ margin:0;
+}
+section,header,footer {
  margin:0.5em 0;
 }
 section.post {
@@ -89,4 +92,24 @@ img {
  height:auto;
  padding:1px;
  border:1px solid #ccc;
+}
+
+nav ul {
+ list-style: none;
+ padding:0; margin:0;
+}
+nav li {
+ display: inline-block;
+ padding:0; margin:0;
+ border-bottom:5px solid #1d337d;
+ margin-right:1em;
+}
+nav a {
+ display:block;
+ padding:1em 0.5em 0.5em 0.5em;
+ text-decoration: none;
+ border-bottom:5px solid transparent;
+}
+nav a:hover, nav a.current {
+ border-bottom:5px solid #1d337d;
 }
