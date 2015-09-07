@@ -1,9 +1,9 @@
 ---
 layout:     post
 title:      Distributed Database Query Optimisation with Lego
+permalink:  distributed-db-query-optimisation-with-lego
 date:       2015-08-05 15:45:00
 summary:    Lego based notes from a workshop on Hive, going from basic unpartitioned tables through to partitioned Impala tables with stats computed and backed by parquet. 
-categories: data lego
 ---
 
 Our Head of Data Technology Rob Tuley recently gave a presentation on how data is like Lego – blocks of data which people want to use and join together. Since then this analogy has taken on a life of its own and workshops have taken on a Lego theme. The most recent was workshop on Hive, going from basic unpartitioned tables through to partitioned Impala tables with stats computed and backed by parquet.
