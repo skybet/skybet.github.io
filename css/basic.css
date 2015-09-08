@@ -19,6 +19,17 @@ section,header,footer {
 section.post {
  border-top:2px solid #d92231;
 }
+section.highlight {
+ background-color:#0d2d6c;
+ color:#fff;
+ -webkit-border-radius: 10px;
+ -moz-border-radius: 10px;
+ border-radius: 10px;
+}
+section.highlight p {
+ margin:0;
+ padding:0.5em;
+}
 a {
  color:#1d337d;
 }
@@ -78,12 +89,6 @@ code {
  -webkit-background-clip: padding-box;
  background-clip: padding-box;
 }
-.highlight { 
- color:#00529B; 
- border-top:1px solid; 
- border-bottom:1px solid; 
- background-color:#BDE5F8;
-}
 del {
  display:none;
 }
@@ -93,7 +98,6 @@ img {
  padding:1px;
  border:1px solid #ccc;
 }
-
 nav ul {
  list-style: none;
  padding:0; margin:0;

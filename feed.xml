@@ -6,6 +6,7 @@ layout: null
   <channel>
     <title>Sky Betting and Gaming Engineering</title>
     <link>http://engineering.skybettingandgaming.com/</link>
+    <description>The Technology story of Sky Betting and Gaming, where we bring the excitement of Sports Betting, Casino Games, Poker and Bingo to millions of customers in the UK</description>
     <atom:link href="http://engineering.skybettingandgaming.com/feed.xml" rel="self" type="application/rss+xml" />
     {% for post in site.posts limit:10 %}
       <item>
