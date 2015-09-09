@@ -18,7 +18,7 @@ The primary method of orchestrated workflows for Hadoop within SkyBet is by runn
 pipelines concise and consistent while being flexible enough to handle any
 behavioural requirement.
 
-Pidl itself is a domain specific language that runs on a Ruby interpreter. This means that raw Ruby code can be used to assist in the creation of more complex pipelines with alongside Pidl syntax. More specifically the version of Pidl used for Hadoop orchestration runs on JRuby, a version of the Ruby language that runs on a JVM. This means that incorporating Hadoop libraries and using JVM native clients is possible within the same codebase.
+Pidl itself is a domain specific language that runs on a Ruby interpreter. This means that raw Ruby code can be used to assist in the creation of more complex pipelines alongside Pidl syntax. More specifically the version of Pidl used for Hadoop orchestration runs on JRuby, a version of the Ruby language that runs on a JVM. This means that incorporating Hadoop libraries and using JVM native clients is possible within the same codebase.
 
 As well as pipeline description syntax, Pidl provides a useful command line runner that allows pipelines described by Pidl scripts to be examined, executed and monitored.
 
@@ -68,7 +68,7 @@ pipeline "data.getter" do
 
     sqoop "sql/import_sample.ifx.sql" do
       action :import
-      dest schema(hdfs.table.staging.sample")
+      dest schema("hdfs.table.staging.sample")
       param "date", :next_date
     end
   end
@@ -191,7 +191,7 @@ pipeline "data.getter" do
 end
 ```
 
-This pipeline simply retrieves a value of Hbase, then puts it back after capitalising it. It does demonstrate, though, the use of the context. At runtime the value of the user:NAME column is put into a key/value store with a key of :name. Later on, that key is retrieves (via the `get` method) and the value is modified before being returned.
+This pipeline simply retrieves a value of Hbase, then puts it back after capitalising it. It does demonstrate, though, the use of the context. At runtime the value of the user:NAME column is put into a key/value store with a key of :name. Later on, that key is retrieved (via the `get` method) and the value is modified before being returned.
 
 This use of a runtime context independent of variables within the Ruby script defining the pipeline mean that greater control can be maintained. All accesses to the context are wrapped in a mutex to ensure parallel accessors on different threads cannot cause problems, and values that we don't know at time of writing (e.g. the value of :name) can still be referred to within the pipeline.
 
