@@ -14,4 +14,4 @@ Delivering Sky Betting and Gaming's mix of first-class products is a genuine tea
 
 Join us and grow your career with Sky Betting and Gaming.
 
-Get in touch at careersinleeds@bskyb.com
+Get in touch at [our careers page](http://www.skybet.com/cms/job-board.shtm).
