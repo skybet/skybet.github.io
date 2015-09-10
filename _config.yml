@@ -1,1 +1,5 @@
+name: Sky Betting & Gaming Engineering
 markdown: redcarpet
+url: http://engineering.skybettingandgaming.com
+gems:
+    - jekyll-feed
