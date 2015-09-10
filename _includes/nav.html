@@ -1,5 +1,10 @@
 <nav>
 {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
+<div class="logo">
+    <a href="http://www.skybet.com">
+        <img src="/images/logo.png" height="56">
+    </a>
+</div>
 <ul>
 {% for node in nav %}
   {% if page.url == node.url %}
