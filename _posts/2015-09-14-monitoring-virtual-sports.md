@@ -15,8 +15,8 @@ A lot can go wrong with a live-stream that never ends: it can get out of sync, i
 and it can even display the wrong thing entirely if a failover, erm, fails (don't ask). Suffice to say, it's
 something that needs to be monitored so we know when it needs fixing.
 
-How does one monitor a video stream? There's some quick-wins: you can check that your endpoints exist,
-for HLS you can check that your M3U8 files are changing using simple HTTP checks, but none of that
+How does one monitor a video stream? There are some quick wins: you can check that your endpoints exist;
+for HLS you can check that your M3U8 files are changing using simple HTTP checks; but none of that
 can tell you that the stream is blank, or displaying an event from half an hour ago.
 
 ![Virtual Horses](/images/virtual-horses.png)
