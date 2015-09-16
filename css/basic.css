@@ -122,14 +122,15 @@ img {
  padding:1px;
  border:1px solid #ccc;
 }
-nav .logo {
- float: right;
- padding: 6px;
+
+/* navigation */
+
+nav a.logo {
+ display:block;
+ float:right;
+ padding:6px;
 }
-nav .logo a {
- padding: 0px;
-}
-nav img {
+nav a.logo img {
  border: none;
 }
 nav ul {
@@ -155,11 +156,10 @@ nav li:hover {
  background-image: linear-gradient(to bottom,#152f3f 0,#0e196b 50%,#01084a 50%,#011d71 100%);
 }
 nav a.current {
-    font-weight: bold;
+ font-weight: bold;
 }
 
-
-/* Copied from https://gist.github.com/demisx/025698a7b5e314a7a4b5 /
+/* Copied from https://gist.github.com/demisx/025698a7b5e314a7a4b5 */
 .highlight  { background: #ffffff; }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
