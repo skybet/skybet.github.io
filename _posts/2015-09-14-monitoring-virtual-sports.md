@@ -6,8 +6,6 @@ date:       2015-09-14 11:50:37
 summary:    Virtual Sports is one of our most popular products, here's one of the ways we improved our monitoring of it.
 ---
 
-# Monitoring Virtual Sports
-
 Virtual Sports is one of our most popular products. Our tireless, HRNG-powered, CGI horses can be seen
 careering around a racetrack 24 hours a day, 7 days a week via RTMP or HLS.
 
@@ -27,8 +25,7 @@ then we could raise alarms when they look wrong, or don't show up at all. Doing 
 seems like a difficult problem, but by breaking it down and leveraging some well-established tools
 it's perfectly doable.
 
-
-## A Plan
+### A Plan
 
 Various OCR tools can read text out of *images* without too much difficulty - [Tesseract](https://en.wikipedia.org/wiki/Tesseract_(software)) is one such tool - 
 but we don't have images, we have video. Enter [FFmpeg](https://www.ffmpeg.org/).
@@ -58,8 +55,7 @@ That still leaves steps 2 and 4; but we've got a proof of concept for the diffic
 Most general purpose programming languages should be able to handle the remaining steps
 without too much difficulty.
 
-
-## Go-Go-Gadget Go!
+### Go-Go-Gadget Go!
 
 Go is a general purpose programming language; and it's great for this sort of work.
 
@@ -235,7 +231,7 @@ is working as intended!
 From here we could easily write a simple Nagios check (or similar) to set off an alarm when that time
 doesn't look right.
 
-## Wrapping Up
+### Wrapping Up
 
 In the name of getting things working quickly we've ignored a bunch of failure
 scenarios and generally haven't paid much attention to error handling, but that's
