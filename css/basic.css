@@ -12,38 +12,29 @@ body {
  padding:0 0.5em;
 }
 nav {
- background-image: linear-gradient(to bottom,#253f7f 0,#0e399b 50%,#01288a 50%,#015df1 100%);
+ background-image:linear-gradient(to bottom,#253f7f 0,#0e399b 50%,#01288a 50%,#015df1 100%);
  height: 68px;
 }
 article {
  margin:0;
- padding: 1em;
- background: white;
+ padding:0;
 }
-section {
- background: white;
- padding: 1em;
-}
-#disqus_thread {
- background: white;
- padding: 1em;
-}
-section,header,footer {
+section,header,footer,#disqus_thread {
  margin:0.5em 0;
-}
-section.post h2{
- border-bottom:2px solid #d92231;
-}
-section.highlight {
- background-color:#d0d0df;
- color:#505050;
+ background: white;
+ padding: 1em;
  -webkit-border-radius: 10px;
  -moz-border-radius: 10px;
  border-radius: 10px;
 }
-section.highlight p {
+footer {
+ font-size:81%;
+}
+footer p {
  margin:0;
- padding:0.5em;
+}
+div.post h2 {
+ border-bottom:2px solid #d92231;
 }
 a {
  color: #01519c;
@@ -54,15 +45,6 @@ a.feed {
  background:url(/images/feed-icon-14x14.png) right center no-repeat;
  padding-right:20px;
  display:inline-block;  
-}
-footer {
- border-top:2px solid #1d337d;
- font-size:81%;
- background-color: #010834;
- color: white;
-}
-footer a {
-    color: white;
 }
 p {
  margin:1em 0;
@@ -80,9 +62,9 @@ h1,h2 {
  color: #01519c;
 }
 h1 {
- margin-top:0;
- padding-right:50px;
- font-size: 1.856em;
+ margin:0;
+ font-size: 1.8rem;
+ line-height:1;
 }
 h2 {
  margin-bottom:0;
