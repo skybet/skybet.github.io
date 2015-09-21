@@ -5,9 +5,6 @@ permalink:  speeding-up-chef-search
 date:       2015-09-20 21:38:37
 summary:    We rely on Chef heavily for configuration management. This is one way we speed it up.
 ---
-
-# Speeding Up Chef Search
-
 At Sky Betting and Gaming we make extensive use of Chef searches throughout our recipes. Chef search can be used to find out almost anything about a Chef node, but after writing cookbooks for a few different parts of our stack we found most of the searches were pretty similar. We need to know the hostnames where software is running, thier IP addresses, fairly simple information. Most of our searches were queries like "Give me an array of hostnames that run the role y" or "Give me an array of IP addresses that run the role z".
 
 The traditional way to do this is like this:
@@ -30,7 +27,7 @@ filter = {
 result = Chef::Search::Query.new.search( :node, 'role:common', filter );
 ```
 
-This is better, but still requires a relatively expensive API call to the Chef server, and still involves json searialization and deserialization still going on for every search we want to do. There isn't really much point in doing this over and over in the various different places we need to use search in, especially since all our searches are so similar.
+This is better, but still requires a relatively expensive API call to the Chef server, and still involves json serialisation and deserialisation still going on for every search we want to do. There isn't really much point in doing this over and over in the various different places we need to use search in, especially since all our searches are so similar.
 
 This is why we use global_search. Node JSON objects are loaded and examined during the first search query of the Chef run using partial search, then any attributes we are interested in are cached under node.run_state for each node.
 Subsequent searches during compile or execution are filled from the node.run_state cache, which means there is only one API call into the Chef server for search for each of our Chef runs. Because node.run_state is in memory in the chef-client process, it speeds things along nicely.
