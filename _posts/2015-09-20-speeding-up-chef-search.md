@@ -57,7 +57,7 @@ chef-shell> result = get_role_member_hostnames('common', 'myorg')
 chef-shell>
 ```
 
-The cookbook is available on [github.com](https://github.com/gavala/global_search/)
+The cookbook is available on [github.com](https://github.com/skybet/global_search)
 
 ### Functions
 
