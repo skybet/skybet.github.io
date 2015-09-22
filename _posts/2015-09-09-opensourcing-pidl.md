@@ -14,7 +14,7 @@ A single job may involve using Sqoop or HDFS to put data in place, the executing
 
 Like many old data warehouses, shell scripting has been the norm for orchestrating scripts, queries, imports and exports. There are many problems with shell scripts, not least that you don't necessarily know something is wrong until most of the job is already done and a syntax error catches you out. Parallelism is difficult, and getting to grips with even bash's relatively simple control flow syntax is enough to give you a headache.
 
-The primary method of orchestrated workflows for Hadoop within SkyBet is by running pipelines of commands that manipulate data in a variety of ways. Pidl is a Pipeline Definition Language intended to make describing these
+The primary method of orchestrated workflows for Hadoop within SB&G is by running pipelines of commands that manipulate data in a variety of ways. Pidl is a Pipeline Definition Language intended to make describing these
 pipelines concise and consistent while being flexible enough to handle any
 behavioural requirement.
 

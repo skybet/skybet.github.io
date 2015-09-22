@@ -60,7 +60,7 @@ The winning topics are then distributed over 30min slots in different areas of t
 
 #### Monitoring as code
 
-This discussion focused around the different ways to monitor applications and infrastructure. I'm very pleased to find that SkyBet are very much in the “advanced” bracket when it comes to monitoring from alerting, metrics, sharing and business dashboards. But it’s interesting to see how some organisations are using log monitoring (ELK stacks etc) to monitor more than just logs.
+This discussion focused around the different ways to monitor applications and infrastructure. I'm very pleased to find that SB&G are very much in the “advanced” bracket when it comes to monitoring from alerting, metrics, sharing and business dashboards. But it’s interesting to see how some organisations are using log monitoring (ELK stacks etc) to monitor more than just logs.
 
 #### Why ? Ansible or Puppet or Chef
 
@@ -68,7 +68,7 @@ This turned into quite a heated debate about the selection of an Infrastructure 
 
 #### Microservices a support nightmare?
 
-I suggested this open space to gauge opinion of micro services. I explained a situation at SkyBet where a legacy application was in part being replaced by micro services. There were a number of extremely smart people in the room (including Patrick DeBois) they explained so long as the necessary testing and monitoring was in place it should really help (which we do, the group concluded in my case that there was nothing to worry about (and that we have a great dev team)). The rest of the discussion focused on the practicalities of implementing micro services and how they could simplify development , in some cases they encourage organizational change (anti Conways Law), but they weren’t a silver bullet and under some circumstances aren’t appropriate (e,g, transactional rollback).
+I suggested this open space to gauge opinion of micro services. I explained a situation in Bet Tribe where a legacy application was in part being replaced by micro services. There were a number of extremely smart people in the room (including Patrick DeBois) they explained so long as the necessary testing and monitoring was in place it should really help (which we do, the group concluded in my case that there was nothing to worry about (and that we have a great dev team)). The rest of the discussion focused on the practicalities of implementing micro services and how they could simplify development , in some cases they encourage organizational change (anti Conways Law), but they weren’t a silver bullet and under some circumstances aren’t appropriate (e,g, transactional rollback).
 
 ### Day Two
 
