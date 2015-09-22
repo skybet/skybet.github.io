@@ -6,7 +6,7 @@ date:       2015-01-20 14:10:00
 summary:    5 different approaches to handling JSON data with Hive. 
 ---
 
-In the Sky Bet data team we were recently asked to keep records of business events that are of interest to our analysts in our Hive data warehouse. These events are delivered in files containing JSON structures (1 JSON object per event). JSON's simplicity and ubiquitous nature has made it the weapon of choice for data interchange in recent times and this means that, as a Hive developer, it’s likely that you are going to encounter JSON format data at some point. Hive provides two main mechanisms for dealing with this, JSON UDFs (of which there are two) and JSON SerDes (of which there are many but they all do a similar thing). The below outlines 5 different approaches and provides a guide as to the situations in which each is optimal.
+In the Sky Betting and Gaming data team we were recently asked to keep records of business events that are of interest to our analysts in our Hive data warehouse. These events are delivered in files containing JSON structures (1 JSON object per event). JSON's simplicity and ubiquitous nature has made it the weapon of choice for data interchange in recent times and this means that, as a Hive developer, it’s likely that you are going to encounter JSON format data at some point. Hive provides two main mechanisms for dealing with this, JSON UDFs (of which there are two) and JSON SerDes (of which there are many but they all do a similar thing). The below outlines 5 different approaches and provides a guide as to the situations in which each is optimal.
 
 ### 1. Store the JSON directly and parse it at query time
 
@@ -23,7 +23,7 @@ The disadvantage to this approach is pretty obvious, Hive will need to parse the
 ### 2. Use the get_json_object UDF when unstaging
 
 Let’s say that performance is a primary concern and that we have a well-defined JSON structure that is unlikely to change. In this case the query time parsing approach is very inefficient but but we can still use the UDFs at the point of data insertion to create Hive columns from JSON fields. In particular the `get_json_object` UDF is designed to parse a JSON string and return fields. It takes two arguments, a column containing the raw JSON string and an argument detailing the field to be selected (dot notation where `$` is the root).
-At SkyBet we have a best practice to stage all raw data that is ingested into the data warehouse before unstaging it into more useful table structures. In this case the raw JSON is staged into a table in string format and then unstaged using the get_json_object UDF into a destination table. The example for this is very similar to the query above except that it inserts the results into a separate table rather than displaying them to the user. This means this query only need be run once and subsequent selects can be done from the destination table:
+At SB&G, we have a best practice to stage all raw data that is ingested into the data warehouse before unstaging it into more useful table structures. In this case the raw JSON is staged into a table in string format and then unstaged using the get_json_object UDF into a destination table. The example for this is very similar to the query above except that it inserts the results into a separate table rather than displaying them to the user. This means this query only need be run once and subsequent selects can be done from the destination table:
 
     INSERT INTO TABLE destination_table
       SELECT get_json_object(business_events_raw.json,$.event_date) event_date,
@@ -101,8 +101,8 @@ The general rules for approach selection are:
 * When you have a clearly defined but complex JSON structure you should use either the SerDe or a UDF in a stage/unstage process. The choice between these two really depends on the ingest requirements (for high speed ingest use the SerDe) and querying patterns (for a defined query pattern that could be optimized using HDFS file formats then use the UDF).
 * When your JSON structure simple key/value and you are using UDFs to parse it, favour json_tuple over get_json_object.
 
-For the Sky Bet problem described in the second paragraph we found that the data structures we would be parsing were clearly defined and simple key/value structures. We also found that there was a defined query behavior whose optimization should be given precedence over ingest speed. For these reasons we chose to use the json_tuple UDF combined with a stage/unstage process.
+For our specific problem described in the second paragraph we found that the data structures we would be parsing were clearly defined and simple key/value structures. We also found that there was a defined query behavior whose optimization should be given precedence over ingest speed. For these reasons we chose to use the json_tuple UDF combined with a stage/unstage process.
 
-As Cloudera users we may have to revisit this issue at Sky Bet in the near future thanks to items on the Impala roadmap. 2015 promises enhanced query features for nested structures and enhancements to the parquet storage format that almost certainly will invite some new approaches to this problem.
+As Cloudera users we may have to revisit this issue at SB&G in the near future thanks to items on the Impala roadmap. 2015 promises enhanced query features for nested structures and enhancements to the parquet storage format that almost certainly will invite some new approaches to this problem.
 
 I hope this sheds some light on some of the concerns surrounding the use of JSON in Hive, as always we appreciate your comments and feedback.

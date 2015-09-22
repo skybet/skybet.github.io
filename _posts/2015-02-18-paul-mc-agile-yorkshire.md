@@ -8,7 +8,7 @@ summary:    A talk about the importance of forming product teams and investment 
 
 Paul McCormick presented at [Agile Yorkshire](http://www.agileyorkshire.org/), his summary:
 
-> How SkyBet is moving away from looking at work as projects to themes of investment across their delivery teams. SkyBet has found that delivering against deadline projects overtime comes at a cost, even when using agile or lean methodologies.
+> How Sky Betting and Gaming is moving away from looking at work as projects to themes of investment across their delivery teams.  SB&G has found that delivering against deadline projects overtime comes at a cost, even when using agile or lean methodologies.
 
 [Download slides as PDF](/pdf/agile-yorkshire-projects-to-investment-themes.pdf)
 

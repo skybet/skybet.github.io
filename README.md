@@ -1,7 +1,7 @@
-Skybet Engineering Site
-=======================
+Sky Betting and Gaming Engineering Site
+=======================================
 
-This is source for our public engineering site at http://engineering.skybettingandgaming.com rendered via Jeykll through Github Pages.
+This is source for our public engineering site at http://engineering.skybettingandgaming.com, rendered via Jeykll through Github Pages.
 
 ### How to Contribute
 
@@ -15,7 +15,7 @@ All changes are welcome from additional articles, to styling changes, etc. If yo
 
 ### Rendering the Site Locally
 
-To render the site locally you need to [install Jekyll](https://jekyllrb.com/docs/installation/) & the jekyll feed gem (`gem install jekyll-feed`). Then `cd` into your cloned repository and run `jeykll serve` which will result in the site being available on `http://127.0.0.1:4000/`, rerednering if you make any changes.
+To render the site locally you need to [install Jekyll](https://jekyllrb.com/docs/installation/) & the jekyll feed gem (`gem install jekyll-feed`). Then `cd` into your cloned repository and run `jeykll serve` which will result in the site being available on `http://127.0.0.1:4000/`, re-rendering if you make any changes.
 
 ### Adding a new Article
 
