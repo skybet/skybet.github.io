@@ -15,7 +15,7 @@ All changes are welcome from additional articles, to styling changes, etc. If yo
 
 ### Rendering the Site Locally
 
-To render the site locally you need to `cd` into your cloned repository and run `bundle install` to install jekyll and jekyll-feed.  You can then run `jeykll serve` which will result in the site being available on `http://127.0.0.1:4000/`, re-rendering if you make any changes.
+To render the site locally you need to `cd` into your cloned repository and run `bundle install` to install jekyll and jekyll-feed.  You can then run `rake` (which calls `jekyll serve`) which will result in the site being available on `http://127.0.0.1:4000/`, re-rendering if you make any changes.
 
 ### Adding a new Article
 
