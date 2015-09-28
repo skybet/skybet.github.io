@@ -2,6 +2,7 @@
 <a href="/" class="logo"><img src="/images/logo.png" height="56"></a>
 {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
 <ul>
+  <li><a href="/">Articles</a></li>
 {% for node in nav %}
   {% if page.url == node.url %}
     <li><a href="{{node.url}}" class="current">{{node.nav_title}}</a></li>
