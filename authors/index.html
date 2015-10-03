@@ -1,0 +1,23 @@
+---
+layout:     page
+title:      Article Authors
+summary:    Here are the people who have written the articles.
+nav:        false
+nav_title:  Authors
+nav_weight: 2
+---
+
+{% for keyedAuthor in site.data.authors %}
+{% assign key = keyedAuthor[0] %}
+{% assign author = keyedAuthor[1] %}
+{% assign articles = (site.posts | where: "author",key %}
+
+{% if articles != empty %}
+{% include author.html %}
+<h4>Articles by {{ author.name | truncatewords:1,"" }}</h4>
+{% for post in articles %}
+ {% include postSummary.html %}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
