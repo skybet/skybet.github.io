@@ -12,43 +12,46 @@ isArticle: true
 {% assign author = site.data.authors[page.author] %}
 {% endif %}
 
-<article>
- <header>
-  <h1>{{ page.title }}</h1>
-  {% if author %}
-  <address class="author">
-      {% if author.github %}
-      <a rel="author" href="https://github.com/{{ author.github }}">
-      {% endif %}
-      {{ author.name }}
-      {% if author.github %}
-      </a>
-      {% endif %}
-  </address>
-  {% endif %}
+<article class="grid">
+    <header class="grid-1-1">
+        <h1>{{ page.title }}</h1>
+        {% if author %}
+        <address class="author">
+            {% if author.github %}
+            <a rel="author" href="https://github.com/{{ author.github }}">
+            {% endif %}
 
-  <p class="time"><time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%b %-d, %Y" }}</time> · {{ minutes }} minute read</p>
- </header>
+            {{ author.name }}
+            {% if author.github %}
+            </a>
+            {% endif %}
+        </address>
+        {% endif %}
 
- <section>
- {{ content }}
- </section>
+        <p class="time"><time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%b %-d, %Y" }}</time> · {{ minutes }} minute read</p>
+    </header>
 
- {% if author %}
- {% include author.html %}
- {% endif %}
+    <section class="grid-xs-s-1-1 grid-m-xl-2-3">
+        {{ content }}
+     </section>
+
+     <section class="grid-xs-s-1-1 grid-m-xl-1-3">
+        {% if author %}
+        {% include author.html %}
+        {% endif %}
+    </section>
+
+
 </article>
 
-<section>
- <h2>Before you go...</h2>
- <ul>
- <li>Want more? <a href="/">Browse a full list of articles from us at SB&amp;G</a></li>
- <li>Follow us by <a href="/feed.xml" class=feed>subscribing to our ATOM feed</a></li>
- <li>Ready for a challenge? <a href="http://www.skybet.com/cms/job-board.shtm">Get in touch as we're hiring</a></li>
- </ul>
-</section>
+    <section class="comments">
+        <div class="grid">
+            <div class="grid-1-1">
+                <div id="disqus_thread"></div>
+            </div>
+        </div>
+    </section>
 
-<div id="disqus_thread"></div>
 <script>
 (function() {
   var disqus_shortname = 'skybet';

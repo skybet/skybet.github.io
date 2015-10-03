@@ -1,0 +1,150 @@
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    color: darken($color-default, 10%);
+    background-image: url('/images/bg/page-bg.png');
+    background-position: top center;
+    -ms-box-orient: horizontal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-size: 16px;
+    line-height: 24px;
+    font-family: $SkyRegular;
+}
+
+
+h1 {
+    font-size: 44px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+h2 {
+    font-size: 29px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+h3 {
+    font-size: 20px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+h4 {
+    font-size: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+p, ul, ol, pre, table, blockquote {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+ul, ol {
+    padding: 0 0 0 16px;
+}
+
+a {
+    color: $color-default;
+
+    &:hover {
+        color: lighten($color-default, 10%);
+    }
+}
+
+
+.grid, .grid [class *="grid-"] {
+    box-sizing: border-box;
+    position: relative;
+}
+.grid  {
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include media-query(m-xl) {
+        max-width: 1200px;
+    }
+    @include media-query(xl) {
+        padding: 0;
+    }
+    [class *="grid-"] {
+        padding: 0 10px;
+    }
+}
+
+.pull--right {
+    float: right;
+}
+
+.pull--left {
+    float: left;
+}
+
+
+main, article {
+    margin: 0 auto;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+
+    img {
+        width: 100%;
+    }
+}
+
+.comments {
+    background: $color-primary;
+    color: $color-default;
+    padding: 20px 0;
+}
+
+
+footer {
+    overflow: hidden;
+
+    .more-info {
+        background: $color-default;
+        color: $color-light;
+    }
+
+    .products {
+        padding: 10px 0 0px;
+        background: $color-dark;
+        color: $color-light;
+
+        h4 {
+            min-width: 100px;
+            margin-top: 10px;
+        }
+
+        &--wrap {
+            margin-bottom: -30px;
+            overflow-y: none;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .cross-product__item--stdlogo {
+            height: 14px;
+        }
+        a.flexbox__item.cross-product__item.cross-product__item--link {
+            padding: 6px 15px 35px;
+        }
+    }
+}

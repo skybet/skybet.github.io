@@ -1,0 +1,72 @@
+/* $VARIABLES */
+/* size for heading class variables in px */
+$h1-size:               36!default; // .h1
+$h2-size:               30!default; // .h2
+$h3-size:               24!default; // .h3
+$h4-size:               20!default; // .h4
+$h5-size:               16!default; // .h5
+$h6-size:               14!default; // .h6
+$heading-font:          'SkyMedium', Arial, sans-serif!default;
+
+$base-font-size:        16!default;
+$base-line-height:      24!default;
+
+html {
+    font-size: $base-font-size;
+}
+
+/* FONT-SIZE */
+@function calculateRem($font-size) {
+  $remSize: $font-size / $base-font-size;
+  @return $remSize + rem;
+}
+@function calculateEm($font-size) {
+  $remSize: $font-size / $base-font-size;
+  @return $remSize + em;
+}
+@mixin font-size-rem($font-size, $line-height:true) {
+  font-size: $font-size + px;
+  font-size: calculateRem($font-size);
+  @if $line-height == true {
+      line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+  }
+}
+@mixin font-size-em($font-size, $line-height:true) {
+  font-size: $font-size + px;
+  font-size: calculateEm($font-size);
+  @if $line-height == true {
+      line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+  }
+}
+
+/* HEADINGS */
+h1,.h1{
+    @include font-size-em($h1-size);
+    font-family: $heading-font;
+}
+h2,.h2{
+    @include font-size-em($h2-size);
+    font-family: $heading-font;
+}
+h3,.h3{
+    @include font-size-em($h3-size);
+    font-family: $heading-font;
+}
+h4,.h4{
+    @include font-size-em($h4-size);
+    font-family: $heading-font;
+}
+h5,.h5{
+    @include font-size-em($h5-size);
+    font-family: $heading-font;
+}
+h6,.h6{
+    @include font-size-em($h6-size);
+    font-family: $heading-font;
+}
+
+/* Make the introductory text (usually a paragraph) of a document slightly larger. */
+.lede,
+.lead{
+    @include font-size-em($base-font-size * 1.125);
+}

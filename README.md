@@ -32,4 +32,5 @@ To add a new article you need to add a new file in markdown format in the `_post
 You can add any required images to the `images` directory, and reference them in markdown like so:
 
     ![Shuffled Lego](/images/lego-shuffled.jpg)
-    
+
+If making updates to the layout, use the sass in the `_scss/` directory.

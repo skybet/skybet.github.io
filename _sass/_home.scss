@@ -1,0 +1,114 @@
+.homepage {
+
+    .post {
+        background: $color-whtrans;
+        padding: 10px 50px;
+        margin: 30px 10px 30px 30px;
+        box-sizing: border-box;
+        position: relative;
+
+        @include media-query(xs-s) {
+            margin: 50px 0 30px 0;
+            padding: 10px;
+        }
+
+        @include media-query(xl) {
+            margin: 30px 10px 30px 0;
+        }
+
+        h2 {
+            border-bottom: 1px solid $color-default;
+            padding-bottom: 10px;
+
+            a { text-decoration: none;}
+        }
+
+        .image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid darken($color-highlight, 10%);
+        }
+
+        .date {
+            background: $color-default;
+            border-radius: 100%;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 20px;
+            left: -40px;
+            color: $color-light;
+
+            @include media-query(xs-s) {
+                left: 10px;
+                top: -40px;
+            }
+
+            .day, .month {
+                display: block;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            .day {
+                font-family: $SkyBold;
+                font-size: 34px;
+                margin: 18px auto 4px;
+            }
+            .month {
+                font-size: 14px;
+            }
+        }
+
+        .cta {
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            border-width: 1px 0;
+            border-style: solid;
+            border-color: $color-default;
+            margin: 30px 0;
+
+            div {
+                flex: 1;
+                flex-grow: 1;
+                padding: 10px;
+                border: solid 1px #e7e7e7;
+                border-right: 1px solid $color-default;
+
+                &:first-child {
+                    padding-left: 0;
+                }
+                &:last-child {
+                    padding-right: 0;
+                    border-right: none;
+                }
+                p {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+
+            header {
+                font-family: $SkyBold;
+                font-style: italic;
+                color: $color-default;
+            }
+        }
+
+    }
+}
+
+.aside {
+    .about, .meet-author, .twitter{
+        background: $color-whtrans;
+        padding: 10px 20px;
+        margin: 30px 0;
+        box-sizing: border-box;
+
+        h2 {
+            border-bottom: 1px solid $color-default;
+            padding-bottom: 10px;
+        }
+    }
+}

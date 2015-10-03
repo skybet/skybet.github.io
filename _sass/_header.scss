@@ -1,0 +1,35 @@
+
+header.page {
+    background-image: url('/images/bg/header-bg.jpg');
+    position: relative;
+    min-height: 360px;
+    background-position: center top;
+    background-attachment: fixed;
+    background-size: cover;
+
+    .grid {
+        z-index: 2;
+        padding: 10px 10px 20px;
+
+        @include media-query(xl) {
+            padding: 10px 0px 20px;
+        }
+    }
+
+    .page-title {
+        svg {
+            fill: white;
+            height: 200px;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+
+            &:hover {
+                color: darken($color-light, 4%);
+            }
+        }
+    }
+}
+
+
