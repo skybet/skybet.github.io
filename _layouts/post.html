@@ -8,14 +8,35 @@ isArticle: true
 {% assign minutes = 1 %}
 {% endif %}
 
+{% if page.author %}
+{% assign author = site.data.authors[page.author] %}
+{% endif %}
+
 <article>
  <header>
   <h1>{{ page.title }}</h1>
+  {% if author %}
+  <address class="author">
+      {% if author.github %}
+      <a rel="author" href="https://github.com/{{ author.github }}">
+      {% endif %}
+      {{ author.name }}
+      {% if author.github %}
+      </a>
+      {% endif %}
+  </address>
+  {% endif %}
+
   <p class="time"><time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%b %-d, %Y" }}</time> · {{ minutes }} minute read</p>
  </header>
+
  <section>
  {{ content }}
  </section>
+
+ {% if author %}
+ {% include author.html %}
+ {% endif %}
 </article>
 
 <section>

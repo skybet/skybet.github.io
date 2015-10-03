@@ -1,0 +1,22 @@
+adam_hepton:
+    name: Adam Hepton
+    role: Lead Engineer, Website Experience
+    tribe: Bet
+    startDate: 01-05-2015
+    bio : sd,sd sd smdsdljs dksjd skldj sdlksjd lskdjs ds
+    interests: JS, React, Node, CSS, HTML, Agile, Kanban, Delivery, People
+    twitter: adamhepton
+    github: adamhepton
+    linkedin: adamhepton
+
+tom_hudson:
+    name: Tom Hudson
+    image: tom_hudson.png
+    role: Principal Engineer
+    tribe: Bet
+    startDate: 10-03-2010
+    bio: ssjdksjdksldjl kjsd lkasjd aslkdj sakldjsad lksadjasd
+    interests: Linux, Node, SVN
+    twitter: tomnomnom
+    github: tomnomnom
+    linkedin: tomnomnom
