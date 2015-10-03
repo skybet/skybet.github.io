@@ -3,10 +3,11 @@ layout:     post
 title:      Alberto Brandolini on DDD & CQRS
 permalink:  alberto-brandolini-on-ddd-cqrs
 date:       2015-04-14 18:49:53
-summary:    Some key take-aways from having Alberto Brandolini on-site at Skybet talking to us about DDD methodologies. 
+summary:    Some key take-aways from having Alberto Brandolini on-site at Skybet talking to us about DDD methodologies.
+image:      alberto-cqrs.jpg
 ---
 
-Key take-aways from having [Alberto Brandolini](http://ziobrando.blogspot.com/) on-site for 2 days at [Skybet](https://www.skybet.com/) talking to us about Domain Driven Design (DDD) methodologies. 
+Key take-aways from having [Alberto Brandolini](http://ziobrando.blogspot.com/) on-site for 2 days at [Skybet](https://www.skybet.com/) talking to us about Domain Driven Design (DDD) methodologies.
 
 ### Model from Events & Commands, Not Data
 
@@ -28,6 +29,6 @@ Ubiquitous Language terms can have different meanings in different Bounded Conte
 
 ### Async Communication between Aggregate Micro-Service
 
-Aggregates within a Bounded Context are natural candidates for micro-service boundaries. Communication between aggregates should be async. 
+Aggregates within a Bounded Context are natural candidates for micro-service boundaries. Communication between aggregates should be async.
 
 ![Alberto agreggate diagram](/images/alberto-aggregate.jpg)

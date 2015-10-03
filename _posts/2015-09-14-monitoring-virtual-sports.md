@@ -4,6 +4,7 @@ title:      Monitoring Virtual Sports
 permalink:  monitoring-virtual-sports
 date:       2015-09-14 11:50:37
 summary:    Virtual Sports is one of our most popular products, here's one of the ways we improved our monitoring of it.
+image:      virtual-horses.png
 ---
 
 Virtual Sports is one of our most popular products. Our tireless, HRNG-powered, CGI horses can be seen
@@ -27,7 +28,7 @@ it's perfectly doable.
 
 ### A Plan
 
-Various OCR tools can read text out of *images* without too much difficulty - [Tesseract](https://en.wikipedia.org/wiki/Tesseract_(software)) is one such tool - 
+Various OCR tools can read text out of *images* without too much difficulty - [Tesseract](https://en.wikipedia.org/wiki/Tesseract_(software)) is one such tool -
 but we don't have images, we have video. Enter [FFmpeg](https://www.ffmpeg.org/).
 FFmpeg is a veritable Swiss Army Knife for dealing with video; it can consume, record and convert just about anything - including turning a video into discrete images.
 
@@ -73,7 +74,7 @@ We need to fill that directory with images, so we'll run FFmpeg in a Goroutine t
 ```go
 go func() {
     exec.Command("ffmpeg", "-i", "rtmp://streamurl", "-r", "1", dir+"/frame-%04d.png").Run()
-}() 
+}()
 ```
 
 We need somewhere to store our current state. It's not going to get passed around, so an anonymous struct will do just fine:

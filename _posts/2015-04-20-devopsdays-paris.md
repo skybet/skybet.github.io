@@ -4,6 +4,7 @@ title:      DevopsDays Paris 2015
 permalink:  devopsdays-paris-2015
 date:       2015-04-20 11:39:30
 summary:    We sent senior Devop engineer Andy Burgin to DevopsDays Paris to find out about the latest ideas and innovation in the Devops community.
+image:      devopsdays-paris-3.jpg
 ---
 
 We sent senior Devop engineer [@andyburgin](https://twitter.com/andyburgin) to DevopsDays Paris to find out about the latest ideas and innovation in the Devops community.

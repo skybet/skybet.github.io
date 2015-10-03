@@ -4,6 +4,7 @@ title:      Kanban's Geological Record
 permalink:  kanban-geological-record
 date:       2015-01-26 16:15:30
 summary:    Ian Carroll's commentary on tracking the record of workflow by looking at the Kanban cards coming off the boards.
+image:      iancarroll-kanban-cards.jpg
 ---
 
 [Ian Carroll](http://iancarroll.com/) has been working with SB&G to improve our Agile processes. Read his thoughts on balanced investment in a growing business using Kanban.

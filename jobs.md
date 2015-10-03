@@ -1,6 +1,7 @@
 ---
 layout:     page
 title:      Grow Your Career
+summary:    We're on a mission to find talented people just like you that will help us continue to grow as we expand into Europe.
 nav:        true
 nav_title:  Jobs
 nav_weight: 1
