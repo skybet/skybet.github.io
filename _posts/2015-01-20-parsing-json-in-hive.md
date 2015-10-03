@@ -3,7 +3,7 @@ layout:     post
 title:      SerDe vs UDF – parsing JSON in Hive
 permalink:  parsing-json-in-hive
 date:       2015-01-20 14:10:00
-summary:    5 different approaches to handling JSON data with Hive. 
+summary:    5 different approaches to handling JSON data with Hive.
 ---
 
 In the Sky Betting and Gaming data team we were recently asked to keep records of business events that are of interest to our analysts in our Hive data warehouse. These events are delivered in files containing JSON structures (1 JSON object per event). JSON's simplicity and ubiquitous nature has made it the weapon of choice for data interchange in recent times and this means that, as a Hive developer, it’s likely that you are going to encounter JSON format data at some point. Hive provides two main mechanisms for dealing with this, JSON UDFs (of which there are two) and JSON SerDes (of which there are many but they all do a similar thing). The below outlines 5 different approaches and provides a guide as to the situations in which each is optimal.
@@ -40,7 +40,7 @@ However, from a performance perspective this approach is still not optimal. For 
 Hive provides a solution to the get_json_object parsing issue in the other JSON related UDF, json_tuple. The json_tuple UDF is designed to be combined with LATERAL VIEW to parse a JSON structure only once and emit one or more columns. The syntax for this looks like the below:
 
     INSERT INTO TABLE destination_table
-      SELECT LATERAL VIEW json_tuple(business_events_raw.json, ‘event_type’, ‘event_date’) 
+      SELECT LATERAL VIEW json_tuple(business_events_raw.json, ‘event_type’, ‘event_date’)
       as event_type, event_date
 
 In this case the JSON structure is parsed only once, however the two JSON fields (`event_type` and `event_date`) are assigned to two columns (`event_type` and `event_date`).
@@ -66,7 +66,7 @@ Nested fields can easily be added too:
 
 Once the table has been created data can be added in the usual way and queried using the JSON field names, nested fields can be queried using dot notation as below:
 
-    SELECT event_date, event_type, user.first_name, user.last_name 
+    SELECT event_date, event_type, user.first_name, user.last_name
       FROM json_serde
 
 The main advantage of using a SerDe is the ease of use. Once the table has been set up, the data conversion happens in the background and users of that data need not worry about the mechanics behind it. This can be very important if speed of ingest is a primary concern and so the overhead that goes with the staging and unstaging process described above is impractical. It is also worth noting that some SerDes can contain extensive optimization that makes them highly efficient at data conversion.

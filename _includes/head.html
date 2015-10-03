@@ -1,10 +1,32 @@
 <head>
  <meta charset="utf-8">
- <title>{{ page.title }}</title>
+ <title>{% if page.isArticle %}Sky Betting and Gaming Engineering: {% endif %}{{ page.title }}</title>
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name=viewport content="width=device-width,initial-scale=1.0">	
+ <meta name=viewport content="width=device-width,initial-scale=1.0">
+
+ {% if page.isArticle %}
+ <meta property="og:type" content="article" />
+ <meta property="article:published_date" content="{{ page.date | date_to_xmlschema }}" />
+ {% else %}
+ <meta property="og:type" content="website" />
+ {% endif %}
+ <meta name="twitter:site" content="@EngineersSkyBG" />
+ <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
+ <meta name="twitter:description" content="Read more on our Engineering Blog" />
+ <meta name="twitter:title" content="{{ page.title }}" />
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}logo.png{% endif %}" />
+
+ <meta property="og:site_name" content="Sky Betting and Gaming Engineering Blog" />
+ <meta property="og:title" content="{{ page.title }}" />
+ <meta property="og:description" content="{{ page.summary }}" />
+ <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+ <meta property="og:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}logo.png{% endif %}" />
+
+ <meta property="description" content="{{ page.summary }}" />
+
  <link rel="stylesheet" href="/css/basic.css" type="text/css">
- <link rel="alternate" 
-       type="application/atom+xml" title="Sky Betting and Gaming Engineering Feed" 
+ <link rel="alternate"
+       type="application/atom+xml" title="Sky Betting and Gaming Engineering Feed"
        href="{{ site.url | xml_escape }}/feed.xml" />
 </head>
