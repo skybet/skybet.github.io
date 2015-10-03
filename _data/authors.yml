@@ -1,9 +1,10 @@
 adam_hepton:
     name: Adam Hepton
+    image: adam_hepton.png
     role: Lead Engineer, Website Experience
     tribe: Bet
     startDate: 01-05-2015
-    bio : sd,sd sd smdsdljs dksjd skldj sdlksjd lskdjs ds
+    bio : After almost ten years working in the education sector and contributing to key building blocks of the web such as the HTML 5 specification and jQuery, Adam joined Sky Betting and Gaming, where he is passionate about ensuring the millions of users of Sky Bet have a pleasant experience regardless of what device or platform they are visiting from.   He and Tom Hudson were part of a group of people who initiated the trending topic &#x23;songsincode on Twitter in 2009.
     interests: JS, React, Node, CSS, HTML, Agile, Kanban, Delivery, People
     twitter: adamhepton
     github: adamhepton
@@ -14,9 +15,31 @@ tom_hudson:
     image: tom_hudson.png
     role: Principal Engineer
     tribe: Bet
-    startDate: 10-03-2010
-    bio: ssjdksjdksldjl kjsd lkasjd aslkdj sakldjsad lksadjasd
-    interests: Linux, Node, SVN
+    startDate:
+    bio:
+    interests:
     twitter: tomnomnom
     github: tomnomnom
     linkedin: tomnomnom
+
+dan_rooke:
+    name: Dan Rooke
+    role:
+    tribe: Data
+    startDate:
+    bio:
+    interests:
+    twitter:
+    github:
+    linkedin:
+
+gav_harris:
+    name: Gav Harris
+    role: Plat Evo
+    tribe: Data
+    startDate:
+    bio:
+    interests:
+    twitter:
+    github: gavala
+    linkedin:

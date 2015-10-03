@@ -1,34 +1,38 @@
-<section class="author">
-    <address>
-        <div>
-            {% if author.image %}
-            <img class="author--image" src="/images/authors/{{ author.image }}">
-            {% endif %}
+<a name="{{ key }}">
+    <section class="author">
+        <address>
+            <div>
+                {% if author.image %}
+                <img class="author--image" src="/images/authors/{{ author.image }}">
+                {% endif %}
 
-            <header>
-                <h1>{{ author.name }}</h1>
-                <h2>{{ author.role }} · {{ author.tribe }} Tribe</h2>
-                <h3>Working at Sky Betting and Gaming since {{ author.startDate | date: '%Y' }}
-                <p>{{ author.bio }}</p>
-            </header>
+                <header>
+                    <h1>{{ author.name }}</h1>
+                    <h2>{{ author.role }} · {{ author.tribe }} Tribe</h2>
+                    {% if author.startDate %}
+                    <h3>Working at Sky Betting and Gaming since {{ author.startDate | date: '%Y' }}
+                    {% endif %}
+                    <p>{{ author.bio }}</p>
+                </header>
 
-            {% if author.interests %}
-            <h4>Interests</h4>
-            <ul class="author--interests">
-                {% assign interests=author.interests | split:"," %}
-                {% for interest in interests %}
-                <li>{{ interest }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
+                {% if author.interests %}
+                <h4>Interests</h4>
+                <ul class="author--interests">
+                    {% assign interests=author.interests | split:"," %}
+                    {% for interest in interests %}
+                    <li>{{ interest }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
 
-            {% if author.twitter or author.github or author.linkedin %}
-            <h4>Links</h4>
-            <ul class="author--rels">
-                {% if author.twitter %}<li><a class="author--rels--twitter" href="https://twitter.com/{{ author.twitter }}" rel="author">Twitter</a></li>{% endif %}
-                {% if author.github %}<li><a class="author--rels--github" href="https://github.com/{{ author.github }}" rel="author">Github</a></li>{% endif %}
-                {% if author.linkedin %}<li><a class="author--rels--linkedin" href="https://linkedin.com/in/{{ author.linkedin }}" rel="author">LinkedIn</a></li>{% endif %}
-            </ul>
-            {% endif %}
-    </address>
-</section>
+                {% if author.twitter or author.github or author.linkedin %}
+                <h4>Links</h4>
+                <ul class="author--rels">
+                    {% if author.twitter %}<li><a class="author--rels--twitter" href="https://twitter.com/{{ author.twitter }}" rel="author">Twitter</a></li>{% endif %}
+                    {% if author.github %}<li><a class="author--rels--github" href="https://github.com/{{ author.github }}" rel="author">Github</a></li>{% endif %}
+                    {% if author.linkedin %}<li><a class="author--rels--linkedin" href="https://linkedin.com/in/{{ author.linkedin }}" rel="author">LinkedIn</a></li>{% endif %}
+                </ul>
+                {% endif %}
+        </address>
+    </section>
+</a>

@@ -10,48 +10,7 @@ nav_weight: 0
 
 <section class="grid-xs-s-1-1 grid-m-xl-2-3 homepage">
     {% for post in site.posts %}
-
-    {% assign minutes = post.content | number_of_words | divided_by: 120 %}
-    {% if minutes == 0 %}
-    {% assign minutes = 1 %}
-    {% endif %}
-
-    {% if post.author %}
-    {% assign author = site.data.authors[post.author] %}
-    {% endif %}
-
-    <div class="post">
-        <div class="date">
-            <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
-                <span class="day">{{ post.date | date: "%-d" }}</span>
-                <span class="month">{{ post.date | date: "%b, %Y" }}</span>
-            </time>
-        </div>
-
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-
-        {% if post.image %}
-        <div class="image" style="background-image: url('/images/{{ post.image }}');"></div>
-        {% endif %}
-
-        <p>{{ post.summary }}</p>
-
-        <div class="cta">
-            {% if post.author %}
-            <div class="author">
-                <header>Author:</header>
-                <p>{{ author.name }}</p>
-            </div>
-            {% endif %}
-            <div class="categorys">
-                <header>Category:</header>
-            </div>
-            <div class="read">
-                <header>Time:</header>
-                <p>{{ minutes }} minute read</p>
-            </div>
-        </div>
-    </div>
+      {% include postSummary.html %}
     {% endfor %}
 </section>
 

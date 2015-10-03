@@ -16,6 +16,7 @@ isArticle: true
     <header class="grid-1-1">
         <h1>{{ page.title }}</h1>
         {% if author %}
+        {% assign key=page.author %}
         <address class="author">
             {% if author.github %}
             <a rel="author" href="https://github.com/{{ author.github }}">
@@ -24,7 +25,6 @@ isArticle: true
             {{ author.name }}
             {% if author.github %}
             </a>
-            {% endif %}
         </address>
         {% endif %}
 
@@ -40,17 +40,17 @@ isArticle: true
         {% include author.html %}
         {% endif %}
     </section>
-
-
+ {% include author.html %}
+ {% endif %}
 </article>
 
-    <section class="comments">
-        <div class="grid">
-            <div class="grid-1-1">
-                <div id="disqus_thread"></div>
-            </div>
+<section class="comments">
+    <div class="grid">
+        <div class="grid-1-1">
+            <div id="disqus_thread"></div>
         </div>
-    </section>
+    </div>
+</section>
 
 <script>
 (function() {
