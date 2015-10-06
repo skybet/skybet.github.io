@@ -13,35 +13,40 @@ isArticle: true
 {% endif %}
 
 <article class="grid">
-    <header class="grid-1-1">
-        <h1>{{ page.title }}</h1>
-        {% if author %}
-        {% assign key=page.author %}
-        <address class="author">
-            {% if author.github %}
-            <a rel="author" href="https://github.com/{{ author.github }}">
-            {% endif %}
 
-            {{ author.name }}
-            {% if author.github %}
-            </a>
-        </address>
-        {% endif %}
+    <section class="grid-xs-s-1-1 grid-m-xl-2-3 details">
 
-        <p class="time"><time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%b %-d, %Y" }}</time> · {{ minutes }} minute read</p>
-    </header>
+        <div class="post">
+            <header class="grid-1-1">
+                <h1>{{ page.title }}</h1>
+                <div class="date">
+                    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
+                        <span class="day">{{ page.date | date: "%-d" }}</span>
+                        <span class="month">{{ page.date | date: "%b '%y" }}</span>
+                    </time>
+                </div>
+            </header>
 
-    <section class="grid-xs-s-1-1 grid-m-xl-2-3">
-        {{ content }}
-     </section>
-
-     <section class="grid-xs-s-1-1 grid-m-xl-1-3">
-        {% if author %}
-        {% include author.html %}
-        {% endif %}
+            {{ content }}
+        </div>
     </section>
 
- {% endif %}
+    <aside class="grid-xs-s-1-1 grid-m-xl-1-3">
+        {% if author %}
+        {% assign key=page.author %}
+        <div class="meet-author">
+            <h3>Meet the author</h3>
+
+            {% include author.html %}
+        </div>
+        {% endif %}
+
+        <div class="twitter hide-xs-s">
+            <a class="twitter-timeline" href="https://twitter.com/EngineersSkyBG" data-widget-id="650399762827624448" data-chrome="transparent" data-tweet-limit="3">Tweets by @EngineersSkyBG</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            </script>
+        </div>
+    </aside>
 </article>
 
 <section class="comments">

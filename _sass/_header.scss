@@ -2,24 +2,35 @@
 header.page {
     background-image: url('/images/bg/header-bg.jpg');
     position: relative;
-    min-height: 360px;
+    // min-height: 360px;
     background-position: center top;
     background-attachment: fixed;
     background-size: cover;
 
     .grid {
         z-index: 2;
-        padding: 10px 10px 20px;
+        padding: 0 10px;
 
         @include media-query(xl) {
-            padding: 10px 0px 20px;
+            padding: 0;
         }
     }
 
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
     .page-title {
+
+        &.logo-large {
+            width: 100%;
+        }
         svg {
-            fill: white;
+            fill: $color-default;
             height: 200px;
+            margin: 100px auto;
+            display: block;
         }
         a {
             color: white;
@@ -27,6 +38,39 @@ header.page {
 
             &:hover {
                 color: darken($color-light, 4%);
+            }
+        }
+    }
+
+    .large {
+        background: $color-default;
+    }
+
+    ul.social {
+        text-align: right;
+
+        li {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            border-radius: 100%;
+            border: 2px solid $color-light;
+            text-align: center;
+            margin-left: 5px;
+
+            &:hover {
+                color: white
+                }
+
+            a {
+                color: $color-light;
+                text-decoration: none;
+                font-size: 25px;
+                margin-top: 8px;
+
+                &:hover {
+                    color: white;
+                }
             }
         }
     }
