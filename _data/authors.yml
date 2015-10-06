@@ -15,9 +15,9 @@ tom_hudson:
     image: tom_hudson.png
     role: Principal Engineer
     tribe: Bet
-    startDate:
-    bio:
-    interests:
+    startDate: 01-01-2010
+    bio: Pragmatic purist, problem solver, coder, Go lover, devil's advocate, hedonist, AV nerd, knife enthusiast, foodie, not really a sheep.
+    interests: GO, playing with Lego,
     twitter: tomnomnom
     github: tomnomnom
     linkedin: tomnomnom

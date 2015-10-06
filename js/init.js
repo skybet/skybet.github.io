@@ -40,11 +40,11 @@ function parallax() {
 function hidehead() {
 
     if ($(window).scrollTop() > 20){
-        $('header.page').height('60px');
+        // $('header.page').height('60px');
         $('header.page').css('z-index' , '300');
     }
     else{
-         $('header.page').height('100px');
+         // $('header.page').height('100px');
         $('header.page').css('z-index' , '100');
     }
 }

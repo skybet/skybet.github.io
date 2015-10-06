@@ -25,6 +25,10 @@ body {
     font-family: $SkyRegular;
 }
 
+.hide {
+    display: none!important;
+}
+
 
 h1 {
     font-size: 44px;
@@ -108,6 +112,97 @@ main, article {
     }
 }
 
+aside {
+    .about, .meet-author, .twitter{
+        background: $color-whtrans;
+        padding: 10px 20px;
+        margin: 30px 0;
+        box-sizing: border-box;
+
+        @include media-query(xs-s) {
+            margin: 0 0 20px;
+        }
+
+        h2 {
+            border-bottom: 1px solid $color-default;
+            padding-bottom: 10px;
+        }
+    }
+    @include media-query(xs-s) {
+        .meet-author {
+            margin: 0 0 10px;
+        }
+
+    }
+}
+
+.meet-author {
+    .author--image {
+        width: 100px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    header {
+
+        h1 {
+            font-size: 20px;
+        }
+        h2 {
+            font-size: 14px;
+            border-bottom: none;
+            font-weight: 100;
+        }
+        h1, h2 {
+            margin: 0;
+            padding: 0;
+        }
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 24px;
+    }
+    .author--interests {
+        li {
+            display: inline;
+        }
+    }
+    .author--rels {
+        li {
+            width: 50%;
+            display: inline;
+            box-sizing: border-box;
+        }
+    }
+}
+
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: $color-default;
+    margin: 30px 0;
+
+    .flex-item {
+        -webkit-box-flex: 1;
+        width: 20%;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        flex-grow: 1;
+        padding: 10px;
+        border: solid 1px #e7e7e7;
+        border-right: 1px solid $color-default;
+    }
+
+}
+
 .comments {
     background: $color-primary;
     color: $color-default;
@@ -117,6 +212,14 @@ main, article {
 
 footer {
     overflow: hidden;
+
+    a {
+        color: $color-light;
+
+        &:hover {
+            color: darken($color-light, 20%);
+        }
+    }
 
     .more-info {
         background: $color-default;

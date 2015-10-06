@@ -11,7 +11,7 @@
     <div class="date">
         <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
             <span class="day">{{ post.date | date: "%-d" }}</span>
-            <span class="month">{{ post.date | date: "%b, %Y" }}</span>
+            <span class="month">{{ post.date | date: "%b '%y" }}</span>
         </time>
     </div>
 
@@ -23,17 +23,17 @@
 
     <p>{{ post.summary }}</p>
 
-    <div class="cta">
+    <div class="cta flex">
         {% if post.author %}
-        <div class="author">
+        <div class="author flex-item">
             <header>Author:</header>
             <p>{{ author.name }}</p>
         </div>
         {% endif %}
-        <div class="categorys">
+        <div class="categorys flex-item">
             <header>Category:</header>
         </div>
-        <div class="read">
+        <div class="read flex-item">
             <header>Time:</header>
             <p>{{ minutes }} minute read</p>
         </div>
