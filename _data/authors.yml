@@ -17,29 +17,25 @@ tom_hudson:
     tribe: Bet
     startDate: 01-01-2010
     bio: Pragmatic purist, problem solver, coder, Go lover, devil's advocate, hedonist, AV nerd, knife enthusiast, foodie, not really a sheep.
-    interests: GO, playing with Lego,
+    interests: Go, Lego
     twitter: tomnomnom
     github: tomnomnom
     linkedin: tomnomnom
 
 dan_rooke:
     name: Dan Rooke
-    role:
+    image: dan_rooke.jpg
+    role: Solution Architect
     tribe: Data
-    startDate:
-    bio:
-    interests:
-    twitter:
-    github:
-    linkedin:
+    startDate: 18-10-2010
+    bio: "Dan has spent most of his SB&G career with the account team, managing traffic growth for that application of several orders of magnitude over a few years. Dan now acts as a Solution Architect for the team, with a specific interest in real-time event processing which he is persuing with a recent move to the Data Tribe."
+    interests: Event Processing, RabbitMQ, Kafka, Samza, Spark Streaming
 
 gav_harris:
     name: Gav Harris
-    role: Plat Evo
+    image: gavin_harris.jpg
+    role: Principal Operations Engineer, Platform Evolution
     tribe: Data
-    startDate:
-    bio:
-    interests:
-    twitter:
+    startDate: 25-07-2011
+    bio: "Gav joined the SB&G family as a member of the Infrastructure Tribe, and has a strong desire to automate all the things. While designing a resilient clustered architecture for a (now retired) flaky Mobenga mobile sportsbook, he wrote an iOS Opsview App in his own time which was so good Opsview bought it off him! He now leads our Platform Evolution team: has succesfully rolled out Chef across the entire estate, and remains at the forefront of our investment in infrastructure automation."
     github: gavala
-    linkedin:
