@@ -64,3 +64,25 @@ alice_kaerast:
     tribe: Data
     bio: "Alice played a key role in building our Hadoop-based data platform as a DevOps Engineer, and now applies this engineering experience as an Architect as we continue to evolve our platform."
     github: WheresAlice
+
+tom_scott:
+    name: Tom Scott
+    image: tom_scott.jpg
+    role: Principal Data Engineer
+    tribe: Data
+    bio: "Tom provided technical leadership for the SB&G Hadoop data team when he wasn't driving his family around in his minibus. After working in our cutting edge team till Nov 2015, he now works for Cloudera."
+
+andy_burgin:
+    name: Andy Burgin
+    image: andy_burgin.jpg
+    role: Senior DevOps Engineer
+    tribe: Data
+    bio: "When now organising Leeds DevOps, or conference speaking, Andy is improving our underlying Hadoop data platform."
+    
+craig_andrews:
+    name: Craig Andrews
+    image: craig_andrews.jpg
+    role: Principal Engineer
+    tribe: Data
+    bio: "Craig was responsible for the Hadoop platform back in it's early days as we struggled with bash scripts gluing Hive queries together, and invented our Pidl Ruby DSL to resolve this problem."
+   
