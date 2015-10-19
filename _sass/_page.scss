@@ -23,6 +23,12 @@ body {
     font-size: 16px;
     line-height: 24px;
     font-family: $SkyRegular;
+
+    &.headFixed {
+        article.grid {
+            padding-top: 90px;
+        }
+    }
 }
 
 .hide {
@@ -136,7 +142,7 @@ aside {
     }
 }
 
-.meet-author {
+.author {
     .author--image {
         width: 100px;
         float: left;

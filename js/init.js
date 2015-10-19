@@ -11,56 +11,31 @@ function randomColour() {
     });
 }
 
+function stickHead() {
+    var stickyOffset = $('.sticky').offset().top;
 
-function parallax() {
+    $(window).scroll(function(){
+        var sticky = $('.sticky'),
+            scroll = $(window).scrollTop();
 
-    var windowHeight = $(window).height();
-
-    var scrollfn = function(){
-
-        var headparallax = $('header.page');
-        var scrollTop = $(window).scrollTop();
-        var offset = headparallax.offset().top;
-        var height = headparallax.outerHeight();
-
-        if (offset + height <= scrollTop || offset >= scrollTop + windowHeight) {
-            return;
-        }
-
-        var yBgPosition = Math.round((offset - scrollTop) * 2);
-
-        headparallax.css('background-position', 'center ' + yBgPosition + 'px');
-
-    };
-
-    $(document).scroll(scrollfn);
-
-}
-
-function hidehead() {
-
-    if ($(window).scrollTop() > 20){
-        // $('header.page').height('60px');
-        $('header.page').css('z-index' , '300');
-    }
-    else{
-         // $('header.page').height('100px');
-        $('header.page').css('z-index' , '100');
-    }
+        if (scroll >= stickyOffset) {
+            sticky.addClass('headFixed')
+            $('body').addClass('headFixed')
+        } else {
+            sticky.removeClass('headFixed')
+            $('body').removeClass('headFixed')
+        };
+    });
 }
 
 // Load functions
 // -------------------------------------------------------------------------------
 
 $(document).ready(function(){
-    // randomColour();
-
-    parallax();
-
+    stickHead();
 });
 
 $(document).scroll(function() {
-    hidehead();
 });
 
 $(window).resize(function() {
