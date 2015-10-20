@@ -2,6 +2,7 @@
 layout:     post
 title:      SerDe vs UDF – parsing JSON in Hive
 permalink:  parsing-json-in-hive
+author:     tom_scott
 date:       2015-01-20 14:10:00
 summary:    5 different approaches to handling JSON data with Hive.
 ---
