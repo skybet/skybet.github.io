@@ -85,4 +85,10 @@ craig_andrews:
     role: Principal Engineer
     tribe: Data
     bio: "Craig was responsible for the Hadoop platform back in it's early days as we struggled with bash scripts gluing Hive queries together, and invented our Pidl Ruby DSL to resolve this problem."
-   
+    
+josh_mitchell:
+    name: Josh Mitchell
+    image: josh_mitchell.jpg
+    role: DevOps Engineer
+    tribe: Data
+    bio: "Josh is a platform engineer in the Hadoop data team, and keeps our Cloudera cluster ticking over."
