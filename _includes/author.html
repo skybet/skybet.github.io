@@ -8,7 +8,7 @@
             <h1>{{ author.name }}</h1>
             <h2>{{ author.role }} · {{ author.tribe }} Tribe</h2>
             {% if author.startDate %}
-            <h2>Working at Sky Betting and Gaming since {{ author.startDate | date: '%Y' }}</h2>
+            <h2>Working at Sky Betting &amp; Gaming since {{ author.startDate | date: '%Y' }}</h2>
             {% endif %}
 
             <p class="bio">{{ author.bio }}</p>
