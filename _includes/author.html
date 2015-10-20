@@ -24,11 +24,10 @@
         </header>
 
 
-        {% if author.twitter or author.github or author.linkedin %}
+        {% if author.twitter or author.github %}
         <ul class="author--rels">
             {% if author.twitter %}<li class="fa fa-twitter"><a class="author--rels--twitter" href="https://twitter.com/{{ author.twitter }}" rel="author">{{ author.twitter }}</a></li>{% endif %}
             {% if author.github %}<li class="fa fa-github-alt"><a class="author--rels--github" href="https://github.com/{{ author.github }}" rel="author">{{ author.github }}</a></li>{% endif %}
-            {% if author.linkedin %}<li class="fa fa-linkedin"><a class="author--rels--linkedin" href="https://linkedin.com/in/{{ author.linkedin }}" rel="author">{{ author.linkedin }}</a></li>{% endif %}
         </ul>
         {% endif %}
     </section>

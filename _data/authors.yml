@@ -8,7 +8,6 @@ adam_hepton:
     interests: JS, React, Node, CSS, HTML, Agile, Kanban, Delivery, People
     twitter: adamhepton
     github: adamhepton
-    linkedin: adamhepton
 
 tom_hudson:
     name: Tom Hudson
@@ -20,7 +19,6 @@ tom_hudson:
     interests: Go, Lego
     twitter: tomnomnom
     github: tomnomnom
-    linkedin: tomnomnom
 
 dan_rooke:
     name: Dan Rooke
@@ -56,7 +54,7 @@ paul_mccormick:
     tribe: Bet
     startDate: 10-03-2013
     bio: "Paul leads the Bet Tribe technology team and has worked in the betting industry for his entire career: first Ladbrokes, then Sportech, Buzz Sports and (best of all!) SB&G."
-    
+
 alice_kaerast:
     name: Alice Kaerast
     image: alice_kaerast.png
@@ -78,14 +76,14 @@ andy_burgin:
     role: Senior DevOps Engineer
     tribe: Data
     bio: "When now organising Leeds DevOps, or conference speaking, Andy is improving our underlying Hadoop data platform."
-    
+
 craig_andrews:
     name: Craig Andrews
     image: craig_andrews.jpg
     role: Principal Engineer
     tribe: Data
     bio: "Craig was responsible for the Hadoop platform back in it's early days as we struggled with bash scripts gluing Hive queries together, and invented our Pidl Ruby DSL to resolve this problem."
-    
+
 josh_mitchell:
     name: Josh Mitchell
     image: josh_mitchell.jpg
