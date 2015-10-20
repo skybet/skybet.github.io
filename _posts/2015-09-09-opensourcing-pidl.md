@@ -3,14 +3,14 @@ layout:     post
 title:      Open-Sourcing Pidl (Pipeline Definition Language)
 permalink:  open-sourcing-pidl
 date:       2015-09-09 13:13:00
-summary:    Announcing the release of Pidl, a Ruby DSL that we developed to manage our ETL pipelines through Hadoop. 
+summary:    Announcing the release of Pidl, a Ruby DSL that we developed to manage our ETL pipelines through Hadoop.
 ---
 
 _Today we released [Pidl (Pipeline Definition Language)](https://github.com/skybet/pidl) as an open MIT licenced project to our Github account. We developed this Ruby DSL to manage our ETL pipelines through our Hadoop cluster. This article discusses what it is, and why we felt the need to develop it._
 
 Right back in the days of Hadoop 1 and going forward into the world of Hadoop 2, Spark and the like, the task of orchestrating tasks has been critical. Your data processing job might make the absolute most of your cluster, but if the data hasn't been put in the right place in the first place, it's all for nought.
 
-A single job may involve using Sqoop or HDFS to put data in place, the executing of Hive or MapReduce jobs to manipulate and move data, keeping track of what has been done and writing log files to ensure everything is monitorable. There are many potential solutions to this problem, and this post will introduce one of those in use in Sky Betting And Gaming for ETL pipelines.
+A single job may involve using Sqoop or HDFS to put data in place, the executing of Hive or MapReduce jobs to manipulate and move data, keeping track of what has been done and writing log files to ensure everything is monitorable. There are many potential solutions to this problem, and this post will introduce one of those in use in Sky Betting & Gaming for ETL pipelines.
 
 Like many old data warehouses, shell scripting has been the norm for orchestrating scripts, queries, imports and exports. There are many problems with shell scripts, not least that you don't necessarily know something is wrong until most of the job is already done and a syntax error catches you out. Parallelism is difficult, and getting to grips with even bash's relatively simple control flow syntax is enough to give you a headache.
 
