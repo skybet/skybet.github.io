@@ -4,6 +4,7 @@ title:      A Little Specialism Goes A Long Way
 permalink:  specialise-hadoop-jbod-gpu
 date:       2015-10-14 19:34:00
 summary:    Is the principle of using commodity hardware for a Hadoop cluster over-valued? Recognising the value of some specialised hardware can provide significant benefits.
+author:     josh_mitchell
 ---
 
 One of the things most lauded about Hadoop is the concept of building your cluster on commodity hardware. This drastically reduces the cost and specialist knowledge required to build one. In this article however, I want to discuss whether this principle has been taken too far and is in fact restricting the possible capabilities of your cluster in the modern world.
@@ -16,7 +17,7 @@ That said, I think it’s time we re-examine the definition of commodity in the 
 
 RAID 1 has the advantage of providing better throughput on read, roughly equal to the amount of disks you have. This removes the I/O bound on read, but hurts write I/O. Hortonworks recommend using JBOD in their clusters. In JBOD, you take multiple physical disks and create one virtual drive. This has an advantage over RAID 1 as you also get an increase in write throughput in addition to the benefits on read. In the Hadoop world, we don’t care about individual resiliency, so JBOD would be superior.
 
-What about a less obvious technology, such as the GPU? I can go to PC world and buy a GPU with 2000 CUDA cores for less than £500, which is considerably less than a single XEON for my server. And that’s just looking at the gaming focused cards. For the right problems (not as many big data problems), these cards can offer unbelievable performance. Is it not worth adding one to the commodity system? 
+What about a less obvious technology, such as the GPU? I can go to PC world and buy a GPU with 2000 CUDA cores for less than £500, which is considerably less than a single XEON for my server. And that’s just looking at the gaming focused cards. For the right problems (not as many big data problems), these cards can offer unbelievable performance. Is it not worth adding one to the commodity system?
 
 ### The I/O Bound Cluster
 
