@@ -1,5 +1,5 @@
-Sky Betting and Gaming Engineering Site
-=======================================
+Sky Betting & Gaming Engineering Site
+=====================================
 
 This is source for our public engineering site at http://engineering.skybettingandgaming.com, rendered via Jeykll through Github Pages.
 
@@ -32,4 +32,7 @@ To add a new article you need to add a new file in markdown format in the `_post
 You can add any required images to the `images` directory, and reference them in markdown like so:
 
     ![Shuffled Lego](/images/lego-shuffled.jpg)
-    
+
+### Style Guide
+
+* The company name should always be referred to as "Sky Betting & Gaming": in markdown files such as posts, you don't need to encode the ampersand.  In HTML, you do.

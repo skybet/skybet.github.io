@@ -6,7 +6,7 @@ date:       2015-09-20 21:38:37
 summary:    We rely on Chef heavily for configuration management. This is one way we speed it up.
 ---
 
-At Sky Betting and Gaming we make extensive use of Chef searches throughout our recipes. Chef search can be used to find out almost anything about a Chef node, but after writing cookbooks for a few different parts of our stack we found most of the searches were pretty similar. We need to know the hostnames where software is running, thier IP addresses, fairly simple information. Most of our searches were queries like "Give me an array of hostnames that run the role y" or "Give me an array of IP addresses that run the role z".
+At Sky Betting & Gaming we make extensive use of Chef searches throughout our recipes. Chef search can be used to find out almost anything about a Chef node, but after writing cookbooks for a few different parts of our stack we found most of the searches were pretty similar. We need to know the hostnames where software is running, thier IP addresses, fairly simple information. Most of our searches were queries like "Give me an array of hostnames that run the role y" or "Give me an array of IP addresses that run the role z".
 
 The traditional way to do this is like this:
 
