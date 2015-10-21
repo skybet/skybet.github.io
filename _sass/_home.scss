@@ -14,10 +14,13 @@
         }
 
         header {
-            padding: 0 $base-line*4 0 0;
-            min-height: $base-line*5;
+            padding: 0 $base-line*3 0 0;
             border-bottom: 1px solid $color-default;
             margin-bottom: $base-line*0.5;
+
+            h1 {
+                margin-bottom: $h1-margin-bottom / 2;
+            }
         }
     }
 
@@ -85,12 +88,11 @@
     }
 
     .post--category {
-        background-color: $color-default;
-        display: block;
-        position: absolute;
-        right: 0;
-        color: white;
-        padding: 0 $base-line/4;
+        background-color: $color-highlight;
+        border-radius: 3px;
+        padding: $base-line/4 $base-line/2;
+        display: inline-block;
+        margin-bottom: $base-line/2;
     }
 
     .cta {

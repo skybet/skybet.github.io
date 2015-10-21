@@ -163,12 +163,8 @@ hr {
 
 
 /* Code blocks */
-pre {
-    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-    word-wrap: break-word;
-    padding: 1em;
-    background-color: white;
-    font-size: 0.8em;
+code[class*="language-"], pre[class*="language-"] {
+    font-size: 0.9em;
 }
 
 // Truncate with mixin
