@@ -5,6 +5,8 @@ permalink:  specialise-hadoop-jbod-gpu
 date:       2015-10-14 19:34:00
 summary:    Is the principle of using commodity hardware for a Hadoop cluster over-valued? Recognising the value of some specialised hardware can provide significant benefits.
 author:     josh_mitchell
+category:   Hardware
+tags:       hadoop, processing, cpu, gpu, raid, jbod, io
 ---
 
 One of the things most lauded about Hadoop is the concept of building your cluster on commodity hardware. This drastically reduces the cost and specialist knowledge required to build one. In this article however, I want to discuss whether this principle has been taken too far and is in fact restricting the possible capabilities of your cluster in the modern world.

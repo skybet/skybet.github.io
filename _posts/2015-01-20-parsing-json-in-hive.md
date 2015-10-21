@@ -5,6 +5,8 @@ permalink:  parsing-json-in-hive
 author:     tom_scott
 date:       2015-01-20 14:10:00
 summary:    5 different approaches to handling JSON data with Hive.
+category:   Data
+tags:       hive, data formats,
 ---
 
 In the Sky Betting & Gaming data team we were recently asked to keep records of business events that are of interest to our analysts in our Hive data warehouse. These events are delivered in files containing JSON structures (1 JSON object per event). JSON's simplicity and ubiquitous nature has made it the weapon of choice for data interchange in recent times and this means that, as a Hive developer, it’s likely that you are going to encounter JSON format data at some point. Hive provides two main mechanisms for dealing with this, JSON UDFs (of which there are two) and JSON SerDes (of which there are many but they all do a similar thing). The below outlines 5 different approaches and provides a guide as to the situations in which each is optimal.

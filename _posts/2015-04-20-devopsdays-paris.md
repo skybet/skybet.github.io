@@ -6,6 +6,8 @@ author:     andy_burgin
 date:       2015-04-20 11:39:30
 summary:    We sent senior Devop engineer Andy Burgin to DevopsDays Paris to find out about the latest ideas and innovation in the Devops community.
 image:      devopsdays-paris-3.jpg
+category:   Devops
+tags:       systems, linux, unix, microservices, ansible, puppet, chef
 ---
 
 We sent senior Devop engineer [@andyburgin](https://twitter.com/andyburgin) to DevopsDays Paris to find out about the latest ideas and innovation in the Devops community.
@@ -34,7 +36,7 @@ John then spoke about how companies must take advantage of micro services and co
 
 A week before the event I was listening to the Devops Cafe podcast and the hosts (Daemon Edwards and John Willis) were discussing how hard it is to get Devops practice adopted at enterprise. There needs here is very different approach to achieve the same objectives in large organisations.
 
-Steves' talk addressed this point giving some great advice about it how justify, measure, encourage and champion devops adoption in the enterprise. One controversial piece of advice was not to use the term “devops” due to peoples incorrect preconceived opinions. He also gave a link to a very handy 50 question checklist.
+Steve's talk addressed this point giving some great advice about it how justify, measure, encourage and champion devops adoption in the enterprise. One controversial piece of advice was not to use the term “devops” due to peoples incorrect preconceived opinions. He also gave a link to a very handy 50 question checklist.
 
 #### The importance of Why in DevOps – Boris Feld
 

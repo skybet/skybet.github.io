@@ -25,6 +25,11 @@ isArticle: true
                         <span class="month">{{ page.date | date: "%b '%y" }}</span>
                     </time>
                 </div>
+                {% if page.category %}
+                <span class="post--category">
+                    {{ page.category }}
+                </span>
+                {% endif %}
             </header>
 
             {{ content }}

@@ -6,6 +6,8 @@ author:     tom_hudson
 date:       2015-09-14 11:50:37
 summary:    Virtual Sports is one of our most popular products, here's one of the ways we improved our monitoring of it.
 image:      virtual-horses.png
+category:   Product
+tags:       monitoring, go, ffmpeg, virtual sports, video, streaming
 ---
 
 Virtual Sports is one of our most popular products. Our tireless, HRNG-powered, CGI horses can be seen

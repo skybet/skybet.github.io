@@ -27,6 +27,8 @@ To add a new article you need to add a new file in markdown format in the `_post
     summary:    Your summary here.
     author:     author_name
     image:      post_image.png
+    category:   Category
+    tags:       comma, separated, tag names
     ---
 
 You should add any images used in the post to the `images` directory.  If the post has a main image you wish to appear on the homepage and in any post previews, you should add it with the name referenced in the frontmatter.

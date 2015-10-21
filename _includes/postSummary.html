@@ -30,9 +30,12 @@
             <p>{{ author.name }}</p>
         </div>
         {% endif %}
-        <div class="categorys flex-item">
+        {% if post.category %}
+        <div class="categories flex-item">
             <header>Category:</header>
+            <p>{{ post.category }}</p>
         </div>
+        {% endif %}
         <div class="read flex-item">
             <header>Time:</header>
             <p>{{ minutes }} minute read</p>

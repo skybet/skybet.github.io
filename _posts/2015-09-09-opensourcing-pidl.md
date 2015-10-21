@@ -5,6 +5,8 @@ permalink:  open-sourcing-pidl
 author:     craig_andrews
 date:       2015-09-09 13:13:00
 summary:    Announcing the release of Pidl, a Ruby DSL that we developed to manage our ETL pipelines through Hadoop.
+category:   Data
+tags:       open source, ruby, hadoop, pidl
 ---
 
 _Today we released [Pidl (Pipeline Definition Language)](https://github.com/skybet/pidl) as an open MIT licenced project to our Github account. We developed this Ruby DSL to manage our ETL pipelines through our Hadoop cluster. This article discusses what it is, and why we felt the need to develop it._

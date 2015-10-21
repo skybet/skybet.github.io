@@ -6,6 +6,8 @@ author:     dan_rooke
 date:       2015-10-01 13:13:37
 summary:    Scrum/Kanban Board Assistant - solve those physical and virtual board synchronisation issues!
 image:      boardAssistantDemoPreview.png
+category:   Agile
+tags:       android, kanban, scrum, synchronisation, jira
 ---
 
 # The Problem

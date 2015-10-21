@@ -6,6 +6,8 @@ author:     rob_tuley
 date:       2015-04-14 18:49:53
 summary:    Some key take-aways from having Alberto Brandolini on-site at Skybet talking to us about DDD methodologies.
 image:      alberto-cqrs.jpg
+category:   Data
+tags:       ddd, cqrs
 ---
 
 Key take-aways from having [Alberto Brandolini](http://ziobrando.blogspot.com/) on-site for 2 days at [Skybet](https://www.skybet.com/) talking to us about Domain Driven Design (DDD) methodologies.
