@@ -1,9 +1,12 @@
 
+var listener = 'click';
+    if (('ontouchstart' in window && window.ontouchstart) || window.navigator.maxTouchPoints) {
+        listener = 'touchstart';
+    }
+
 function randomColour() {
     var colors = ["b1", "b2", "b3", "b4"]
     var randomColor = Math.floor(Math.random()*colors.length);
-
-    console.log('dfg')
 
     $('.home .noflex').each(function () {
         $(this).addClass(colors[randomColor]);
@@ -28,11 +31,19 @@ function stickHead() {
     });
 }
 
+function menuTrigger() {
+    $('.trigger').on(listener, function() {
+        $(this).toggleClass('trigger--active');
+        $('.mobile-menu').toggleClass('trigger--active')
+    });
+}
+
 // Load functions
 // -------------------------------------------------------------------------------
 
 $(document).ready(function(){
     stickHead();
+    menuTrigger();
 });
 
 $(document).scroll(function() {

@@ -35,45 +35,6 @@ body {
     display: none!important;
 }
 
-
-h1 {
-    font-size: 44px;
-    margin-top: 24px;
-    margin-bottom: 24px;
-}
-h2 {
-    font-size: 29px;
-    margin-top: 24px;
-    margin-bottom: 24px;
-}
-h3 {
-    font-size: 20px;
-    margin-top: 24px;
-    margin-bottom: 24px;
-}
-h4 {
-    font-size: 16px;
-    margin-top: 24px;
-    margin-bottom: 24px;
-}
-p, ul, ol, pre, table, blockquote {
-    margin-top: 24px;
-    margin-bottom: 24px;
-}
-
-ul, ol {
-    padding: 0 0 0 16px;
-}
-
-a {
-    color: $color-default;
-
-    &:hover {
-        color: lighten($color-default, 10%);
-    }
-}
-
-
 .grid, .grid [class *="grid-"] {
     box-sizing: border-box;
     position: relative;

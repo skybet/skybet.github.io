@@ -33,9 +33,12 @@
 
     h2 {
         border-bottom: 1px solid $color-default;
-        padding-bottom: 10px;
+        margin-top: 25px;
 
-        a { text-decoration: none;}
+        a {
+            text-decoration: none;
+            color: $color-default;
+        }
     }
 
     .image {

@@ -34,23 +34,59 @@
                 </a>
             </nav>
 
-            <ul class="grid-xs-s-1-2 grid-m-xl-1-2 social">
-                {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
-                {% for node in nav %}
-                    <div class="{{node.nav_class}} hide slide-right">
-                        {% if page.url == node.url %}
-                            <a href="{{node.url}}" class="btn btn--primary current">{{node.nav_title}}</a>
-                        {% else %}
-                            <a href="{{node.url}}" class="btn btn--primary {{node.nav_class}}">{{node.nav_title}}</a>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-                <li><a class="fa fa-twitter" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
-                <li><a class="fa fa-github-alt" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
-                <li><a class="fa fa-linkedin" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
-            </ul>
-        </div>
-    </div>
+            <a class="trigger hide-s-xl">
+                <svg width="100%" height="100%" viewBox="0 0 60 60" preserveAspectRatio="none">
+                    <g class="icon icon--grid">
+                        <rect x="0" y="0" width="60" height="10"/>
+                        <rect x="0" y="23" width="60" height="10"/>
+                        <rect x="0" y="45.5" width="60" height="10"/>
 
+                    </g>
+                    <g class="icon icon--cross">
+                        <line x1="4.5" y1="55.5" x2="54.953" y2="5.046"/>
+                        <line x1="54.953" y1="55.5" x2="4.5" y2="5.047"/>
+                    </g>
+                </svg>
+            </a>
+
+
+            <div class="grid-xs-s-1-2 grid-m-xl-1-2 social hide-xs">
+                <ul class="social--list">
+                    {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
+                    {% for node in nav %}
+                        <div class="{{node.nav_class}} hide slide-right">
+                            {% if page.url == node.url %}
+                                <a href="{{node.url}}" class="btn btn--primary current">{{node.nav_title}}</a>
+                            {% else %}
+                                <a href="{{node.url}}" class="btn btn--primary {{node.nav_class}}">{{node.nav_title}}</a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <li><a class="fa fa-twitter" href="https://twitter.com/SBGEngineers"></a></li>
+                    <li><a class="fa fa-github-alt" href="https://github.com/skybet"></a></li>
+                    <li><a class="fa fa-linkedin" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
+                </ul>
+            </div>
+
+            <div class="grid-xs-s-1-1 social hide hide-s-xl mobile-menu">
+                <ul class="social--list">
+                    {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
+                    {% for node in nav %}
+                        <div class="{{node.nav_class}} hide slide-right">
+                            {% if page.url == node.url %}
+                                <a href="{{node.url}}" class="btn btn--primary current">{{node.nav_title}}</a>
+                            {% else %}
+                                <a href="{{node.url}}" class="btn btn--primary {{node.nav_class}}">{{node.nav_title}}</a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <li><a class="fa fa-twitter" href="https://twitter.com/SBGEngineers"></a></li>
+                    <li><a class="fa fa-github-alt" href="https://github.com/skybet"></a></li>
+                    <li><a class="fa fa-linkedin" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
+                </ul>
+            </div> <!-- ./mobile-menu -->
+
+
+        </div>
     </div>
 </header>
