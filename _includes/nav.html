@@ -1,4 +1,5 @@
 <header class="page">
+    {% if page.isArticle == false %}
     <div class="grid">
         <div class="grid-1-1 page-title">
             <a href="/">
@@ -8,6 +9,7 @@
             </a>
         </div>
     </div>
+    {% endif %}
 
     <div class="sticky">
         <div class="grid">
@@ -85,8 +87,6 @@
                     <li><a class="fa fa-linkedin" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
                 </ul>
             </div> <!-- ./mobile-menu -->
-
-
         </div>
     </div>
 </header>
