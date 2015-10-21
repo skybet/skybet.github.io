@@ -1,0 +1,176 @@
+.post {
+    background: $color-whtrans;
+    padding: $base-line/2 $base-line*2;
+    margin: $base-line $base-line/2 $base-line $base-line;
+    box-sizing: border-box;
+    position: relative;
+
+    .details & {
+        margin: $base-line $base-line/2 $base-line 0;
+        padding: $base-line/2 $base-line;
+
+        @include media-query(xs-s) {
+            margin: $base-line/2 0 $base-line 0;
+        }
+
+        header {
+            padding: 0 $base-line*3 0 0;
+            border-bottom: 1px solid $color-default;
+            margin-bottom: $base-line*0.5;
+
+            h1 {
+                margin-bottom: $h1-margin-bottom / 2;
+            }
+        }
+    }
+
+    @include media-query(xs-s) {
+        margin: $base-line*1.5 0 $base-line*2 0;
+        padding: $base-line/2;
+    }
+
+    @include media-query(xl) {
+        margin: $base-line $base-line/2 $base-line 0;
+    }
+
+    h2 {
+        border-bottom: 1px solid $color-default;
+        margin-top: $base-line/2;
+
+        a {
+            text-decoration: none;
+            color: $color-default;
+        }
+    }
+
+    .image {
+        height: $base-line*10;
+        background-size: cover;
+        background-position: center;
+        border: 1px solid darken($color-highlight, 10%);
+    }
+
+    .date {
+        background: $color-default;
+        border-radius: 100%;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: $base-line;
+        left: -40px;
+        color: $color-light;
+
+        @include media-query(xs-s) {
+            left: 10px;
+            top: -40px;
+        }
+
+        .details & {
+            right: 0;
+            left: auto;
+            top: 10px;
+        }
+
+        .day, .month {
+            display: block;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .day {
+            font-family: $SkyBold;
+            font-size: 34px;
+            margin: 18px auto 4px;
+        }
+        .month {
+            font-size: 14px;
+        }
+    }
+
+    .post--category {
+        background-color: $color-highlight;
+        border-radius: 3px;
+        padding: $base-line/4 $base-line/2;
+        display: inline-block;
+        margin-bottom: $base-line/2;
+    }
+
+    .cta {
+
+        div {
+
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                padding-right: 0;
+                border-right: none;
+            }
+            p {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        header {
+            font-family: $SkyBold;
+            font-style: italic;
+            color: $color-default;
+        }
+    }
+}
+
+.jobs {
+    @extend .post;
+
+    margin-top: $base-line;
+    margin-bottom: $base-line;
+
+    .area {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        padding: 0;
+
+        @include media-query(m-xl) {
+            padding: 0 10px 0 0;
+
+            &:nth-of-type(2n) {
+                padding: 0 0 0 10px;
+            }
+        }
+
+        h4 {
+            margin: -12px -12px 12px -12px;
+            text-transform: uppercase;
+            background: $color-highlight;
+            color: white;
+            padding: 6px 10px;
+        }
+
+        .post {
+            width: 100%;
+            margin: 0 0 $base-line 0;
+            padding: $base-line/2;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+
+            @include media-query(l) {
+                &.split-columns {
+                    -webkit-column-count: 2;
+                       -moz-column-count: 2;
+                            column-count: 2;
+                }
+            }
+
+            li {
+                display: block;
+                margin: 0;
+            }
+        }
+    }
+}

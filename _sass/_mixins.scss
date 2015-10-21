@@ -1,0 +1,55 @@
+/* VENDOR PREFIX MIXIN */
+@mixin vendor($property, $value...) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+/* TRANSITIONS MIXIN */
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+/* ANIMATION MIXIN */
+@mixin keyframe ($animation-name) {
+    @-webkit-keyframes $animation-name {
+        @content;
+    }
+    @-moz-keyframes $animation-name {
+        @content;
+    }
+    @-ms-keyframes $animation-name {
+        @content;
+    }
+    @-o-keyframes $animation-name {
+        @content;
+    }
+    @keyframes $animation-name {
+        @content;
+    }
+}
+
+
+@-webkit-keyframes anim {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(100%);}
+}
+@keyframes anim {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(100%);}
+}
+
+@-webkit-keyframes animUp {
+    0% {transform: translateY(100%);}
+    100% {transform: translateY(0);}
+}
+@keyframes animUp {
+    0% {transform: translateY(100%);}
+    100% {transform: translateY(0);}
+}

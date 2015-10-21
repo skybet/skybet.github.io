@@ -1,0 +1,76 @@
+/* $VARIABLES */
+
+// Vertical rhythm at http://www.gridlover.net/app/
+// Font size: 16 | line height: 1.6 | scale factor 1.3
+
+$base-font-size: 1em;
+$base-line-height: 1.625em;
+
+$h1-font-size: 2.1875em;
+$h1-line: 0.742857143em;
+$h1-lines: 2;
+$h1-line-height: $h1-line * $h1-lines;
+$h1-margin-top: 2 * $h1-line;
+$h1-margin-bottom: 1 * $h1-line;
+
+$h2-font-size: 1.6875em;
+$h2-line: 0.962962963em;
+$h2-lines: 2;
+$h2-line-height: $h2-line * $h2-lines;
+$h2-margin-top: 2 * $h2-line;
+$h2-margin-bottom: 1 * $h2-line;
+
+$h3-font-size: 1.3125em;
+$h3-line: 1.238095238em;
+$h3-lines: 1;
+$h3-line-height: $h3-line * $h3-lines;
+$h3-margin-top: 1 * $h3-line;
+$h3-margin-bottom: 1 * $h3-line;
+
+$h4-font-size: 1em;
+$h4-line: 1.625em;
+$h4-lines: 1;
+$h4-line-height: $h4-line * $h4-lines;
+$h4-margin-top: 1 * $h4-line;
+$h4-margin-bottom: 1 * $h4-line;
+
+
+// Added for base calculations, based on above
+
+$base-line: 1.625em;
+$base-lines: 1;
+$base-line-height: $base-line * $base-lines;
+$base-margin-top: 1 * $base-line;
+$base-margin-bottom: 1 * $base-line;
+
+$one-px: 0.0625em;
+$two-px: 0.125em;
+
+html {
+    font-size: $base-font-size;
+}
+
+
+@mixin font-size-rem($font-size, $line-height:true) {
+  font-size: $font-size + px;
+  font-size: calculateRem($font-size);
+  @if $line-height == true {
+      line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+  }
+}
+@mixin font-size-em($font-size, $line-height:true) {
+  font-size: $font-size + px;
+  font-size: calculateEm($font-size);
+  @if $line-height == true {
+      line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+  }
+}
+
+
+
+
+/* Make the introductory text (usually a paragraph) of a document slightly larger. */
+.lede,
+.lead{
+    @include font-size-em($base-font-size * 1.125);
+}

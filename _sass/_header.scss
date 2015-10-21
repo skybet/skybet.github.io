@@ -1,0 +1,195 @@
+
+header.page {
+    background-image: url('/images/bg/header-bg.jpg');
+    background-position: center;
+    background-size: cover;
+
+    a {
+        text-decoration: none;
+    }
+
+    .sticky {
+        background: $color-default;
+        height: 70px;
+    }
+
+    .btnNavLarge {
+
+        ul {
+            margin: 0;
+            padding: 13px 0;
+        }
+    }
+
+    .headFixed {
+        position: fixed;
+        top:0; left:0;
+        width: 100%;
+        z-index: 100;
+
+        .btnNavLarge {
+            display: none;
+        }
+        .trigger {
+            display: inline-block!important;
+
+            @include media-query(s-xl) {
+                display: none!important;
+            }
+        }
+
+        .logoSmall.hide {
+            display: inline-block!important;
+
+            .sbg-logo {
+                fill: white;
+                height: 60px;
+                width: 100px;
+                margin-top: 5px;
+                display: block;
+
+                @include media-query(s-xl) {
+                    margin: -55px 0 0 0;
+                    -webkit-transform: translateY(100%);
+                            transform: translateY(100%);
+                    -webkit-animation: anim .5s 1;
+                            animation: anim .5s 1;
+                }
+
+            }
+        }
+
+        .slide-right.hide {
+            display: block!important;
+
+            @include media-query(s-xl) {
+                margin: -48px 160px 0 0;
+                -webkit-transform: translateY(100%);
+                        transform: translateY(100%);
+                -webkit-animation: anim .5s 1;
+                        animation: anim .5s 1;
+            }
+        }
+
+    }
+
+    .grid {
+        z-index: 2;
+        padding: 0 10px;
+
+        @include media-query(xl) {
+            padding: 0;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .page-title {
+        .sbg-logo {
+            fill: $color-default;
+            max-height: 200px;
+            margin: 100px auto;
+            display: block;
+
+            @include media-query(xs-s) {
+                max-height: 80px;
+                margin: 40px auto;
+            }
+        }
+    }
+
+    .social {
+        padding: 10px 10px 0 0;
+        text-align: right;
+    }
+
+    ul.social--list {
+        text-align: right;
+        margin: 0;
+
+        li {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            border-radius: 100%;
+            border: 2px solid $color-light;
+            text-align: center;
+            margin-left: 5px;
+
+            &:hover {
+                color: white
+            }
+
+            a {
+                color: $color-light;
+                text-decoration: none;
+                font-size: 25px;
+                margin-top: 8px;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .mobile-menu.trigger--active {
+        display: block!important;
+        background: $color-default;
+
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+
+        .slide-right {
+            margin-bottom: $base-margin-bottom / 2;
+        }
+
+    }
+
+    /* Trigger button with SVG */
+    .trigger {
+        float: right;
+        padding: 0;
+        margin: 15px 10px 0 0;
+        width: 40px;
+        height: 40px;
+        outline: none;
+        border: none;
+        background: none;
+    }
+
+    .icon line {
+        stroke: $color-light;
+        stroke-width: 10px;
+    }
+    .icon rect {
+        fill: $color-light;
+    }
+
+    .icon {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+        transition: opacity 0.3s, transform 0.3s;
+    }
+
+    /* Hide grid and show cross when opening */
+    .icon--cross,
+    .trigger--active .icon--grid {
+        opacity: 0;
+        -webkit-transform: scale3d(0.5, 0.5, 1);
+        transform: scale3d(0.5, 0.5, 1);
+    }
+
+    .trigger--active .icon--cross {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}

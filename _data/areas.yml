@@ -1,0 +1,51 @@
+- name: Testing
+  items:
+     - PHPUnit
+     - Mocha
+     - Behat
+     - Cucumber
+     - Selenium
+     - BrowserMob
+     - Jest
+
+- name: Development
+  items:
+     - Node.JS
+     - PHP
+     - MongoDB
+     - MySQL
+     - ExpressJS
+     - AngularJS
+     - ReactJS
+     - Apache
+     - Chef
+     - Git
+     - Jenkins
+     - Vagrant
+
+- name: Design
+  items:
+     - Interaction Responsive Design
+     - Visual Design
+     - UI Design
+     - UX Design
+
+- name: Data
+  items:
+     - Hadoop
+     - Spark
+
+- name: Architecture
+  items:
+     - Project Roadmap
+     - Documenting technical solutions
+     - Knowledge of theories
+
+- name: Infrastructure
+  items:
+     - Windows Server 2012
+     - Virtualisation
+     - Servers
+     - Data Centres
+     - Networking
+     - SAN Storage

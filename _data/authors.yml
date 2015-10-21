@@ -1,0 +1,92 @@
+adam_hepton:
+    name: Adam Hepton
+    image: adam_hepton.png
+    role: Lead Engineer, Website Experience
+    tribe: Bet
+    startDate: 01-05-2015
+    bio : After almost ten years working in the education sector and contributing to key building blocks of the web such as the HTML 5 specification and jQuery, Adam joined Sky Betting &amp; Gaming, where he is passionate about ensuring the millions of users of Sky Bet have a pleasant experience regardless of what device or platform they are visiting from.   He and Tom Hudson were part of a group of people who initiated the trending topic &#x23;songsincode on Twitter in 2009.
+    interests: JS, React, Node, CSS, HTML, Agile, Kanban, Delivery, People
+    twitter: adamhepton
+    github: adamhepton
+
+tom_hudson:
+    name: Tom Hudson
+    image: tom_hudson.png
+    role: Principal Engineer
+    tribe: Bet
+    startDate: 28-02-2011
+    bio: Pragmatic purist, problem solver, coder and Go lover.
+    interests: Cars, guitars, cheese and crackers
+    twitter: tomnomnom
+    github: tomnomnom
+
+dan_rooke:
+    name: Dan Rooke
+    image: dan_rooke.jpg
+    role: Solution Architect
+    tribe: Data
+    startDate: 18-10-2010
+    bio: "Dan has spent most of his SB&G career with the account team, managing traffic growth for that application of several orders of magnitude over a few years. Dan now acts as a Solution Architect for the team, with a specific interest in real-time event processing which he is persuing with a recent move to the Data Tribe."
+    interests: Event Processing, RabbitMQ, Kafka, Samza, Spark Streaming
+
+gav_harris:
+    name: Gav Harris
+    image: gavin_harris.jpg
+    role: Principal Operations Engineer, Platform Evolution
+    tribe: Data
+    startDate: 25-07-2011
+    bio: "Gav joined the SB&G family as a member of the Infrastructure Tribe, and has a strong desire to automate all the things. While designing a resilient clustered architecture for a (now retired) flaky Mobenga mobile sportsbook, he wrote an iOS Opsview App in his own time which was so good Opsview bought it off him! He now leads our Platform Evolution team: has succesfully rolled out Chef across the entire estate, and remains at the forefront of our investment in infrastructure automation."
+    github: gavala
+
+rob_tuley:
+    name: Rob Tuley
+    image: rob_tuley.jpg
+    role: Head of Data Technology
+    tribe: Data
+    startDate: 05-10-2011
+    bio: "Rob leads the engineering arm of the Data Tribe with teams working on data warehousing via Hadoop, real time data streaming, Informix & Oracle management, and infrastructure automation & platform tooling."
+    github: robtuley
+
+paul_mccormick:
+    name: Paul McCormick
+    image: paul_mccormick.jpg
+    role: Head of Bet Technology
+    tribe: Bet
+    startDate: 10-03-2013
+    bio: "Paul leads the Bet Tribe technology team and has worked in the betting industry for his entire career: first Ladbrokes, then Sportech, Buzz Sports and (best of all!) SB&G."
+
+alice_kaerast:
+    name: Alice Kaerast
+    image: alice_kaerast.png
+    role: Big Data Architect
+    tribe: Data
+    bio: "Alice played a key role in building our Hadoop-based data platform as a DevOps Engineer, and now applies this engineering experience as an Architect as we continue to evolve our platform."
+    github: WheresAlice
+
+tom_scott:
+    name: Tom Scott
+    image: tom_scott.jpg
+    role: Principal Data Engineer
+    tribe: Data
+    bio: "Tom provided technical leadership for the SB&G Hadoop data team when he wasn't driving his family around in his minibus. After working in our cutting edge team till Nov 2015, he now works for Cloudera."
+
+andy_burgin:
+    name: Andy Burgin
+    image: andy_burgin.jpg
+    role: Senior DevOps Engineer
+    tribe: Data
+    bio: "When now organising Leeds DevOps, or conference speaking, Andy is improving our underlying Hadoop data platform."
+
+craig_andrews:
+    name: Craig Andrews
+    image: craig_andrews.jpg
+    role: Principal Engineer
+    tribe: Data
+    bio: "Craig was responsible for the Hadoop platform back in it's early days as we struggled with bash scripts gluing Hive queries together, and invented our Pidl Ruby DSL to resolve this problem."
+
+josh_mitchell:
+    name: Josh Mitchell
+    image: josh_mitchell.jpg
+    role: DevOps Engineer
+    tribe: Data
+    bio: "Josh is a platform engineer in the Hadoop data team, and keeps our Cloudera cluster ticking over."

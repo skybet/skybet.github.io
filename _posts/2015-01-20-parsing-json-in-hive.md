@@ -2,8 +2,11 @@
 layout:     post
 title:      SerDe vs UDF – parsing JSON in Hive
 permalink:  parsing-json-in-hive
+author:     tom_scott
 date:       2015-01-20 14:10:00
 summary:    5 different approaches to handling JSON data with Hive.
+category:   Data
+tags:       hive, data formats,
 ---
 
 In the Sky Betting & Gaming data team we were recently asked to keep records of business events that are of interest to our analysts in our Hive data warehouse. These events are delivered in files containing JSON structures (1 JSON object per event). JSON's simplicity and ubiquitous nature has made it the weapon of choice for data interchange in recent times and this means that, as a Hive developer, it’s likely that you are going to encounter JSON format data at some point. Hive provides two main mechanisms for dealing with this, JSON UDFs (of which there are two) and JSON SerDes (of which there are many but they all do a similar thing). The below outlines 5 different approaches and provides a guide as to the situations in which each is optimal.
@@ -12,9 +15,10 @@ In the Sky Betting & Gaming data team we were recently asked to keep records of 
 
 We start with the simplest possible approach: we do nothing. As mentioned above Hive has the ability to parse JSON at query time via UDFs so why not store the JSON in a simple string column and parse it as necessary?
 
-    SELECT get_json_object(business_events_raw.json,$.event_date) event_date,
-      get_json_object(business_events_raw.json,$.event_Type) event_type
-
+``` js
+SELECT get_json_object(business_events_raw.json,$.event_date) event_date,
+  get_json_object(business_events_raw.json,$.event_Type) event_type
+```
 
 In the above example the business_events_raw table contains a single column named json that contains the JSON structures. From these we use the UDF to pull out the `event_date` and `event_type` properties.
 
@@ -25,9 +29,11 @@ The disadvantage to this approach is pretty obvious, Hive will need to parse the
 Let’s say that performance is a primary concern and that we have a well-defined JSON structure that is unlikely to change. In this case the query time parsing approach is very inefficient but but we can still use the UDFs at the point of data insertion to create Hive columns from JSON fields. In particular the `get_json_object` UDF is designed to parse a JSON string and return fields. It takes two arguments, a column containing the raw JSON string and an argument detailing the field to be selected (dot notation where `$` is the root).
 At SB&G, we have a best practice to stage all raw data that is ingested into the data warehouse before unstaging it into more useful table structures. In this case the raw JSON is staged into a table in string format and then unstaged using the get_json_object UDF into a destination table. The example for this is very similar to the query above except that it inserts the results into a separate table rather than displaying them to the user. This means this query only need be run once and subsequent selects can be done from the destination table:
 
-    INSERT INTO TABLE destination_table
-      SELECT get_json_object(business_events_raw.json,$.event_date) event_date,
-             get_json_object(business_events_raw.json,$.event_type) event_type
+``` js
+INSERT INTO TABLE destination_table
+  SELECT get_json_object(business_events_raw.json,$.event_date) event_date,
+         get_json_object(business_events_raw.json,$.event_type) event_type
+```
 
 The resulting table contains columns representing individual fields within the JSON and can be queried in the usual way.
 
@@ -39,9 +45,11 @@ However, from a performance perspective this approach is still not optimal. For 
 
 Hive provides a solution to the get_json_object parsing issue in the other JSON related UDF, json_tuple. The json_tuple UDF is designed to be combined with LATERAL VIEW to parse a JSON structure only once and emit one or more columns. The syntax for this looks like the below:
 
-    INSERT INTO TABLE destination_table
-      SELECT LATERAL VIEW json_tuple(business_events_raw.json, ‘event_type’, ‘event_date’)
-      as event_type, event_date
+``` js
+INSERT INTO TABLE destination_table
+  SELECT LATERAL VIEW json_tuple(business_events_raw.json, ‘event_type’, ‘event_date’)
+  as event_type, event_date
+```
 
 In this case the JSON structure is parsed only once, however the two JSON fields (`event_type` and `event_date`) are assigned to two columns (`event_type` and `event_date`).
 You may have noticed that this does not use the same notation as `get_json_object`. This is because this function can only be applied to simple key, value lists and can’t be used with nested JSON structures. Unfortunately, whilst this can potentially give much better performance than `get_json_object` this restriction makes it impractical for most applications.
@@ -50,24 +58,30 @@ You may have noticed that this does not use the same notation as `get_json_objec
 
 The final method of JSON parsing within Hive described here is to use a SerDe. SerDe is short for serializer/deserializer and they control conversion of data formats between HDFS and Hive. Using a SerDe data can be stored in JSON format in HDFS and be automatically parsed for use in Hive. A SerDe is defined in the `CREATE TABLE` statement and must include the schema for the JSON structures to be used. The example used in the previous sections would look like:
 
-    CREATE TABLE business_events (
-      event_type string,
-      event_date string
-    ) ROW FORMAT SERDE ‘org.openx.data.jsonserde.JsonSerDe’
+``` js
+CREATE TABLE business_events (
+  event_type string,
+  event_date string
+) ROW FORMAT SERDE ‘org.openx.data.jsonserde.JsonSerDe’
+```
 
 Nested fields can easily be added too:
 
-    CREATE TABLE business_events (
-      event_type string,
-      event_date string,
-      user struct <first_name : string,
-                   last_name : string>
-    ) ROW FORMAT SERDE ‘org.openx.data.jsonserde.JsonSerDe’
+``` js
+CREATE TABLE business_events (
+  event_type string,
+  event_date string,
+  user struct <first_name : string,
+               last_name : string>
+) ROW FORMAT SERDE ‘org.openx.data.jsonserde.JsonSerDe’
+```
 
 Once the table has been created data can be added in the usual way and queried using the JSON field names, nested fields can be queried using dot notation as below:
 
-    SELECT event_date, event_type, user.first_name, user.last_name
-      FROM json_serde
+``` js
+SELECT event_date, event_type, user.first_name, user.last_name
+  FROM json_serde
+```
 
 The main advantage of using a SerDe is the ease of use. Once the table has been set up, the data conversion happens in the background and users of that data need not worry about the mechanics behind it. This can be very important if speed of ingest is a primary concern and so the overhead that goes with the staging and unstaging process described above is impractical. It is also worth noting that some SerDes can contain extensive optimization that makes them highly efficient at data conversion.
 
@@ -77,9 +91,11 @@ However, it is the data conversion that raises the main disadvantage with using 
 
 It is often the case (particularly with things like log/business events) stored in JSON that certain fields of the JSON structure are regularly queried against but others are not. To keep with the business event example your structure may look something like this:
 
-    { "event_type": "login",
-      "event_date": "2014-12-01 00:00:00",
-      "session_id": "12345678" }
+``` js
+{ "event_type": "login",
+  "event_date": "2014-12-01 00:00:00",
+  "session_id": "12345678" }
+```
 
 Here we would be very likely to query by `event_type` and `event_date` but unlikely to want the `session_id` regularly.
 
