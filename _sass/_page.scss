@@ -44,6 +44,10 @@ body {
     width: 100%;
     margin: 0 auto;
 
+    &.nopadding {
+        padding: 0;
+    }
+
     @include media-query(m-xl) {
         max-width: 1200px;
     }
@@ -99,11 +103,26 @@ aside {
         .meet-author {
             margin: 0 0 $base-margin-top/2;
         }
+    }
+    .meet-author {
+        .author--image {
+            width: 30%;
+            float: none;
+            display: inline-block;
+            margin-bottom: $base-line/2;
+            margin-right: 2%;
 
+            @include media-query(s) {
+                width: 17%;
+            }
+            @include media-query(xs) {
+                width: 22%;
+            }
+        }
     }
 }
 
-.author {
+.meet-author {
     .author--image {
         width: 100px;
         float: left;
@@ -164,6 +183,7 @@ aside {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-content: center;
 
