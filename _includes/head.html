@@ -1,36 +1,37 @@
 <head>
-<meta charset="utf-8">
-<title>{% if page.isArticle %}Sky Betting and Gaming Engineering: {% endif %}{{ page.title }}</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1.0">
+ <meta charset="utf-8">
+ <title>{% if page.isArticle %}Sky Betting &amp; Gaming Engineering: {% endif %}{{ page.title }}</title>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name=viewport content="width=device-width,initial-scale=1.0">
 
-{% if page.isArticle %}
-<meta property="og:type" content="article" />
-<meta property="article:published_date" content="{{ page.date | date_to_xmlschema }}" />
-{% else %}
-<meta property="og:type" content="website" />
-{% endif %}
-<meta name="twitter:site" content="@EngineersSkyBG" />
-<meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
-<meta name="twitter:description" content="{{ page.summary }}" />
-<meta name="twitter:title" content="{{ page.title }}" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}logo.png{% endif %}" />
+ {% if page.isArticle %}
+ <meta property="og:type" content="article" />
+ <meta property="article:published_date" content="{{ page.date | date_to_xmlschema }}" />
+ {% else %}
+ <meta property="og:type" content="website" />
+ {% endif %}
 
-<meta property="og:site_name" content="Sky Betting and Gaming Engineering Blog" />
-<meta property="og:title" content="{{ page.title }}" />
-<meta property="og:description" content="{{ page.summary }}" />
-<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-<meta property="og:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}logo.png{% endif %}" />
+ <meta name="twitter:site" content="@EngineersSkyBG" />
+ <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
+ <meta name="twitter:description" content="{{ page.summary }}" />
+ <meta name="twitter:title" content="{{ page.title }}" />
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}logo.png{% endif %}" />
 
-<meta property="description" content="{{ page.summary }}" />
+ <meta property="og:site_name" content="Sky Betting &amp; Gaming Engineering Blog" />
+ <meta property="og:title" content="{{ page.title }}" />
+ <meta property="og:description" content="{{ page.summary }}" />
+ <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+ <meta property="og:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}logo.png{% endif %}" />
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/styles.css" type="text/css">
-<link rel="alternate"
-   type="application/atom+xml" title="Sky Betting and Gaming Engineering Feed"
+ <meta property="description" content="{{ page.summary }}" />
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="/css/styles.css" type="text/css">
+ <link rel="alternate"
+   type="application/atom+xml" title="Sky Betting &amp; Gaming Engineering Feed"
    href="{{ site.url | xml_escape }}/feed.xml" />
 
-<script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
-<script src="/js/init.js" type="text/javascript"></script>
+ <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+ <script src="/js/init.js" type="text/javascript"></script>
 </head>

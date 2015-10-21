@@ -1,5 +1,5 @@
-Sky Betting and Gaming Engineering Site
-=======================================
+Sky Betting & Gaming Engineering Site
+=====================================
 
 This is source for our public engineering site at http://engineering.skybettingandgaming.com, rendered via Jeykll through Github Pages.
 
@@ -53,3 +53,7 @@ Again, add the author's image to the `images` directory with the same filename a
 ### Rendering the Site Locally
 
 To render the site locally you need to `cd` into your cloned repository and run `bundle install` to install jekyll and jekyll-feed.  You can then run `rake` (which calls `jekyll serve`) which will result in the site being available on `http://127.0.0.1:4000/`, re-rendering if you make any changes.
+
+### Style Guide
+
+* The company name should always be referred to as "Sky Betting & Gaming": in markdown files such as posts, you don't need to encode the ampersand.  In HTML, you do.
