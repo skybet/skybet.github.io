@@ -51,7 +51,7 @@ This subtle shift in focus, from imperative to declarative coding and describing
 
 ### An example
 
-```ruby
+``` ruby
 pipeline "data.getter" do
 
   task :setup do
@@ -102,7 +102,7 @@ Figuring out what the pipeline does is left as an exercise for the reader. Howev
 
 A common configuration format is used throughout Pidl to configure everything from client code to user preferences to schema constants. The format is a basic INI file but allows overriding at several levels. In addition the concept of a "run mode" (`dev`, `test` or `prod`) means that having different configuration, schema constants or directory names for different use cases or users is easy.
 
-```
+``` js
 environment = ${username}
 
 [hadoop]
@@ -115,7 +115,7 @@ host = hadoopmgmt01
 port = 10000
 ```
 
-```
+``` js
 hive.db.transactions = ${environment}_transactions
 hive.table.transactions.import = ${hive.db.transactions}.import
 ```
@@ -140,7 +140,7 @@ end
 
 And consider a schema configuration that results in the following constants:
 
-```
+``` js
 hive.table.staging.bet_placed = staging.placed_bets
 hive.table.bet.placed  = bet.placed_bets
 ```
@@ -219,7 +219,7 @@ of all columns in one table that have a corresponding column in another. Useful 
 
 There are a few other niceties that have been built around the Pidl framework, including a test harness (Tidl) and a Rake-based task runner that can be hooked into any CI platform with ease. Using the task runner the setup, test and execution of pipelines is unified, e.g.:
 
-```
+``` js
 $ RUNMODE=test rake transactions:test
 $ RUNMODE=prod rake transactions:setup
 $ RUNMODE=prod rake transactions:import
