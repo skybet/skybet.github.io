@@ -1,0 +1,20 @@
+---
+layout:     raw
+title:      Grow Your Career
+summary:    We're on a mission to find talented people just like you that will help us continue to grow as we expand into Europe.
+nav:        true
+nav_title:  Jobs
+nav_weight: 1
+className:  jobs
+---
+<p>At Sky Betting &amp; Gaming we bring the excitement of Sports Betting, Casino Games, Poker and Bingo to over 1 million customers in the UK. And we're not stopping there.</p>
+
+<p>With a strong track record in digital innovation, our business based in the heart of Leeds has more than doubled in size over the last five years. And we're on a mission to find talented people just like you that will help us continue to grow as we expand into Europe.</p>
+
+<p><a class="btn  btn--block  btn--primary" href="http://www.skybet.com/cms/job-board.shtm">Join us and grow your career with Sky Betting &amp; Gaming.</a></p>
+
+<section class="grid  flex"  style="flex-wrap: wrap;">
+    {% for area in site.data.areas %}
+        {% include area.html %}
+    {% endfor %}
+</section>

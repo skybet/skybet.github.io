@@ -83,11 +83,11 @@ aside {
     .about, .meet-author, .twitter{
         background: $color-whtrans;
         padding: 10px 20px;
-        margin: 30px 0;
+        margin: $base-margin-top 0;
         box-sizing: border-box;
 
         @include media-query(xs-s) {
-            margin: 0 0 20px;
+            margin: 0 0 $base-margin-top/2;
         }
 
         h2 {
@@ -97,7 +97,7 @@ aside {
     }
     @include media-query(xs-s) {
         .meet-author {
-            margin: 0 0 10px;
+            margin: 0 0 $base-margin-top/2;
         }
 
     }
@@ -166,23 +166,28 @@ aside {
     display: flex;
     flex-direction: row;
     align-content: center;
-    border-width: 1px 0;
-    border-style: solid;
-    border-color: $color-default;
-    margin: 30px 0;
 
     .flex-item {
         -webkit-box-flex: 1;
-        width: 20%;
         -webkit-flex: 1;
         -ms-flex: 1;
         flex: 1;
         flex-grow: 1;
-        padding: 10px;
-        border: solid 1px #e7e7e7;
-        border-right: 1px solid $color-default;
     }
 
+    &.cta {
+        border-width: 1px 0;
+        border-style: solid;
+        border-color: $color-default;
+        margin: 30px 0;
+
+        .flex-item {
+            padding: 10px;
+            width: 20%;
+            border: solid 1px #e7e7e7;
+            border-right: 1px solid $color-default;
+        }
+    }
 }
 
 .comments {
@@ -190,7 +195,6 @@ aside {
     color: $color-default;
     padding: 20px 0;
 }
-
 
 footer {
     overflow: hidden;

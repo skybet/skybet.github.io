@@ -1,39 +1,38 @@
-
 .post {
     background: $color-whtrans;
-    padding: 10px 50px;
-    margin: 30px 10px 30px 30px;
+    padding: $base-line/2 $base-line*2;
+    margin: $base-line $base-line/2 $base-line $base-line;
     box-sizing: border-box;
     position: relative;
 
     .details & {
-        margin: 30px 10px 30px 0;
-        padding: 10px 20px;
+        margin: $base-line $base-line/2 $base-line 0;
+        padding: $base-line/2 $base-line;
 
         @include media-query(xs-s) {
-            margin: 10px 0 20px 0;
+            margin: $base-line/2 0 $base-line 0;
         }
 
         header {
-            padding: 0 80px 0 0;
-            min-height: 100px;
+            padding: 0 $base-line*4 0 0;
+            min-height: $base-line*5;
             border-bottom: 1px solid $color-default;
-            margin-bottom: 0.5em;
+            margin-bottom: $base-line*0.5;
         }
     }
 
     @include media-query(xs-s) {
-        margin: 50px 0 30px 0;
-        padding: 10px;
+        margin: $base-line*1.5 0 $base-line 0;
+        padding: $base-line/2;
     }
 
     @include media-query(xl) {
-        margin: 30px 10px 30px 0;
+        margin: $base-line $base-line/2 $base-line 0;
     }
 
     h2 {
         border-bottom: 1px solid $color-default;
-        margin-top: 25px;
+        margin-top: $base-line/2;
 
         a {
             text-decoration: none;
@@ -42,7 +41,7 @@
     }
 
     .image {
-        height: 200px;
+        height: $base-line*10;
         background-size: cover;
         background-position: center;
         border: 1px solid darken($color-highlight, 10%);
@@ -54,7 +53,7 @@
         width: 80px;
         height: 80px;
         position: absolute;
-        top: 20px;
+        top: $base-line;
         left: -40px;
         color: $color-light;
 
@@ -74,6 +73,7 @@
             text-align: center;
             text-transform: uppercase;
         }
+
         .day {
             font-family: $SkyBold;
             font-size: 34px;
@@ -90,7 +90,7 @@
         position: absolute;
         right: 0;
         color: white;
-        padding: 0 0.25em;
+        padding: 0 $base-line/4;
     }
 
     .cta {
@@ -114,6 +114,54 @@
             font-family: $SkyBold;
             font-style: italic;
             color: $color-default;
+        }
+    }
+}
+
+.jobs {
+    @extend .post;
+
+    margin-top: $base-line;
+    margin-bottom: $base-line;
+
+    .area {
+        display: flex;
+        padding: 0 10px 0 0;
+
+        &:nth-of-type(2n) {
+            padding: 0 0 0 10px;
+        }
+
+        h4 {
+            margin: -12px -12px 12px -12px;
+            text-transform: uppercase;
+            background: $color-highlight;
+            color: white;
+            padding: 6px 10px;
+        }
+
+        .post {
+            width: 100%;
+            margin: 0 0 $base-line 0;
+            padding: $base-line/2;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+
+            @include media-query(l) {
+                &.split-columns {
+                    -webkit-column-count: 2;
+                       -moz-column-count: 2;
+                            column-count: 2;
+                }
+            }
+
+            li {
+                display: block;
+                margin: 0;
+            }
         }
     }
 }
