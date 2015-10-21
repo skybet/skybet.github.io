@@ -11,7 +11,7 @@
     </div>
     {% endif %}
 
-    <div class="sticky">
+    <div class="sticky{% if page.isArticle %} headFixed{% endif %}">
         <div class="grid">
             <nav class="grid-xs-s-1-2 grid-m-xl-1-2 btnNavLarge">
             {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
