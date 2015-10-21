@@ -125,14 +125,25 @@ aside {
             padding: 0;
         }
     }
+
     ul {
         list-style: none;
         padding: 0;
         margin: 0 0 24px;
     }
+
     .author--interests {
         li {
             display: inline;
+            font-family: $SkyRegular;
+
+            &:after {
+                content: ",";
+            }
+
+            &:last-of-type:after {
+                content: ".";
+            }
         }
     }
     .author--rels {
@@ -140,6 +151,10 @@ aside {
             width: 50%;
             display: inline;
             box-sizing: border-box;
+        }
+
+        a {
+            font-family: $SkyRegular;
         }
     }
 }
@@ -191,6 +206,7 @@ footer {
     .more-info {
         background: $color-default;
         color: $color-light;
+        padding-top: $base-margin-top;
     }
 
     .products {

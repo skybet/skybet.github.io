@@ -17,7 +17,7 @@
             <ul class="author--interests fa fa-heart">
                 {% assign interests=author.interests | split:"," %}
                 {% for interest in interests %}
-                <li>{{ interest }},</li>
+                <li>{{ interest }}</li>
                 {% endfor %}
             </ul>
             {% endif %}
