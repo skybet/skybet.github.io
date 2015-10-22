@@ -1,7 +1,6 @@
 ---
 layout:     post
 title:      Distributed Database Query Optimisation with Lego
-permalink:  distributed-db-query-optimisation-with-lego
 author:     alice_kaerast
 date:       2015-08-05 15:45:00
 summary:    Lego based notes from a workshop on Hive, going from basic unpartitioned tables through to partitioned Impala tables with stats computed and backed by parquet.
