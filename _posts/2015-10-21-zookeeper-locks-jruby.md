@@ -6,7 +6,7 @@ date:       2015-10-21 13:00
 summary:    How to use Zookeeper locks in Jruby
 category:   Jruby
 tags:       ruby, hadoop, zookeeper
-author:     alice.kaerast
+author:     alice_kaerast
 ---
 
 For a while we've been using an in-house CLI tool based on the [Pidl orchestration framework](/open-sourcing-pidl/) to run our ETL pipelines in Hadoop.  With a small number of pipelines running at any one point, we could run this on a single server within the cluster, but with a growing number of pipelines and the limited resiliency a single server gives we had to make a few changes.
