@@ -1,7 +1,6 @@
 ---
 layout:     post
 title:      A Little Specialism Goes A Long Way
-permalink:  specialise-hadoop-jbod-gpu
 date:       2015-10-14 19:34:00
 summary:    Is the principle of using commodity hardware for a Hadoop cluster over-valued? Recognising the value of some specialised hardware can provide significant benefits.
 author:     josh_mitchell

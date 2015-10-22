@@ -1,7 +1,6 @@
 ---
 layout:     post
 title:      Speeding Up Chef Search
-permalink:  speeding-up-chef-search
 author:     gav_harris
 date:       2015-09-20 21:38:37
 summary:    We rely on Chef heavily for configuration management. This is one way we speed it up.

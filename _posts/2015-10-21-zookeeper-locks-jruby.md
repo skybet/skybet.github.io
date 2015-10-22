@@ -1,7 +1,6 @@
 ---
 layout:     post
 title:      Using Zookeeper Locks in Jruby
-permalink:  zookeeper-locks-jruby
 date:       2015-10-21 13:00
 summary:    How to use Zookeeper locks in Jruby
 category:   Jruby

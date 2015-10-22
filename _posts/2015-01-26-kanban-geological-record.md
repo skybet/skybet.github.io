@@ -1,7 +1,6 @@
 ---
 layout:     post
 title:      Kanban's Geological Record
-permalink:  kanban-geological-record
 author:     rob_tuley
 date:       2015-01-26 16:15:30
 summary:    Ian Carroll's commentary on tracking the record of workflow by looking at the Kanban cards coming off the boards.

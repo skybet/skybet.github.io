@@ -1,7 +1,6 @@
 ---
 layout:     post
 title:      Open-Sourcing Pidl (Pipeline Definition Language)
-permalink:  open-sourcing-pidl
 author:     craig_andrews
 date:       2015-09-09 13:13:00
 summary:    Announcing the release of Pidl, a Ruby DSL that we developed to manage our ETL pipelines through Hadoop.
