@@ -4,9 +4,11 @@ title:      Using Zookeeper Locks in Jruby
 permalink:  zookeeper-locks-jruby
 date:       2015-10-21 13:00
 summary:    How to use Zookeeper locks in Jruby
+category:   Jruby
+tags:       ruby, hadoop, zookeeper
 ---
 
-For a while we've been using an in-house CLI tool based on the [Pidl orchestration framework](https://github.com/skybet/pidl) to run our ETL pipelines in Hadoop.  With a small number of pipelines running at any one point, we could run this on a single server within the cluster, but with a growing number of pipelines and the limited resiliency a single server gives we had to make a few changes.
+For a while we've been using an in-house CLI tool based on the [Pidl orchestration framework](/open-sourcing-pidl/) to run our ETL pipelines in Hadoop.  With a small number of pipelines running at any one point, we could run this on a single server within the cluster, but with a growing number of pipelines and the limited resiliency a single server gives we had to make a few changes.
 
 The original code used a text file in the /tmp directory on the local file system.  It was simple to use, simple to debug, and easy to remove stale locks.  But it didn't work across multiple servers.  We considered using an NFS share for the locks, but given we already need a zookeeper cluster running for our existing services it made sense to use that. 
 
@@ -68,7 +70,7 @@ begin
   if pipeline_lock.lock!
     yield
   else
-    raise "Oh noes, we didn't get teh lock! #{name}"
+    raise "Failed to get the lock! #{name}"
   end
 ensure
   pipeline_lock.unlock! # We also drop the lock on disconnection to Zookeeper, so this isn't strictly necessary
