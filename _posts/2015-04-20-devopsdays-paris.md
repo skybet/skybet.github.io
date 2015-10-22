@@ -14,15 +14,15 @@ We sent senior Devop engineer [@andyburgin](https://twitter.com/andyburgin) to D
 
 ### What is a DevopsDays Event ?
 
-If you haven’t been to a devopsdays event, given the amount of hype around devops you might be quite surprised to find that it's still a very community focused event. Naturally there are big name sponsors that exhibit but the event still involves a high level of DIY.
+If you haven't been to a devopsdays event, given the amount of hype around devops you might be quite surprised to find that it's still a very community focused event. Naturally there are big name sponsors that exhibit but the event still involves a high level of DIY.
 
 The event is spread over two days, the mornings are formal presentations and the afternoons consist of a short blast of ignite talks and then the organised chaos of Open Spaces – which for the record are the reason to go.
 
-This will sound very familiar to you if you’ve been to any "agile"" event and that’s intentional, the whole devops movement began at an agile conference and the format encourages the "everyone is to get involved".
+This will sound very familiar to you if you've been to any "agile"" event and that's intentional, the whole devops movement began at an agile conference and the format encourages the "everyone is to get involved".
 
 ### Day One
 
-The day opens with a welcome speech and a we're straight into a talk by one of my favourite speakers John Willis, as well as being one of Edward Deming's biggest fans and perhaps the most knowledgeable man in the devops community, his voice is one that has graced my commute for several years by way of the [Devops Café podcast](https://itunes.apple.com/gb/podcast/devops-cafe-podcast/id371931111?mt=2) – I must admit I’m a little star struck when I speak to him.
+The day opens with a welcome speech and a we're straight into a talk by one of my favourite speakers John Willis, as well as being one of Edward Deming's biggest fans and perhaps the most knowledgeable man in the devops community, his voice is one that has graced my commute for several years by way of the [Devops Café podcast](https://itunes.apple.com/gb/podcast/devops-cafe-podcast/id371931111?mt=2) – I must admit I'm a little star struck when I speak to him.
 
 #### Keynote: Containers, Germs, and Microservices – John Willis
 
@@ -36,7 +36,7 @@ John then spoke about how companies must take advantage of micro services and co
 
 A week before the event I was listening to the Devops Cafe podcast and the hosts (Daemon Edwards and John Willis) were discussing how hard it is to get Devops practice adopted at enterprise. There needs here is very different approach to achieve the same objectives in large organisations.
 
-Steve's talk addressed this point giving some great advice about it how justify, measure, encourage and champion devops adoption in the enterprise. One controversial piece of advice was not to use the term “devops” due to peoples incorrect preconceived opinions. He also gave a link to a very handy 50 question checklist.
+Steve's talk addressed this point giving some great advice about it how justify, measure, encourage and champion devops adoption in the enterprise. One controversial piece of advice was not to use the term "devops" due to peoples incorrect preconceived opinions. He also gave a link to a very handy 50 question checklist.
 
 #### The importance of Why in DevOps – Boris Feld
 
@@ -48,7 +48,7 @@ Sabine explains some of the difficulties in getting people from different parts 
 
 #### DevOps Culture at BlaBlaCar – Keep CAMS and grow – Regis Allegre & Nicolas Blanc
 
-This talk explained how BlaBlaCar grew form a startup with a Devops ethos at it’s roots. They discussed their development processes and culture, with details of how they value the working environment and staff collaboration.
+This talk explained how BlaBlaCar grew form a startup with a Devops ethos at its roots. They discussed their development processes and culture, with details of how they value the working environment and staff collaboration.
 
 ### Day One Ignites and Open Spaces
 
@@ -56,7 +56,7 @@ The ignite talks usually cover a mix of subjects and this DevopsDays is no excep
 
 ![Ignite](/images/devopsdays-paris-2.jpg)
 
-Next we move onto what I described earlier as "organised chaos"" and I still think that’s fair description of the selection process. The attendees are invited to suggest topics for conversations, these are posted on a board and then everyone votes for their which of those topics they would like to talk/hear about.
+Next we move onto what I described earlier as "organised chaos"" and I still think that's fair description of the selection process. The attendees are invited to suggest topics for conversations, these are posted on a board and then everyone votes for their which of those topics they would like to talk/hear about.
 
 ![Open Spaces](/images/devopsdays-paris-3.jpg)
 
@@ -64,15 +64,15 @@ The winning topics are then distributed over 30min slots in different areas of t
 
 #### Monitoring as code
 
-This discussion focused around the different ways to monitor applications and infrastructure. I'm very pleased to find that SB&G are very much in the “advanced” bracket when it comes to monitoring from alerting, metrics, sharing and business dashboards. But it’s interesting to see how some organisations are using log monitoring (ELK stacks etc) to monitor more than just logs.
+This discussion focused around the different ways to monitor applications and infrastructure. I'm very pleased to find that SB&G are very much in the "advanced" bracket when it comes to monitoring from alerting, metrics, sharing and business dashboards. But it's interesting to see how some organisations are using log monitoring (ELK stacks etc) to monitor more than just logs.
 
 #### Why ? Ansible or Puppet or Chef
 
-This turned into quite a heated debate about the selection of an Infrastructure as Code technology. Not surprisingly there were some strong opinions exchanged. The take home was there’s no one winner and it just depends on which tool is “right” for the job.
+This turned into quite a heated debate about the selection of an Infrastructure as Code technology. Not surprisingly there were some strong opinions exchanged. The take home was there's no one winner and it just depends on which tool is "right" for the job.
 
 #### Microservices a support nightmare?
 
-I suggested this open space to gauge opinion of micro services. I explained a situation in Bet Tribe where a legacy application was in part being replaced by micro services. There were a number of extremely smart people in the room (including Patrick DeBois) they explained so long as the necessary testing and monitoring was in place it should really help (which we do, the group concluded in my case that there was nothing to worry about (and that we have a great dev team)). The rest of the discussion focused on the practicalities of implementing micro services and how they could simplify development , in some cases they encourage organizational change (anti Conways Law), but they weren’t a silver bullet and under some circumstances aren’t appropriate (e,g, transactional rollback).
+I suggested this open space to gauge opinion of micro services. I explained a situation in Bet Tribe where a legacy application was in part being replaced by micro services. There were a number of extremely smart people in the room (including Patrick DeBois) they explained so long as the necessary testing and monitoring was in place it should really help (which we do, the group concluded in my case that there was nothing to worry about (and that we have a great dev team)). The rest of the discussion focused on the practicalities of implementing micro services and how they could simplify development , in some cases they encourage organizational change (anti Conways Law), but they weren't a silver bullet and under some circumstances aren't appropriate (e,g, transactional rollback).
 
 ### Day Two
 
@@ -88,19 +88,19 @@ The problem is the first system looks for easy wins and will exaggerate the sign
 
 #### Designing the Enterprise for Manufacturing – Scott Russell
 
-Scott from Chef describes his experiences of working in IT hardware manufacturing and the relevance to devops. It’s very much a talk that affirms the work of Demming and Lean manufacturing techniques and their application to CAMS principles.
+Scott from Chef describes his experiences of working in IT hardware manufacturing and the relevance to devops. It's very much a talk that affirms the work of Demming and Lean manufacturing techniques and their application to CAMS principles.
 
 He covered the importance of understanding your product mix, the flow of work through work centers and the associated issues of WIP backlog. Scott explained how physical production lines had been optimized and explained how different approached to QC vs QA had removed bottlenecks, increasing throughput, all of which Scott argues is relevant to improving flow in the Software Development Life Cycle.
 
 #### Change management at scale: responsible agile delivery – Pierre-Yves Ritschard
 
-ITIL is widely misunderstood in the devops community and Pierre gave a great introductory talk on it’s core components of Service Design, Service Operation and Service Transition.
+ITIL is widely misunderstood in the devops community and Pierre gave a great introductory talk on its core components of Service Design, Service Operation and Service Transition.
 
 The talk the focused on how Change Management (part of Service Transition) could also be done on a small scale by leveraging exiting SDLC tools. He argued that RFCs and CAB could be enforced by the use of pull requests and at the most basic level you could use your chat room logs for Change Request records.
 
 #### Making the Elephant dance – Daily deliveries at SAP – Dirk Lehmann
 
-Dirk explained the obstacles he faced when trying to implement continuous delivery of a cloud based project at SAP. He explained how he headed up a team that worked as an internal “startup” in the organisation and how they overcame the obstacles caused by the existing processes and procedures. He then went on to describe how the new processes developed were being used for other cloud based products within SAP to accelerate deliver times.
+Dirk explained the obstacles he faced when trying to implement continuous delivery of a cloud based project at SAP. He explained how he headed up a team that worked as an internal "startup" in the organisation and how they overcame the obstacles caused by the existing processes and procedures. He then went on to describe how the new processes developed were being used for other cloud based products within SAP to accelerate deliver times.
 
 #### Screwing up for fun and profit – Oliver Hankeln
 
@@ -108,18 +108,18 @@ Oliver described the objectives and format of a post mortem and a number of patt
 
 ### Day Two Ignites and Open Spaces
 
-Again a diverse mix of subjects for the ignite talks, today we have a mix of opensource tools such as git-deliver, Jenkins automation, ITIL and a discussion of Devops as job title. Fortunately I can relax a little and enjoy them as I don’t have to take to the stage :-)
+Again a diverse mix of subjects for the ignite talks, today we have a mix of opensource tools such as git-deliver, Jenkins automation, ITIL and a discussion of Devops as job title. Fortunately I can relax a little and enjoy them as I don't have to take to the stage :-)
 
 The openspaces are organised much swifter today (looks like the delegates have grasped the concept today) and there are a larger more diverse number of topics today. I head off an attend...
 
 #### Spock
 
-This discussion was proposed by one of the ignite speakers who was contemplating if in 2015 there was a role for “Devops”. This has been a long standing point of debate in the devops community, that devops isn’t a job title but more of a mindset/approach, it’s the equivalent of having the word “Agile” in your job title, it really doesn’t make sense. The conversation tried to define a role that had many facets of devops (e.g. release engineering, automation, metrics) and if this hybrid/polygot was really a job title – the conclusion was “it depends”.
+This discussion was proposed by one of the ignite speakers who was contemplating if in 2015 there was a role for "Devops". This has been a long standing point of debate in the devops community, that devops isn't a job title but more of a mindset/approach, it's the equivalent of having the word "Agile" in your job title, it really doesn't make sense. The conversation tried to define a role that had many facets of devops (e.g. release engineering, automation, metrics) and if this hybrid/polygot was really a job title – the conclusion was "it depends".
 
 Unfortunately I then had to leave as my train awaits, so I start the long journey home.
 
 ### Conclusion
 
-All in all I had a great time, I met some of the thought leaders in the Devops field and spoke with a great number of really clever people. Got some great insights into Microservices and food for thought on many other topics. If you wanted me to summarise the event in a sentence "it’s all about people".
+All in all I had a great time, I met some of the thought leaders in the Devops field and spoke with a great number of really clever people. Got some great insights into Microservices and food for thought on many other topics. If you wanted me to summarise the event in a sentence "it's all about people".
 
 Vidoes of the talks are [available on vimeo](https://vimeo.com/album/3410921).

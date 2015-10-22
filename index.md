@@ -1,6 +1,6 @@
 ---
 layout:     raw
-title:      Sky Betting & Gaming Engineering
+title:      Sky Betting &amp; Gaming Engineering
 summary:    We bring the excitement of Sports Betting, Casino Games, Poker and Bingo to millions of customers as a modern, technology-led company working across a range of cutting-edge technologies.
 nav:        false
 nav_title:  Articles

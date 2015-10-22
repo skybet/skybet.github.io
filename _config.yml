@@ -3,3 +3,5 @@ markdown: redcarpet
 url: http://engineering.skybettingandgaming.com
 gems:
     - jekyll-feed
+redcarpet:
+    extensions: [smart]

@@ -18,7 +18,7 @@ Model your domain from events and commands rather than drafting a data schema. "
 
 ![Alberto diagram of CQRS](/images/alberto-cqrs.jpg)
 
-This approach fits well with a [CQRS (Command Query Responsibility Segregation)](http://martinfowler.com/bliki/CQRS.html) architecture where commands and events are first class citizens, and there are multiple data models (aka projections). The data model is dependent on the downstream use-case; different downstream use-cases demand different data models.  
+This approach fits well with a [CQRS (Command Query Responsibility Segregation)](http://martinfowler.com/bliki/CQRS.html) architecture where commands and events are first class citizens, and there are multiple data models (aka projections). The data model is dependent on the downstream use-case; different downstream use-cases demand different data models.
 
 ### Don't Replicate CRUD in your Domain Events
 
