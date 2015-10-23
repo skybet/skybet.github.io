@@ -15,14 +15,13 @@ All changes are welcome from additional articles, to styling changes, etc. If yo
 
 If making updates to the layout, use the sass in the `_scss/` directory.
 
-### Adding a new Article
+### Adding a New Article
 
-To add a new article you need to add a new file in markdown format in the `_posts` directory following the naming conventions of the existing files. The file will need to include Jeykll frontmatter, an example is:
+To add a new article you need to add a new file in markdown format in the `_posts` directory following the naming conventions of the existing files. The file will need to include [Jeykll front matter](http://jekyllrb.com/docs/frontmatter/) like this:
 
     ---
     layout:     post
     title:      Your Title Here
-    permalink:  your-relevant-url-slug-here
     date:       2015-08-05 15:45:00
     summary:    Your summary here.
     author:     author_name
@@ -37,13 +36,13 @@ If you wish to use an image within the post, reference them in markdown like so:
 
     ![Shuffled Lego](/images/lego-shuffled.jpg)
 
-For the 'author' key, if you have not posted before, you should create a corresponding entry in `_data/authors.yml`, using the alias used in the post frontmatter as the key, eg.
+For the `author` key, if you have not posted before, you should create a corresponding entry in `_data/authors.yml`, using the alias used in the post frontmatter as the key, eg.
 
     author_name:
         name: Author Name
         image: author_name.png
         role: Author's Role / Squad
-        tribe: Bet
+        tribe: Author's Tribe
         startDate: 01-05-2015
         bio: Some information about the author, can be as long as you like, but should be written in proper English.
         interests: Comma, Separated, Interests, List
