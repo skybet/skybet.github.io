@@ -21,22 +21,21 @@ isArticle: false
             <h3>Meet the SBG team</h3>
 
             <ul>
-                {% for keyedAuthor in site.data.authors | sort: 'Name' %}
-                {% assign key = keyedAuthor[0] %}
-                {% assign author = keyedAuthor[1] %}
-                {% assign articles = (site.posts | where: "author",key %}
-                {% if articles != empty %}
+            {% for keyedAuthor in site.data.authors %}
+             {% assign key = keyedAuthor[0] %}
+             {% assign author = keyedAuthor[1] %}
+             {% assign articles = (site.posts | where: "author",key %}
+             {% if articles != empty %}
 
-                 {% if author.image %}
-                    <li class="author--image" title="{{author.name}}">
-                        <a href="/authors#{{ key }}">
-                            <img src="/images/authors/{{ author.image }}">
-                        </a>
-                    </li>
-                 {% endif %}
-                {% endif %}
-
-                {% endfor %}
+              {% if author.image %}
+                  <li class="author--image" title="{{author.name}}">
+                      <a href="/authors#{{ key }}">
+                          <img src="/images/authors/{{ author.image }}">
+                      </a>
+                  </li>
+              {% endif %}
+             {% endif %}
+            {% endfor %}
             </ul>
         </div>
         {% endif %}

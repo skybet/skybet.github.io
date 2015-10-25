@@ -1,3 +1,26 @@
+craig_andrews:
+    name: Craig Andrews
+    image: craig_andrews.jpg
+    role: Principal Engineer
+    tribe: Data
+    bio: "Craig was responsible for the Hadoop platform back in it's early days as we struggled with bash scripts gluing Hive queries together, and invented our Pidl Ruby DSL to resolve this problem."
+
+andy_burgin:
+    name: Andy Burgin
+    image: andy_burgin.jpg
+    role: Senior DevOps Engineer
+    tribe: Data
+    bio: "When now organising Leeds DevOps, or conference speaking, Andy is improving our underlying Hadoop data platform."
+
+gav_harris:
+    name: Gav Harris
+    image: gavin_harris.jpg
+    role: Principal Operations Engineer, Platform Evolution
+    tribe: Data
+    startDate: 25-07-2011
+    bio: "Gav joined the SB&G family as a member of the Infrastructure Tribe, and has a strong desire to automate all the things. While designing a resilient clustered architecture for a (now retired) flaky Mobenga mobile sportsbook, he wrote an iOS Opsview App in his own time which was so good Opsview bought it off him! He now leads our Platform Evolution team: has succesfully rolled out Chef across the entire estate, and remains at the forefront of our investment in infrastructure automation."
+    github: gavala
+
 adam_hepton:
     name: Adam Hepton
     image: adam_hepton.png
@@ -20,32 +43,13 @@ tom_hudson:
     twitter: tomnomnom
     github: tomnomnom
 
-dan_rooke:
-    name: Dan Rooke
-    image: dan_rooke.jpg
-    role: Solution Architect
+alice_kaerast:
+    name: Alice Kaerast
+    image: alice_kaerast.png
+    role: Big Data Architect
     tribe: Data
-    startDate: 18-10-2010
-    bio: "Dan has spent most of his SB&G career with the account team, managing traffic growth for that application of several orders of magnitude over a few years. Dan now acts as a Solution Architect for the team, with a specific interest in real-time event processing which he is persuing with a recent move to the Data Tribe."
-    interests: Event Processing, RabbitMQ, Kafka, Samza, Spark Streaming
-
-gav_harris:
-    name: Gav Harris
-    image: gavin_harris.jpg
-    role: Principal Operations Engineer, Platform Evolution
-    tribe: Data
-    startDate: 25-07-2011
-    bio: "Gav joined the SB&G family as a member of the Infrastructure Tribe, and has a strong desire to automate all the things. While designing a resilient clustered architecture for a (now retired) flaky Mobenga mobile sportsbook, he wrote an iOS Opsview App in his own time which was so good Opsview bought it off him! He now leads our Platform Evolution team: has succesfully rolled out Chef across the entire estate, and remains at the forefront of our investment in infrastructure automation."
-    github: gavala
-
-rob_tuley:
-    name: Rob Tuley
-    image: rob_tuley.jpg
-    role: Head of Data Technology
-    tribe: Data
-    startDate: 05-10-2011
-    bio: "Rob leads the engineering arm of the Data Tribe with teams working on data warehousing via Hadoop, real time data streaming, Informix & Oracle management, and infrastructure automation & platform tooling."
-    github: robtuley
+    bio: "Alice played a key role in building our Hadoop-based data platform as a DevOps Engineer, and now applies this engineering experience as an Architect as we continue to evolve our platform."
+    github: WheresAlice
 
 paul_mccormick:
     name: Paul McCormick
@@ -55,13 +59,21 @@ paul_mccormick:
     startDate: 10-03-2013
     bio: "Paul leads the Bet Tribe technology team and has worked in the betting industry for his entire career: first Ladbrokes, then Sportech, Buzz Sports and (best of all!) SB&G."
 
-alice_kaerast:
-    name: Alice Kaerast
-    image: alice_kaerast.png
-    role: Big Data Architect
+josh_mitchell:
+    name: Josh Mitchell
+    image: josh_mitchell.jpg
+    role: DevOps Engineer
     tribe: Data
-    bio: "Alice played a key role in building our Hadoop-based data platform as a DevOps Engineer, and now applies this engineering experience as an Architect as we continue to evolve our platform."
-    github: WheresAlice
+    bio: "Josh is a platform engineer in the Hadoop data team, and keeps our Cloudera cluster ticking over."
+
+dan_rooke:
+    name: Dan Rooke
+    image: dan_rooke.jpg
+    role: Solution Architect
+    tribe: Data
+    startDate: 18-10-2010
+    bio: "Dan has spent most of his SB&G career with the account team, managing traffic growth for that application of several orders of magnitude over a few years. Dan now acts as a Solution Architect for the team, with a specific interest in real-time event processing which he is persuing with a recent move to the Data Tribe."
+    interests: Event Processing, RabbitMQ, Kafka, Samza, Spark Streaming
 
 tom_scott:
     name: Tom Scott
@@ -70,23 +82,11 @@ tom_scott:
     tribe: Data
     bio: "Tom provided technical leadership for the SB&G Hadoop data team when he wasn't driving his family around in his minibus. After working in our cutting edge team till Nov 2015, he now works for Cloudera."
 
-andy_burgin:
-    name: Andy Burgin
-    image: andy_burgin.jpg
-    role: Senior DevOps Engineer
+rob_tuley:
+    name: Rob Tuley
+    image: rob_tuley.jpg
+    role: Head of Data Technology
     tribe: Data
-    bio: "When now organising Leeds DevOps, or conference speaking, Andy is improving our underlying Hadoop data platform."
-
-craig_andrews:
-    name: Craig Andrews
-    image: craig_andrews.jpg
-    role: Principal Engineer
-    tribe: Data
-    bio: "Craig was responsible for the Hadoop platform back in it's early days as we struggled with bash scripts gluing Hive queries together, and invented our Pidl Ruby DSL to resolve this problem."
-
-josh_mitchell:
-    name: Josh Mitchell
-    image: josh_mitchell.jpg
-    role: DevOps Engineer
-    tribe: Data
-    bio: "Josh is a platform engineer in the Hadoop data team, and keeps our Cloudera cluster ticking over."
+    startDate: 05-10-2011
+    bio: "Rob leads the engineering arm of the Data Tribe with teams working on data warehousing via Hadoop, real time data streaming, Informix & Oracle management, and infrastructure automation & platform tooling."
+    github: robtuley
