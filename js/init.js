@@ -45,7 +45,7 @@
             if (!!Elements.authors) {
                 (function() {
                     var showAll = function() {
-                        [].slice.call(document.querySelectorAll('section.author')).forEach(function(authorSection) {
+                        [].slice.call(document.querySelectorAll('.author-section')).forEach(function(authorSection) {
                             authorSection.classList.remove('hide');
                         });
                     };
@@ -59,7 +59,7 @@
                             window.location.hash = '';
                             Elements.body.setAttribute('name', hash);
                             el.setAttribute('name', null);
-                            el.parentNode.classList.remove('hide');
+                            el.parentNode.parentNode.classList.remove('hide');
                             window.location.hash = '#' + hash;
 
                             return true;

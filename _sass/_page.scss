@@ -110,6 +110,7 @@ aside {
         width: 100px;
         float: left;
         margin-right: 10px;
+        margin-bottom: $base-line;
     }
 
     header {
@@ -117,14 +118,18 @@ aside {
         h1 {
             font-size: 20px;
         }
-        h2 {
-            font-size: 14px;
-            border-bottom: none;
+        h4 {
             font-weight: 100;
         }
-        h1, h2 {
+        h1, h4{
             margin: 0;
             padding: 0;
+        }
+        p, ul {
+            margin: 0 0 $base-line/2;
+        }
+        p {
+            clear: left;
         }
     }
 
@@ -135,6 +140,7 @@ aside {
     }
 
     .author--interests {
+
         li {
             display: inline;
             font-family: $SkyRegular;
@@ -150,16 +156,60 @@ aside {
     }
     .author--rels {
         li {
-            width: 50%;
-            display: inline;
-            box-sizing: border-box;
+            margin-right: $base-line/2;
+
+            &:before {
+                margin-right: 6px;
+                font-size: 16px;
+            }
         }
 
         a {
             font-family: $SkyRegular;
         }
     }
+    h3 {
+        padding-top: $h3-line;
+        border-top: 1px solid $color-default;
+    }
 }
+
+.authors {
+    margin: $base-line 0;
+    box-sizing: border-box;
+
+    .author-section {
+        background: $color-whtrans;
+        padding: $base-line $base-line $base-line/2;
+        margin: 0 0 $base-line 0;
+        box-sizing: border-box;
+
+        .post {
+            padding: $base-line/2;
+            margin: $base-line 0;
+
+            h2 {
+                margin-top: 0;
+                margin-right: $base-line*2;
+            }
+            .date {
+                top: $base-line/2;
+                right: $base-line/2;
+                left: auto;
+            }
+
+            &:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        }
+        .image, .flex.cta {
+            display: none;
+        }
+    }
+}
+
 
 .flex {
     display: -webkit-box;
