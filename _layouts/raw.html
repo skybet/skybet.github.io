@@ -20,13 +20,20 @@ isArticle: false
         <div class="meet-author all">
             <h3>Meet the SBG team</h3>
 
-            <ul class="">
-                {% for keyedAuthor in site.data.authors %}
+            <ul>
+                {% for keyedAuthor in site.data.authors | sort: 'Name' %}
                 {% assign key = keyedAuthor[0] %}
                 {% assign author = keyedAuthor[1] %}
+                {% assign articles = (site.posts | where: "author",key %}
+                {% if articles != empty %}
 
-                {% if author.image %}
-                    <li class="author--image" title="{{author.name}}"><img src="/images/authors/{{ author.image }}"></li>
+                 {% if author.image %}
+                    <li class="author--image" title="{{author.name}}">
+                        <a href="/authors#{{ key }}">
+                            <img src="/images/authors/{{ author.image }}">
+                        </a>
+                    </li>
+                 {% endif %}
                 {% endif %}
 
                 {% endfor %}

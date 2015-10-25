@@ -9,19 +9,13 @@ className:  authors
 isArticle:  false
 ---
 
-<header><h1>{{ page.title }}</h1></header>
-
 {% for keyedAuthor in site.data.authors %}
 {% assign key = keyedAuthor[0] %}
 {% assign author = keyedAuthor[1] %}
 {% assign articles = (site.posts | where: "author",key %}
 
 {% if articles != empty %}
-{% include author.html %}
-<h4>Articles by {{ author.name | truncatewords:1,"" }}</h4>
-{% for post in articles %}
- {% include postSummary.html %}
-{% endfor %}
+ {% include author.html %}
 {% endif %}
 
 {% endfor %}

@@ -1,34 +1,39 @@
-<a name="{{ key }}">
-    <section class="author">
-        {% if author.image %}
-        <img class="author--image" src="/images/authors/{{ author.image }}">
+<section class="author  {% if page.className == 'authors' %}hide{% endif %}">
+    <a name="{{ key }}"></a>
+    {% if author.image %}
+    <img class="author--image" src="/images/authors/{{ author.image }}">
+    {% endif %}
+
+    <header>
+        <h1>{{ author.name }}</h1>
+        <h2>{{ author.role }} · {{ author.tribe }} Tribe</h2>
+        {% if author.startDate %}
+        <h2>Working at Sky Betting &amp; Gaming since {{ author.startDate | date: '%Y' }}</h2>
         {% endif %}
 
-        <header>
-            <h1>{{ author.name }}</h1>
-            <h2>{{ author.role }} · {{ author.tribe }} Tribe</h2>
-            {% if author.startDate %}
-            <h2>Working at Sky Betting &amp; Gaming since {{ author.startDate | date: '%Y' }}</h2>
-            {% endif %}
+        <p class="bio">{{ author.bio }}</p>
 
-            <p class="bio">{{ author.bio }}</p>
-
-            {% if author.interests %}
-            <ul class="author--interests fa fa-heart">
-                {% assign interests=author.interests | split:"," %}
-                {% for interest in interests %}
-                <li>{{ interest }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </header>
-
-
-        {% if author.twitter or author.github %}
-        <ul class="author--rels">
-            {% if author.twitter %}<li class="fa fa-twitter"><a class="author--rels--twitter" href="https://twitter.com/{{ author.twitter }}" rel="author">{{ author.twitter }}</a></li>{% endif %}
-            {% if author.github %}<li class="fa fa-github-alt"><a class="author--rels--github" href="https://github.com/{{ author.github }}" rel="author">{{ author.github }}</a></li>{% endif %}
+        {% if author.interests %}
+        <ul class="author--interests fa fa-heart">
+            {% assign interests=author.interests | split:"," %}
+            {% for interest in interests %}
+            <li>{{ interest }}</li>
+            {% endfor %}
         </ul>
         {% endif %}
-    </section>
-</a>
+    </header>
+
+    {% if author.twitter or author.github %}
+    <ul class="author--rels">
+        {% if author.twitter %}<li class="fa fa-twitter"><a class="author--rels--twitter" href="https://twitter.com/{{ author.twitter }}" rel="author">{{ author.twitter }}</a></li>{% endif %}
+        {% if author.github %}<li class="fa fa-github-alt"><a class="author--rels--github" href="https://github.com/{{ author.github }}" rel="author">{{ author.github }}</a></li>{% endif %}
+    </ul>
+    {% endif %}
+
+    {% if page.className == 'authors' %}
+    <h4>Articles by {{ author.name | truncatewords:1,"" }}</h4>
+    {% for post in articles %}
+     {% include postSummary.html %}
+    {% endfor %}
+    {% endif %}
+</section>
