@@ -5,33 +5,23 @@ summary:    Here are the people who have written the articles.
 nav:        false
 nav_title:  Authors
 nav_weight: 2
+className:  authors
+isArticle:  false
 ---
 
-<section class="grid-xs-s-1-1 grid-m-xl-2-3 authors">
+<header><h1>{{ page.title }}</h1></header>
 
-    <header><h1>{{ page.title }}</h1></header>
+{% for keyedAuthor in site.data.authors %}
+{% assign key = keyedAuthor[0] %}
+{% assign author = keyedAuthor[1] %}
+{% assign articles = (site.posts | where: "author",key %}
 
-    {% for keyedAuthor in site.data.authors %}
-    {% assign key = keyedAuthor[0] %}
-    {% assign author = keyedAuthor[1] %}
-    {% assign articles = (site.posts | where: "author",key %}
+{% if articles != empty %}
+{% include author.html %}
+<h4>Articles by {{ author.name | truncatewords:1,"" }}</h4>
+{% for post in articles %}
+ {% include postSummary.html %}
+{% endfor %}
+{% endif %}
 
-    {% if articles != empty %}
-    {% include author.html %}
-    <h4>Articles by {{ author.name | truncatewords:1,"" }}</h4>
-    {% for post in articles %}
-     {% include postSummary.html %}
-    {% endfor %}
-    {% endif %}
-
-    {% endfor %}
-</section>
-
-<aside class="grid-xs-s-1-1 grid-m-xl-1-3">
-
-    <div class="twitter hide-xs-s">
-        <a class="twitter-timeline" href="https://twitter.com/EngineersSkyBG" data-widget-id="650399762827624448" data-chrome="transparent" data-tweet-limit="3">Tweets by @EngineersSkyBG</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-        </script>
-    </div>
-</aside>
+{% endfor %}
