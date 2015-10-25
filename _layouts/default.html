@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 {% include head.html %}
-<body {% if page.isArticle %}class="headFixed"{% endif %}>
+<body {% if page.fixedHeader == true %}class="headFixed"{% endif %}>
  {% include nav.html %}
  {{ content }}
 

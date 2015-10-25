@@ -13,7 +13,7 @@ body {
     font-family: $SkyRegular;
 
     &.headFixed {
-        article.grid {
+        article.grid, main {
             padding-top: 90px;
         }
     }

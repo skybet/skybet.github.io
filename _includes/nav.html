@@ -1,5 +1,5 @@
 <header class="page">
-    {% if page.isArticle == false %}
+    {% if page.fixedHeader != true %}
     <div class="grid">
         <div class="grid-1-1 page-title">
             <a href="/">
@@ -11,7 +11,7 @@
     </div>
     {% endif %}
 
-    <div class="sticky{% if page.isArticle %} headFixed{% endif %}">
+    <div class="sticky{% if page.fixedHeader %} headFixed{% endif %}">
         <div class="grid">
             <nav class="grid-xs-s-1-2 grid-m-xl-1-2 btnNavLarge">
             {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
