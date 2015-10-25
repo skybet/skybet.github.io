@@ -27,7 +27,11 @@
         {% if post.author %}
         <div class="author flex-item">
             <header>Author:</header>
-            <p>{{ author.name }}</p>
+            <p>
+                {% if page.className != 'authors' %}<a href="/authors#{{ post.author }}">{% endif %}
+                    {{ author.name }}
+                {% if page.className != 'authors' %}</a>{% endif %}
+            </p>
         </div>
         {% endif %}
         {% if post.category %}

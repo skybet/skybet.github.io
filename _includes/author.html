@@ -1,12 +1,19 @@
 <section class="author">
     <a name="{{ key }}"></a>
     {% if author.image %}
-    <img class="author--image" src="/images/authors/{{ author.image }}">
+     {% if page.className != 'authors' %}<a href="/authors#{{ key }}">{% endif %}
+         <img class="author--image" src="/images/authors/{{ author.image }}">
+     {% if page.className != 'authors' %}</a>{% endif %}
     {% endif %}
 
     <header>
-        <h1>{{ author.name }}</h1>
+        <h1>
+            {% if page.className != 'authors' %}<a href="/authors#{{ key }}">{% endif %}
+                {{ author.name }}
+            {% if page.className != 'authors' %}</a>{% endif %}
+        </h1>
         <h4>{{ author.role }} · {{ author.tribe }} Tribe</h4>
+
         {% if author.startDate %}
         <h4>Working at Sky Betting &amp; Gaming since {{ author.startDate | date: '%Y' }}</h4>
         {% endif %}
