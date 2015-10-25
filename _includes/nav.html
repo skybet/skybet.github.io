@@ -53,7 +53,7 @@
 
 
             <div class="grid-xs-s-1-2 grid-m-xl-1-2 social hide-xs">
-                <ul class="social--list">
+                <ul class="social-list">
                     {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
                     {% for node in nav %}
                         <div class="{{node.nav_class}} hide slide-right">
@@ -71,7 +71,7 @@
             </div>
 
             <div class="grid-xs-s-1-1 social hide hide-s-xl mobile-menu">
-                <ul class="social--list">
+                <ul class="social-list">
                     {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
                     {% for node in nav %}
                         <div class="{{node.nav_class}} hide slide-right">
