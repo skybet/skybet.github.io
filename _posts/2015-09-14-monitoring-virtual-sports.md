@@ -43,7 +43,9 @@ So here's a plan of attack:
 
 Checking the FFmpeg docs reveals that step 1 is pretty easy!
 
-    ▶ ffmpeg -i rtmp://streamurl -r 1 frames/%04d-frame.png
+``` bash
+▶ ffmpeg -i rtmp://streamurl -r 1 frames/%04d-frame.png
+```
 
 That will consume the stream at `rtmp://streamurl` and output it as one PNG per second.
 
@@ -51,8 +53,10 @@ Step 3 is pretty easy too. On a manually cropped, cleaned and resized frame from
 
 ![Cropped and cleaned time](/images/virtual-horses-1506.png)
 
-    ▶ tesseract horses-1506-region2.png stdout
-    15:06
+``` bash
+▶ tesseract horses-1506-region2.png stdout
+15:06
+```
 
 That still leaves steps 2 and 4; but we've got a proof of concept for the difficult bits already.
 Most general purpose programming languages should be able to handle the remaining steps
@@ -223,13 +227,17 @@ func validTime(c string) bool {
 
 That should be everything! Building a Go package is as simple as:
 
-    ▶ go build
+``` bash
+▶ go build
+```
 
 Running the resulting binary and issuing a quick check with curl confirms that everything
 is working as intended!
 
-    ▶ curl http://localhost:1234/
-    {"Time":"13:06"}
+``` bash
+▶ curl http://localhost:1234/
+{"Time":"13:06"}
+```
 
 From here we could easily write a simple Nagios check (or similar) to set off an alarm when that time
 doesn't look right.

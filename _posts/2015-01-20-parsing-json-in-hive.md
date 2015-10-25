@@ -14,7 +14,7 @@ In the Sky Betting & Gaming data team we were recently asked to keep records of 
 
 We start with the simplest possible approach: we do nothing. As mentioned above Hive has the ability to parse JSON at query time via UDFs so why not store the JSON in a simple string column and parse it as necessary?
 
-``` js
+``` sql
 SELECT get_json_object(business_events_raw.json,$.event_date) event_date,
   get_json_object(business_events_raw.json,$.event_Type) event_type
 ```
@@ -28,7 +28,7 @@ The disadvantage to this approach is pretty obvious, Hive will need to parse the
 Let's say that performance is a primary concern and that we have a well-defined JSON structure that is unlikely to change. In this case the query time parsing approach is very inefficient but but we can still use the UDFs at the point of data insertion to create Hive columns from JSON fields. In particular the `get_json_object` UDF is designed to parse a JSON string and return fields. It takes two arguments, a column containing the raw JSON string and an argument detailing the field to be selected (dot notation where `$` is the root).
 At SB&G, we have a best practice to stage all raw data that is ingested into the data warehouse before unstaging it into more useful table structures. In this case the raw JSON is staged into a table in string format and then unstaged using the `get_json_object` UDF into a destination table. The example for this is very similar to the query above except that it inserts the results into a separate table rather than displaying them to the user. This means this query only need be run once and subsequent selects can be done from the destination table:
 
-``` js
+``` sql
 INSERT INTO TABLE destination_table
   SELECT get_json_object(business_events_raw.json,$.event_date) event_date,
          get_json_object(business_events_raw.json,$.event_type) event_type
@@ -44,7 +44,7 @@ However, from a performance perspective this approach is still not optimal. For 
 
 Hive provides a solution to the `get_json_object` parsing issue in the other JSON related UDF, `json_tuple`. The `json_tuple` UDF is designed to be combined with LATERAL VIEW to parse a JSON structure only once and emit one or more columns. The syntax for this looks like the below:
 
-``` js
+``` sql
 INSERT INTO TABLE destination_table
   SELECT LATERAL VIEW json_tuple(business_events_raw.json, 'event_type', 'event_date')
   as event_type, event_date
@@ -57,7 +57,7 @@ You may have noticed that this does not use the same notation as `get_json_objec
 
 The final method of JSON parsing within Hive described here is to use a SerDe. SerDe is short for serializer/deserializer and they control conversion of data formats between HDFS and Hive. Using a SerDe data can be stored in JSON format in HDFS and be automatically parsed for use in Hive. A SerDe is defined in the `CREATE TABLE` statement and must include the schema for the JSON structures to be used. The example used in the previous sections would look like:
 
-``` js
+``` sql
 CREATE TABLE business_events (
   event_type string,
   event_date string
@@ -66,7 +66,7 @@ CREATE TABLE business_events (
 
 Nested fields can easily be added too:
 
-``` js
+``` sql
 CREATE TABLE business_events (
   event_type string,
   event_date string,
@@ -77,7 +77,7 @@ CREATE TABLE business_events (
 
 Once the table has been created data can be added in the usual way and queried using the JSON field names, nested fields can be queried using dot notation as below:
 
-``` js
+``` sql
 SELECT event_date, event_type, user.first_name, user.last_name
   FROM json_serde
 ```
@@ -90,7 +90,7 @@ However, it is the data conversion that raises the main disadvantage with using 
 
 It is often the case (particularly with things like log/business events) stored in JSON that certain fields of the JSON structure are regularly queried against but others are not. To keep with the business event example your structure may look something like this:
 
-``` js
+``` javascript
 { "event_type": "login",
   "event_date": "2014-12-01 00:00:00",
   "session_id": "12345678" }
