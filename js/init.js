@@ -42,6 +42,11 @@
                     Elements.menu.classList.toggle('trigger--active');
                 }, false);
             }
+
+            if(typeof Function === typeof svg4everybody) {
+                svg4everybody();
+            }
+
         }, readyIe = function() {
             if ('complete' === st) {
                 readyFn();

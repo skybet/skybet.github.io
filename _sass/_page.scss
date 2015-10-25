@@ -7,19 +7,7 @@ body {
     color: darken($color-default, 10%);
     background-image: url('/images/bg/page-bg.png');
     background-position: top center;
-    -ms-box-orient: horizontal;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: flex;
-
-    min-height: 100vh;
     overflow-x: hidden;
-
     font-size: 16px;
     line-height: 24px;
     font-family: $SkyRegular;
@@ -71,11 +59,6 @@ body {
 main, article {
     margin: 0 auto;
     box-sizing: border-box;
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
     width: 100%;
 
     img {
