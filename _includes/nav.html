@@ -53,17 +53,17 @@
 
 
             <div class="grid-xs-s-1-2 grid-m-xl-1-2 social hide-xs">
+                {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
+                {% for node in nav %}
+                    <div class="{{node.nav_class}} hide slide-right">
+                        {% if page.url == node.url %}
+                            <a href="{{node.url}}" class="btn btn--primary current">{{node.nav_title}}</a>
+                        {% else %}
+                            <a href="{{node.url}}" class="btn btn--primary {{node.nav_class}}">{{node.nav_title}}</a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
                 <ul class="social-list">
-                    {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
-                    {% for node in nav %}
-                        <div class="{{node.nav_class}} hide slide-right">
-                            {% if page.url == node.url %}
-                                <a href="{{node.url}}" class="btn btn--primary current">{{node.nav_title}}</a>
-                            {% else %}
-                                <a href="{{node.url}}" class="btn btn--primary {{node.nav_class}}">{{node.nav_title}}</a>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
                     <li><a class="fa fa-twitter" href="https://twitter.com/SBGEngineers"></a></li>
                     <li><a class="fa fa-github-alt" href="https://github.com/skybet"></a></li>
                     <li><a class="fa fa-linkedin" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
