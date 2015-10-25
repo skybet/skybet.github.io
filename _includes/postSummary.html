@@ -18,7 +18,9 @@
     <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
 
     {% if post.image %}
-    <div class="image" style="background-image: url('/images/{{ post.image }}');"></div>
+    <div class="image" style="background-image: url('/images/{{ post.image }}');">
+        <a href="{{ post.url }}"></a>
+    </div>
     {% endif %}
 
     <p>{{ post.summary }}</p>
