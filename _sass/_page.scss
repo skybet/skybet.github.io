@@ -88,6 +88,10 @@ aside {
             border-bottom: 1px solid $color-default;
             padding-bottom: 10px;
         }
+
+        h2 a, h3 a {
+            text-decoration: none;
+        }
     }
     @include media-query(xs-s) {
         .meet-author {

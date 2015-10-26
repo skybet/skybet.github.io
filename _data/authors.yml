@@ -3,7 +3,7 @@ craig_andrews:
     image: craig_andrews.jpg
     role: Principal Engineer
     tribe: Data
-    bio: "Craig was responsible for the Hadoop platform back in it's early days as we struggled with bash scripts gluing Hive queries together, and invented our Pidl Ruby DSL to resolve this problem."
+    bio: "Craig was responsible for the Hadoop platform back in its early days as we struggled with bash scripts gluing Hive queries together, and invented our Pidl Ruby DSL to resolve this problem."
 
 andy_burgin:
     name: Andy Burgin
@@ -72,7 +72,7 @@ dan_rooke:
     role: Solution Architect
     tribe: Data
     startDate: 18-10-2010
-    bio: "Dan has spent most of his SB&G career with the account team, managing traffic growth for that application of several orders of magnitude over a few years. Dan now acts as a Solution Architect for the team, with a specific interest in real-time event processing which he is persuing with a recent move to the Data Tribe."
+    bio: "Dan has spent most of his SB&G career with the account team, managing traffic growth for that application of several orders of magnitude over a few years. Dan now acts as a Solution Architect for the team, with a specific interest in real-time event processing which he is pursuing with a recent move to the Data Tribe."
     interests: Event Processing, RabbitMQ, Kafka, Samza, Spark Streaming
 
 tom_scott:
