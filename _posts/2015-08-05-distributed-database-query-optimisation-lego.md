@@ -13,7 +13,9 @@ Our Head of Data Technology Rob Tuley recently gave a presentation on how data i
 
 Take a bucket of bricks and pour them onto tables, one table for each Hadoop cluster depending on number of people and bricks. Assign an individual to be the end-user querying the cluster. The rest of the team are worker daemons and assigned the task of running the following SQL query:
 
-    SELECT round_dot FROM lego_bricks WHERE color='orange' LIMIT 30;
+```sql
+SELECT round_dot FROM lego_bricks WHERE color='orange' LIMIT 30;
+```
 
 This will take a while, and already we notice interesting things around data locality and idle workers; piles of coloured bricks start appearing which not everybody can reach easily, so they start moving around instead of passing bricks to their neighbouring workers. The room layout means the end-user is closer to one table of developers than the other, we suggest this is a problem with the network configuration and get people to move.
 
@@ -33,7 +35,7 @@ After computing stats, we have somebody insert a couple of records on each clust
 
 ![Lego Metastore](/images/lego-metastore.jpg)
 
-We can demonstrate that `SELECT *` is less efficient as selecting specific columns. Instead of picking individual columns from baseplates, we have to take all of the columns from the baseplates and put them back together in a more row-orientated format. We suggested everybody go away and play with the parquet-tools commandline tool to better understand this and the parquet format in general.
+We can demonstrate that ```SELECT *``` is less efficient as selecting specific columns. Instead of picking individual columns from baseplates, we have to take all of the columns from the baseplates and put them back together in a more row-orientated format. We suggested everybody go away and play with the parquet-tools commandline tool to better understand this and the parquet format in general.
 
 So we've learnt that partitions, parquet file format and stats make a huge difference to how queries run and we've had fun in doing it. Hopefully we've inspired the team to think a little more about how data is arranged in Hadoop, and given them some Lego to play with during break times.
 

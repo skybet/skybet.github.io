@@ -12,7 +12,7 @@ At Sky Betting & Gaming we make extensive use of Chef searches throughout our re
 
 The traditional way to do this is like this:
 
-```rb
+```ruby
 result = search(:node, 'role:common')
 ```
 
@@ -20,7 +20,7 @@ This executes a Chef search during the compile phase of the Chef run, which invo
 
 Chef introduced partial search to help with this, which allows you to specify a filter server-side so that you're not throwing huge json blobs over the network the whole time. This looks like so:
 
-```rb
+```ruby
 filter = {
             :rows   =>  1000,
             :filter_result   =>  {
@@ -37,7 +37,7 @@ Subsequent searches during compile or execution are filled from the `node.run_st
 
 The same query with `global_search` looks like this:
 
-```rb
+```ruby
 chef-shell> include_recipe "sbg_global_search"
 chef-shell> result = get_role_member_hostnames('common')
 ['host-a','host-b','host-c']
@@ -48,7 +48,7 @@ We can also search across Organizations. To do this, you will need to add a clie
 
 To search another Organization:
 
-```rb
+```ruby
 node.default['sbg_global_search']['search']['myorg']['endpoint'] = 'http://yourchefserver/organizations/myorg'
 node.default['sbg_global_search']['search']['myorg']]['search_key'] = 'Client key content'
 chef-shell> include_recipe "sbg_global_search"
@@ -61,22 +61,22 @@ The cookbook is [available on github.com](https://github.com/skybet/global_searc
 
 ### Functions
 
-```rb
+```ruby
 get_environment_nodes(env=node.chef_environment.downcase)
 ```
 Returns a hash of node FQDNs and attributes from the node.run_state cache. Optional, return nodes from alternate Organization env
 
-```rb
+```ruby
 get_role_member_hostnames(role, env=node.chef_environment.downcase)
 ```
 Returns an array of node names where node has role on the run_list. Optional, return nodes from alternate Organization env
 
-```rb
+```ruby
 get_role_member_ips(role, env=node.chef_environment.downcase)
 ```
 Returns an array of ipaddresses for each node that has role on the run_list. Optional, return nodes from alternate Organization env
 
-```rb
+```ruby
 get_role_member_fqdns(role, env=node.chef_environment.downcase)
 ```
 Returns an array of fqdns for each node that has role on the run_list. Optional, return nodes from alternate Organization env
