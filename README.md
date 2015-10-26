@@ -49,7 +49,7 @@ For the `author` key, if you have not posted before, you should create a corresp
         twitter: optional_twitter_handle
         github: optional_github_account
 
-Again, add the author's image to the `images` directory with the same filename as referenced within the author definition: all author information will be included into each of the appropriate posts made by the author, as per `_includes/author.html`.
+Again, add the author's image to the `images/authors` directory with the same filename as referenced within the author definition, and make sure it's 100x100 pixels: all author information will be included into each of the appropriate posts made by the author, as per `_includes/author.html`.
 
 ### Rendering the Site Locally
 
