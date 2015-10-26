@@ -39,7 +39,7 @@
 
 
     {% if page.className == 'authors' %}
-    <h3>Articles by {{ author.name | truncatewords:1,"" }}</h3>
+    <h3 class="author-articles">Articles by {{ author.name | truncatewords:1,"" }}</h3>
     {% for post in articles %}
      {% include postSummary.html %}
     {% endfor %}

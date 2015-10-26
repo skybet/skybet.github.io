@@ -64,6 +64,13 @@ main, article {
     img {
         width: 100%;
     }
+    a {
+        color: $color-default;
+
+        &:hover {
+            color: darken($color-default, 20%);
+        }
+    }
 }
 
 aside {
@@ -168,7 +175,7 @@ aside {
             font-family: $SkyRegular;
         }
     }
-    h3 {
+    h3.author-articles {
         padding-top: $h3-line;
         border-top: 1px solid $color-default;
     }
@@ -204,8 +211,31 @@ aside {
                 clear: both;
             }
         }
-        .image, .flex.cta {
+        .image {
             display: none;
+        }
+        .flex.cta {
+            border: none;
+            margin: 0;
+
+            .author, .read {
+                display: none;
+            }
+            .categories {
+                background-color: $color-highlight;
+                border-radius: 3px;
+                padding: $base-line/4 $base-line/2;
+                -webkit-box-flex: none;
+                -webkit-flex: none;
+                -ms-flex: none;
+                flex: none;
+                border: none;
+                width: auto;
+
+                header {
+                    display: none;
+                }
+            }
         }
     }
 }
