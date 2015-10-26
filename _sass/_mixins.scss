@@ -44,12 +44,3 @@
     0% {transform: translateY(0);}
     100% {transform: translateY(100%);}
 }
-
-@-webkit-keyframes animUp {
-    0% {transform: translateY(100%);}
-    100% {transform: translateY(0);}
-}
-@keyframes animUp {
-    0% {transform: translateY(100%);}
-    100% {transform: translateY(0);}
-}

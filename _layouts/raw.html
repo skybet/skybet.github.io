@@ -16,25 +16,34 @@ isArticle: false
             <p>...we bring the excitement of Sports Betting, Casino Games, Poker and Bingo to millions of customers in the UK. We are a modern technology-led company with a 200+ strong engineering team based in Leeds and Sheffield working in small autonomous service teams.</p>
         </div>
 
+        {% if page.className != 'authors' %}
         <div class="meet-author all">
             <h3>Meet the SBG team</h3>
 
-            <ul class="">
+            <ul>
             {% for keyedAuthor in site.data.authors %}
-            {% assign key = keyedAuthor[0] %}
-            {% assign author = keyedAuthor[1] %}
+             {% assign key = keyedAuthor[0] %}
+             {% assign author = keyedAuthor[1] %}
+             {% assign articles = (site.posts | where: "author",key %}
+             {% if articles != empty %}
 
-            {% if author.image %}
-                <li class="author--image" title="{{author.name}}"><img src="/images/authors/{{ author.image }}"></li>
-            {% endif %}
-
+              {% if author.image %}
+                  <li class="author--image" title="{{author.name}}">
+                      <a href="/authors#{{ key }}">
+                          <img src="/images/authors/{{ author.image }}">
+                      </a>
+                  </li>
+              {% endif %}
+             {% endif %}
             {% endfor %}
-          </ul>
-      </div>
+            </ul>
+        </div>
+        {% endif %}
 
-      <div class="twitter hide-xs-s">
+        <div class="twitter hide-xs-s">
             <a class="twitter-timeline" href="https://twitter.com/SBGEngineers" data-widget-id="650399762827624448" data-chrome="transparent" data-tweet-limit="3">Tweets by @SBGEngineers</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            <script>
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
             </script>
         </div>
     </aside>

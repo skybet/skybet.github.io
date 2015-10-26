@@ -1,28 +1,33 @@
-<a name="{{ key }}">
-    <section class="author">
-        {% if author.image %}
-        <img class="author--image" src="/images/authors/{{ author.image }}">
+<section class="author">
+    <a name="{{ key }}"></a>
+    {% if author.image %}
+     {% if page.className != 'authors' %}<a href="/authors#{{ key }}">{% endif %}
+         <img class="author--image" src="/images/authors/{{ author.image }}">
+     {% if page.className != 'authors' %}</a>{% endif %}
+    {% endif %}
+
+    <header>
+        <h1>
+            {% if page.className != 'authors' %}<a href="/authors#{{ key }}">{% endif %}
+                {{ author.name }}
+            {% if page.className != 'authors' %}</a>{% endif %}
+        </h1>
+        <h4>{{ author.role }} · {{ author.tribe }} Tribe</h4>
+
+        {% if author.startDate %}
+        <h4>Working at Sky Betting &amp; Gaming since {{ author.startDate | date: '%Y' }}</h4>
         {% endif %}
 
-        <header>
-            <h1>{{ author.name }}</h1>
-            <h2>{{ author.role }} · {{ author.tribe }} Tribe</h2>
-            {% if author.startDate %}
-            <h2>Working at Sky Betting &amp; Gaming since {{ author.startDate | date: '%Y' }}</h2>
-            {% endif %}
+        <p class="bio">{{ author.bio }}</p>
 
-            <p class="bio">{{ author.bio }}</p>
-
-            {% if author.interests %}
-            <ul class="author--interests fa fa-heart">
-                {% assign interests=author.interests | split:"," %}
-                {% for interest in interests %}
-                <li>{{ interest }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </header>
-
+        {% if author.interests %}
+        <ul class="author--interests fa fa-heart">
+            {% assign interests=author.interests | split:"," %}
+            {% for interest in interests %}
+            <li>{{ interest }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
 
         {% if author.twitter or author.github %}
         <ul class="author--rels">
@@ -30,5 +35,13 @@
             {% if author.github %}<li class="fa fa-github-alt"><a class="author--rels--github" href="https://github.com/{{ author.github }}" rel="author">{{ author.github }}</a></li>{% endif %}
         </ul>
         {% endif %}
-    </section>
-</a>
+    </header>
+
+
+    {% if page.className == 'authors' %}
+    <h3 class="author-articles">Articles by {{ author.name | truncatewords:1,"" }}</h3>
+    {% for post in articles %}
+     {% include postSummary.html %}
+    {% endfor %}
+    {% endif %}
+</section>
