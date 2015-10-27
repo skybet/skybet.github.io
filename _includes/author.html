@@ -2,7 +2,7 @@
     <a name="{{ key }}"></a>
     {% if author.image %}
      {% if page.className != 'authors' %}<a href="/authors#{{ key }}">{% endif %}
-         <img class="author--image" src="/images/authors/{{ author.image }}">
+         <img class="author--image" src="/images/authors/{{ author.image }}" alt="{{ author.name }}">
      {% if page.className != 'authors' %}</a>{% endif %}
     {% endif %}
 

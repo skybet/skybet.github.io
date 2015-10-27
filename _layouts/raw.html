@@ -30,7 +30,7 @@ isArticle: false
               {% if author.image %}
                   <li class="author--image" title="{{author.name}}">
                       <a href="/authors#{{ key }}">
-                          <img src="/images/authors/{{ author.image }}">
+                          <img src="/images/authors/{{ author.image }}" alt="{{ author.name }}">
                       </a>
                   </li>
               {% endif %}
