@@ -90,3 +90,15 @@ rob_tuley:
     startDate: 05-10-2011
     bio: "Rob leads the engineering arm of the Data Tribe with teams working on data warehousing via Hadoop, real time data streaming, Informix & Oracle management, and infrastructure automation & platform tooling."
     github: robtuley
+
+colin_ameigh:
+    name: Colin Ameigh
+    image: colin_ameigh.jpg
+    role: Principal Engineer
+    tribe: Bet
+    startDate: 07-09-2012
+    bio: "TBD"
+    interests: Almost everything
+    twitter: medains
+    github: medains
+
