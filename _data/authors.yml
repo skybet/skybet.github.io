@@ -10,7 +10,7 @@ andy_burgin:
     image: andy_burgin.jpg
     role: Senior DevOps Engineer
     tribe: Data
-    bio: "When now organising Leeds DevOps, or conference speaking, Andy is improving our underlying Hadoop data platform."
+    bio: "When not organising Leeds DevOps, or conference speaking, Andy is improving our underlying Hadoop data platform."
 
 gav_harris:
     name: Gav Harris
@@ -90,3 +90,13 @@ rob_tuley:
     startDate: 05-10-2011
     bio: "Rob leads the engineering arm of the Data Tribe with teams working on data warehousing via Hadoop, real time data streaming, Informix & Oracle management, and infrastructure automation & platform tooling."
     github: robtuley
+
+glen_mailer:
+    name: Glen Mailer
+    image: glen_mailer.jpg
+    role: Software Engineer
+    tribe: International
+    bio: >
+        Sheffield-based generalist who loves programming and hates waste.
+    github: glenjamin
+    twitter: glenathan
