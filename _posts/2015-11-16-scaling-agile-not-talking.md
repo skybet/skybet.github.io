@@ -20,8 +20,7 @@ I'll also be giving this talk again at the upcoming [PHPem unconference](http://
 
 <!-- http://fettblog.eu/blog/2013/06/16/preserving-aspect-ratio-for-embedded-iframes/ -->
 <div style="position: relative; width: 100%; margin-bottom: 2em; height: 0; padding-bottom: 56.25%">
-<!-- TODO: skybet hosted video? -->
-<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" src="https://www.youtube.com/embed/ugbHDxw2gLc" frameborder="0" allowfullscreen></iframe>
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" src="https://www.youtube.com/embed/aGav01xfgZQ" frameborder="0" allowfullscreen></iframe>
 </div>
 
 The other two videos from that evening should be available in the coming weeks, and we also hope to host similar events in the future. Please let us know in the comments if you have any thoughts about what you'd like to see from us.
