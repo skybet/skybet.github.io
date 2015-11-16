@@ -1,6 +1,7 @@
 ---
 layout: default
 isArticle: false
+currentCalendar: https://www.eventbrite.co.uk/calendar-widget?eid=19420089009
 ---
 
 <main class="grid">
@@ -16,13 +17,13 @@ isArticle: false
             <p>...we bring the excitement of Sports Betting, Casino Games, Poker and Bingo to millions of customers in the UK. We are a modern technology-led company with a 200+ strong engineering team based in Leeds and Sheffield working in small autonomous service teams.</p>
         </div>
 
+        {% if page.currentCalendar %}
         <div class="events">
             <h2>Upcoming Events</h2>
-            <p>
-            We run regular Tech Talks from our offices in Leeds on many of the topics included in this blog.  Come along and hear about what we've been working on.
-            <div style="width:195px; text-align:center;" ><iframe  src="https://www.eventbrite.co.uk/calendar-widget?eid=19420089009" frameborder="0" height="461" width="195" marginheight="0" marginwidth="0" scrolling="no" allowtransparency="true"></iframe><div style="font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:195px; text-align:center;" ></div></div>
-            </p>
+            <p>We run regular Tech Talks from our offices in Leeds on many of the topics included in this blog.  Come along and hear about what we've been working on.</p>
+            <iframe class="calendar" src="{{ page.currentCalendar }}"></iframe>
         </div>
+        {% endif %}
 
         {% if page.className != 'authors' %}
         <div class="meet-author all">
