@@ -107,8 +107,7 @@ glen_mailer:
     image: glen_mailer.jpg
     role: Software Engineer
     tribe: International
-    bio: >
-        Sheffield-based generalist who loves programming and hates waste.
+    bio: Sheffield-based generalist who loves programming and hates waste.
     github: glenjamin
     twitter: glenathan
 
@@ -129,3 +128,13 @@ ian_thomas:
     interests: JS, React, CSS, HTML, Node
     github: anatomic
     twitter: anatomic
+
+ashley_broadley:
+    name: Ashley Broadley
+    image: ashley_broadley.jpg
+    role: Principal Engineer
+    tribe: Gaming
+    startDate: 06-02-2012
+    bio: "Ash leads the technical delivery for Sky Vegas, helping the business deliver 'All The Thrills of Vegas'"
+    github: ls12styler
+    twitter: ls12styler
