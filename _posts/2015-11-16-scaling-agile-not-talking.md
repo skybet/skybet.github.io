@@ -10,7 +10,7 @@ tags:       sheffield, agile, video
 author:     glen_mailer
 ---
 
-We've recently expanded out of our initialy Leeds-only operation into the neighbouring city of Sheffield. This worked out very well for me as I live in Sheffield and I think it's a great place to live and work.
+We've recently expanded out of our initially Leeds-only operation into the neighbouring city of Sheffield. This worked out very well for me as I live in Sheffield and I think it's a great place to live and work.
 
 We're also hoping that it'll be good for the rest of the local technology community, and decided to host an [event](http://www.eventbrite.co.uk/e/skybet-sheffield-tech-talk-tickets-18871318622) a couple of weeks ago so people could get to know us. Our evening of three technical talks seemed to go down pretty well with the locals - especially the free pizza and drinks.
 
