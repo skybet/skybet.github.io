@@ -92,6 +92,14 @@ aside {
         h2 a, h3 a {
             text-decoration: none;
         }
+
+        iframe.calendar {
+          border: 0;
+          height: $base-line * 18;
+          width: $base-line * 8;
+          margin: 0 auto;
+          display: block;
+        }
     }
     @include media-query(xs-s) {
         .meet-author {
