@@ -28,7 +28,7 @@ financeops, and infrastructureops too.  Or more pithy for the tech audience:
 ^(?<dept>.+)Ops$
 ```
 
-Building this into the culture of our organisation reduces the likelyhood of surprises.
+Building this into the culture of our organisation reduces the likelihood of surprises.
 For instance, a marketing push on a big acquisition channel is probably going to apply a
 sudden large spike of usage to our web hosts - with marketing aligned with an operations
 mindset, this usage spike would be expected and prepared for by engineers.
@@ -61,7 +61,7 @@ between them (our key dependency currently is a shared deployment pipeline), the
 in name only and suffer from the problems that plague large teams.
 
 Our delivery engineering team is currently focusing on removing the dependencies between teams so
-that we can become truely autonomous.
+that we can become truly autonomous.
 
 Examining success
 -----------------
@@ -73,7 +73,7 @@ was only just averted.
 
 Many of the tasks that are undertaken by the technical staff are in response to unintended and
 surprising consequences of automation, provide a reason for the counter-intuitive observation that
-despite automating "all the things" we need to hire more engineers, not less.
+despite automating "all the things" we need to hire more engineers, not fewer.
 
 We're going to be looking into more detail at our successful operations of our products at our
 regular squad retrospectives.
@@ -86,11 +86,18 @@ need to create some kind of alert on the metric that we are measuring.  But when
 to wake someone up at 2am?  Is it really necessary if a CPU is running hot?
 
 Separating monitoring into dashboards of performance metrics, and alerting systems that alarm on
-critical business metrics is an important distinction.   For instance, if out HTTP response time
+critical business metrics is an important distinction.   For instance, if our HTTP response time
 has jumped 20%, but login and bet placement continue without a drop, then the system is
 probably healthy;  though this may be a symptom of a heavyweight resource being added to our
 homepage by the content team.
 
 Our monitoring is already separated into dashboards of metrics and alerts generating alarms.  We
 are currently building further anomaly detection to improve the relevance of our alarms.
+
+In conclusion
+-------------
+
+Velocity Amsterdam this year was both fun and informative, despite some time spent queueing for the
+canal tour.  There was a lot to be learnt, and plenty to stimulate further discussion back at the
+office along with other snippets of a more practical nature that can be applied immediately.
 
