@@ -2,7 +2,7 @@
 layout:     post
 title:      Velocity Amsterdam 2015
 author:     colin_ameigh
-date:       2015-11-05 12:00:00
+date:       2015-11-18 12:00:00
 summary:    Velocity - Building performance
 image:      velocity-2015-hall.jpg
 category:   Velocity
@@ -37,12 +37,13 @@ There are many ways that operations culture can be built - from embedding the no
 into the technical teams (something we have tried before with little success, giving those embedded
 staff a sense of belonging to the technical team is not an easy task), to providing those
 departments with a "designated-ops" engineer who attends their meetings (we're going to
-borrow this approach from Etsy, thanks [Katherine](https://twitter.com/beerops) and [John](https://twitter.com/allspaw))
+trial this approach presented by Etsy, thanks [Katherine](https://twitter.com/beerops) and [John](https://twitter.com/allspaw))
 
 Shared dashboards of business metrics offers a clear view of the impact of changes in
 any department on the business, whether a code release, marketing campaign or infrastructure change.
 This is something that we do relatively well, with dashboards specifically focused on the key
-business metrics (bets placed per second).
+business metrics (bets placed per second), but there's always more to do to make them more useful
+across all teams within the business.
 
 
 Team size matters
@@ -74,6 +75,9 @@ Many of the tasks that are undertaken by the technical staff are in response to 
 surprising consequences of automation, provide a reason for the counter-intuitive observation that
 despite automating "all the things" we need to hire more engineers, not less.
 
+We're going to be looking into more detail at our successful operations of our products at our
+regular squad retrospectives.
+
 Alerts vs Dashboards
 --------------------
 
@@ -87,8 +91,6 @@ has jumped 20%, but login and bet placement continue without a drop, then the sy
 probably healthy;  though this may be a symptom of a heavyweight resource being added to our
 homepage by the content team.
 
-Human factors and operations psychology
----------------------------------------
-
-Tying into the earlier 'examining success' point.
+Our monitoring is already separated into dashboards of metrics and alerts generating alarms.  We
+are currently building further anomaly detection to improve the relevance of our alarms.
 
