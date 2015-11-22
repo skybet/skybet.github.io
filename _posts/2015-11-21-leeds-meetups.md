@@ -8,7 +8,7 @@ tags:       community, meetups, user groups
 author:     alice_kaerast
 ---
 
-Last week saw our own Tech Talks featuring big data, working in a startup, and a roundup of news from Amazon's Re:Invent.  And just this weekend is PHP East Midlands unconference.  Here's a look at what's happening around Leeds over the next week or so.
+Last week saw our own Tech Talks featuring big data, working in a startup, and a roundup of news from Amazon's Re:Invent.  And just this weekend was PHP East Midlands unconference.  Here's a look at what's happening around Leeds over the next week or so.
 
 * Tuesday 24th - [Leeds Devops](http://tmblr.co/ZdJfSq1xOBi9K) (sold out)
 * Tuesday 24th - [WordPress Leeds](https://www.eventbrite.co.uk/e/wordpress-leeds-november-tickets-19376611968)
