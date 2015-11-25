@@ -118,3 +118,14 @@ dan_adams:
     role: Web Application Security Specialist
     tribe: Infrastructure
     bio: "Dan is our go-to guy for any security-related questions, and works with our teams around the business to ensure we are running a secure platform"
+
+ian_thomas:
+    name: Ian Thomas
+    image: ian_thomas.jpg
+    role: Principal Engineer
+    tribe: Bet
+    bio: >
+        UI focused engineer with a passion for JS, UX and front-end performance.
+    interests: JS, React, Node, CSS, HTML, Node
+    github: anatomic
+    twitter: anatomic
