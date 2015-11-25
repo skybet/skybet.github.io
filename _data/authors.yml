@@ -111,3 +111,10 @@ glen_mailer:
         Sheffield-based generalist who loves programming and hates waste.
     github: glenjamin
     twitter: glenathan
+
+dan_adams:
+    name: Dan Adams
+    image: dan_adams.jpg
+    role: Web Application Security Specialist
+    tribe: Infrastructure
+    bio: "Dan is our go-to guy for any security-related questions, and works with our teams around the business to ensure we are running a secure platform"
