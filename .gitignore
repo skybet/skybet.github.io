@@ -2,3 +2,5 @@
 _site
 npm-debug.log
 .sass-cache
+.bundle
+vendor
