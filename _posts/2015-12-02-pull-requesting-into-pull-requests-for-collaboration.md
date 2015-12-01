@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Pull Requesting into Pull Requests for Collaboration
-date:       2015-12-01 09:00
+date:       2015-12-02 09:00
 image:      git-pr-workflow.svg
 summary:    Autonomy over development is great, but having no single project owner can bring its own problems.  One workflow to help with this is to pull request a pull request.
 category:   Workflow
