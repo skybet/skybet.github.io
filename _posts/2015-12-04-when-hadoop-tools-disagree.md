@@ -10,7 +10,7 @@ author:     alice_kaerast
 
 ![Graph of 8-year spike](/images/8yearspike.png)
 
-The above graph from our datawarehouse system was recently tweeted out, and got some amused responses about 2007 wanting its data back.  But there's actually a good story here, and a chance to look at Hadoop's dirty secrets.
+The above graph from our data warehouse system was recently tweeted out, and got some amused responses about 2007 wanting its data back.  But there's actually a good story here, and a chance to look at Hadoop's dirty secrets.
 
 ![Sawtooth graph](/images/sawtooth.png)
 
@@ -20,7 +20,7 @@ Picture if you will a graph showing the time between now and the last record to 
 
 But if we zoom in on that flat portion of the first graph, we don't see a nice clean sawtooth graph, it's actually rather jagged.  To explain that lets look at the process it's graphing.
 
-Data is [sqooped](http://sqoop.apache.org/) into HDFS from a standard RDBMS.  It's then processed in [Hive](http://hive.apache.org/), and finally we perform an insert overwrite into the production Hive table.  But this graph is generated using [Impala](http://impala.io/), the interface that our BI tool uses.  In order for Impala to know about changed data in a Hive table, you need to perform a refresh to update the catalog server's records.  Since the Impala refresh command is out of sync with the imports, we get a jagged sawtooth graph.
+Data is [sqooped](http://sqoop.apache.org/) into HDFS from a standard RDBMS; it's then processed in [Hive](http://hive.apache.org/), and finally we perform an insert overwrite into the production Hive table.  But this graph is generated using [Impala](http://impala.io/), the interface that our BI tool uses.  In order for Impala to know about changed data in a Hive table, you need to perform a refresh to update the catalog server's records.  Since the Impala refresh command is out of sync with the imports, we get a jagged sawtooth graph.
 
 But a few times a day you get something worse than that jagged sawtooth graph.  A few times a day the refresh command will run during the Hive import.  This causes bad things to happen.
 
@@ -28,7 +28,7 @@ Whilst the insert overwrite command in Hive is atomic as far as Hive clients are
 
 And this is the dirty secret.  Whilst you can read HDFS data using Hive, [Spark](http://spark.apache.org/), Impala, [Pig](http://pig.apache.org/), etc. Unless you're using the same tool as the writer, you're bound to hit this sort of problem pretty frequently.
 
-So how do we resolve it?
+#### So how do we resolve it?
 
 Well, the first and obvious option is to use a single tool.  Migrate all your pipelines to the same tool that your users read data through - Spark or Impala would be a good choice.  Except Spark is hard for end-users and BI tools to use, and Impala means lots of SQL which is hard to unit test.  Plus people in finance like SQL, whereas data scientists like [R](https://www.r-project.org/) and Spark.
 
