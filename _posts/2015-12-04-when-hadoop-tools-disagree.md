@@ -34,6 +34,10 @@ Well, the first and obvious option is to use a single tool.  Migrate all your pi
 
 The other option is to copy all of your data into a second storage location, using whatever tool the users use.  We're doing this in limited cases, and it comes with other benefits too.  For instance, queries over the past 12 months work well on [Parquet](http://parquet.apache.org/) files with large partitions whereas the regular moving in and out of small amounts of data works well with smaller partitions and [RCfiles](https://en.wikipedia.org/wiki/RCFile).
 
-In truth, neither of these options are perfect.  But a combination of the two is where we are planning on heading over the coming months.
+Cloudera have come up with [another option](http://blog.cloudera.com/blog/2015/11/how-to-ingest-and-query-fast-data-with-impala-without-kudu/) recently, a workflow involving views to flip between tables.  It largely depends on using Impala for both read and write, but could be extended to use a combination of tools if necessary.  It's a considerable amount of complication to what should be a simple process though.
 
-Of course there is a final option - only give your users access to data which isn't changing. Ie. yesterday's data.  But isn't the whole point of Hadoop that you can give more real-time access to all this wonderful data?
+Finally, if all we cared about was generating this graph then we could just emit the value when the pipeline runs.  There are cases where this makes sense, but users generally care about having the full data rather than a single graph.
+
+In truth, none of these options are perfect.  But a combination of them is where we are planning on heading over the coming months.
+
+Of course there is the option of doing nothing - only give your users access to data which isn't changing. Ie. yesterday's data.  But isn't the whole point of Hadoop that you can give more real-time access to all this wonderful data?
