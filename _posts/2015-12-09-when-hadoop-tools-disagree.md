@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      When Hadoop tools disagree with each other
-date:       2015-12-04 20:00
+date:       2015-12-09 12:00
 summary:    We recently saw an 8-year spike on one of our graphs recently.  It caused much amusement when it was tweeted out, but there's actually a good story behind this apparent 8-year lag in data processing.
 category:   Big Data
 tags:       support, hadoop
