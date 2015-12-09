@@ -3,6 +3,15 @@
 
     var st = document.readyState,
         readyHandlers = false,
+        running = false,
+        scrollFn = function() {
+            if (running) { return; }
+            running = true;
+            requestAnimationFrame(function() {
+                window.dispatchEvent(new CustomEvent('optimisedScroll'));
+                running = false;
+            });
+        },
         readyFn = function() {
             var isTouch = window.hasOwnProperty('ontouchstart') && window.ontouchstart,
                 Elements = {
@@ -20,7 +29,8 @@
                 Handler = isTouch ? 'touchstart' : 'click';
 
             if (!!Elements.title) {
-                window.addEventListener('scroll', function() {
+                window.addEventListener('scroll', scrollFn);
+                window.addEventListener('optimisedScroll', function() {
                     Positions.doc = window.scrollY;
 
                     if (Positions.doc >= Positions.sticky) {
