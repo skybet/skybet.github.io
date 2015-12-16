@@ -28,7 +28,7 @@ fixedHeader: true
                 </div>
                 {% if page.category %}
                 <span class="post--category">
-                    {{ page.category }}
+                    <a href="/{{ site.category_dir }}/{{ page.category }}">{{ page.category }}</a>
                 </span>
                 {% endif %}
             </header>
