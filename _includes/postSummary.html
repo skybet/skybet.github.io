@@ -39,7 +39,7 @@
         {% if post.category %}
         <div class="categories flex-item">
             <header>Category:</header>
-            <a href="/{{ site.category_dir }}/{{ post.category }}">{{ post.category }}</a>
+            <a href="{{ post.category | category_link }}">{{ post.category }}</a>
         </div>
         {% endif %}
         <div class="read flex-item">

@@ -199,31 +199,19 @@ module Jekyll
   # Adds some extra filters used during the category creation process.
   module Filters
 
-    # Outputs a list of categories as comma-separated <a> links. This is used
-    # to output the category list for each post on a category page.
+    # Outputs the correct href for a categories link
     #
-    #  +categories+ is the list of categories to format.
+    #  +category+ is the name of the category to find the link of.
     #
     # Returns string
-    def category_links(categories)
+    def category_link(category)
       base_dir = @context.registers[:site].config['category_dir']
-      categories = categories.sort!.map do |category|
-        category_dir = GenerateCategories.category_dir(base_dir, category)
-        # Make sure the category directory begins with a slash.
-        category_dir = "/#{category_dir}" unless category_dir =~ /^\//
-        "<a class='category' href='#{category_dir}/'>#{category}</a>"
-      end
-
-      case categories.length
-      when 0
-        ""
-      when 1
-        categories[0].to_s
-      else
-        categories.join(', ')
-      end
+      category_dir = GenerateCategories.category_dir(base_dir, category)
+      # Make sure the category directory begins with a slash.
+      category_dir = "/#{category_dir}" unless category_dir =~ /^\//
+      "<a class='category' href='#{category_dir}/'>#{category}</a>"
     end
-
+      
     # Outputs the post.date as formatted html, with hooks for CSS styling.
     #
     #  +date+ is the date object to format as HTML.
