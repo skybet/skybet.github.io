@@ -16,6 +16,21 @@ isArticle: false
             <p>...we bring the excitement of Sports Betting, Casino Games, Poker and Bingo to millions of customers in the UK. We are a modern technology-led company with a 200+ strong engineering team based in Leeds and Sheffield working in small autonomous service teams.</p>
         </div>
 
+        <div class="categories">
+            <h2>Categories</h2>
+            {% assign categories = site.categories | sort %}
+            <ul>
+            {% for category in categories %}
+                <li>
+                 <span class="tag">
+                    <a href="/{{ site.category_dir }}/{{ category | first }}">{{ category | first }} ({{ category | last | size }})</a>
+                 </span>
+                </li>
+            
+            {% endfor %}
+            </ul>
+        </div>
+
         {% if page.className != 'authors' %}
         <div class="meet-author all">
             <h3><a href="/authors/">Meet the SBG team</a></h3>

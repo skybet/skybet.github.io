@@ -93,14 +93,6 @@
         }
     }
 
-    .post--category {
-        background-color: $color-highlight;
-        border-radius: 3px;
-        padding: $base-line/4 $base-line/2;
-        display: inline-block;
-        margin-bottom: $base-line/2;
-    }
-
     .cta {
 
         div {
@@ -179,4 +171,21 @@
             }
         }
     }
+}
+
+.tag {
+    background-color: $color-highlight;
+    border-radius: 3px;
+    padding: $base-line/4 $base-line/2;
+    display: inline-block;
+    margin-bottom: $base-line/2;
+    text-transform:capitalize;
+    
+    a {
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }   
 }
