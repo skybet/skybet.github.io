@@ -1,6 +1,6 @@
 # encoding: utf-8
 #
-# Jekyll category page generator.
+# Modified version of Jekyll category page generator from:
 # http://recursive-design.com/projects/jekyll-plugins/
 #
 # Version: 0.2.4 (201210160037)
