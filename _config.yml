@@ -9,3 +9,5 @@ redcarpet:
     extensions: [smart]
 category_dir: "category"
 category_title_prefix: ""
+exclude:
+    [vendor]

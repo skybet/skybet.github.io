@@ -27,7 +27,7 @@ adam_hepton:
     role: Lead Engineer, Website Experience
     tribe: Bet
     startDate: 01-05-2015
-    bio : After almost ten years working in the education sector and contributing to key building blocks of the web such as the HTML 5 specification and jQuery, Adam joined Sky Betting &amp; Gaming, where he is passionate about ensuring the millions of users of Sky Bet have a pleasant experience regardless of what device or platform they are visiting from.   He and Tom Hudson were part of a group of people who initiated the trending topic &#x23;songsincode on Twitter in 2009.
+    bio : After almost ten years working in the education sector and contributing to key building blocks of the web such as the HTML 5 specification and jQuery, Adam joined Sky Betting &amp; Gaming, where he is passionate about ensuring the millions of users of Sky Bet have a pleasant experience regardless of what device or platform they are visiting from.   He and <a href="/authors#tom_hudson">Tom Hudson</a> were part of a group of people who initiated the trending topic &#x23;songsincode on Twitter in 2009.
     interests: JS, React, Node, CSS, HTML, Agile, Kanban, Delivery, People
     twitter: adamhepton
     github: adamhepton
@@ -91,6 +91,17 @@ rob_tuley:
     bio: "Rob leads the engineering arm of the Data Tribe with teams working on data warehousing via Hadoop, real time data streaming, Informix & Oracle management, and infrastructure automation & platform tooling."
     github: robtuley
 
+colin_ameigh:
+    name: Colin Ameigh
+    image: colin_ameigh.jpg
+    role: Principal Engineer
+    tribe: Bet
+    startDate: 07-09-2012
+    bio: "Generalist with no preferred language.  Has been building large scale, high availability systems since the last millenium"
+    interests: Almost everything
+    twitter: medains
+    github: medains
+
 glen_mailer:
     name: Glen Mailer
     image: glen_mailer.jpg
@@ -100,3 +111,21 @@ glen_mailer:
         Sheffield-based generalist who loves programming and hates waste.
     github: glenjamin
     twitter: glenathan
+
+dan_adams:
+    name: Dan Adams
+    image: dan_adams.jpg
+    role: Web Application Security Specialist
+    tribe: Infrastructure
+    bio: "Dan is our go-to guy for any security-related questions, and works with our teams around the business to ensure we are running a secure platform"
+
+ian_thomas:
+    name: Ian Thomas
+    image: ian_thomas.jpg
+    role: Principal Engineer
+    tribe: Bet
+    bio: >
+        UI focused engineer with a passion for JS, UX and front-end performance.
+    interests: JS, React, CSS, HTML, Node
+    github: anatomic
+    twitter: anatomic

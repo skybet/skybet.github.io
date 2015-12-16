@@ -32,13 +32,19 @@ isArticle: false
         </div>
 
         {% if page.className != 'authors' %}
+        {% capture authors %}
+          {% for keyedAuthor in site.data.authors %}
+            {{ keyedAuthor[0] }}
+          {% endfor %}
+        {% endcapture %}
+        {% assign sortedAuthors = authors | split: ' ' | sort %}
+
         <div class="meet-author all">
             <h3><a href="/authors/">Meet the SBG team</a></h3>
 
             <ul>
-            {% for keyedAuthor in site.data.authors %}
-             {% assign key = keyedAuthor[0] %}
-             {% assign author = keyedAuthor[1] %}
+            {% for key in sortedAuthors %}
+             {% assign author = site.data.authors[key] %}
              {% assign articles = (site.posts | where: "author",key %}
              {% if articles != empty %}
 

@@ -13,13 +13,13 @@ tags:       android, kanban, scrum, synchronisation, jira
 
 At Sky Betting & Gaming each of our squads use both a physical and a virtual [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) or [Kanban](https://en.wikipedia.org/wiki/Kanban_(development)) board. The physical boards are used for daily standups and act as an information radiator for the team and any interested stakeholders. The virtual boards are used for creating a unique reference for a story, adding detailed description information, for integrating with version control systems and code review tools and recently the historical workflow data contributes into our accounting systems. With two different boards it is easy to run into synchronisation issues.
 
-# Introducing...Board Assistant
+# Introducing... Board Assistant
 
 Board Assistant is an app which aims to help solve this problem and somewhat bridge the gap between the physical and virtual worlds. Using [NFC](https://en.wikipedia.org/wiki/Near_field_communication) tags on the physical board with the Board Assistant app provides an easy way to update a story's virtual status and assignee.
 
 A demo of how easy it is to update two tickets on both boards:
 
-[![Board Assistant Demo](/images/boardAssistantDemoPreview.png)](https://youtu.be/C5s-wQ0NiJI "Board Assistant Demo")
+[![Board Assistant Demo](/images/boardAssistantDemoPreview.png)](https://youtu.be/_SGyKn6HLwE "Board Assistant Demo")
 
 Quite nifty, I hope you agree!
 
