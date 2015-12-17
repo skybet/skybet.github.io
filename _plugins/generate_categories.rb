@@ -80,7 +80,7 @@ module Jekyll
         self.data['category']    = category
         # Set the title for this page.
         title_prefix             = site.config['category_title_prefix'] || 'Category: '
-        title_formatted        = "'" + category.capitalize + "'"
+        title_formatted        = "'" + category + "'"
         self.data['title']       = "#{title_prefix}#{title_formatted} Category"
         # Set the meta-description for this page.
         meta_description_prefix  = site.config['category_meta_description_prefix'] || 'Category: '
