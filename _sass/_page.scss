@@ -74,7 +74,7 @@ main, article {
 }
 
 aside {
-    .about, .meet-author, .twitter, .categories {
+    .about, .meet-author, .twitter{
         background: $color-whtrans;
         padding: 10px 20px;
         margin: $base-margin-top 0;
@@ -83,7 +83,7 @@ aside {
         @include media-query(xs-s) {
             margin: 0 0 $base-margin-top/2;
         }
- 
+
         h2 {
             border-bottom: 1px solid $color-default;
             padding-bottom: 10px;
@@ -112,18 +112,6 @@ aside {
             @include media-query(xs) {
                 width: 22%;
             }
-        }
-    }
-
-    .categories {
-        ul {
-            margin-left: 0;
-            li {
-                list-style-type: none;
-                margin: 4px;
-                display: inline;
-            }
-
         }
     }
 }
