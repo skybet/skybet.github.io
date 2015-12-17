@@ -23,7 +23,7 @@ isArticle: false
             {% for category in categories %}
                 <li>
                  <span class="tag">
-                    <a href="{{ category | first | category_link }}">{{ category | first }} ({{ category | last | size }})</a>
+                    <a href="{{ category | first | category_slug }}">{{ category | first }} ({{ category | last | size }})</a>
                  </span>
                 </li>
             {% endfor %}

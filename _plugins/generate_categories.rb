@@ -204,12 +204,12 @@ module Jekyll
     #  +category+ is the name of the category to find the link of.
     #
     # Returns string
-    def category_link(category)
+    def category_slug(category)
       base_dir = @context.registers[:site].config['category_dir']
       category_dir = GenerateCategories.category_dir(base_dir, category)
       # Make sure the category directory begins with a slash.
       category_dir = "/#{category_dir}" unless category_dir =~ /^\//
-      "<a class='category' href='#{category_dir}/'>#{category}</a>"
+      "#{category_dir}"
     end
       
     # Outputs the post.date as formatted html, with hooks for CSS styling.
