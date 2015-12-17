@@ -27,8 +27,8 @@ fixedHeader: true
                     </time>
                 </div>
                 {% if page.category %}
-                <span class="tag">
-                    <a href="/{{ site.category_dir }}/{{ page.category }}">{{ page.category }}</a>
+                <span class="post--category">
+                    {{ page.category }}
                 </span>
                 {% endif %}
             </header>
