@@ -1,5 +1,6 @@
 craig_andrews:
     name: Craig Andrews
+    hasLeft: true
     image: craig_andrews.jpg
     role: Principal Engineer
     tribe: Data
@@ -77,6 +78,7 @@ dan_rooke:
 
 tom_scott:
     name: Tom Scott
+    hasLeft: true
     image: tom_scott.jpg
     role: Principal Data Engineer
     tribe: Data
