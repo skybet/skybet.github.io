@@ -11,7 +11,7 @@ tags:       deployment, database migrations
 At Sky Betting & Gaming we release new versions of our code several times per day with no planned outages.
 Our production environment is large and varied, but I want to focus on how we release software to our LAMP-like stack.
 I say 'LAMP-like' because although several years ago we were using a traditional LAMP stack, we've added other technologies
-as needs arise; like redis, Node.js, and MongoDB. At it's heart though, there's still servers running
+as needs arise: like redis, Node.js, and MongoDB. At its heart though, there are still servers running
 Apache and `mod_php`, talking to a variety of datastores and APIs.
 
 Our release process looks a bit like this:
@@ -21,10 +21,10 @@ Our release process looks a bit like this:
 * Database migrations are run
 * The Apache docroot is atomically switched to the new package 
 
-All of this happens with the click of a single button in a Jenkins UI and takes about 10 minutes; the majority of that
-time spent running tests. We have a *lot* of tests; unit tests, integration tests and full stack tests all provide
-value in their own way, so we have plenty of each. If run sequentially, they would take well over an hour
-to run; so we break them down into smaller chunks and run them all in parallel on a dozen or so Jenkins slaves.
+All of this happens with the click of a single button in a Jenkins UI and takes about 10 minutes: the majority of that
+time spent running tests. We have a *lot* of tests: unit tests, integration tests and full stack tests all provide
+value in their own way, so we have plenty of each. If run sequentially they would take well over an hour
+to run, so we break them down into smaller chunks and run them all in parallel on a dozen or so Jenkins slaves.
 
 If that doesn't sound very impressive, that's because it's not. There's plenty of room for improvement speed-wise
 (can you ever really have enough Jenkins slaves?), and certainly having a reasonably quick build process can go
@@ -34,7 +34,7 @@ The main reasons we can release so often are mostly convention.
 
 ## Forward-only Migrations
 
-We don't roll back database migrations. Ever. Technically we *could* - but we haven't had a need to for at least 4 years now.
+We don't roll back database migrations. Ever. Technically we *could* - but we haven't had a need to for at least four years now.
 That's because every database migration we do results in a schema that's compatible with the new version of our
 code *and* the previous one. If we have to roll back a code release (that *does* happen sometimes) then the previous
 version is perfectly happy using the new version of the schema.
@@ -64,7 +64,7 @@ It's a really bad experience for customers to see a new feature appear, start us
 a few minutes later as a release is rolled back - possibly for unrelated reasons.
 
 Every new feature is first released in a hidden state, ready to be turned on with a 'feature toggle'. The feature toggle can
-be turned on per session, allowing the new feature to be fully tested in the live environment long before a customer ever
+be turned on per-session, allowing the new feature to be fully tested in the live environment long before a customer ever
 sees it. There's some really strong plus points to this approach:
 
 * We don't have to roll back a whole release (which may contain several changes) just because a single new feature isn't working
@@ -106,7 +106,7 @@ they will most likely see the same features when they come back for their next s
 ## Small Releases
 
 With fast builds, lots of tests, less risky database migrations, and feature changes decoupled from code releases: there's
-not much standing in the way of us releasing our code often; but there is a feeback loop here that helps us
+not much standing in the way of us releasing our code often, but there is a feeback loop here that helps us
 even further: the more often we release, the smaller the releases can be. Smaller releases carry less risk,
 letting us release even more often. Frequent releases don't necessarily imply small releases though - it still requires a bit of convention.
 Our development happens in git feature branches, and there's *technically* nothing stopping us from having very long-lived feature
@@ -117,7 +117,7 @@ reducing the 'release anxiety' that many people feel.
 Another thing that happens when you start to release more often is that you begin to feel any little pain points
 in your release process a lot more. A manual process you only perform once per month is something most people
 will just grin and bear; but when it's several times a day: not so much. All of those niggly little problems that you
-just put up with at the moment will start to become big problems - and that's a good thing; big problems get
+just put up with at the moment will start to become big problems - and that's a good thing: big problems get
 prioritised and fixed.
 
 It's sounds obvious, but doing something more often is a great way to get better at it.
