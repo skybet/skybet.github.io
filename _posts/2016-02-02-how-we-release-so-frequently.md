@@ -65,7 +65,7 @@ a few minutes later as a release is rolled back - possibly for unrelated reasons
 
 Every new feature is first released in a hidden state, ready to be turned on with a 'feature toggle'. The feature toggle can
 be turned on per-session, allowing the new feature to be fully tested in the live environment long before a customer ever
-sees it. There's some really strong plus points to this approach:
+sees it. There are some really strong plus points to this approach:
 
 * We don't have to roll back a whole release (which may contain several changes) just because a single new feature isn't working
 * We can fully test new features in an environment that has the exact hardware, software and data we need
@@ -120,4 +120,4 @@ will just grin and bear; but when it's several times a day: not so much. All of 
 just put up with at the moment will start to become big problems - and that's a good thing: big problems get
 prioritised and fixed.
 
-It's sounds obvious, but doing something more often is a great way to get better at it.
+It sounds obvious, but doing something more often is a great way to get better at it.
