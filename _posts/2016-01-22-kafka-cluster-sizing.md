@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Kafka Cluster Sizing
-date:       2016-01-22 12:00
+date:       2016-02-03 12:00
 summary:    We're starting to use kafka for a number of projects.  We can start off on virtual machines on our shared VMWare cluster, but we expect the disk IO to soon reach levels that will make it unsuitable for running on our shared storage.  This post looks at some techniques for sizing up a physical kafka cluster. 
 category:   Big Data
 tags:       kafka
@@ -10,7 +10,7 @@ author:     alice_kaerast
 
 We're starting to use kafka for a number of projects.  We can start off on virtual machines on our shared VMWare cluster, but we expect the disk IO to soon reach levels that will make it unsuitable for running on our shared storage.  This post looks at some techniques for sizing up a physical kafka cluster.
 
-Lets start by taking a look at some of our busiest but realistic streaming data, our lamp application logs.  It's generally understood that the busiest day of the year, particularly for peak traffic, is the Grand National.  We still have logs from this day on an NFS share, so we can load it into Hadoop to look at peak throughput.
+Let's start by taking a look at some of our busiest but realistic streaming data, our LAMP application logs.  It's generally understood that the busiest day of the year, particularly for peak traffic, is the Grand National.  We still have logs from this day on an NFS share, so we can load it into Hadoop to look at peak throughput.
 
 Once the data has been loaded into HDFS we can use the spark shell to look at the data.
 
@@ -51,4 +51,4 @@ We now need some numbers for our cluster sizing model, built using the [Cloudera
 
 Putting those numbers into [our model](http://www.getguesstimate.com/models/3389) gives us an expected cluster-wide disk throughput of 16000 MB/sec and a cluster-wide memory requirement of 40 Gb.
 
-To enable patching and give us high availability we've been assuming an initial cluster of 5 servers.  Assuming the load is spread fairly evenly we need to cope with 3200 MB/sec per-server and 8GB memory per server.  Our infra team aren't too worried about these numbers, and offer to put some numbers together for us.
+To enable patching and give us high availability we've been assuming an initial cluster of five servers.  Assuming the load is spread fairly evenly we need to cope with 3200 MB/sec per-server and 8GB memory per server.  Our infra team aren't too worried about these numbers, and offer to put some numbers together for us.
