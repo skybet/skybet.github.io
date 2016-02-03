@@ -14,7 +14,7 @@ Let's start by taking a look at some of our busiest but realistic streaming data
 
 Once the data has been loaded into HDFS we can use the spark shell to look at the data.
 
-~~~scala
+```scala
 val timeRegexp = """[0-9]{2}:[0-9]{2}:[0-9]{2}""".r
 val gnLogs = sc.textFile("/user/kaerasta/gnlogs") 
 val logTimes = gnLogs.map(line => timeRegexp.findFirstIn(line))
@@ -24,24 +24,24 @@ val maxTime = timeFrequency.maxBy(_._2)
 val peakLogs = gnLogs.filter(line => line.contains("15:16:50"))
 peakLogs.saveAsTextFile("/user/kaerasta/peaklogs")
 sc.parallelize(timeFrequency.toList).saveAsTextFile("/user/kaerasta/logs_per_sec")
-~~~
+```
 
 This gives us two files on HDFS, the logs for the busiest single second and a count of the log lines per second.
 
-~~~bash
+```bash
 hadoop fs -du -h -s peaklogs
 # 1.3 G (uncompressed)
 hadoop fs -text /user/kaerasta/logs_per_sec/* | sed 's/(Some(//g;s/)//g' | sort > sorted_logs_per_sec.csv
-~~~
+```
 
 So we've written 1.3 Gb of data in a single second at the peak time, but is this a spike or are we seeing this level of traffic for an extended period?  For this we turn to R, having done a little tidying of the data with sed.
 
-~~~R
+```R
 sorted_logs_per_sec <- read.csv("~/sorted_logs_per_sec.csv", header=FALSE)
 sorted_logs_per_sec <- sorted_logs_per_sec[2:length(sorted_logs_per_sec[,1]), ]
 time_x <- seq(1:length(sorted_logs_per_sec[,1]))
 plot(time_x,sorted_logs_per_sec[,2], type='l', col=3)
-~~~
+```
 
 ![Log spike](/images/Rplot-log-spike.png)
 

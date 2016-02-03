@@ -50,7 +50,7 @@ This subtle shift in focus, from imperative to declarative coding and describing
 
 ### An example
 
-~~~ ruby
+``` ruby
 pipeline "data.getter" do
 
   task :setup do
@@ -93,7 +93,7 @@ pipeline "data.getter" do
     end
   end
 end
-~~~
+```
 
 Figuring out what the pipeline does is left as an exercise for the reader. However, the important aspects are demonstrated; uniformity, and the breaking down of the job into tasks and actions that are configured through a unified system.
 
@@ -101,7 +101,7 @@ Figuring out what the pipeline does is left as an exercise for the reader. Howev
 
 A common configuration format is used throughout Pidl to configure everything from client code to user preferences to schema constants. The format is a basic INI file but allows overriding at several levels. In addition the concept of a "run mode" (`dev`, `test` or `prod`) means that having different configuration, schema constants or directory names for different use cases or users is easy.
 
-~~~
+```
 environment = ${username}
 
 [hadoop]
@@ -112,12 +112,12 @@ username = hive
 password = Pa55w0rd!
 host = hadoopmgmt01
 port = 10000
-~~~
+```
 
-~~~ ruby
+``` ruby
 hive.db.transactions = ${environment}_transactions
 hive.table.transactions.import = ${hive.db.transactions}.import
-~~~
+```
 
 The use of string interpolation and a hierarchy of override at many levels (pipeline, host, user, run mode, command line and environment variable) means that hosting a multi-tenant cluster running similar jobs is easy. On production runs `username` could be `prod`, while on test or dev machines it could be `test` or the user's actual local username. Similarly, all the hive host and user credentials could be overridden for different environments.
 
@@ -129,38 +129,38 @@ Of course, the command line executable allows the inspection of the parsed confi
 
 The string interpolation used in the config files also works in files used by the actions. For example, consider a hive action configured as follows:
 
-~~~ ruby
+``` ruby
 hive "sql/import_data.sql" do
   action :execute
   param "min_id", 1234
   param "max_id", 9999
 end
-~~~
+```
 
 And consider a schema configuration that results in the following constants:
 
-~~~ ruby
+``` ruby
 hive.table.staging.bet_placed = staging.placed_bets
 hive.table.bet.placed  = bet.placed_bets
-~~~
+```
 
 The file `sql/import_data.sql` could be written to make use of the given constants.
 
-~~~ sql
+``` sql
 INSERT INTO ${hive.table.bet.placed}
   SELECT * FROM ${hive.table.staging.bet_placed
   WHERE bet_id >= ${min_id}
   AND bet_id <= ${max_id}
-~~~
+```
 
 Thanks to the inclusion of both a full set of schema constants and the parameters specified in the action, the resulting query that gets run by hive would be:
 
-~~~ sql
+``` sql
 INSERT INTO bet.placed_bets
   SELECT * FROM staging.placed_bets
   WHERE bet_id >= 1234
   AND bet_id <= 9999
-~~~
+```
 
 This string interpolation is also available for every string passed in to the actions.
 
@@ -169,7 +169,7 @@ This string interpolation is also available for every string passed in to the ac
 Each pipeline gets a runtime context to store information about itself. Much of the context is populated automatically by the Pidl executor itself, but it is also useful for storing temporary values for use later in a
 pipeline. For example:
 
-~~~ ruby
+``` ruby
 pipeline "data.getter" do
 
   task :setup do
@@ -191,7 +191,7 @@ pipeline "data.getter" do
     end
   end
 end
-~~~
+```
 
 This pipeline simply retrieves a value of Hbase, then puts it back after capitalising it. It does demonstrate, though, the use of the context. At runtime the value of the user:NAME column is put into a key/value store with a key of :name. Later on, that key is retrieved (via the `get` method) and the value is modified before being returned.
 
@@ -201,7 +201,7 @@ This use of a runtime context independent of variables within the Ruby script de
 
 The schema constants are useful for getting the name and location of tables and directories, but are not so useful for determining which columns to use for a given query. This is where column maps come in; a simple CSV format that allows a single column to be mapped from its origin (e.g. the OLTP data source) to its destination (e.g. an Oracle database) and every stage between.
 
-~~~
+```
 hive         | hive type | oracle       | oracle type   | desc
 -------------+-----------+--------------+---------------+---------------------------------
 user_id      | bigint    | user_id      | NUMBER        | System assigned user ID
@@ -209,7 +209,7 @@ username     | timestamp | username     | VARCHAR2(64)  | Up to 64 char username
 balance_gbp  | string    | balance      | NUMBER        | Current balance (denormalised)
 signup_date  | timestamp | signupdt     | DATE          | Date of initial signup
 confirm_date | timestamp | confirmdt    | DATE          | Date of eligibility confirmation
-~~~
+```
 
 The column maps can be used for schema creation, for generating a data dictionary or within queries. There are various operations the can be performed on the column maps within pipeline code, including finding a list
 of all columns in one table that have a corresponding column in another. Useful for ensuring source and destination match when using INSERT INTO ... SELECT operations.
@@ -218,11 +218,11 @@ of all columns in one table that have a corresponding column in another. Useful 
 
 There are a few other niceties that have been built around the Pidl framework, including a test harness (Tidl) and a Rake-based task runner that can be hooked into any CI platform with ease. Using the task runner the setup, test and execution of pipelines is unified, e.g.:
 
-~~~ bash
+``` bash
 $ RUNMODE=test rake transactions:test
 $ RUNMODE=prod rake transactions:setup
 $ RUNMODE=prod rake transactions:import
-~~~
+```
 
 The Tidl test harness allows Pidl actions to be used to set up and tear down fixtures, load pipelines into memory and execute all or part of them to ensure they work correctly. It modifies Rspec by including a new
 parallel executor that harnesses JRuby's ability to use real threads for parallelism. Multiple tests are run simultaneously by injecting a UUID into the environment configuration, giving each test its own sandbox on the cluster and speeding up long-running tests.
