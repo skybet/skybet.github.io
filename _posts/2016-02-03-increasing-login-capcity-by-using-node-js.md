@@ -38,7 +38,7 @@ However, `callThree` we expect to wait for both `callOne` and `callTwo` to compl
 
 The final function is only executed once all four have been successful. If any of them return an error, further execution of this sequence is stopped and the final callback is performed with the error passed to it as an argument.
 
-``` javascript
+~~~ javascript
 var async = require('async');
 
 async.auto({
@@ -65,7 +65,7 @@ async.auto({
 }, function(err) {
     // This will run either on error or if everything has successfully completed
 });
-```
+~~~
 
 ## In conclusion
 

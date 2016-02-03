@@ -24,9 +24,9 @@ A general theme emerged from many different sessions that operations is at the h
 business, and we should all have an operational focus.  Not just devops, but marketingops,
 financeops, and infrastructureops too.  Or more pithy for the tech audience:
 
-```
+~~~
 ^(?<dept>.+)Ops$
-```
+~~~
 
 Building this into the culture of our organisation reduces the likelihood of surprises.
 For instance, a marketing push on a big acquisition channel is probably going to apply a

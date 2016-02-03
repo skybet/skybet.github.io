@@ -43,9 +43,9 @@ So here's a plan of attack:
 
 Checking the FFmpeg docs reveals that step 1 is pretty easy!
 
-``` bash
+~~~ bash
 ▶ ffmpeg -i rtmp://streamurl -r 1 frames/%04d-frame.png
-```
+~~~
 
 That will consume the stream at `rtmp://streamurl` and output it as one PNG per second.
 
@@ -53,10 +53,10 @@ Step 3 is pretty easy too. On a manually cropped, cleaned and resized frame from
 
 ![Cropped and cleaned time](/images/virtual-horses-1506.png)
 
-``` bash
+~~~ bash
 ▶ tesseract horses-1506-region2.png stdout
 15:06
-```
+~~~
 
 That still leaves steps 2 and 4; but we've got a proof of concept for the difficult bits already.
 Most general purpose programming languages should be able to handle the remaining steps
@@ -68,29 +68,29 @@ Go is a general purpose programming language; and it's great for this sort of wo
 
 First we need to make a temporary directory to store our images:
 
-```go
+~~~go
 dir, err := ioutil.TempDir("", "vsframes")
 if err != nil {
     log.Fatal("Failed to create temp directory")
 }
-```
+~~~
 
 We need to fill that directory with images, so we'll run FFmpeg in a Goroutine to do just that:
 
-```go
+~~~go
 go func() {
     exec.Command("ffmpeg", "-i", "rtmp://streamurl", "-r", "1", dir+"/frame-%04d.png").Run()
 }()
-```
+~~~
 
 We need somewhere to store our current state. It's not going to get passed around, so an anonymous struct will do just fine:
 
-```go
+~~~go
 state := struct {
     Time string
     sync.Mutex
 }{Time: ""}
-```
+~~~
 
 Note that the state struct [embeds](https://golang.org/doc/effective_go.html#embedding) `sync.Mutex`.
 That makes the `Lock` and `Unlock` methods available on our struct so that we can safely update
@@ -98,7 +98,7 @@ it in one place and read it in another.
 
 We'll expose it over HTTP as a blob of JSON:
 
-```go
+~~~go
 http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
     state.Lock()
     j, _ := json.Marshal(state)
@@ -106,12 +106,12 @@ http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
     w.Write(j)
 })
 go http.ListenAndServe("0.0.0.0:1234", nil)
-```
+~~~
 
 Now to our main loop. We know we want to get all of the frames from the temp dir, do
 *something* with them, remove them, and then wait for a bit before repeating the process:
 
-```go
+~~~go
 for {
     frames, _ := filepath.Glob(dir + "/*.png")
     for _, frame := range frames {
@@ -123,12 +123,12 @@ for {
     }
     time.Sleep(time.Millisecond * 100)
 }
-```
+~~~
 
 That *something* we want to do is pull out the regions of interest and do OCR on them.
 Then for each bit of OCR output that is a valid time, we want to update the state:
 
-```go
+~~~go
 // 'Something'
 regions := getRegions(frame)
 for _, region := range regions {
@@ -141,13 +141,13 @@ for _, region := range regions {
     }
     os.Remove(region)
 }
-```
+~~~
 
 We've used a few user-defined functions there. `getRegions` uses the `github.com/disintegration/imaging`
 package to crop and clean some predefined regions of interest and write them to disk as PNGs.
 It returns a slice containing the filenames of the PNGs it created:
 
-```go
+~~~go
 func getRegions(path string) []string {
     // The coordinates for our regions of interest
     regions := []image.Rectangle{
@@ -183,12 +183,12 @@ func getRegions(path string) []string {
 
     return out
 }
-```
+~~~
 
 The `cleanImage` function that `getRegions` calls makes the image easier for Tesseract
 to read by increasing its size, converting it to grayscale, and a few other things:
 
-```go
+~~~go
 func cleanImage(img image.Image) image.Image {
     w := img.Bounds().Size().X
     h := img.Bounds().Size().Y
@@ -201,43 +201,43 @@ func cleanImage(img image.Image) image.Image {
 
     return p
 }
-```
+~~~
 
 The `ocr` function just runs Tesseract against a given image, and returns any text it
 finds with non-number characters stripped off from either side:
 
-```go
+~~~go
 func ocr(path string) string {
     raw, _ := exec.Command("tesseract", path, "stdout").Output()
     return strings.TrimFunc(string(raw), func(r rune) bool {
         return !unicode.IsNumber(r)
     })
 }
-```
+~~~
 
 Lastly, the `validTime` function just does a quick and dirty regex check against a string
 to see if it looks like a valid 24-hour time:
 
-```go
+~~~go
 func validTime(c string) bool {
     v := regexp.MustCompile(`^[0-2][0-9]:[0-5][0-9]$`)
     return v.MatchString(c)
 }
-```
+~~~
 
 That should be everything! Building a Go package is as simple as:
 
-``` bash
+~~~ bash
 ▶ go build
-```
+~~~
 
 Running the resulting binary and issuing a quick check with curl confirms that everything
 is working as intended!
 
-``` bash
+~~~ bash
 ▶ curl http://localhost:1234/
 {"Time":"13:06"}
-```
+~~~
 
 From here we could easily write a simple Nagios check (or similar) to set off an alarm when that time
 doesn't look right.
