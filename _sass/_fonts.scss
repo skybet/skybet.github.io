@@ -174,8 +174,37 @@ hr {
 
 
 /* Code blocks */
-code[class*="language-"], pre[class*="language-"] {
+pre.highlight {
+    position: relative;
+    background: #f5f2f0;
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+pre.highlight, pre.highlight > code {
     font-size: 0.9em;
+    color: #000;
+    text-shadow: 0 1px #fff;
+    font-family: Consolas,Monaco,'Andale Mono',monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre.highlight > code {
+    overflow: scroll;
+    max-height: 28em;
+    display: block;
 }
 
 // Truncate with mixin
@@ -190,4 +219,3 @@ code[class*="language-"], pre[class*="language-"] {
     text-overflow: ellipsis;
     display: inline-block;
 }
-

@@ -9,30 +9,19 @@ category:   Product
 tags:       monitoring, go, ffmpeg, virtual sports, video, streaming
 ---
 
-Virtual Sports is one of our most popular products. Our tireless, HRNG-powered, CGI horses can be seen
-careering around a racetrack 24 hours a day, 7 days a week via RTMP or HLS.
+Virtual Sports is one of our most popular products. Our tireless, HRNG-powered, CGI horses can be seen careering around a racetrack 24 hours a day, 7 days a week via RTMP or HLS.
 
-A lot can go wrong with a live-stream that never ends: it can get out of sync, it can die completely,
-and it can even display the wrong thing entirely if a failover, erm, fails (don't ask). Suffice to say, it's
-something that needs to be monitored so we know when it needs fixing.
+A lot can go wrong with a live-stream that never ends: it can get out of sync, it can die completely, and it can even display the wrong thing entirely if a failover, erm, fails (don't ask). Suffice to say, it's something that needs to be monitored so we know when it needs fixing.
 
-How does one monitor a video stream? There are some quick wins: you can check that your endpoints exist;
-for HLS you can check that your M3U8 files are changing using simple HTTP checks; but none of that
-can tell you that the stream is blank, or displaying an event from half an hour ago.
+How does one monitor a video stream? There are some quick wins: you can check that your endpoints exist; for HLS you can check that your M3U8 files are changing using simple HTTP checks; but none of that can tell you that the stream is blank, or displaying an event from half an hour ago.
 
 ![Virtual Horses](/images/virtual-horses.png)
 
-All of our Virtual Sports streams have something in common: they display the time of the current event,
-last event, or next event at various positions on the screen. If we could read those times programmatically
-then we could raise alarms when they look wrong, or don't show up at all. Doing OCR on a video stream
-seems like a difficult problem, but by breaking it down and leveraging some well-established tools
-it's perfectly doable.
+All of our Virtual Sports streams have something in common: they display the time of the current event, last event, or next event at various positions on the screen. If we could read those times programmatically then we could raise alarms when they look wrong, or don't show up at all. Doing OCR on a video stream seems like a difficult problem, but by breaking it down and leveraging some well-established tools it's perfectly doable.
 
 ### A Plan
 
-Various OCR tools can read text out of *images* without too much difficulty - [Tesseract](https://en.wikipedia.org/wiki/Tesseract_(software)) is one such tool -
-but we don't have images, we have video. Enter [FFmpeg](https://www.ffmpeg.org/).
-FFmpeg is a veritable Swiss Army Knife for dealing with video; it can consume, record and convert just about anything - including turning a video into discrete images.
+Various OCR tools can read text out of *images* without too much difficulty - [Tesseract](https://en.wikipedia.org/wiki/Tesseract_(software)) is one such tool - but we don't have images, we have video. Enter [FFmpeg](https://www.ffmpeg.org/). FFmpeg is a veritable Swiss Army Knife for dealing with video; it can consume, record and convert just about anything - including turning a video into discrete images.
 
 So here's a plan of attack:
 
@@ -59,8 +48,8 @@ Step 3 is pretty easy too. On a manually cropped, cleaned and resized frame from
 ```
 
 That still leaves steps 2 and 4; but we've got a proof of concept for the difficult bits already.
-Most general purpose programming languages should be able to handle the remaining steps
-without too much difficulty.
+
+Most general purpose programming languages should be able to handle the remaining steps without too much difficulty.
 
 ### Go-Go-Gadget Go!
 
@@ -92,9 +81,7 @@ state := struct {
 }{Time: ""}
 ```
 
-Note that the state struct [embeds](https://golang.org/doc/effective_go.html#embedding) `sync.Mutex`.
-That makes the `Lock` and `Unlock` methods available on our struct so that we can safely update
-it in one place and read it in another.
+Note that the state struct [embeds](https://golang.org/doc/effective_go.html#embedding) `sync.Mutex`. That makes the `Lock` and `Unlock` methods available on our struct so that we can safely update it in one place and read it in another.
 
 We'll expose it over HTTP as a blob of JSON:
 
@@ -108,8 +95,7 @@ http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 go http.ListenAndServe("0.0.0.0:1234", nil)
 ```
 
-Now to our main loop. We know we want to get all of the frames from the temp dir, do
-*something* with them, remove them, and then wait for a bit before repeating the process:
+Now to our main loop. We know we want to get all of the frames from the temp dir, do *something* with them, remove them, and then wait for a bit before repeating the process:
 
 ```go
 for {
@@ -125,8 +111,7 @@ for {
 }
 ```
 
-That *something* we want to do is pull out the regions of interest and do OCR on them.
-Then for each bit of OCR output that is a valid time, we want to update the state:
+That *something* we want to do is pull out the regions of interest and do OCR on them.  Then for each bit of OCR output that is a valid time, we want to update the state:
 
 ```go
 // 'Something'
@@ -143,9 +128,7 @@ for _, region := range regions {
 }
 ```
 
-We've used a few user-defined functions there. `getRegions` uses the `github.com/disintegration/imaging`
-package to crop and clean some predefined regions of interest and write them to disk as PNGs.
-It returns a slice containing the filenames of the PNGs it created:
+We've used a few user-defined functions there. `getRegions` uses the `github.com/disintegration/imaging` package to crop and clean some predefined regions of interest and write them to disk as PNGs.  It returns a slice containing the filenames of the PNGs it created:
 
 ```go
 func getRegions(path string) []string {
@@ -185,8 +168,7 @@ func getRegions(path string) []string {
 }
 ```
 
-The `cleanImage` function that `getRegions` calls makes the image easier for Tesseract
-to read by increasing its size, converting it to grayscale, and a few other things:
+The `cleanImage` function that `getRegions` calls makes the image easier for Tesseract to read by increasing its size, converting it to grayscale, and a few other things:
 
 ```go
 func cleanImage(img image.Image) image.Image {
@@ -203,8 +185,7 @@ func cleanImage(img image.Image) image.Image {
 }
 ```
 
-The `ocr` function just runs Tesseract against a given image, and returns any text it
-finds with non-number characters stripped off from either side:
+The `ocr` function just runs Tesseract against a given image, and returns any text it finds with non-number characters stripped off from either side:
 
 ```go
 func ocr(path string) string {
@@ -215,8 +196,7 @@ func ocr(path string) string {
 }
 ```
 
-Lastly, the `validTime` function just does a quick and dirty regex check against a string
-to see if it looks like a valid 24-hour time:
+Lastly, the `validTime` function just does a quick and dirty regex check against a string to see if it looks like a valid 24-hour time:
 
 ```go
 func validTime(c string) bool {
@@ -231,24 +211,17 @@ That should be everything! Building a Go package is as simple as:
 ▶ go build
 ```
 
-Running the resulting binary and issuing a quick check with curl confirms that everything
-is working as intended!
+Running the resulting binary and issuing a quick check with curl confirms that everything is working as intended!
 
 ``` bash
 ▶ curl http://localhost:1234/
 {"Time":"13:06"}
 ```
 
-From here we could easily write a simple Nagios check (or similar) to set off an alarm when that time
-doesn't look right.
+From here we could easily write a simple Nagios check (or similar) to set off an alarm when that time doesn't look right.
 
 ### Wrapping Up
 
-In the name of getting things working quickly we've ignored a bunch of failure
-scenarios and generally haven't paid much attention to error handling, but that's
-nothing out of the ordinary for code destined for a blog post. It could do with
-some logging and proper signal handling too, but those things are - as is tradition -
-left as an exercise for the reader.
+In the name of getting things working quickly we've ignored a bunch of failure scenarios and generally haven't paid much attention to error handling, but that's nothing out of the ordinary for code destined for a blog post. It could do with some logging and proper signal handling too, but those things are - as is tradition - left as an exercise for the reader.
 
-The original problem of "do OCR on a video stream" seemed like a difficult one, but
-we've not had to do anything particularly difficult to solve it.
+The original problem of "do OCR on a video stream" seemed like a difficult one, but we've not had to do anything particularly difficult to solve it.
