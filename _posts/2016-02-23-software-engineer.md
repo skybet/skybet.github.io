@@ -32,7 +32,7 @@ We can call those people in the third group "carpenters", and I would be fairly 
 
 To translate these groups back into the world of IT, if we examine the group of programmers as a whole; the first group are those people who have learnt how to code, but haven't really had much experience (I'll call this group "coders").   The second group have discovered the various frameworks that are available, and can fairly skillfully manipulate those frameworks to achieve their own ends  (Let's call this group "developers").   The final group we'll call "software engineers", able to work from scratch and produce a well finished, refined and robust solution.  Obviously this is a gross simplification and the lines between these groups are blurry and ill-defined.
 
-Include venn diagram with fuzzy edges HERE
+![Programmer Pyramid](/images/dev-pyramid.png)
 
 IT is a black box
 -----------------
@@ -40,8 +40,8 @@ IT is a black box
 One of the joys IT is that most software is contained within a black box - users can only see the exterior of it and for most users that is at arms length; either not having the interest or the knowledge to examine the HTML, CSS or client side javascript directly; or to delve into publically accessible source code or break out a disassembler.  For the most part the state of the interior does not matter to the end users at all; until it breaks or starts to slow down or behave oddly under heavy usage.
 
 So in the massive marketplace that comprises IT, there is either demand or a market niche that all three types of programmer can thrive in.
-T
-here is a big market for coders to product self-published apps.  Their users might find issues with what has been produced, but ultimately that comes back to the coders who can either fix it or not.  They can still make money from what they have made.
+
+There is a big market for coders to product self-published apps.  Their users might find issues with what has been produced, but ultimately that comes back to the coders who can either fix it or not.  They can still make money from what they have made.
 
 Lots of potential customers in the market want to have a website, and are not technically savvy themselves.  These customers are perfectly well served by developers who can pull together bits of frameworks, and build an attractive front end.  They can then either continue to work refining the features of that site, or move on knowing that for 99% of the time what they have produced will be fine.   Occasionally these customers are burned by this approach as their business scales beyond the ability of the system to serve; but in general the solution will be fine for their needs.
 
@@ -90,6 +90,8 @@ Here are a few suggestions of published works for your reading list:
 * Refactoring - Martin Fowler.
 * Working Effectively with Legacy Code - Michael Feathers
 * The Pragmatic Programmer - Andrew Hunt, David Thomas
+
+Attend some conferences (or find out who is speaking, and try to watch the talks online where possible) to hear from the technical innovators about engineering problems and their solutions.  These are also a good source of inspiration for bloggers and twitter accounts to follow for more titbits of knowledge.
 
 Some things are easier to learn, security in particular is well represented by working groups in the open source community, mostly because the same security flaws occur again and again online.  [OWASP Top 10](https://www.owasp.org/index.php/Top10)
 
