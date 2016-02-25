@@ -62,6 +62,7 @@ So how is it that you can progress from being a developer to becoming an enginee
 An engineer has a number of key pieces of knowledge and skills in their toolbox.  Many of these things are key elements of computer science degree courses, but that doesn't meant that you need a degree to be an engineer or likewise that if you have a degree then you are an engineer.
 
 An engineer:
+
 * has knowledge of coding patterns and the principles behind the patterns
 * designs with failure in mind
 * knows about security threats and how to deal with them
