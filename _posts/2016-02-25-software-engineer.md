@@ -95,5 +95,7 @@ Attend some conferences (or find out who is speaking, and try to watch the talks
 
 Some things are easier to learn, security in particular is well represented by working groups in the open source community, mostly because the same security flaws occur again and again online.  [OWASP Top 10](https://www.owasp.org/index.php/Top10)
 
-Like a carpenter studies hard and hones their skills, study your craft, apply that knowledge to your programming, and become an engineer!
+Lastly, consider failure.  Every problem is an opportunity to learn, even if you were not directly involved in the operational challenges at the time.  What was the root cause?  Was there anything that made the problem worse?  Is there anything that can be done to mitigate the effects, detect it earlier, degrade more gracefully, or give the user a better experience?  The bigger the failure, the more opportunities there are for learning.  Seek out posts from large organisations in which they describe the resolution of problems, or what happened during a major outage - often key pieces may be mentioned that you had not previously heard of or considered as part of your own solutions.
+
+In summary - Like a carpenter studies hard and hones their skills, study your craft, apply that knowledge to your programming, and become an engineer!
 
