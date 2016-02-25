@@ -87,9 +87,10 @@ It should be no surprise that many of these authors were signatories on the agil
 Here are a few suggestions of published works for your reading list:
 
 * Clean Code - Robert C Martin
-* Refactoring - Martin Fowler.
+* Refactoring - Martin Fowler & Kent Beck.
 * Working Effectively with Legacy Code - Michael Feathers
 * The Pragmatic Programmer - Andrew Hunt, David Thomas
+* TDD by example - Kent Beck
 
 Attend some conferences (or find out who is speaking, and try to watch the talks online where possible) to hear from the technical innovators about engineering problems and their solutions.  These are also a good source of inspiration for bloggers and twitter accounts to follow for more titbits of knowledge.
 
