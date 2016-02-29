@@ -11,7 +11,7 @@ This is source for our public engineering site at http://engineering.skybettinga
 4. Push to the branch (`git push origin my-new-feature`)
 5. [Submit a Pull Request](https://help.github.com/articles/using-pull-requests/)
 
-All changes are welcome from additional articles, to styling changes, etc. If you're not comfortable with a pull request you can email Rob Tuley directly with your post in markdown format with any accompanying pictures.
+All changes are welcome from additional articles, to styling changes, etc. If you're not comfortable with a pull request you can email <engineering@skybettingandgaming.com> directly with your post in [Markdown format](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/) with any accompanying pictures.
 
 If making updates to the layout, use the sass in the `_scss/` directory.
 
