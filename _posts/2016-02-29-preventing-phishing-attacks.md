@@ -2,26 +2,23 @@
 layout:     post
 title:      Preventing phishing attacks - an example of defense in depth
 author:     dan_adams
-date:       2016-02-29 12:00:00
+date:       2016-02-29 11:00:00
 summary:    Phishing attacks are difficult to entirely prevent against, but are a good example of a situation in which "defense in depth" is appropriate.
 category:   security
 tags:       security
 ---
 
-Preventing phishing attacks - an example of defense in depth
-
 "Phishing" attacks are attempts to acquire information such as usernames, passwords, and credit card details by masquerading as a trustworthy entity. The name derives from the similarity of using a bait in an attempt to catch a victim from a pool and the "bait" normally consist of an electronic message such as an email sent to a large group with the hope that some small percentage of targeted victims will fall for the ploy.
 
 A phishing email is generally sent by a malicious source but purporting to be from a known or trusted source such as a company's IT department or a popular social media website or high street bank. Phishing emails will often either have a malicious payload such as a word document with a macro, or else contain links to websites that are either infected with malware or attempt to trick people into entering their credentials.
 
-Typically the email itself, or the website linked to from the email use corporate imagery, branding and fonts to attempt to provide a look and feel are almost identical to the genuine, legitimate business being impersonated.
-
+Typically the email itself (or the website linked to from the email) uses corporate imagery, branding and fonts to provide an experience which is almost identical to the genuine business being impersonated.
 
 Phishing attacks are difficult to entirely prevent against, but are a good example of a situation in which "defense in depth" is appropriate - no one measure on its own is effective, but by implementing a range of anti-phishing countermeasures, the effectiveness of phishing attacks can be greatly reduced. So what can be done?
 
-### 1. Server-side Email filtering
+### 1. Server-side email filtering
 
-The first line of defense needed is anti-spam and email filtering for inbound email, to prevent emails from being received by your employees in the first place. Various technologies can be used including anti-spam filter based on BLs and IP reputation services, a server-side antivirus scan for attachments, and MX record/domain verification using Sender Policy Framework (SPF). Emails can be rejected by your mailserver so that they never make it to your users.
+The first line of defense needed is anti-spam and email filtering for inbound email, to prevent emails from being received by your employees in the first place. Various technologies can be used including anti-spam filters based on BLs and IP reputation services, a server-side antivirus scan for attachments, and MX record/domain verification using Sender Policy Framework (SPF). Emails can then be rejected by your mailserver so that they never make it to your users.
 
 ### 2. User training and internal policies
 
@@ -29,7 +26,7 @@ Inevitably, some emails are going to get through your email filters, no matter h
 
 ### 3. Mail client software
 
-Mail client software has a part to play in providing warning to users that opening attachments from emails or clicking on links may provide some element of risk of virus and phishing attacks and provide reminders to users of their training at the time that the phishing email is received.
+Mail client software has a part to play by providing warnings to users explaining how opening attachments or clicking on links contains some element of risk. These warnings can be shown at the time a potentially malicious email is received to remind users of their training and raise awareness of the potential risk.
 
 ### 4. Spam email reporting
 
@@ -37,9 +34,9 @@ Several mailservers and clients now support mechanisms whereby users can report 
 
 ### 5. Internet Content Filtering (ICF) and restricted outbound internet access.
 
-A further measure that can help is internet content filtering on outbound web requests from employee workstations and laptops. ICF is a mechanism that intercepts outbound web requests and verifies whether they are to be permitted. Very often a phishing email will not have a malicious payload itself, in order to improve its chances of being delivered to targeted victims. It will instead contain a seemingly innocuous word document or Excel document attachment with a simple macro that executes on file open and attempts to download the real virus payload, or just a link to a website. Usually this file or webpage will be hosted on known malicious domains and ICF can actively block access to these domains so that the payload cannot be downloaded or form that attempts to capture their password cannot be loaded.
+A further measure that can help is internet content filtering on outbound web requests from employee workstations and laptops. ICF is a mechanism that intercepts outbound web requests and verifies whether they are to be permitted. Very often a phishing email will not have a malicious payload itself, in order to improve its chances of being delivered to targeted victims. It will instead contain a seemingly innocuous word document or Excel document attachment with a simple macro that executes on file open and attempts to download the real virus payload, or just a link to a website. Usually this file or webpage will be hosted on a domain known to be malicious. ICF can be used to actively block access to such domains, preventing the payload from being downloaded or the form designed to capture passwords from loading in the user's browser.
 
-### 6. Host permissions/group policy and Data Execution Prevention
+### 6. Host permissions/group policy and data execution prevention
 
 Assuming that all the above measures have failed, modern operating systems such as Microsoft Windows 10 incorporate DEP or Data Execution Prevention and Group Policies that prevent untrusted executables or those attempting to access certain areas of memory from executing. A well configured group policy can block the execution of downloaded executables.
 
@@ -47,8 +44,10 @@ Assuming that all the above measures have failed, modern operating systems such 
 
 If a phishing email succeeds in bypassing all the above measures and manages to download and execute, all is still not lost. Modern antivirus tools can perform a range of checks on attachments, from checking them against known virus patterns, to loading a copy of an attachment into a sandboxed area of memory and executing them in order to check for malicious calls or activity, before allowing the user access to the real attachment themselves.
 
-### 8. Password management, expiry
+### 8. Password management and expiry
 
 Finally, if the worst does happen, and a phishing email is received by a user and successfully tricks them into entering their password, all is not lost. By enforcing strong password management, you can ensure that users are using different passwords for each site or service they use, meaning that the damage in the credential loss is known and limited. By enforcing frequent password rotation/expiry you can also ensure that the window during which a malicious party can exploit any captured credentials is limited.
+
+### Defense in depth
 
 The above example is not an exhaustive list of every measure that can be taken against phishing attacks, but does demonstrate that very often the strength of a security solution lies not at any single layer or component, but in a so-called defense in depth approach, in which a range of measures at different layers and types are stacked to provide a robust overarching protection against a given threat
