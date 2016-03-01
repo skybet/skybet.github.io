@@ -2,7 +2,7 @@
 layout:     post
 title:      Delivery Pipelines with Test Kitchen, Chef and Docker
 author:     gav_harris
-date:       2016-02-29 21:38:37
+date:       2016-03-01 12:00:00
 summary:    Jenkins, Test Kitchen, Chef and Docker put together are much more than just a configuration management platform
 category:   Deployment
 tags:       open source, chef, ruby, jenkins, docker
