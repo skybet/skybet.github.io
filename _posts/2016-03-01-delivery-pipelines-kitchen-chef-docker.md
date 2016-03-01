@@ -109,6 +109,7 @@ With this configuration, running ```kitchen converge``` from the root of the rep
 The Chef recipes themselves are fairly simple. 
 
 ```lint.rb``` Installs the ```eslint``` utility and runs it, outputting the result to the shared volume
+
 ```
 execute "Install eslint" do
   command "/opt/node/bin/npm i -g eslint"
@@ -146,8 +147,8 @@ end
 ```build.rb``` Runs ```npm install``` and installs the production dependancies
 
 ```
-#run eslint inside the container, output the results to the shared volume mount
-execute "run npm test" do
+#prune the installation and install npm production dependancies
+execute "run npm install" do
   command "npm prune && npm install --production"
   cwd "#{node['workspace']}/event-service"
   action :run
@@ -157,8 +158,8 @@ end
 ```vendor.rb``` Creates a deployable artefact of the node application in the shared volume mount
 
 ```
-#run eslint inside the container, output the results to the shared volume mount
-execute "run npm test" do
+#Create a .tbz2 containing the node application and all its production dependancies
+execute "build artefact" do
   command "/bin/tar -cvjf #{node['workspace']}/build/event-service-v#{node['new_tag_version']}.tbz2 event-service/"
   cwd node['workspace']
   action :run
