@@ -126,7 +126,7 @@
     }
 }
 
-.jobs {
+.jobs, .not-found {
     @extend .post;
 
     margin-top: $base-line;
