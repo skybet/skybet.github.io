@@ -111,6 +111,7 @@ The Chef recipes themselves are fairly simple.
 ```lint.rb``` Installs the ```eslint``` utility and runs it, outputting the result to the shared volume
 
 ```
+#run eslint inside the container, output the results to the shared volume mount
 execute "Install eslint" do
   command "/opt/node/bin/npm i -g eslint"
   creates "/opt/node/bin/eslint"
@@ -128,7 +129,7 @@ end
 ```test.rb``` Runs ```npm test``` and outputs the test result to the shared volume
 
 ```
-#run eslint inside the container, output the results to the shared volume mount
+#run npm test and copy the resulting Mocha test report to the Jenkins workspace for analysis by Pipeline
 execute "run npm test" do
   command "npm install && npm run test"
   cwd "#{node['workspace']}/event-service"
