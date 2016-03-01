@@ -23,7 +23,7 @@
     </div>
     {% endif %}
 
-    <p>{{ post.summary }}</p>
+    {{ post.summary | markdownify }}
 
     <div class="cta flex">
         {% if post.author %}
