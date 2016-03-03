@@ -16,10 +16,11 @@ andy_burgin:
 gav_harris:
     name: Gav Harris
     image: gavin_harris.jpg
-    role: Principal Operations Engineer, Platform Evolution
+    role: Engineering Manager, Platform Services
     tribe: Data
     startDate: 25-07-2011
-    bio: "Gav joined the SB&G family as a member of the Infrastructure Tribe, and has a strong desire to automate all the things. While designing a resilient clustered architecture for a (now retired) flaky Mobenga mobile sportsbook, he wrote an iOS Opsview App in his own time which was so good Opsview bought it off him! He now leads our Platform Evolution team: has succesfully rolled out Chef across the entire estate, and remains at the forefront of our investment in infrastructure automation."
+    bio: "Gav joined the SB&G family as a member of the Infrastructure Tribe, and has a strong desire to automate all the things. He now leads our Platform Services team: has succesfully rolled out Chef across the entire estate, and remains at the forefront of our investment in infrastructure automation."
+    twitter: sergavala
     github: gavala
 
 adam_hepton:
