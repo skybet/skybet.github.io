@@ -74,7 +74,7 @@ main, article {
 }
 
 aside {
-    .about, .meet-author, .twitter{
+    .about, .meet-author, .twitter-container {
         background: $color-whtrans;
         padding: 10px 20px;
         margin: $base-margin-top 0;
