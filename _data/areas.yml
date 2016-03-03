@@ -1,27 +1,46 @@
 - name: Testing
   items:
-     - PHPUnit
-     - Mocha
-     - Behat
-     - Cucumber
-     - Selenium
-     - BrowserMob
-     - Jest
+     - name: PHPUnit
+       link: https://phpunit.de/
+     - name: Mocha
+       link: https://mochajs.org/
+     - name: Behat
+       link: http://behat.org/
+     - name: Cucumber
+       link: https://cucumber.io/docs/reference/javascript
+     - name: Selenium
+       link: http://www.seleniumhq.org/
+     - name: BrowserMob
+       link: http://bmp.lightbody.net/
+     - name: Jest
+       link: https://facebook.github.io/jest/
 
 - name: Development
   items:
-     - Node.JS
-     - PHP
-     - MongoDB
-     - MySQL
-     - ExpressJS
-     - AngularJS
-     - ReactJS
-     - Apache
-     - Chef
-     - Git
-     - Jenkins
-     - Vagrant
+     - name: Node.js
+       link: https://nodejs.org/
+     - name: PHP
+       link: http://php.net/
+     - name: MongoDB
+       link: https://www.mongodb.org/
+     - name: MySQL
+       link: https://www.mysql.com/
+     - name: Express.js
+       link: http://expressjs.com/
+     - name: AngularJS
+       link: https://angularjs.org/
+     - name: React
+       link: https://facebook.github.io/react/
+     - name: Apache
+       link: https://httpd.apache.org/
+     - name: Chef
+       link: https://www.chef.io/chef/
+     - name: Git
+       link: https://git-scm.com/
+     - name: Jenkins
+       link: https://jenkins-ci.org/
+     - name: Vagrant
+       link: https://www.vagrantup.com/
 
 - name: Design
   items:
@@ -32,8 +51,10 @@
 
 - name: Data
   items:
-     - Hadoop
-     - Spark
+     - name: Hadoop
+       link: https://hadoop.apache.org/
+     - name: Spark
+       link: https://spark.apache.org/
 
 - name: Architecture
   items:

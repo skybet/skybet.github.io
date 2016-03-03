@@ -4,7 +4,7 @@
 
         <ul {% if area.items.size > 5 %}class="split-columns"{% endif %}>
         {% for item in area.items %}
-            <li>{{ item }}</li>
+            <li>{% if item.link %}<a href="{{ item.link }}">{{ item.name }}</a>{% else %}{{ item }}{% endif %}</li>
         {% endfor %}
         </ul>
     </div>
