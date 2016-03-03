@@ -8,7 +8,7 @@ category:   Deployment
 tags:       deployment, database migrations
 ---
 
-At Sky Betting & Gaming we release new versions of our code several times per day with no planned outages.  Our production environment is large and varied, but I want to focus on how we release software to our LAMP-like stack.  I say 'LAMP-like' because although several years ago we were using a traditional LAMP stack, we've added other technologies as needs arise: like redis, Node.js, and MongoDB. At its heart though, there are still servers running Apache and `mod_php`, talking to a variety of datastores and APIs.
+At Sky Betting & Gaming we release new versions of our code several times per day with no planned outages. Our production environment is large and varied, but I want to focus on how we release software to our LAMP-like stack. I say 'LAMP-like' because although several years ago we were using a traditional LAMP stack, we've added other technologies as needs arise: like Redis, Node.js, and MongoDB. At its heart though, there are still servers running Apache and `mod_php`, talking to a variety of datastores and APIs.
 
 Our release process looks a bit like this:
 
@@ -25,9 +25,9 @@ The main reasons we can release so often are mostly convention.
 
 ## Forward-only Migrations
 
-We don't roll back database migrations. Ever. Technically we *could* - but we haven't had a need to for at least four years now.  That's because every database migration we do results in a schema that's compatible with the new version of our code *and* the previous one. If we have to roll back a code release (that *does* happen sometimes) then the previous version is perfectly happy using the new version of the schema.
+We don't roll back database migrations. Ever. Technically we *could* - but we haven't had a need to for at least four years now. That's because every database migration we do results in a schema that's compatible with the new version of our code *and* the previous one. If we have to roll back a code release (that *does* happen sometimes) then the previous version is perfectly happy using the new version of the schema.
 
-How we acheive this isn't with some magical technical solution, but purely by convention. Take dropping a column as an example; how do you release that change? Easy:
+How we achieve this isn't with some magical technical solution, but purely by convention. Take dropping a column as an example; how do you release that change? Easy:
 
 * Release a version of the code that doesn't use that column; ensure it is stable / won't be rolled back.
 * Do a second release that has a migration to remove the column.
@@ -55,7 +55,7 @@ Every new feature is first released in a hidden state, ready to be turned on wit
 
 That last point is pretty important. If we're not sure a new feature can take the strain of all of our customers hitting it at once, we can release to a small fraction of our customers first and monitor its performance.
 
-We assign each new session a random number between 1 and 100 and store it in a long-lived cookie; using that number to seperate the sessions into groups. If we had, for example:
+We assign each new session a random number between 1 and 100 and store it in a long-lived cookie; using that number to separate the sessions into groups. If we had, for example:
 
 * `1-10: risky-new-feature`
 * `11-100: control`
@@ -77,7 +77,7 @@ The upshot of all of this is that customers don't see jarring feature changes pa
 
 ## Small Releases
 
-With fast builds, lots of tests, less risky database migrations, and feature changes decoupled from code releases: there's not much standing in the way of us releasing our code often, but there is a feeback loop here that helps us even further: the more often we release, the smaller the releases can be. Smaller releases carry less risk, letting us release even more often. Frequent releases don't necessarily imply small releases though - it still requires a bit of convention.
+With fast builds, lots of tests, less risky database migrations, and feature changes decoupled from code releases: there's not much standing in the way of us releasing our code often, but there is a feedback loop here that helps us even further: the more often we release, the smaller the releases can be. Smaller releases carry less risk, letting us release even more often. Frequent releases don't necessarily imply small releases though - it still requires a bit of convention.
 
 Our development happens in git feature branches, and there's *technically* nothing stopping us from having very long-lived feature branches that result in very large - and therefore risky - releases. What's needed is the discipline to release code not when it's *finished*, but when it *won't break anything*. It can feel unnatural at first, but it can go a long way toward reducing the 'release anxiety' that many people feel.
 

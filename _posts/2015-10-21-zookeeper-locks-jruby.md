@@ -8,9 +8,9 @@ tags:       ruby, hadoop, zookeeper
 author:     alice_kaerast
 ---
 
-For a while we've been using an in-house CLI tool based on the [Pidl orchestration framework](/2015/09/09/opensourcing-pidl/) to run our ETL pipelines in Hadoop.  With a small number of pipelines running at any one point, we could run this on a single server within the cluster, but with a growing number of pipelines and the limited resiliency a single server gives we had to make a few changes.
+For a while we've been using an in-house CLI tool based on the [Pidl orchestration framework](/2015/09/09/opensourcing-pidl/) to run our ETL pipelines in Hadoop. With a small number of pipelines running at any one point, we could run this on a single server within the cluster, but with a growing number of pipelines and the limited resiliency a single server gives we had to make a few changes.
 
-The original code used a text file in the /tmp directory on the local file system.  It was simple to use, simple to debug, and easy to remove stale locks.  But it didn't work across multiple servers.  We considered using an NFS share for the locks, but given we already need a zookeeper cluster running for our existing services it made sense to use that.
+The original code used a text file in the /tmp directory on the local file system. It was simple to use, simple to debug, and easy to remove stale locks. But it didn't work across multiple servers. We considered using an NFS share for the locks, but given we already need a zookeeper cluster running for our existing services it made sense to use that.
 
 ```ruby
 def self.lock name, &block
@@ -29,9 +29,9 @@ def self.lock name, &block
 end
 ```
 
-Any time a pipeline needed to be run, it would be wrapped around a `lock pipeline.name do` block.  Simples.
+Any time a pipeline needed to be run, it would be wrapped around a `lock pipeline.name do` block. Simples.
 
-There's a really nice [zk ruby gem](https://github.com/zk-ruby/zk) for high-level interactions with Zookeeper but unfortunately it doesn't work with Jruby out of the box, which is a problem because we use Jruby to interact with Hive and HBase Java APIs rather heavily.  So after a period of head scratching, we realised the zookeeper gem does have code to support Jruby but it needs building using JRuby.
+There's a really nice [zk ruby gem](https://github.com/zk-ruby/zk) for high-level interactions with Zookeeper but unfortunately it doesn't work with Jruby out of the box, which is a problem because we use Jruby to interact with Hive and HBase Java APIs rather heavily. So after a period of head scratching, we realised the zookeeper gem does have code to support Jruby but it needs building using JRuby.
 
 ``` bash
 git checkout https://github.com/zk-ruby/zookeeper.git
@@ -41,7 +41,7 @@ gem build zookeeper.gemspec
 
 With the zookeeper gem built and uploaded to our internal gemserver, the actual code to use locking in Zookeeper with the zk gem is actually fairly simple.
 
-First we need to find out where the zookeeper servers are.  Thankfully we've already got an ini file with this information in it, as we need to know for interacting with HBase.
+First we need to find out where the zookeeper servers are. Thankfully we've already got an ini file with this information in it, as we need to know for interacting with HBase.
 
 ```ruby
 require 'inifile'
@@ -100,7 +100,7 @@ def self.lock name, &block
 end
 ```
 
-OK, but how do we debug this?  How do we see locks and delete them?  Whilst it's not as simple as deleting a file in /tmp, it's also not as easy to accidentally delete a lock.  You have to explicitly go looking for them.  And the code to do this is very simple.
+OK, but how do we debug this? How do we see locks and delete them? Whilst it's not as simple as deleting a file in /tmp, it's also not as easy to accidentally delete a lock. You have to explicitly go looking for them. And the code to do this is very simple.
 
 ```ruby
 require 'zk'
@@ -110,6 +110,6 @@ zk.delete('/_zklocking/Alice/ex0000000000')
 zk.delete('/_zklocking/Alice/')
 ```
 
-This does introduce a change of behaviour which may not be immediately obvious.  Where the original code will leave the lock file in place if the pipeline fails, the new code drops the lock as soon as it ends - regardless of success or failure.  Quite often the fix to failed pipelines has been to manually remove the locks and just rerun the pipeline, so this is actually desired behaviour most of the time.    
+This does introduce a change of behaviour which may not be immediately obvious. Where the original code will leave the lock file in place if the pipeline fails, the new code drops the lock as soon as it ends - regardless of success or failure. Quite often the fix to failed pipelines has been to manually remove the locks and just rerun the pipeline, so this is actually desired behaviour most of the time.
 
-We can now run our pipelines on any number of servers, and the locks will be available to them all.  It enables us to schedule the running of pipelines using multiple Jenkins slaves, but that's a topic for another day.    
+We can now run our pipelines on any number of servers, and the locks will be available to them all. It enables us to schedule the running of pipelines using multiple Jenkins slaves, but that's a topic for another day.

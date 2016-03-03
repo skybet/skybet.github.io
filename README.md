@@ -1,7 +1,7 @@
 Sky Betting & Gaming Engineering Site
 =====================================
 
-This is source for our public engineering site at http://engineering.skybettingandgaming.com, rendered via Jeykll through Github Pages.
+This is source for our public engineering site at http://engineering.skybettingandgaming.com, rendered via Jeykll through GitHub Pages.
 
 ## How to Contribute
 
@@ -44,7 +44,7 @@ Videos should be hosted on the [SB&G Engineers YouTube channel](https://www.yout
 
 ### Authors
 
-For the `author` key, if you have not posted before, you should create a corresponding entry in `_data/authors.yml`, using the alias used in the post frontmatter as the key, eg.
+For the `author` key, if you have not posted before, you should create a corresponding entry in `_data/authors.yml`, using the alias used in the post frontmatter as the key, e.g.
 
     author_name:
         name: Author Name

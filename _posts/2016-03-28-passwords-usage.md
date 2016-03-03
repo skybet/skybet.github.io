@@ -33,7 +33,7 @@ Whilst most people instinctively grasp that a password that is not unique to you
 
 ##### When users get it wrong: 
 
-Because they struggle to remember multiple passwords, end users may use a common password to access their email, their bank account and their online shopping as well as their work accounts. A single password compromise such as accidentally pasting in their email account password into an email or instant chat communications means that they've simultaneously disclosed their credentials to high-value systems such as their online banking account. It could mean that attackers gain access to their accounts on every system they use rather than just one, leading to complete identity theft. It also increases the risk  presented to their accounts on otherwise-secure systems such as online banking by capturing their passwords from a more vulnerable target such as a Wordpress site.
+Because they struggle to remember multiple passwords, end users may use a common password to access their email, their bank account and their online shopping as well as their work accounts. A single password compromise such as accidentally pasting in their email account password into an email or instant chat communications means that they've simultaneously disclosed their credentials to high-value systems such as their online banking account. It could mean that attackers gain access to their accounts on every system they use rather than just one, leading to complete identity theft. It also increases the risk  presented to their accounts on otherwise-secure systems such as online banking by capturing their passwords from a more vulnerable target such as a WordPress site.
 
 ##### When IT staff get it wrong:
 
@@ -42,7 +42,7 @@ System administrators also undervalue the importance of unique passwords per sys
 ### Secure transmission/submission
 
 A password is only secure if it is communicated securely. If you had to provide a password to an individual in a public space, you would expect to at least whisper it rather than shout it out loud for everyone to hear, its value to verify your unique identity being lost if it is disclosed to others.
-When users get it wrong: End users will often write down their passwords on post-it notes, even going so far as to stick them to their moinitors, for convenience, effectively disclosing it to anyone who cares to capture it.
+When users get it wrong: End users will often write down their passwords on post-it notes, even going so far as to stick them to their monitors, for convenience, effectively disclosing it to anyone who cares to capture it.
 
 ##### When end users get it wrong:
 
@@ -58,7 +58,7 @@ It is important that passwords are not trivially guessable, or they have no valu
 
 ##### When users get it wrong:
 
-For end users, ensuring a password isn’t guessable mainly means avoiding common dictionary words and picking a password that consists of a long string of characters from a large character set, including special symbols. A 30-character password from a large character set (such as the 95-character "ASCII printables") would still take centuries to crack for even an extremely fast dedicated multicore system able to have access to the password hashes and making 10 billion attempts per second. In a famous [XKCD](https://xkcd.com/) comic, ["Password Strength"](https://xkcd.com/936/), the author proposes the creation of lengthy passwords using a chain of randomly selected dictionary words (eg “horse battery staple”) to provide a sufficiently strong yet memorable password. We would recommend a two-tier password system, using one or a handful of XKCD-style passwords that you need to remember for authenticating to and accessing a secure password safe/store (eg [PasswordGorilla](https://github.com/zdia/gorilla/wiki) or [LastPass](https://lastpass.com)) and then for every other system, application or site using a traditional completely-random password string of the maximum length permitted from the largest character set permitted  (eg "4chyg#t_cZdS~b R=K@XP$").
+For end users, ensuring a password isn’t guessable mainly means avoiding common dictionary words and picking a password that consists of a long string of characters from a large character set, including special symbols. A 30-character password from a large character set (such as the 95-character "ASCII printables") would still take centuries to crack for even an extremely fast dedicated multicore system able to have access to the password hashes and making 10 billion attempts per second. In a famous [XKCD](https://xkcd.com/) comic, ["Password Strength"](https://xkcd.com/936/), the author proposes the creation of lengthy passwords using a chain of randomly selected dictionary words (e.g. “horse battery staple”) to provide a sufficiently strong yet memorable password. We would recommend a two-tier password system, using one or a handful of XKCD-style passwords that you need to remember for authenticating to and accessing a secure password safe/store (e.g. [PasswordGorilla](https://github.com/zdia/gorilla/wiki) or [LastPass](https://lastpass.com)) and then for every other system, application or site using a traditional completely-random password string of the maximum length permitted from the largest character set permitted  (e.g. "4chyg#t_cZdS~b R=K@XP$").
 
 ##### When IT staff get it wrong: 
 
@@ -86,7 +86,7 @@ Phishing attacks are increasingly prevalent, accounting for 20% of identified th
 
 ##### When IT staff get it wrong: 
 
-Ideally passwords would never be submitted directly, being used instead to generate tokens in a challenge-response mechanism such as [SCRAM](https://tools.ietf.org/html/rfc5802) in which the original password is never exchanged and cannot be captured or recovered from the exchanged authentication data. If using a mechanism where transmitting authentication credentials cannot be avoided, then as a minimum admiistrators should ensure that the transmission is over a secure channel such as HTTPS rather than in plaintext.
+Ideally passwords would never be submitted directly, being used instead to generate tokens in a challenge-response mechanism such as [SCRAM](https://tools.ietf.org/html/rfc5802) in which the original password is never exchanged and cannot be captured or recovered from the exchanged authentication data. If using a mechanism where transmitting authentication credentials cannot be avoided, then as a minimum administrators should ensure that the transmission is over a secure channel such as HTTPS rather than in plaintext.
 
 
 ### Summary

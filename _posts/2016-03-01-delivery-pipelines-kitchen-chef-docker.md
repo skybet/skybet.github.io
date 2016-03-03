@@ -8,36 +8,36 @@ category:   Deployment
 tags:       open source, chef, ruby, jenkins, docker
 ---
 
-We have been using Chef for configuration management at SB&G for a good while now, making heavy use of Test Kitchen for testing our cookbooks with Jenkins, Docker containers and ServerSpec. 
+We have been using Chef for configuration management at SB&G for a good while now, making heavy use of Test Kitchen for testing our cookbooks with Jenkins, Docker containers and ServerSpec.
 
 These cookbooks also serve as local development environments. By distributing Vagrant box images containing all the necessary tools for Chef development to our teams, it is usually the case that simply cloning a cookbook in the Workstation VM and running Test Kitchen is enough to get a development version of an application running, in Docker containers, locally. Test Kitchen configures ports forwarded to the application, allowing developers to access locally hosted services from their desktop.
 
-It is a nice workflow, it means a high level of confidence that changes deployed in integration environments are the same changes that get released to production environments and that they work in the same way. Because developers are free to experiment locally, innovation is easier. Problems are caught earlier in the development process - saving time further down the line, and is increasingly common practice with configuration management tools like Chef and Puppet. 
+It is a nice workflow, it means a high level of confidence that changes deployed in integration environments are the same changes that get released to production environments and that they work in the same way. Because developers are free to experiment locally, innovation is easier. Problems are caught earlier in the development process - saving time further down the line, and is increasingly common practice with configuration management tools like Chef and Puppet.
 
-Jenkins, Test Kitchen, Chef and Docker put together are much more than just a configuration management platform, though. 
+Jenkins, Test Kitchen, Chef and Docker put together are much more than just a configuration management platform, though.
 
-Starting to think about how to increase our speed of delivery as we grew, we realised that small is good. Small teams, providing microservice-like services to each other with established APIs and SLAs. These teams need to be independent, with as little dependancy on other teams as possible. These teams need to be small which means they don’t want to have to manage complex build, test and development environments, but they do want to be able to have complex CI pipelines for all kinds of software, from php to nodejs or Java. How can Chef help?
+Starting to think about how to increase our speed of delivery as we grew, we realised that small is good. Small teams, providing microservice-like services to each other with established APIs and SLAs. These teams need to be independent, with as little dependency on other teams as possible. These teams need to be small which means they don’t want to have to manage complex build, test and development environments, but they do want to be able to have complex CI pipelines for all kinds of software, from PHP to Node.js or Java. How can Chef help?
 
 Chef recipes don’t just have to be used to write system configuration or install packages. With Test Kitchen and Docker, we can use Chef DSL to perform and test any action inside the container. Replacing CI integration bash scripts usually run by Jenkins with Chef DSL run by Test Kitchen makes these scripts testable and version controlled in the same way as Chef cookbooks. Developers and operations are using the same SDK to orchestrate their workflows, meaning greater collaboration.
 
-This means that we can write Test Kitchen suites that do things such as check out git repositories, execute Mocha tests, run eslint for nodejs, or install a compiler and build a binary, or do something with Maven. Endless possibilities! 
+This means that we can write Test Kitchen suites that do things such as check out git repositories, execute Mocha tests, run ESLint for Node.js, or install a compiler and build a binary, or do something with Maven. Endless possibilities!
 
-This is good for a few reasons. First, your CI pipeline itself is now testable and version controlled code. Second, that CI pipeline is running inside a Docker container using the same software versions as will deploy onto the production platform, since they’re using the same Chef recipes. This means that your tests are representative, and you don’t have problems for example where one team needs Java 1.7 on the CI slave but another team needs Java 1.8, it is all in containers so everyone can get along. Third, developers and operations are now talking the same language.  
+This is good for a few reasons. First, your CI pipeline itself is now testable and version controlled code. Second, that CI pipeline is running inside a Docker container using the same software versions as will deploy onto the production platform, since they’re using the same Chef recipes. This means that your tests are representative, and you don’t have problems for example where one team needs Java 1.7 on the CI slave but another team needs Java 1.8, it is all in containers so everyone can get along. Third, developers and operations are now talking the same language.
 
 Testing of the application and the infrastructure code is part of the same delivery pipeline. At all stages of the development workflow, platform and applications are tested together, even on the developers local machine.
 
-The final piece of the puzzle is Jenkins Pipeline. This is a plugin for Jenkins maintained by CloudBees that allows you to configure your jobs as a Groovy-based DSL. The plugin allows job definitions to be stored and run directly from source control, which means the Jenkins pipeline can also be stored in the same git repository as the application and infrastructure code. We create ‘stub’ Jenkins jobs for each of our services, and these jobs run Pipeline DSL from the git repository maintained by the service owning team. 
+The final piece of the puzzle is Jenkins Pipeline. This is a plugin for Jenkins maintained by CloudBees that allows you to configure your jobs as a Groovy-based DSL. The plugin allows job definitions to be stored and run directly from source control, which means the Jenkins pipeline can also be stored in the same git repository as the application and infrastructure code. We create ‘stub’ Jenkins jobs for each of our services, and these jobs run Pipeline DSL from the git repository maintained by the service owning team.
 
-That makes it very easy for a team to make changes to their CI workflows, while being able to make use of a centrally maintained Jenkins instance that has deep integration with Chef and other orchestration flows. Complex flows can be built that define the entire software delivery pipeline, with a very small cost of starting up a new project. 
+That makes it very easy for a team to make changes to their CI workflows, while being able to make use of a centrally maintained Jenkins instance that has deep integration with Chef and other orchestration flows. Complex flows can be built that define the entire software delivery pipeline, with a very small cost of starting up a new project.
 
-An example might help at this point, so lets look at some code for an example Chef Integration. This example is a single git repository, containing both the application code (a nodejs application) and the infrastructure code. It also contains the CI pipeline as a Jenkins Pipeline definition. The nodejs application requires a connection to one of our MySQL databases in order to function. The layout of the repository:
+An example might help at this point, so lets look at some code for an example Chef Integration. This example is a single git repository, containing both the application code (a Node.js application) and the infrastructure code. It also contains the CI pipeline as a Jenkins Pipeline definition. The Node.js application requires a connection to one of our MySQL databases in order to function. The layout of the repository:
 
 ```
 event-service/
 │   .kitchen.yml                <- Test Kitchen configuration. Container setup, Chef run lists
 │   Berksfile                   <- Berkshelf for Chef cookbook version management, pulling in common functionality
 │   workflow.groovy             <- Jenkins Pipeline job definition
-├───event-service/              <- NodeJS application
+├───event-service/              <- Node.js application
 ├───dockerfiles/                <- Dockerfiles for creating basic containers from images
 └───chef/
     ├───cookbooks/
@@ -50,9 +50,9 @@ event-service/
     │   │   │   deploy.rb       <- Application release recipe
 ```
 
-First, the Test Kitchen configuration. Kitchen uses YAML for configuration, and supports Ruby ERB fragments in-line. This is useful because it allows us to pass environment variables via Test Kitchen through to Chef recipes. 
+First, the Test Kitchen configuration. Kitchen uses YAML for configuration, and supports Ruby ERB fragments in-line. This is useful because it allows us to pass environment variables via Test Kitchen through to Chef recipes.
 
-The driver configuration comes first, of which there are many. Docker provides the features we need. Chef Zero is the provisioner, which will be used to configure the container after it has been created by the dockerfile. 
+The driver configuration comes first, of which there are many. Docker provides the features we need. Chef Zero is the provisioner, which will be used to configure the container after it has been created by the dockerfile.
 
 
 ```
@@ -74,9 +74,9 @@ platforms:
       workspace: /tmp/workspace
 ```
 
-Important to note here is the volume mount. When run in CI, this means that the docker container, and therefore Chef, have access to the Jenkins workspace. This makes it simple to write Chef recipes that output to the Jenkins workspace from inside a docker container. This can be used to write test results or to create build artefacts for later analysis by Jenkins or use in later Pipeline stages. 
+Important to note here is the volume mount. When run in CI, this means that the docker container, and therefore Chef, have access to the Jenkins workspace. This makes it simple to write Chef recipes that output to the Jenkins workspace from inside a docker container. This can be used to write test results or to create build artefacts for later analysis by Jenkins or use in later Pipeline stages.
 
-Next, the suites are defined. Each suite is a container with its own Chef run list, and containers can be linked together. Here we create a fixtured MySQL server which is linked to our NodeJS application container:
+Next, the suites are defined. Each suite is a container with its own Chef run list, and containers can be linked together. Here we create a fixtured MySQL server which is linked to our Node.js application container:
 
 ```
 suites:
@@ -106,7 +106,7 @@ suites:
 
 With this configuration, running ```kitchen converge``` from the root of the repository will launch two docker containers with port 1700 forwarded to the running application, that has been built from source.
 
-The Chef recipes themselves are fairly simple. 
+The Chef recipes themselves are fairly simple.
 
 ```lint.rb``` Installs the ```eslint``` utility and runs it, outputting the result to the shared volume
 
@@ -145,10 +145,10 @@ execute "Copy Mocha test report to workspace" do
 end
 ```
 
-```build.rb``` Runs ```npm install``` and installs the production dependancies
+```build.rb``` Runs ```npm install``` and installs the production dependencies
 
 ```
-#prune the installation and install npm production dependancies
+#prune the installation and install npm production dependencies
 execute "run npm install" do
   command "npm prune && npm install --production"
   cwd "#{node['workspace']}/event-service"
@@ -159,7 +159,7 @@ end
 ```vendor.rb``` Creates a deployable artefact of the node application in the shared volume mount
 
 ```
-#Create a .tbz2 containing the node application and all its production dependancies
+#Create a .tbz2 containing the node application and all its production dependencies
 execute "build artefact" do
   command "/bin/tar -cvjf #{node['workspace']}/build/event-service-v#{node['new_tag_version']}.tbz2 event-service/"
   cwd node['workspace']
@@ -232,7 +232,7 @@ The main stage. Runs Test Kitchen, which builds and verifies the application in 
     stage name: "warnings-${env}", concurrency: 1
     step([$class: 'WarningsPublisher', canComputeNew: false, canResolveRelativePaths: false, consoleParsers: [[parserName: 'Foodcritic']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', parserConfigurations: [[parserName: 'JSLint', pattern: 'build/lint-*.xml']], unHealthy: ''])
 ```
-The lint output is parsed by Jenkins, JSLint for the NodeJS and Foodcritic for the Chef recipes.
+The lint output is parsed by Jenkins, JSLint for the Node.js and Foodcritic for the Chef recipes.
 
 ```
     stage name: "junit-${env}", concurrency: 1
@@ -258,6 +258,6 @@ This stage tells Jenkins to archive the artefact produced by the ```vendor.rb```
 ```
 Finally, push a new tagged version of the application + infrastructure code, set the build name to that version and notify our teams Slack channel that a new build has been successfully completed.
 
-Further Jenkins jobs can then be used to push that tag to integration and production environments. 
+Further Jenkins jobs can then be used to push that tag to integration and production environments.
 
 

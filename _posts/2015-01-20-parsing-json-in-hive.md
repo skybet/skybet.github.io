@@ -55,7 +55,7 @@ You may have noticed that this does not use the same notation as `get_json_objec
 
 ### 4. Use a JSON Serde
 
-The final method of JSON parsing within Hive described here is to use a SerDe. SerDe is short for serializer/deserializer and they control conversion of data formats between HDFS and Hive. Using a SerDe data can be stored in JSON format in HDFS and be automatically parsed for use in Hive. A SerDe is defined in the `CREATE TABLE` statement and must include the schema for the JSON structures to be used. The example used in the previous sections would look like:
+The final method of JSON parsing within Hive described here is to use a SerDe. SerDe is short for serialiser/deserialiser and they control conversion of data formats between HDFS and Hive. Using a SerDe data can be stored in JSON format in HDFS and be automatically parsed for use in Hive. A SerDe is defined in the `CREATE TABLE` statement and must include the schema for the JSON structures to be used. The example used in the previous sections would look like:
 
 ``` sql
 CREATE TABLE business_events (
@@ -82,9 +82,9 @@ SELECT event_date, event_type, user.first_name, user.last_name
   FROM json_serde
 ```
 
-The main advantage of using a SerDe is the ease of use. Once the table has been set up, the data conversion happens in the background and users of that data need not worry about the mechanics behind it. This can be very important if speed of ingest is a primary concern and so the overhead that goes with the staging and unstaging process described above is impractical. It is also worth noting that some SerDes can contain extensive optimization that makes them highly efficient at data conversion.
+The main advantage of using a SerDe is the ease of use. Once the table has been set up, the data conversion happens in the background and users of that data need not worry about the mechanics behind it. This can be very important if speed of ingest is a primary concern and so the overhead that goes with the staging and unstaging process described above is impractical. It is also worth noting that some SerDes can contain extensive optimisation that makes them highly efficient at data conversion.
 
-However, it is the data conversion that raises the main disadvantage with using a SerDe for JSON. Because the SerDe defines the data format on the file system you cannot use optimized storage formats such as ORC files and Parquet. It has already been shown that these can have an enormous effect on performance when the query pattern is known for the data and so losing that ability is a major blow.
+However, it is the data conversion that raises the main disadvantage with using a SerDe for JSON. Because the SerDe defines the data format on the file system you cannot use optimised storage formats such as ORC files and Parquet. It has already been shown that these can have an enormous effect on performance when the query pattern is known for the data and so losing that ability is a major blow.
 
 ### A Hybrid of solutions 1 and 2
 
@@ -108,15 +108,15 @@ Because we still have the JSON captured in our table, we can use Approach 1 to q
 
 ### Conclusion
 
-The five approaches outlined above are by no means exhaustive but are intended to show the basic considerations you should have when using JSON in Hive. It is worth noting that, due to Hive's open source and pluggable nature, there are many customizations available for each approach that may get round some of the issues raised here and be more suitable for your particular problem.
+The five approaches outlined above are by no means exhaustive but are intended to show the basic considerations you should have when using JSON in Hive. It is worth noting that, due to Hive's open source and pluggable nature, there are many customisations available for each approach that may get round some of the issues raised here and be more suitable for your particular problem.
 
 The general rules for approach selection are:
 
 * If your JSON schema is not clearly defined you should use approach 1 and parse at query time.
-* When you have a clearly defined but complex JSON structure you should use either the SerDe or a UDF in a stage/unstage process. The choice between these two really depends on the ingest requirements (for high speed ingest use the SerDe) and querying patterns (for a defined query pattern that could be optimized using HDFS file formats then use the UDF).
+* When you have a clearly defined but complex JSON structure you should use either the SerDe or a UDF in a stage/unstage process. The choice between these two really depends on the ingest requirements (for high speed ingest use the SerDe) and querying patterns (for a defined query pattern that could be optimised using HDFS file formats then use the UDF).
 * When your JSON structure simple key/value and you are using UDFs to parse it, favour `json_tuple` over `get_json_object`.
 
-For our specific problem described in the second paragraph we found that the data structures we would be parsing were clearly defined and simple key/value structures. We also found that there was a defined query behavior whose optimization should be given precedence over ingest speed. For these reasons we chose to use the `json_tuple` UDF combined with a stage/unstage process.
+For our specific problem described in the second paragraph we found that the data structures we would be parsing were clearly defined and simple key/value structures. We also found that there was a defined query behaviour whose optimisation should be given precedence over ingest speed. For these reasons we chose to use the `json_tuple` UDF combined with a stage/unstage process.
 
 As Cloudera users we may have to revisit this issue at SB&G in the near future thanks to items on the Impala roadmap. 2015 promises enhanced query features for nested structures and enhancements to the parquet storage format that almost certainly will invite some new approaches to this problem.
 

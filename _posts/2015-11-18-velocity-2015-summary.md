@@ -10,7 +10,7 @@ tags:       conference
 ---
 
 At the end of October, Sky Betting & Gaming sent a large contingent of staff to attend Velocity
-in Amsterdam; one of the largest devops conferences gathering industry leaders in building
+in Amsterdam; one of the largest DevOps conferences gathering industry leaders in building
 scaleable systems to share their collective wisdom.
 
 ![Velocity](/images/velocity-2015-hall.jpg)
@@ -21,8 +21,8 @@ Organisational Operations
 -------------------------
 
 A general theme emerged from many different sessions that operations is at the heart of our
-business, and we should all have an operational focus.  Not just devops, but marketingops,
-financeops, and infrastructureops too.  Or more pithy for the tech audience:
+business, and we should all have an operational focus. Not just DevOps, but MarketingOps,
+FinanceOps, and InfrastructureOps too. Or more pithy for the tech audience:
 
 ```
 ^(?<dept>.+)Ops$
@@ -51,7 +51,7 @@ Team size matters
 
 Despite the fact that Melvin Conway wrote about this way back in 1967, and Brooks Mythical Man-Month
 was published in 1975, and other substantiating research over the intervening year bears out their
-conclusions - our organization still suffers from many of the problems that Conway describes.
+conclusions - our organisation still suffers from many of the problems that Conway describes.
 
 Small teams that release small amounts of code often suffer from the fewest problems relating to
 the size and complexity of the project that they are working on.
@@ -82,22 +82,22 @@ Alerts vs Dashboards
 --------------------
 
 Something that we are all guilty of when monitoring "all the things" is that we start to feel the
-need to create some kind of alert on the metric that we are measuring.  But when do we decide
-to wake someone up at 2am?  Is it really necessary if a CPU is running hot?
+need to create some kind of alert on the metric that we are measuring. But when do we decide
+to wake someone up at 2am? Is it really necessary if a CPU is running hot?
 
 Separating monitoring into dashboards of performance metrics, and alerting systems that alarm on
-critical business metrics is an important distinction.   For instance, if our HTTP response time
+critical business metrics is an important distinction. For instance, if our HTTP response time
 has jumped 20%, but login and bet placement continue without a drop, then the system is
 probably healthy;  though this may be a symptom of a heavyweight resource being added to our
 homepage by the content team.
 
-Our monitoring is already separated into dashboards of metrics and alerts generating alarms.  We
+Our monitoring is already separated into dashboards of metrics and alerts generating alarms. We
 are currently building further anomaly detection to improve the relevance of our alarms.
 
 In conclusion
 -------------
 
 Velocity Amsterdam this year was both fun and informative, despite some time spent queueing for the
-canal tour.  There was a lot to be learnt, and plenty to stimulate further discussion back at the
+canal tour. There was a lot to be learnt, and plenty to stimulate further discussion back at the
 office along with other snippets of a more practical nature that can be applied immediately.
 

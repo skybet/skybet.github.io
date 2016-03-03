@@ -111,7 +111,7 @@ for {
 }
 ```
 
-That *something* we want to do is pull out the regions of interest and do OCR on them.  Then for each bit of OCR output that is a valid time, we want to update the state:
+That *something* we want to do is pull out the regions of interest and do OCR on them. Then for each bit of OCR output that is a valid time, we want to update the state:
 
 ```go
 // 'Something'
@@ -128,7 +128,7 @@ for _, region := range regions {
 }
 ```
 
-We've used a few user-defined functions there. `getRegions` uses the `github.com/disintegration/imaging` package to crop and clean some predefined regions of interest and write them to disk as PNGs.  It returns a slice containing the filenames of the PNGs it created:
+We've used a few user-defined functions there. `getRegions` uses the `github.com/disintegration/imaging` package to crop and clean some predefined regions of interest and write them to disk as PNGs. It returns a slice containing the filenames of the PNGs it created:
 
 ```go
 func getRegions(path string) []string {

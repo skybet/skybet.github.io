@@ -24,7 +24,7 @@ Traditionally all of this was handled in PHP. However, with that it meant that e
 
 To keep up with the growth of the business and the new products launching, we needed to come up with a solution. The solution was Node.js.
 
-## Utilising the asychronous nature of Node.js in login
+## Utilising the asynchronous nature of Node.js in login
 
 When a login is performed it can require up to four separate calls to an XML-based API for customer information, or even further datastores such as Couchbase. Traditionally this would mean that the fourth call is forced to wait for the three others to complete, even if it didn't care about the result of the earlier calls. As most of these can be executed asynchronously without needing the response of another first, Node.js suites us perfectly.
 

@@ -27,7 +27,7 @@ Quite nifty, I hope you agree!
 
 Virtual boards are powered by [JIRA](https://www.atlassian.com/software/jira) here at Sky Betting & Gaming and fortunately JIRA provide an API which allows us to programatically update and assign JIRA tickets.
 
-The Board Assistant app is an Android app and requires an NFC enabled device to run, the idea is to have such a device located next to the Squad board at all times for the team to use. NFC tags are added on the column headings, avatars and the story cards on the physical board ready for the app to scan/tap. Each NFC tag stores some data identifying the column, avater and ticket for the app to read with a scan/tap.
+The Board Assistant app is an Android app and requires an NFC enabled device to run, the idea is to have such a device located next to the Squad board at all times for the team to use. NFC tags are added on the column headings, avatars and the story cards on the physical board ready for the app to scan/tap. Each NFC tag stores some data identifying the column, avatar and ticket for the app to read with a scan/tap.
 
 The app then needs to collect the relevant pieces of information needed to update a JIRA ticket, just three scans/taps, and makes the relevant JIRA API request, after which the app resets ready for the next update.
 

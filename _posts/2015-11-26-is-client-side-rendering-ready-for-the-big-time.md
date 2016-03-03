@@ -10,13 +10,13 @@ author:     ian_thomas
 
 Depending on how long you have been using the web, you may remember a time when all functionality was handled by servers. You loaded a page, decided what you were going to do next, clicked (this was several years before smart phones so no tapping... yet) and waited while the server processed your choice. After the server had built the next representation of the state of your session and sent it back down the wire to be rendered by Internet Explorer - your flavour may vary, but I first used [IE 3][web timeline] - you then repeated the whole process until you got bored (or your housemate tried to use the dial-up too and dropped your connection).
 
-Circa the year 1999 Microsoft introduced an ActiveX component in IE 5 which lay the foundations for what we typically refer to as [AJAX][ajax]. After a few years incubation, greater adoption by browser vendors and some high-profile launches from Google (gmail and maps were among the first to deliver cross-browser experiences using XMLHttpRequest), rich interactive experiences were appearing everywhere and Web 2.0 was born. However, there was a problem - search engines didn't execute JavaScript, which was, and remains, the de facto tool in browsers to facilitate server requests from within a page. Any content that appeared on a page as a result of `XMLHttpRequest` usage was invisible to their bots and left out of the index.
+Circa the year 1999 Microsoft introduced an ActiveX component in IE 5 which lay the foundations for what we typically refer to as [AJAX][ajax]. After a few years incubation, greater adoption by browser vendors and some high-profile launches from Google (Gmail and Maps were among the first to deliver cross-browser experiences using XMLHttpRequest), rich interactive experiences were appearing everywhere and Web 2.0 was born. However, there was a problem - search engines didn't execute JavaScript, which was, and remains, the de facto tool in browsers to facilitate server requests from within a page. Any content that appeared on a page as a result of `XMLHttpRequest` usage was invisible to their bots and left out of the index.
 
 In 2009, Google recognised the rising trend for web applications being built using AJAX and client-side rendering and announced their [AJAX Crawling Scheme][ajax crawling scheme]. In a nutshell, this scheme provided a way for developers to tell Google where to find a HTML snapshot which mirrored the client-side state seen by a user.
 
 ## The end of Google's AJAX Crawling Scheme
 
-About a month ago (October 2015) Google announced the [end of support for the AJAX Crawling Scheme][deprecation]. The rationale for this deprecation being that their crawling bot has become sophisticated enough to render a page and execute any linked/inline JavaScript, enough that there is no longer a need to provide a html snapshot at some pre-arranged meeting place.
+About a month ago (October 2015) Google announced the [end of support for the AJAX Crawling Scheme][deprecation]. The rationale for this deprecation being that their crawling bot has become sophisticated enough to render a page and execute any linked/inline JavaScript, enough that there is no longer a need to provide a HTML snapshot at some pre-arranged meeting place.
 
 That's the theory at least, but we had an inkling that while JavaScript would be executed, the bots would still only see content contained either in the HTML itself or the parsed JavaScript. Or, to be more clear, if your site was AJAX powered and called in content from APIs, you're still invisible.
 
@@ -30,7 +30,7 @@ This announcement is interesting because, if true, this opens up the world of SP
 
 ### Why should we favour client-side rendering?
 
-Web applications which implement client-side rendering can feel faster than more traditional websites. Looking specifically at our own [Skybet mobile site][mbet], there are significant performance enhancements achieved by not requiring a full page load on every customer action. Additionally, the introduction of transition feedback and persistant UI elements during content load makes browsing the site feel slicker.
+Web applications which implement client-side rendering can feel faster than more traditional websites. Looking specifically at our own [Skybet mobile site][mbet], there are significant performance enhancements achieved by not requiring a full page load on every customer action. Additionally, the introduction of transition feedback and persistent UI elements during content load makes browsing the site feel slicker.
 
 There are product features that only become possible with client-side rendering - an example being our recently released video player which can be docked to the top of the screen allowing uninterrupted stream viewing across page views.
 
@@ -52,9 +52,9 @@ There are some performance concerns here too - while client-side rendering shoul
 
 Choosing to go with a third-party framework could be risky as we don't have ownership of their development roadmap and there are no guarantees of long term support. We can make educated decisions to mitigate this risk and given the main contributor to React and Redux is Facebook, it seems to be a risk that we can afford to take. That said, if ever we wanted to experiment with a new technology for a single part of the site, that would be very difficult indeed.
 
-We know the performance profile of our servers and can scale appropriately, moving more processing to the client removes any control we have over the execution environment. Initial performance tests show an increased usage of device CPU (which is to be expected) so for those customers on older/weaker devices there may be greater performance penalities than a server rendered approach and we may cause excessive battery drain if we aren't careful.
+We know the performance profile of our servers and can scale appropriately, moving more processing to the client removes any control we have over the execution environment. Initial performance tests show an increased usage of device CPU (which is to be expected) so for those customers on older/weaker devices there may be greater performance penalties than a server rendered approach and we may cause excessive battery drain if we aren't careful.
 
-There's also an increased reliance on monitoring real-user data to ensure products are working as expected. We have very detailed logging from our servers which gives detailed visibility of their health and makes debugging issues less painful. When a significant amount of processing is done on a customer's device we do not have the same level of control or visiblity so triage and debugging could be much harder. Equally, the sheer number of different devices and software makes it difficult to pinpoint problems precisely.
+There's also an increased reliance on monitoring real-user data to ensure products are working as expected. We have very detailed logging from our servers which gives detailed visibility of their health and makes debugging issues less painful. When a significant amount of processing is done on a customer's device we do not have the same level of control or visibility so triage and debugging could be much harder. Equally, the sheer number of different devices and software makes it difficult to pinpoint problems precisely.
 
 ## How can we put this approach to the test?
 
@@ -76,13 +76,13 @@ It's always exciting to have the opportunity to work on completely greenfield pr
 - Webpack
 - Hot Module Reloading
 
-We currently use several of these in production as part of our Bet Tracker and Cash Out product but JavaScript packages don't stand still for long so it was good for us to experiment with the latest approaches coming from the wider community. It was particularly exciting to be able to investigate CSS modules as, like many long-lived websites, the scaling and maintenance of our CSS is a particulary thorny topic.
+We currently use several of these in production as part of our Bet Tracker and Cash Out product but JavaScript packages don't stand still for long so it was good for us to experiment with the latest approaches coming from the wider community. It was particularly exciting to be able to investigate CSS modules as, like many long-lived websites, the scaling and maintenance of our CSS is a particularly thorny topic.
 
 If you're interested to see what we built, it's available to view at [www.skybet-nextgen.com][poc].
 
 ## The results...
 
-Well, it's a bit early to say on this one, but early signs are not so good for getting our content into Google. Using the fetch and render feature shows a beautifully accurate represenation of the loading state of the demo website, with none of the API requests having completed at the time an image was captured. Whether this means that the actual indexing behaviour also misses the XHR data fetch is yet to be seen, we'll have to wait to see how any organic crawling performs.
+Well, it's a bit early to say on this one, but early signs are not so good for getting our content into Google. Using the fetch and render feature shows a beautifully accurate representation of the loading state of the demo website, with none of the API requests having completed at the time an image was captured. Whether this means that the actual indexing behaviour also misses the XHR data fetch is yet to be seen, we'll have to wait to see how any organic crawling performs.
 
 Keep checking for a follow on post containing the full results of this test.
 
@@ -99,4 +99,4 @@ Keep checking for a follow on post containing the full results of this test.
     We are specifically looking at the way a component based UI could work using a technology like React, but the other frameworks mentioned are equally capable at working in this way.
 
 [^2]:
-    As we are specifically looking at React the component lifecycle could be used to empower smart components which know how to fetch and update their own state from dedicated enpoints - an approach that is ineffecient and difficult to implement cleanly when using React's server side rendering capability.
+    As we are specifically looking at React the component lifecycle could be used to empower smart components which know how to fetch and update their own state from dedicated endpoints - an approach that is inefficient and difficult to implement cleanly when using React's server side rendering capability.

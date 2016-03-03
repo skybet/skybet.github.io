@@ -26,7 +26,7 @@ Let's look at an example like cluster X below. It's a standard Big Data setup on
 
 ![Standard Cluster](/images/specialise-hadoop-1.png)
 
-Cluster X has 4 worker nodes with non RAID disks and average CPU capacity. It has been designed and implemented well, but it's I/O bound. The read capabilities of the commodity disks are not able to keep the CPU busy, so the expensive CPUs are often idle. What can be done? Buying more specialized high performance disks would certainly help but better is to try a JBOD setup:
+Cluster X has 4 worker nodes with non RAID disks and average CPU capacity. It has been designed and implemented well, but it's I/O bound. The read capabilities of the commodity disks are not able to keep the CPU busy, so the expensive CPUs are often idle. What can be done? Buying more specialised high performance disks would certainly help but better is to try a JBOD setup:
 
 ![JBOD Cluster](/images/specialise-hadoop-2.png)
 

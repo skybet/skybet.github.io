@@ -2,7 +2,7 @@
 layout:     post
 title:      H2OhNoes! Five lessons we can learn from old-world utility firms on how to handle outages
 date:       2015-11-21 20:00
-summary:    Utility companies have customers. And just like us, those customers expect a ubiquitous, always-on service provision. Are there therefore any lessons we can learn from an old, established industry like a utility company on how to handle outages? 
+summary:    Utility companies have customers. And just like us, those customers expect a ubiquitous, always-on service provision. Are there therefore any lessons we can learn from an old, established industry like a utility company on how to handle outages?
 category:   Incident Response
 tags:       support
 author:     dan_adams
@@ -32,7 +32,7 @@ As soon as you give an estimate for when a service suffering from an outage will
 
 ## Lesson three: if you had a tough problem, share the details
 
-Customers by and large do not care about the exact technical issues that you encountered. They don’t want to be lectured on autonomous systems and unanticipated HSRP failover interactions when their favourite SkyVegas game isn’t available. But they will appreciate knowing that you busted your guts to sort their problem and weren’t sat around idly. Did you have to wake up twelve engineers at three in the morning and have them work on the problem til dawn? Let the customers know. Don’t fish for sympathy – it’s the customer that has been impacted – and don’t attempt to explain or justify the length of time taken to resolve an issue, but do try and reassure that the issue was not trivial and just how hard you have been working to fix it for them, for the customer. 
+Customers by and large do not care about the exact technical issues that you encountered. They don’t want to be lectured on autonomous systems and unanticipated HSRP failover interactions when their favourite Sky Vegas game isn’t available. But they will appreciate knowing that you busted your guts to sort their problem and weren’t sat around idly. Did you have to wake up twelve engineers at three in the morning and have them work on the problem til dawn? Let the customers know. Don’t fish for sympathy – it’s the customer that has been impacted – and don’t attempt to explain or justify the length of time taken to resolve an issue, but do try and reassure that the issue was not trivial and just how hard you have been working to fix it for them, for the customer.
 
 It’s hard to hold a utility company to fault when three teams of engineers have been kept from their families digging through a muddy ditch all night by floodlight in driving rain so that you can have a cup of tea.
 
@@ -46,7 +46,7 @@ Yorkshire Water didn’t wait for a flood of calls into their contact centre to 
 
 When Yorkshire Water’s delivery mechanism failed they had a backup in place and handed out free bottled water. As a tech company we attempt to provide resiliency and redundancy at various layers of our technical stack, as well as having disaster recovery and failover sites. But sometimes even this isn’t enough.
 
-What does our “bottled water” offering for customers look like and can we do more for our customers in the event of an outage? Could our mobile apps offer registered bet customers free spins on the Sky Vegas if the sportsbook site is unavailable? Could they even do the unthinkable and support a reciprocated arrangement to give federated access for our customers to a competitor’s service in the event of an outage?
+What does our “bottled water” offering for customers look like and can we do more for our customers in the event of an outage? Could our mobile apps offer registered bet customers free spins on the Sky Vegas if the Sportsbook site is unavailable? Could they even do the unthinkable and support a reciprocated arrangement to give federated access for our customers to a competitor’s service in the event of an outage?
 
 ![Water Collection](/images/yorkshire-water-bottle-collection.jpg)
 

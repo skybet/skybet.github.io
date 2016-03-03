@@ -4,7 +4,7 @@ title: >
   SkyBet Sheffield Tech Talk: Scaling Agile by Not Talking to Each Other
 date:       2015-11-16 13:00
 summary: >
-  Our new Sheffield office recently hosted an evening of technical talks to get ourselves aquainted with the local technology community. The first of these talks is now available to watch online.
+  Our new Sheffield office recently hosted an evening of technical talks to get ourselves acquainted with the local technology community. The first of these talks is now available to watch online.
 category:   Agile
 tags:       sheffield, agile, video
 author:     glen_mailer

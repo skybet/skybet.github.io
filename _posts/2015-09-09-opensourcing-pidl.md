@@ -8,7 +8,7 @@ category:   Data
 tags:       open source, ruby, hadoop, pidl
 ---
 
-_Today we released [Pidl (Pipeline Definition Language)](https://github.com/skybet/pidl) as an open MIT licenced project to our Github account. We developed this Ruby DSL to manage our ETL pipelines through our Hadoop cluster. This article discusses what it is, and why we felt the need to develop it._
+_Today we released [Pidl (Pipeline Definition Language)](https://github.com/skybet/pidl) as an open MIT licensed project to our GitHub account. We developed this Ruby DSL to manage our ETL pipelines through our Hadoop cluster. This article discusses what it is, and why we felt the need to develop it._
 
 Right back in the days of Hadoop 1 and going forward into the world of Hadoop 2, Spark and the like, the task of orchestrating tasks has been critical. Your data processing job might make the absolute most of your cluster, but if the data hasn't been put in the right place in the first place, it's all for nought.
 
@@ -229,4 +229,4 @@ parallel executor that harnesses JRuby's ability to use real threads for paralle
 
 Future plans include the ability to do collection-based processing. At the moment the tasks and actions are geared around set-wise operations on remote data stores. It would be beneficial to work on collections of discrete items such as files on HDFS or the local disk. This would require retrieving and iterating over lists and maps with parallel tasks.
 
-You can find [Pidl source on our Github account](https://github.com/skybet/pidl).
+You can find [Pidl source on our GitHub account](https://github.com/skybet/pidl).

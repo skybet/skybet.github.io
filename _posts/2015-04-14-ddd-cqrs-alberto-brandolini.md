@@ -27,10 +27,10 @@ Don't use CQRS for a basic CRUD problem.
 
 ### Bounded Contexts: Same Term, Different Meaning
 
-Ubiquitous Language terms can have different meanings in different Bounded Contexts. e.g. in a *Delivery* context the "Address" is the delivery location, in a *Finance* context "Address" is the billing address. Bounded Contexts are usually reflected in company structure: different teams in a company tend to develop their own local ubitiquitous language.
+Ubiquitous Language terms can have different meanings in different Bounded Contexts. e.g. in a *Delivery* context the "Address" is the delivery location, in a *Finance* context "Address" is the billing address. Bounded Contexts are usually reflected in company structure: different teams in a company tend to develop their own local ubiquitous language.
 
 ### Async Communication between Aggregate Micro-Service
 
 Aggregates within a Bounded Context are natural candidates for micro-service boundaries. Communication between aggregates should be async.
 
-![Alberto agreggate diagram](/images/alberto-aggregate.jpg)
+![Alberto aggregate diagram](/images/alberto-aggregate.jpg)
