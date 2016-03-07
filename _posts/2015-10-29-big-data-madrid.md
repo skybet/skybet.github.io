@@ -7,8 +7,11 @@ category:   Big Data
 tags:       Big, Data, Spain, Madrid, Real-time, Predictive, Tech Ninja Fund
 author:     iker_gomez
 ---
+
 <a name="english"></a>
-<a href="#spanish">Llevame a la version en castellano]</a>
+
+
+<a href="#spanish">[Llevame a la version en castellano]</a>
 
 As almost every tech company nowadays, **Sky Betting & Gaming** is concerned about their employees and their continuous learning, either signing us up in courses to get new certificates or going to conferences.
 That's why last year **Sky Betting & Gaming** created the **Tech Ninja Fund**.
@@ -16,13 +19,26 @@ That's why last year **Sky Betting & Gaming** created the **Tech Ninja Fund**.
 # What's that?
 **Tech Ninja Fund**, as its name suggests, is a fund that everyone here at **Sky Betting & Gaming** have, it consists in £1000 we can spend in so many different ways like courses where we can learn new technologies we are currently using in the company,as well as getting new hardware/software, conferences, books,etc.
 
+I thought It would be a good idea to spend part of these funds attending to **[Big Data Spain](http://www.bigdataspain.org/)** conferences in Madrid, as a software engineer within the Data Team I'm really interested in learning more about cutting-edge technologies such as Spark, Hadoop, Machine Learning and real-time data processing, to be able to make use of them in some of the projects we are currently working on.
 
+The fourth edition of these conferences included high level speaker such as [Paco Nathan](https://www.linkedin.com/in/ceteri) (O'reilly), [William Vambenepe](https://www.linkedin.com/in/vambenepe) (Google) o [Jason Sundram](https://www.linkedin.com/in/jsundram) (Facebook) among others.
+900+ attendees and 50+ speakers make this event the most important Big Data events in Spain.
 
+In general terms, this year's edition was all about real time data processing and predictive modeling, as more or less all of the talks dealt with these subjects.
+
+I'm not going to go through every single talk, instead of that, I'm going to choose the ones I think they were the most interesting and the ones every Big Data enthusiast must watch.
+
+The first of them, and for me the best one of this edition, is "GRAPHS IN FINANCE AND FRAUD DETECTION" by Jim Webber, from _Neo Technology_, here you have the video:
+
+ [![Graphs in Fraude detection](/images/GraphsinFinance.png)](https://www.youtube.com/watch?v=vgE8Buqmry0 "Graphs in fraud detection")
+
+ I must say It was a really funny talk as well as useful,
 ---
 
 <a name="spanish"></a>
-<a href="#english">Take me to the English version]</a>
 
+
+<a href="#english">[Take me to the English version]</a>
 
 Como toda empresa de tecnologia que se tercie, **Sky Betting & Gaming** se preocupa mucho por la formacion continua de los empleados, ya sea inscribiendonos en cursillos de formacion para obtener nuevos titulos o asistiendo a conferencias.
 Es por eso que desde hace algo menos de un anho, **Sky Betting & Gaming** puso en marcha el llamado **Tech Ninja Fund**
