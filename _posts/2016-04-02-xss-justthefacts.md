@@ -8,7 +8,7 @@ category:   security
 tags:       security scripting xss sanitization encoding vulnerability exploit
 ---
 
-One of the simplest and most prevalent vulnerabilities found on web applications that we pentest is Cross-Site Scripting or XSS. It is still the third most critical vulnerability according to the [https://www.owasp.org/index.php/Top10](Owasp Top 10 Vulnerabilities) list as of 2013, and closely linked to the #1 most critical vulnerability, Injection.
+One of the simplest and most prevalent vulnerabilities found in web applications that we pentest is Cross-Site Scripting or XSS. It is still the third most critical vulnerability according to the [https://www.owasp.org/index.php/Top10](Owasp Top 10 Vulnerabilities) list as of 2013, and closely linked to the #1 most critical vulnerability, Injection.
 
 Clearly, despite its ubiquity, there is still a lot of uncertainty amongst developers and others around what exactly XSS is and how to prevent it. Very often the topic is made overly complex, when in reality it is relatively simple to both understand and defend against.
 
@@ -20,7 +20,7 @@ Cross-site scripting is the slightly clunky name for the malicious insertion of 
 
 At its simplest, XSS relies on a website returning executable code to a client that a third party has injected, rather than data that the webserver is intending to serve. This can take a variety of forms but usually relies on the website returning a parameter to a customer that the customer has previously entered in an earlier web request. That is, it relies on data that is intended to be passive/handled data (such as raw text) to transform context into some form of exectuable payload such as a command or script, which can then execute. If the parameter containing the executable code is passed to and executes on the server side, it can lead to a SQL injection or command execution attack, and if executed on the client side, it can lead to an XSS attack.
 
-An example of a website that could be vulnerable to this could be as simple as a site containing a single form that echoes your name back to you: you enter your name ("Bob") in a login form field, and the website returns "Hello, Bob" in its HTTP response. If the website can instead be forced to process the name of "&lt;script&amp;... &lt;script&amp;" then it is possible to inject javascript into unsuspecting visitors' browsers.
+A trivial example of a website that could be vulnerable to this could be as simple as a site containing a single form that echoes your name back to you: you enter your name ("Bob") in a login form field, and the website returns "Hello, Bob" in its HTTP response. If the website can instead be forced to process the name of "&lt;script&amp;... &lt;script&amp;" then it is possible to inject javascript into unsuspecting visitors' browsers.
 
 ![Bobby Tables cartoon](https://imgs.xkcd.com/comics/exploits_of_a_mom.png)
 
@@ -39,10 +39,10 @@ You should sanitise input, ideally against a type, or if not then against whitel
 
 ### Encoding of output data
 
-The real power to prevent XSS (as well as Injection attacks etc) is to ensure that every function in your code that passes data to another context or system encodes the data for that system, ensuring that it continues to be interpreted as data, and now permitted to jump contexts into being interpreted as executable code. There is no universal encoding standard that can be used, since the encoding mechanism to use will vary depending upon the context:
+The more effective measure to prevent XSS (as well as Injection attacks etc) is to ensure that every function in your code that passes data to another context encodes the data for that system, ensuring that it continues to be interpreted as data, and not permitted to jump contexts into being interpreted as executable code. There is no universal encoding standard that can be used, since the encoding mechanism to use will vary depending upon the context:
 * If exporting to the browser in HTML, HTML-encdoding should be used
  * &amp;amp; → &amp
 * If exporting to a SQL DB, SQL escape strings (or preferably parameterized queries) should be used
 * and so on.
 
-Rather than being an easy fix, this means that an understanding of XSS, and incorporation of data encoding, needs to be standard practice amongst every developer in your team as a standard coding practice.
+Rather than being an easy fix, this means that an understanding of XSS, and incorporation of data encoding, needs to be standard practice amongst every developer in your team. 
