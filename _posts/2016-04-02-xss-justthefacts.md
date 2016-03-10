@@ -26,16 +26,16 @@ An example of a website that could be vulnerable to this could be as simple as a
 
 It is this combination of the widespread susceptibly to XSS with the powerful payloads that the vulnerability that can deliver and the relative simplicity of exploiting it that make XSS such an important threat to protect against.
 
-The reason that XSS vulnerabilities are so prevalent is that whilst XSS is a trivial vulnerability to prevent against, doing so requires robust and consistent coding practices that are consistently implemented over time - the consideration of data handling of input and output data by almost every piece of code you write at every level of your stack.
+The reason that XSS vulnerabilities are so prevalent is that whilst XSS is a trivial vulnerability to defend against, doing so requires robust coding practices that are consistently implemented over time, considering how data is handled at input and output in almost every piece of code you write, and at every level of your stack.
 
-The correct approach to protect your website against XSS and other linked vulnerabilities is to ensure that any system the data is passed onto treats the data as raw data/text and doesn't allow the data to context-jump into an executable command. In practice this means performing some combination of:
+The correct approach to protect your website against XSS and other linked vulnerabilities is to ensure that all input data is treated as raw data/text and doesn't allow the data to context-jump into an executable command. In practice this means performing some combination of:
 
 1. Sanitisation of any data received from an external context or user; and
 2. Encoding of any data output to another component
 
 ### Sanitisation of input data
 
-You should sanitise user-inputted data, ideally against a type, or if not then against whitelist regex of allowed values. This is simpler for some parameters and form fields than others. If you are processing a parameter representing a numeric item ID, then simply checking the type is an integer may be simple and sufficient. For other inputted data that is richer, this is more difficult, and input sanitisation is of more limited value for such parameters - when you sanitize input, you risk altering the data in ways that might make it unusable. Input sanitization is therefore generally avoided in cases where the nature of the data is unknown, such as free-form text entry fields, especially if these may legimitately contain complex data sets such as code samples.
+You should sanitise input, ideally against a type, or if not then against whitelist regex of allowed values. This is simpler for some parameters and form fields than others. If you are processing a parameter representing a numeric item ID, then simply checking the type is an integer may be simple and sufficient. For other data that is richer, this is more difficult, and sanitisation is of more limited value for such parameters - when you sanitize input, you risk altering the data in ways that might make it unusable. Input sanitization is therefore generally avoided in cases where the nature of the data is unknown, such as free-form text entry fields, especially if these may legimitately contain complex data sets such as code samples.
 
 ### Encoding of output data
 
