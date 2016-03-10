@@ -3,9 +3,9 @@ layout:     post
 title:      XSS - Just the facts, m'aam
 author:     dan_adams
 date:       2016-04-02 11:00:00
-summary:    A basic primer on Cross-site scripting (CSS) and its prevention
+summary:    A basic primer on Cross-site scripting (XSS) and its prevention
 category:   security
-tags:       security scripting xss sanitization encoding vulnerability exploit
+tags:       security,scripting,xss,sanitization,encoding,vulnerability,exploit
 ---
 
 One of the simplest and most prevalent vulnerabilities found in web applications that we pentest is Cross-Site Scripting or XSS. It is still the third most critical vulnerability according to the [https://www.owasp.org/index.php/Top10](Owasp Top 10 Vulnerabilities) list as of 2013, and closely linked to the #1 most critical vulnerability, Injection.
