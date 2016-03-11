@@ -10,7 +10,7 @@ author:     iker_gomez
 
 <a name="english"></a>
 
-<a href="#spanish">[Llévame a la versión en castellano]</a>
+<a href="#spanish">[Llévame a la versión en Español]</a>
 
 As with almost every tech company nowadays, **Sky Betting & Gaming** is concerned about their employees and their continuous learning, either signing us up for courses to get new certificates or going to conferences.
 That's why last year **Sky Betting & Gaming** created the **Tech Ninja Fund**.
