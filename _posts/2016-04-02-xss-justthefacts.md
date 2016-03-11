@@ -40,7 +40,7 @@ You should sanitise input, ideally against a type, or if not then against whitel
 ### Encoding of output data
 
 The more effective measure to prevent XSS (as well as Injection attacks etc) is to ensure that every function in your code that passes data to another context encodes the data for that system, ensuring that it continues to be interpreted as data, and not permitted to jump contexts into being interpreted as executable code. There is no universal encoding standard that can be used, since the encoding mechanism to use will vary depending upon the context:
-* If exporting to the browser in HTML, HTML-encdoding should be used
+* If exporting to the browser in HTML, HTML-encoding should be used
  * &amp;amp; → &amp
 * If exporting to a SQL DB, SQL escape strings (or preferably parameterized queries) should be used
 * and so on.
