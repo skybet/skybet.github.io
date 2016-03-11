@@ -143,3 +143,12 @@ tom_lomas:
     interests: NFL, music, travelling, PHP, Node
     twitter: tomtheplank
     github: thomaslomas
+
+iker_gomez:
+    name: Iker Gomez
+    image: iker_gomez.jpg
+    role: Software Engineer
+    tribe: Data
+    startDate: 09-03-2015
+    bio: "Iker is one of our Software Engineers in the Data Team keeping our pipelines alive... He is the responsible of the data team improving their Spanish language skills"
+    twitter: GMZ_Iker
