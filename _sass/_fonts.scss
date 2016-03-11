@@ -95,6 +95,10 @@ p, ul, ol, pre, table, blockquote, .image {
     }
 }
 
+ul ul {
+    margin-bottom: 0;
+}
+
 blockquote {
   border-left: 4px solid #0A2B6C;
   margin-left: 2em;
