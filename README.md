@@ -1,7 +1,7 @@
 Sky Betting & Gaming Engineering Site
 =====================================
 
-This is source for our public engineering site at http://engineering.skybettingandgaming.com, rendered via Jeykll through GitHub Pages.
+This is source for our public engineering site at http://engineering.skybettingandgaming.com, rendered via [Jekyll](https://jekyllrb.com/docs/home/) through GitHub Pages.
 
 ## How to Contribute
 
@@ -31,6 +31,11 @@ To add a new article you need to add a new file in markdown format in the `_post
     ---
 
 You should add any images used in the post to the `images` directory.  If the post has a main image you wish to appear on the homepage and in any post previews, you should add it with the name referenced in the frontmatter.
+
+### Style Guide
+
+* The company name should always be referred to as "Sky Betting & Gaming"
+* In markdown files such as posts, you don't need to encode html entities (e.g. ampersand). In HTML, you do.
 
 ### Images
 
@@ -63,6 +68,3 @@ Again, add the author's image to the `images/authors` directory with the same fi
 
 To render the site locally you need to `cd` into your cloned repository and run `bundle install` to install all the rubygems which Github Pages (where the site gets hosted) uses, for compatibility reasons.  The site itself is powered by [jekyll](https://jekyllrb.com).  You can then run `bundle exec rake` (which calls `jekyll serve`) which will result in the site being available on `http://127.0.0.1:4000/`, re-rendering if you make any changes.  If you have any trouble getting the gems to install (particularly within OS X's default environment), we recommend installing [rvm](https://rvm.io).
 
-## Style Guide
-
-* The company name should always be referred to as "Sky Betting & Gaming": in markdown files such as posts, you don't need to encode the ampersand.  In HTML, you do.
