@@ -51,20 +51,20 @@ The first of them, and for me the best one of this edition, is "GRAPHS IN FINANC
 
 <a href="#english">[Take me to the English version]</a>
 
-Como toda empresa de tecnología que se tercie, **Sky Betting & Gaming** se preocupa mucho por la formación continua de los empleados, ya sea impartiendo cursillos de formación para obtener nuevos títulos o asistiendo a conferencias.
+Como toda empresa de tecnología que se precie, **Sky Betting & Gaming** se preocupa mucho por la formación continua de los empleados, ya sea impartiendo cursos para obtener nuevos títulos o asistiendo a conferencias.
 Es por eso que desde hace algo menos de un año, **Sky Betting & Gaming** puso en marcha el llamado **Tech Ninja Fund**.
 
 # ¿En qué consiste?
 El **Tech Ninja Fund** es una ayuda de £1000 que tenemos cada empleado de la empresa. Podemos usarla como queramos, ya sea en actividades de formación, que nos ayuden a adquirir conocimientos sobre las tecnologías que usamos en cada equipo, así como comprar hardware/software, asistir a charlas,conferencias,etc.
 
-En mi caso, decidí que una buena manera de utilizar parte de estos fondos era asistir a las conferencias **[Big Data Spain](http://www.bigdataspain.org/)** que se celebraron en Madrid, ya que, como ingeniero del equipo de Big Data, me interesa aprender y conocer más sobre tecnologías como _Spark_, _Hadoop_, _Machine Learning_ y el procesamiento de datos en tiempo real, para poder aplicarlos a varios proyectos que estamos llevando a cabo actualmente.
+En mi caso, decidí que una buena manera de utilizar parte de estos fondos era asistiendo a las conferencias **[Big Data Spain](http://www.bigdataspain.org/)** que se celebraron en Madrid. Como ingeniero del equipo de Big Data, me interesa aprender y conocer más sobre tecnologías como _Spark_, _Hadoop_, _Machine Learning_ y el procesamiento de datos en tiempo real, para poder aplicarlos a varios proyectos que estamos llevando a cabo actualmente.
 
 La cuarta edición de estas conferencias albergó ponentes de talla mundial como [Paco Nathan](https://www.linkedin.com/in/ceteri) (O'reilly), [William Vambenepe](https://www.linkedin.com/in/vambenepe) (Google) o [Jason Sundram](https://www.linkedin.com/in/jsundram) (Facebook) entre otros.
 Con cerca de 900 asistentes y 50 speakers de todo el mundo se posiciona como una de las citas más importantes a nivel nacional en el campo del Big Data.
 
 Haciendo un resumen general de la edicion de este año, se puede decir que los temas principales fueron el procesamiento de datos en tiempo real y los modelos predictivos, todas las ponencias hacían referencia a estos temas de alguna forma u otra.
 
-No me voy a extender hablando de cada una de las ponencias, si no que voy a seleccionar las que para mi fueron las más interesantes y que creo que todo aficionado al Big Data debería ver.
+No me voy a extender hablando de cada una de las conferencias, si no que voy a seleccionar las que para mi fueron las más interesantes y que creo que todo aficionado al Big Data debería ver.
 
 La primera de ellas y la que para mi ha sido la mejor de toda la edición es "GRAPHS IN FINANCE AND FRAUD DETECTION" impartida por Jim Webber, de _Neo Technology_, aquí os dejo el enlace al video:
 
@@ -74,7 +74,7 @@ La verdad que fue la charla más divertida a la vez que útil, ya que trata sobr
 
 
 
-Otra de las charlas que recomiendo es "BIG DATA AS A GAME-CHANGER OF CLINICAL RESEARCH STRATEGIES" de Rafael San Miguel, la cual es un claro ejemplo sobre cómo usar los datos que tenemos almacenados para generar modelos predictivos y mejorar los servicios médicos en un futuro.
+Otra de las charlas que os recomiendo es "BIG DATA AS A GAME-CHANGER OF CLINICAL RESEARCH STRATEGIES" de Rafael San Miguel, la cual es un claro ejemplo sobre cómo usar los datos que tenemos almacenados para generar modelos predictivos y mejorar los servicios médicos en un futuro.
 
 
  [![Big Data Game Changer](/images/BigDataGameChanger.png)](https://www.youtube.com/watch?v=tOAPwAPw3pA "Big Data Game Changer")
