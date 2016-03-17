@@ -153,3 +153,13 @@ iker_gomez:
     startDate: 09-03-2015
     bio: "Iker is one of our Software Engineers in the Data Team keeping our pipelines alive... He is the responsible for the data team improving their Spanish language skills"
     twitter: GMZ_Iker
+
+james_moorhouse:
+    name: James Moorhouse
+    image: james_moorhouse.jpg
+    role: Software Engineer
+    tribe: Bet
+    startDate: 13-07-2015
+    bio: Software Engineer in the Bet & Customer Transactions squad where he works primarily on the Bet Tracker product, written using a combination of PHP and React.js.
+    interests: Running, snowboarding, cars, gym, electronic music and some web based technology thrown in there for good measure
+    twitter: JJMoorhouse0
