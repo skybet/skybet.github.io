@@ -12,15 +12,11 @@ fixedHeader: true
 
 <div class="meet-author">
     {% for keyedAuthor in site.data.authors %}
-    {% assign key = keyedAuthor[0] %}
-    {% assign author = keyedAuthor[1] %}
-    {% assign articles = (site.posts | where: "author",key %}
+      {% assign key = keyedAuthor[0] %}
+      {% assign author = keyedAuthor[1] %}
 
-    {% if articles != empty %}
-    <div class="author-section hide">
+      <div class="author-section hide">
         {% include author.html %}
-    </div>
-    {% endif %}
+      </div>
     {% endfor %}
-
 </div>
