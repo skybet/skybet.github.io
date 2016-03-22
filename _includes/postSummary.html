@@ -3,10 +3,6 @@
 {% assign minutes = 1 %}
 {% endif %}
 
-{% if post.author %}
-{% assign author = site.data.authors[post.author] %}
-{% endif %}
-
 <div class="post">
     <div class="date">
         <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
@@ -23,19 +19,31 @@
     </div>
     {% endif %}
 
-    {{ post.summary | markdownify }}
+    {{ post.summary }}
 
     <div class="cta flex">
-        {% if post.author %}
         <div class="author flex-item">
             <header>Author:</header>
             <p>
-                {% if page.className != 'authors' %}<a href="/authors#{{ post.author }}">{% endif %}
-                    {{ author.name }}
-                {% if page.className != 'authors' %}</a>{% endif %}
-            </p>
-        </div>
+        {% assign authorCount = post.author | size %}
+        {% if authorCount == 0 %}
+        No author
+        {% elsif authorCount == 1 %}
+        {{ post.author | first }}
+        {% else %}
+        {% for author in post.author %}
+        {% if forloop.first %}
+        {{ author }}
+        {% elsif forloop.last %}
+        and {{ author }}
+        {% else %}
+        , {{ author }}
         {% endif %}
+        {% endfor %}
+        {% endif %}
+            </p>
+            </div>
+
         {% if post.category %}
         <div class="categories flex-item">
             <header>Category:</header>
