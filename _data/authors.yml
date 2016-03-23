@@ -154,3 +154,12 @@ james_moorhouse:
     bio: Software Engineer in the Bet & Customer Transactions squad where he works primarily on the Bet Tracker product, written using a combination of PHP and React.js.
     interests: Running, snowboarding, cars, gym, electronic music and some web based technology thrown in there for good measure
     twitter: JJMoorhouse0
+
+darrell_taylor:
+    name: Darrell Taylor
+    image: darrell_taylor.jpg
+    role: Hadoop Developer / Consultant
+    tribe: Data
+    bio: Data Warehouse forklift driver, shifting crates of one and zeros around the place.
+    twitter: d4rr3ll
+    github: d4rr3ll
