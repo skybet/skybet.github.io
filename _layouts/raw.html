@@ -30,9 +30,7 @@ isArticle: false
             <ul>
             {% for key in sortedAuthors %}
              {% assign author = site.data.authors[key] %}
-             {% assign articles = (site.posts | where: "author",key %}
-             {% if articles != empty and author.hasLeft != true %}
-
+             {% unless author.hasLeft %}
               {% if author.image %}
                   <li class="author--image" title="{{author.name}}">
                       <a href="/authors#{{ key }}">
@@ -40,7 +38,7 @@ isArticle: false
                       </a>
                   </li>
               {% endif %}
-             {% endif %}
+             {% endunless %}
             {% endfor %}
             </ul>
         </div>
