@@ -32,6 +32,14 @@ To add a new article you need to add a new file in markdown format in the `_post
 
 You should add any images used in the post to the `images` directory.  If the post has a main image you wish to appear on the homepage and in any post previews, you should add it with the name referenced in the frontmatter.
 
+If an article has been created by multiple authors, you can specify the `author` key as a list (using hyphens as the list item marker), instead:
+
+    ---
+    author:
+     - author_key
+     - another_author_key
+    ---
+    
 ### Style Guide
 
 * The company name should always be referred to as "Sky Betting & Gaming"
