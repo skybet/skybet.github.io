@@ -40,8 +40,12 @@
 
     {% if page.className == 'authors' %}
     <h3 class="author-articles">Articles by {{ author.name | truncatewords:1,"" }}</h3>
-    {% for post in articles %}
-     {% include postSummary.html %}
+
+    {% for post in site.posts %}
+      {% if post.author contains key %}
+        {% include postSummary.html %}
+      {% endif %}
     {% endfor %}
+
     {% endif %}
 </section>
