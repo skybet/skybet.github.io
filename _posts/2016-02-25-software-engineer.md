@@ -4,7 +4,7 @@ title:      How do I become a Software Engineer?
 author:     colin_ameigh
 date:       2016-02-25 12:00:00
 summary:    SB&G hires engineers, so what is one, and how do I become one?
-category:   software engineering
+category:   Software Engineering
 tags:       engineering
 ---
 

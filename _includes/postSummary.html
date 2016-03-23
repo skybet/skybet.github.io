@@ -19,7 +19,9 @@
     </div>
     {% endif %}
 
-    {{ post.summary }}
+    {% if post.summary %}
+    {{ post.summary | markdownify }}
+    {% endif %}
 
     <div class="cta flex">
         <div class="author flex-item">
