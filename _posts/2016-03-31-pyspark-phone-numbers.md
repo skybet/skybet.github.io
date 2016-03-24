@@ -181,9 +181,9 @@ That's all
 
 So how does this compare to the old way of doing things?  Well the numbers are not insignificant, and our CRM team could give you some numbers around this.
 
-Out of a customer base of millions just for the UK and Ireland, libphonenumber marks hundreds of thousands of records as valid that were previously invalid.  There were also tens of thousands of phone numbers removed, ones that the previous system thought were OK.
+Out of a customer base of millions just for the UK and Ireland, libphonenumber marks hundreds of thousands of records as valid that were previously invalid.
 
-We now need to understand why the big difference.  The previous system had some bugs around Irish mobile numbers, but there's also a sizeable number of cases where the phone number doesn't match the customer's country.  In one instance, a Dubai phone number, the old system naively tried to add +44 to the number and failed; libphonenumber instead correctly identified the country and handled it accordingly.
+We now need to understand why the big difference.  The previous system had some bugs around Irish mobile numbers, but there's also a sizeable number of cases where the phone number doesn't match the customer's country.  In one instance, a Dubai phone number, the old system naively tried to add +44 to the number which meant it created a phone number it then decided was invalid; libphonenumber instead correctly identified the country and handled it accordingly.
 
 ### Phone number type
 
