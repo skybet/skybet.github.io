@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Big Data Spain or how I used my Tech Ninja Fund
-date:       2016-03-25 10:00
+date:       2016-04-05 10:00
 summary:    We sent Software Engineer Iker Gomez to Big Data Spain conferences in Madrid to learn more about big data technologies and real-time processing.
 category:   Big Data
 tags:       Big, Data, Spain, Madrid, Real-time, Predictive, Tech Ninja Fund
