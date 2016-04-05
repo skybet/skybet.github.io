@@ -4,6 +4,7 @@ title:      Team Size and Why It Matters
 date:       2016-04-04 14:00:00
 summary:    Team size varies massively across different projects, but how big should a team be, and why does it matter?
 author:     adam_blanchard
+image:      pizza-boxes.jpg
 category:   Organisation
 tags:       engineering, organisation, agile
 ---
