@@ -20,7 +20,7 @@ That's why last year **Sky Betting & Gaming** created the **Tech Ninja Fund**.
 
 I thought It would be a good idea to spend part of this fund attending the **[Big Data Spain](http://www.bigdataspain.org/)** conferences in Madrid. As a software engineer within the Data Team I'm really interested in learning more about cutting-edge technologies such as _Spark_, _Hadoop_, _Machine Learning_ and real-time data processing, to be able to make use of them in some of the projects we are currently working on.
 
-The fourth edition of these conferences included high level speakers such as [Paco Nathan](https://www.linkedin.com/in/ceteri) (O'reilly), [William Vambenepe](https://www.linkedin.com/in/vambenepe) (Google) o [Jason Sundram](https://www.linkedin.com/in/jsundram) (Facebook) amongst others.
+The fourth edition of these conferences included high level speakers such as [Paco Nathan](https://www.linkedin.com/in/ceteri) (O'reilly), [William Vambenepe](https://www.linkedin.com/in/vambenepe) (Google) or [Jason Sundram](https://www.linkedin.com/in/jsundram) (Facebook) amongst others.
 900+ attendees and 50+ speakers make this event the most important Big Data event in Spain.
 
 In general terms, this year's edition was all about real time data processing and predictive modeling, as more or less all of the talks dealt with these subjects.
@@ -33,15 +33,15 @@ The first of them, and for me the best one of this edition, is "GRAPHS IN FINANC
 
  I must say It was a really funny talk as well as useful. It is really interesting to see how big companies can detect fraud and fraud networks using graphs. In this case, They use banking data such as transactions and are able to find suspicious networks with just a couple of queries.
 
- Other talk I would recommend is "BIG DATA AS A GAME-CHANGER OF CLINICAL RESEARCH STRATEGIES" by Rafael San Miguel, which is a really good example of how we can take advantage of stored data to generate new predictive models in order to improve medical treatments as well as prevent future diseases. I like the idea of linking Data Science and Medicine.
+ Another talk I would recommend is "BIG DATA AS A GAME-CHANGER OF CLINICAL RESEARCH STRATEGIES" by Rafael San Miguel, which is a really good example of how we can take advantage of stored data to generate new predictive models in order to improve medical treatments as well as prevent future diseases. I like the idea of linking Data Science and Medicine.
 
  [![Big Data Game Changer](/images/BigDataGameChanger.png)](https://www.youtube.com/watch?v=tOAPwAPw3pA "Big Data Game Changer")
 
  If you are interested in Big Data and weren't able to attend this conferences, here you have their [ Youtube channel](https://www.youtube.com/channel/UCrg3m_-ydPRcHDenTuIw5bA) where you'll find more interesting talks. It is worth it!
 
- In summary, It's amazing how we can get knowledge and predict the future with the stored data we have, and the data we generate daily. Is this possible to apply in gaming and betting industry? Yes, at **Sky Betting & Gaming** we take care of out data and we are developing new predictive models to be able to **make betting & gaming better**.
+ In summary, It's amazing how we can get knowledge and predict the future with the stored data we have, and the data we generate daily. Is this possible to apply in the gaming and betting industry? Yes, at **Sky Betting & Gaming** we take care of our data and we are developing new predictive models to be able to **make betting & gaming better**.
 
- I still have funds left from my **Tech Ninja Fund**, any idea?
+ I still have funds left from my **Tech Ninja Fund**, any ideas?
 
 
 ---
