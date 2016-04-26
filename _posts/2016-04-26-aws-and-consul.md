@@ -9,9 +9,9 @@ category:   Deployment
 tags: consul, aws, autoscaling, terraform
 ---
 
-Before we start talking about how deploying Consul into AWS, it probably makes sense to start by giving a brief overview of what Consul actually is. For those of you who do not know what Consul is at all, it is a distributed service discovery and configuration application. Think *Apache Zookeeper* or *etcd*, but written by those clever chaps at HashiCorp. For this post, I really want to focus more on Consul's clustering capabilities, as this is what really sets it apart and enables us to do some neat tricks with AWS to allow rolling updates with no loss of service and also how we can make a cluster totally self-healing.
+Before we start talking about how we deploy Consul into AWS, it probably makes sense to start by giving a brief overview of what Consul actually is. For those of you who do not know what Consul is at all, it is a distributed service discovery and configuration application. Think *Apache Zookeeper* or *etcd*, but written by those clever chaps at HashiCorp. For this post, I really want to focus more on Consul's clustering capabilities, as this is what really sets it apart and enables us to do some neat tricks with AWS to allow rolling updates with no loss of service and also how we can make a cluster totally self-healing.
 
-Next I will go on to discuss some of the small features of the AWS suite and how we at Sky Betting and Gaming use them to deploy our services.
+Next I will go on to discuss some of the small features of the AWS suite and how we at Sky Betting & Gaming use them to deploy our services.
 
 Finally let's pull it all together and look at how to leverage the power of AWS combined with Consul's clustering.
 
