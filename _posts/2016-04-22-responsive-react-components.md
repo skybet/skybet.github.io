@@ -23,7 +23,7 @@ So, what was the actual problem we were trying to solve?
 
 The Sky Vegas website needs to render different React components depending on the users current viewport size. A perfect example of this would be the new Navigation.
 
-With lot's of screen real-estate we have the room to render the Navigation component as a full-width horizontal menu:
+With lots of screen real-estate we have the room to render the Navigation component as a full-width horizontal menu:
 ![Site Navigation - Large Screen](/images/responsive-react-components_large-screen-nav.png)
 
 However, should the user be navigating on a device with a smaller viewport (such as a mobile phone or tablet), our design team don't have as much screen real-estate to play with and have decided to render the main navigation within a 'burger menu' icon:
