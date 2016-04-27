@@ -215,11 +215,3 @@ Our Learnings
 The spotting, discussion and implementation of correcting technical debt is absolutely crucial to helping keep our codebase as clean as possible. Every engineer takes responsibility in bringing awareness of encroaching technical debt. This particular problem is a prime example of a member of the squad seeing a future problem forming and actioning a solution as quickly as possible.
 
 From a technical standpoint, the pairing of Flux architecture with an event manager is an interesting one. For this piece it has allowed the squad to abstract out the actual breakpoint values from each component, this single capability as enabled a great power of rendering anything we like from within a component while making for an easier upgrade path when inevitable "standard" device sizes change.
-
-
-
-
-
-
-
-
