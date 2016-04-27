@@ -17,7 +17,7 @@ Anyway, I digress.
 One of the last and arguably most important pieces of the single platform jigsaw was the "road to mobile" or in more verbose terms; ensure we create absolute feature parity between the existing (and soon to be retired) dedicated mobile site and the new responsive website.
 
 Part of this "road to mobile" entailed designing and creating or updating  React components which were initially conceived with a single (larger viewport) device in mind.
-This process was happening over a couple of months with many components being created or updated independent of one another by different developers, it quickly became apparent that between us we had come up with various different solutions at solving the same problem and in the process created some pretty daft technical debt in our shiny new codebase.
+Over the course of a couple of months with many components being created or updated independent of one another by different developers, it quickly became apparent that between us we had come up with various different solutions at solving the same problem and in the process created some pretty daft technical debt in our shiny new codebase.
 
 So, what was the actual problem we were trying to solve?
 
@@ -69,7 +69,7 @@ Looking at the implementations above you'll see that each option requires the ha
 
 At the late stages of this project and Vegas being a relatvely large squad at the time, this classic code smell was missed and as different engineers cracked on with rendering their own little components into various device-widths both variants of this technique for handling components started to appear in our shiny new codebase.
 
-Upon the realisation of this `foobar`, a tech debt ticket was raised and we set about coming up with a solution to the problem of littering our code with multiple device widths across dozens of components.
+After implementing the initial approaches and realising what effects they would have on future development of the codebase, a tech debt ticket was raised and we set about coming up with a solution to the problem of littering our code with multiple device widths across dozens of components.
 
 Our Solution
 ------
@@ -209,7 +209,12 @@ class AnyComponent extends React.Component {
 
 As can be seen in the `AnyComponent` component above, it simply listens to changes emitted from the `WindowStore`, compares the current `viewportSize` string with the constants defined in `ViewportSizes` and decides whether to render the `MenuButton` child component or not.
 
-Pairing the Flux architecture with an event manager has allowed the squad to abstract out the actual breakpoint values from each component, this single capability as enabled a great power of rendering anything we like from within a component while making for an easier upgrade path when inevitable "standard" device sizes change. 
+Our Learnings
+------
+
+The spotting, discussion and implementation of correcting technical debt is absolutely crucial to helping keep our codebase as clean as possible. Every engineer takes responsibility in bringing awareness of encroaching technical debt. This particular problem is a prime example of a member of the squad seeing a future problem forming and actioning a solution as quickly as possible.
+
+From a technical standpoint, the pairing of Flux architecture with an event manager is an interesting one. For this piece it has allowed the squad to abstract out the actual breakpoint values from each component, this single capability as enabled a great power of rendering anything we like from within a component while making for an easier upgrade path when inevitable "standard" device sizes change.
 
 
 
