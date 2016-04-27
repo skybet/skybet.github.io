@@ -37,7 +37,7 @@ AMI stands for Amazon Machine Image. It's a template for an instance. In order t
 
 If we want to patch the OS or use a new version of Consul or change some config we have to go through the process of baking that into a new AMI.
 
-We want to use a pre-baked image which we can launch ready to go rather that launching a vanilla Linux image and then configuring it post launch. Otherwise we increase the time needed to scale out drastically, and increase the chance of errors. Saying that, we are obviously going to need to do some kind of post launch config. EC2 has a mechanism for that, called User Data. User Data is essentially a bash script you can pass along at launch time which gets executed. That mechanism is going to be crucial for our brand new Consul nodes to discover their peers.
+We want to use a pre-baked image which we can launch ready to go rather than launching a vanilla Linux image and then configuring it post launch. Otherwise we increase the time needed to scale out drastically, and increase the chance of errors. Saying that, we are obviously going to need to do some kind of post launch config. EC2 has a mechanism for that, called User Data. User Data is essentially a bash script you can pass along at launch time which gets executed. That mechanism is going to be crucial for our brand new Consul nodes to discover their peers.
 
 ### Launch Configurations
 An ASG needs something Amazon call a Launch Configuration (LC) in order to work. The LC determines what the ASG will build. It configures what subnets instances will live on, what security rules they have, how big they are and vitally what image (AMI) will be built. 
@@ -170,6 +170,6 @@ We now have all the elements we need. Let's describe from start to finish what h
 An important point to note is that if at the ELB health checks do not pass during a given timeout, the new instances are destroyed without ever taking control.
 
 ## Summary
-I hope during this whistle-stop tour of AWS, Consul (and a little Terraform) you have learned some interesting concepts that you can apply to your own projects. This pattern of performing outage-less upgrades does not just apply to Consul of course. In theory, any server deployment which has clustering or even just has some mechanism of storing the data off-host, can with a little effort be deployed to an Auto Scaling Group and gain all the advantages that go along with it.
+I hope during this whistle-stop tour of AWS, Consul (and a little Terraform) you have learned some interesting concepts that you can apply to your own projects. This pattern of performing outage-less upgrades does not just apply to Consul of course. In theory, any server deployment which has clustering or even just has some mechanism of storing the data off-host, can, with a little effort, be deployed to an Auto Scaling Group and gain all the advantages that go along with it.
 
 
