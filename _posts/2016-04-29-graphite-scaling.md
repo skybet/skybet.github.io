@@ -4,14 +4,16 @@ title:      Scaling Time Series Databases
 date:       2016-04-29 12:00
 summary:    We collect a lot of metrics about our production systems using Graphite Times Series Databases. In order to improve performance of Graphite and reduce the load on our SAN we purpose-built and tuned some very vast dedicated hardware for our Graphite Databases.
 category:   Big Data
-tags:       graphite
-author:     gary_mulder
+tags:       graphite, hardware, performance, data
+author:
+ - john_denholm
+ - gary_mulder
 ---
 As a technology company in a fast-changing industry, SB&G is experiencing extremely rapid growth. To anticipate and manage this demand, we continually monitor the performance and capacity of the services and servers running in our data centres. The primary tool we use to store performance and throughput statistics about our services and servers is Graphite.
 
 # The Challenge
 
-Our Senior Platform Engineers (A.K.A. J. D.) have crafted a very robust and scalable data collection framework that feeds a large proportion of our metrics and monitoring data into Graphite. In the past year we’ve experienced significant growth in the number of metrics being sent to Graphite as we have rapidly added more services and horizontally scaled existing services. Currently we continuously collect about half a million metrics at a 10-second resolution across all of our data centres. We also have ambitious plans to capture any and all time series from newly identified data sources and integrate them all into Graphite. Our goal is to have a complete and integrated full-stack multi-layered view across all of our infrastructure and applications, as well as monitoring SB&G's third party integrations.
+Our Senior Platform Engineers (A.K.A. J.D.) have crafted a very robust and scalable data collection framework that feeds a large proportion of our metrics and monitoring data into Graphite. In the past year we’ve experienced significant growth in the number of metrics being sent to Graphite as we have rapidly added more services and horizontally scaled existing services. Currently we continuously collect about half a million metrics at a 10-second resolution across all of our data centres. We also have ambitious plans to capture any and all time series from newly identified data sources and integrate them all into Graphite. Our goal is to have a complete and integrated full-stack multi-layered view across all of our infrastructure and applications, as well as monitoring SB&G's third party integrations.
 
 # The Problem
 
