@@ -181,3 +181,15 @@ adam_blanchard:
     startDate: 13-07-2015
     bio: Software Engineer in the Sky Vegas squad, working on the release of the new desktop and mobile platforms using PHP, JavaScript and React.js.
     twitter: blanchodam
+
+john_denholm:
+    name: John Denholm
+    role: Lead Platform Engineer
+    tribe: Bet
+    bio: Longtime Skybet engineer, generally in charge of all things Graphite. Likes cats and whiskey.
+
+gary_mulder:
+    name: Gary Mulder
+    role: Site Reliability Engineer
+    tribe: Bet
+    bio: After 10 years as a Sytems Administrator, now specialising in Site Reliability and Performance Analysis. Likes making fast computers run faster. And maximum-pain chilli peppers.
