@@ -184,7 +184,7 @@ adam_blanchard:
 
 john_denholm:
     name: John Denholm
-    Lead role: Lead Platform Engineer
+    role: Lead Platform Engineer
     tribe: Bet
     bio: Longtime Skybet engineer, generally in charge of all things Graphite. Likes cats and whiskey.
 
