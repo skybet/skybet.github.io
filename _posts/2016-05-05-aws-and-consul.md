@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Deploying Consul in AWS 
-date:       2016-04-26 07:00:00
+date:       2016-05-05 07:00:00
 summary:    Looking at deploying a Consul cluster into AWS and how we can rollout upgrades with no loss of service
 author:     adam_pointer
 image:      consul_logo.png
