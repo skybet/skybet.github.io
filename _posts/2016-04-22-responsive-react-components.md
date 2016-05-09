@@ -8,15 +8,15 @@ image:      responsive-react-components_header.png
 category:   UI Engineering
 tags:       javascript, react, responsive
 ---
-Over the past 12 months the Vegas Squad have been building a single, fully-responsive platform that allows skyvegas.com players instant access to their favourite slots and table games regardless of the device with which they visit.
+Over the past 12 months the Sky Vegas Squad have been building a single, fully-responsive platform that allows skyvegas.com players instant access to their favourite slots and table games regardless of the device with which they visit.
 
 Powered by React, the project as a whole has provided an amazing learning curve for all squad members - whether wrapping your head around the flux architecture (especially when coming from an MVC background!) or truly understanding the specifics of React itself, to have been a small part of such a great squad and watching the dynamic change across the team as knowledge is shared and confidence has grown, is truly an honour.
 
 Anyway, I digress.
 
-One of the last and arguably most important pieces of the single platform jigsaw was the "road to mobile" or in more verbose terms; ensure we create absolute feature parity between the existing (and soon to be retired) dedicated mobile site and the new responsive website.
+One of the last and arguably most important pieces of the single platform jigsaw was the "road to mobile" or in more verbose terms; ensure we create absolute feature parity between the existing (and soon to be retired) dedicated mobile website and the new responsive website.
 
-Part of this "road to mobile" entailed designing and creating or updating  React components which were initially conceived with a single (larger viewport) device in mind.
+Part of this "road to mobile" entailed designing and creating or updating React components which were initially conceived with a single (larger viewport) device in mind.
 Over the course of a couple of months with many components being created or updated independent of one another by different developers, it quickly became apparent that between us we had come up with various different solutions at solving the same problem and in the process created some pretty daft technical debt in our shiny new codebase.
 
 So, what was the actual problem we were trying to solve?
@@ -31,7 +31,7 @@ However, should the user be navigating on a device with a smaller viewport (such
 
 In short, we needed a way to render different react components depending on the current viewport size of the customer.
 
-A quick search for the problem resolves two seemingly popular options; the classic Javascript `Window.matchMedia()` and the `react-responsive`:
+A quick search for the problem provides two seemingly popular options; the classic Javascript `Window.matchMedia()` and the `react-responsive`:
 
 `matchMedia()` Implementation:
 ------
@@ -67,7 +67,7 @@ var A = React.createClass({
 
 Looking at the implementations above you'll see that each option requires the hard-coding of pixel breakpoints at which you would want to render a different component.
 
-At the late stages of this project and Vegas being a relatvely large squad at the time, this classic code smell was missed and as different engineers cracked on with rendering their own little components into various device-widths both variants of this technique for handling components started to appear in our shiny new codebase.
+At the late stages of this project and Sky Vegas being a relatvely large squad at the time, this classic code smell was missed and as different engineers cracked on with rendering their own little components into various device-widths both variants of this technique for handling components started to appear in our shiny new codebase.
 
 After implementing the initial approaches and realising what effects they would have on future development of the codebase, a tech debt ticket was raised and we set about coming up with a solution to the problem of littering our code with multiple device widths across dozens of components.
 
