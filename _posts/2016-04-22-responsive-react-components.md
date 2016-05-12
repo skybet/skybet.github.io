@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Responsive React Components
-date:       2016-04-22 13:54:00
+date:       2016-05-12 15:48:00
 summary:    The early spotting of technical debt within our new responsive Sky Vegas ReactJS codebase enabled the squad to implement an elegant solution to rendering components based on the current device's viewport size.
 author:     matt_kirwan
 image:      responsive-react-components_header.png
