@@ -182,6 +182,15 @@ adam_blanchard:
     bio: Software Engineer in the Sky Vegas squad, working on the release of the new desktop and mobile platforms using PHP, JavaScript and React.js.
     twitter: blanchodam
 
+adam_pointer:
+    name: Adam Pointer
+    image: adam_pointer.jpg
+    role: Principal Automation Engineer
+    tribe: Platform Services
+    startDate: 09-01-2012
+    bio: Tech lead within the Platform Services team, focusing on what the next generation of our build tools looks like.
+    github: adampointer
+
 matt_kirwan:
     name: Matt Kirwan
     image: matt_kirwan.jpg
