@@ -66,4 +66,6 @@ JavaScript is unique in the world of Software Engineering as it is the single mo
 
 High quality events, such as NodeConf, are vital to the ongoing success of businesses and developers, not just the runtimes and language itself. As a community we have been excellent in sharing our work through modules on github and NPM and now we must continue to showcase best-practise work through speaking and writing to ensure the positive momentum is continued.
 
+---
 
+The hosts of the conference, NearForm, also live blogged the event and you can review the day [on their blog](http://www.nearform.com/nodecrunch/nodeconf-london-2016-live-blog/)
