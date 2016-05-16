@@ -5,6 +5,7 @@ author:     ian_thomas
 date:       2016-05-16 09:00:00
 summary:    It’s a little known fact that skybet.com has been working with node.js since version 0.4 (though our first app running in a live environment was on version 0.6) so we’ve got a long history of running JavaScript on the server. In addition, our customer experience is wholly reliant on JavaScript in the browser so you could say we’re less of a PHP shop and more of a JavaScript shop… So it was with interest that three of the skybet.com team headed to that London for the first ever NodeConf London.
 category:   Node.js
+image:      nodeconf-london.jpg
 tags:       node.js, conferences, community
 ---
 
@@ -19,7 +20,7 @@ Each section had three talks (except Use it, which had two talks and one panel d
 
 “Getting the balance right” is probably the best phrase to capture the essence of the conference, not just from a content perspective, but also that of the level of inclusion, community focus and code of conduct. It was refreshing to see such diversity in a technology event, let’s hope it is representative of the industry as a whole going forward.
 
-## What have we taken away from the day?
+## What we've taken away from the day
 
 With all the talks available on [YouTube](https://www.youtube.com/playlist?list=PL0CdgOSSGlBYnHAl_DZoy9BWvdVQjNKE2) there’s little point reviewing each presentation in depth — just watch them for yourself (they’re all worth your time)! There are, however, a few things we’ve taken away that are worth writing about.
 
@@ -33,7 +34,7 @@ Personally, the most impressive thing of all is our ability to execute at this l
 
 ### Idiomatic code is important
 
-Some of the talks showcased incredible performance hacks using lesser known features of JavaScript - many of which are actively  denounced as being bad practise and insecure if used incorrectly. It feels like there is a net loss to implementing features using these tricks despite the performance gains and there are better ways for teams to scale their node.js applications.
+Some of the talks showcased incredible performance hacks using lesser known features of JavaScript - many of which are actively denounced as being bad practise and insecure if used incorrectly. It feels like there is a net loss to implementing features using these tricks despite the performance gains and there are better ways for teams to scale their node.js applications.
 
 The runtime is improving quickly and can perform incredible optimisation when a developer sticks to the idiomatic coding conventions. The side-effect being code which is readable and easy to understand - factors that are essential when looking to scale a development team without reducing velocity or quality.
 
