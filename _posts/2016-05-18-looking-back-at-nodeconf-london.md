@@ -2,7 +2,7 @@
 layout:     post
 title:      Looking back at NodeConf London
 author:     ian_thomas
-date:       2016-05-16 09:00:00
+date:       2016-05-18 09:00:00
 summary:    It’s a little known fact that skybet.com has been working with node.js since version 0.4 (though our first app running in a live environment was on version 0.6) so we’ve got a long history of running JavaScript on the server. In addition, our customer experience is wholly reliant on JavaScript in the browser so you could say we’re less of a PHP shop and more of a JavaScript shop… So it was with interest that three of the skybet.com team headed to that London for the first ever NodeConf London.
 category:   Node.js
 image:      nodeconf-london.jpg
