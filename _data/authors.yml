@@ -199,3 +199,11 @@ matt_kirwan:
     bio: Software Engineer in the Gaming Promotions Squad currently working on processing real-time promotional data using Apache Kafka and NodeJS.
     twitter: mattkirwan
     github: mattkirwan
+    
+andy_butcher:
+    name: Andy Butcher
+    image: andy_butcher.jpg
+    role: Solutions Architect
+    tribe: Bet
+    bio: Always in search of the simplest thing that could possibly work
+    twitter: mrandybutcher
