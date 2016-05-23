@@ -109,14 +109,14 @@ It’s worth noting that financial systems, famous for stringent requirements ar
 
 ## Failure Testing
 
-So talking of reliability, the last talk I wanted to touch on is a hugely entertaining one I watched about **fault injection testing at Netflix**.
+Talking of reliability, the last talk I wanted to touch on is a hugely entertaining one I watched about **fault injection testing at Netflix**.
 In a pretty slick double act, academic [Peter Alvaro](https://twitter.com/palvaro) and [Kolton Andrus](https://twitter.com/koltonandrus) previously at Netflix, described how they met and collaborated on finding a way of discovering fault-intolerance in Netflix’s architectural estate: [Monkeys in Lab Coats: Applying Failure Testing Research at Netflix](http://www.infoq.com/presentations/failure-test-research-netflix).
 
 I highly recommend watching this talk, but the core concept was this:
 
 If you run 100 services and you’re interested in scenarios involving a _single service failure_, that’s quite easy to write fault injection tests for - there’s only 100 of them you need to run. But... it's probably not very interesting, because you’ll have built redundancy in (right?), so you won’t be discovering the “deep” bugs that happen when multiple things fail.
 
-So how big is the space of possible failures? It’s the power set of 100, which is **2^100**, or roughly **1,000,000,000,000,000,000,000,000,000,000**. That’s probably not going to be a viable number of test executions. [If each execution took 1 second, it would take longer than [the age of the universe](https://en.wikipedia.org/wiki/Age_of_the_universe) to run them all. About 40 trillion times longer in fact!]
+So, how big is the space of possible failures? It’s the power set of 100, which is **2^100**, or roughly **1,000,000,000,000,000,000,000,000,000,000**. That’s probably not going to be a viable number of test executions. [If each execution took 1 second, it would take longer than [the age of the universe](https://en.wikipedia.org/wiki/Age_of_the_universe) to run them all. About 40 trillion times longer in fact!]
 
 ![What could possibly go wrong?](/images/whatcouldpossiblygowrong.png)
 
@@ -124,18 +124,17 @@ Even if you decided to only look at combinations of seven faults, that would mea
 
 ![Random search](/images/randomsearch.png)
 
-So another approach is **random testing**: Switch things off at random, and hope you find some bugs. This certainly might catch some deep bugs given enough time, but the vast majority of interesting failures will remain undiscovered.
+Another approach is **random testing**: Switch things off at random, and hope you find some bugs. This certainly might catch some deep bugs given enough time, but the vast majority of interesting failures will remain undiscovered.
 
 
 ![Engineer guided search](/images/engineerguidedsearch.png)
 
 Yet another approach is what they called **engineer-guided search**, where you rely on the knowledge of your engineers to identify possible deep faults. This can be effective, but it's sloooow, and inherently not automatable.
 
-So enter Peter’s paper on [Lineage Driven Fault Injection](http://www.cs.berkeley.edu/~palvaro/molly.pdf). This turned the question of “What could go wrong?” into a more directed question: Consider a good outcome and ask “Why did this good thing happen? Could we have made any wrong turns along the way?"
+Enter Peter’s paper on [Lineage Driven Fault Injection](http://www.cs.berkeley.edu/~palvaro/molly.pdf). This turned the question of “What could go wrong?” into a more directed question: Consider a good outcome and ask “Why did this good thing happen? Could we have made any wrong turns along the way?"
 
 ![Success lineage](/images/successlineage.png)
-For example, consider the diagram. Each layer has redundancy, so the failures depicted don’t represent an interesting failure scenario because there’s still a path to a good outcome.
-Whereas a failure in both the Bcast nodes would break all paths from leaf to root.
+For example, consider the diagram. Each layer has redundancy, so the failures depicted don’t represent an interesting failure scenario because there’s still a path to a good outcome. However a failure in both the Bcast nodes would break all paths from leaf to root, which is more interesting.
 
 And so the idea that Peter and Kolton developed was one that started with the _lineage of successful outcomes_ and from that DAG, extracted a set of trees, each of which is sufficient to produce a good outcome. For each one of those trees, breaking _one step_ will break that path (e.g. breaking RepA or Bcast1 in the diagram).
 
