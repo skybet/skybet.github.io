@@ -120,7 +120,7 @@ So how big is the space of possible failures? It’s the power set of 100, which
 
 ![What could possibly go wrong?](/images/whatcouldpossiblygowrong.png)
 
-Even if you decided to only look at combinations of 7 faults, that would mean a search space of **16 billion** [over 500 years of continuous executions each one second in duration]. Even just combinations of 4 would be **3 million** executions [maybe do-able in a month. But how much stuff changes in that month? And you’re still not testing for very deep bugs].
+Even if you decided to only look at combinations of seven faults, that would mean a search space of **16 billion** (over 500 years of continuous executions each one second in duration); even just combinations of four would be **3 million** executions. This might be do-able in a month, but how much stuff changes in that month? Even then, you’re still not testing for very deep bugs.
 
 ![Random search](/images/randomsearch.png)
 
