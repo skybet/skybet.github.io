@@ -9,7 +9,7 @@ category:   Conferences
 tags:       conference,infrastructure,containers,cloud,stream,fault-injection,testing
 ---
 
-So this year I used my Tech Ninja Fund to go along to [QCon London](https://qconlondon.com/). For the uninitiated, QCon is a global software engineering conference run by the same folk who produce [infoq.com](https://qconlondon.com/) (an excellent website which I’ve used for years to keep up with new tech and trends).
+So, this year I used my Tech Ninja Fund to go along to [QCon London](https://qconlondon.com/). For the uninitiated, QCon is a global software engineering conference run by the same folk who produce [infoq.com](https://qconlondon.com/) (an excellent website which I’ve used for years to keep up with new tech and trends).
 
 About one and a half thousand people rocked up to the QEII Conference Centre in London back in March, and spent a few days listening to about 140 speakers from across the tech world talking about what’s new. 
 There’s always a great mixture of tech giants like Netflix and Google, smaller-scale innovators like [Sysdig](http://www.sysdig.org/) and [BoxFuse](https://boxfuse.com/), and independent gurus, experts and academics all contributing to the mental deluge of ideas and perspectives.
