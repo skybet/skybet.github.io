@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      QCon London
-date:       2016-05-19 09:00:00
+date:       2016-05-23 12:00:00
 summary:    I went to the QCon conference this year. This is some of the stuff I learned.
 author:     andy_butcher
 image:      qcon.png
@@ -146,8 +146,8 @@ Now the space of interesting failures can be written as a boolean formula in [co
 
 ![Lineages in CNF](/images/lineagesincnf.png)
 
-Now, creating those lineage graphs becomes the challenge, and Peter and Kolton started by using data available in the front end (where they use [Falcor](https://netflix.github.io/falcor/) ) to understand what the successful path was that resulted in each good outcome for a customer.
-And using this approach for “Netflix AppBoot", in an architecture of around 100 services, they reduced the search space from 1,000,000,000,000,000,000,000,000,000,000 to just **200 failure scenarios, which were interesting**. When they tested them, they identified 6 bugs which would have impacted on their customers - some of them deep bugs that would never have been found by an exhaustive enumeration strategy, or thought of by engineers.
+Now, creating those lineage graphs becomes the challenge, and Peter and Kolton started by using data available in the front-end (where they use [Falcor](https://netflix.github.io/falcor/) ) to understand what the successful path was that resulted in each good outcome for a customer.
+And using this approach for “Netflix AppBoot", in an architecture of around 100 services, they reduced the search space from 1,000,000,000,000,000,000,000,000,000,000 to just **200 failure scenarios, which were interesting**. When they tested them, they identified six bugs which would have impacted on their customers - some of them deep bugs that would never have been found by an exhaustive enumeration strategy, or thought of by engineers.
 
 ![Netflix AppBoot](/images/netflixappboot.png)
 
