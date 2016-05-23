@@ -52,13 +52,13 @@ Henry Ford has been quoted as saying:
 
 ![Henry Ford quote](/images/fasterhorse.png)
 
-Here at Sky Betting and Gaming we use Chef to ensure consistent configuration across our estate, but Axel argues that Chef (and Puppet etc.) are simply a _faster horse_ - a faster way of delving into the infrastructure equivalent of tarballs and tinkering around to try and make them all consistent.
+Here at Sky Betting & Gaming we use Chef to ensure consistent configuration across our estate, but Axel argues that Chef (and Puppet etc.) are simply a _faster horse_ - a faster way of delving into the infrastructure equivalent of tarballs and tinkering around to try and make them all consistent.
 
 Coining another animal-based analogy, with machine images **we should now be treating our servers like cattle instead of pets**. We should no longer care about individual servers, thinking of a name for them, taking them to the vet when they’re poorly. It seems to me that where we want to get to is that if a server has a problem affecting a live service, **we should shoot it in the head** and spawn a pristine new one.
 
 ![The U in CRUD for servers is dead](/images/crudisdead.png)
 
-Sky Betting and Gaming has been adopting cloud, and containerisation, for a little while now - and Axel had some helpful insights into what this means for how we design and plan our systems. _Cost-driven architecture_ makes more sense now that we can spin up servers for a few hours when we need them and kill them off when we don’t - something which is pretty handy for a business model like Sky Betting and Gaming's where we essentially have a **Black Friday every Saturday afternoon**.
+Sky Betting & Gaming has been adopting cloud, and containerisation, for a little while now - and Axel had some helpful insights into what this means for how we design and plan our systems. _Cost-driven architecture_ makes more sense now that we can spin up servers for a few hours when we need them and kill them off when we don’t - something which is pretty handy for a business model like Sky Betting & Gaming's where we essentially have a **Black Friday every Saturday afternoon**.
 And now that we can start to care less about individual servers, from an operational perspective we can think about **services** instead: 
 _Is this service available? How is it performing across different data centres or regions? Which versions of the services are we running currently? Are we ready to start migrating traffic onto the newest release?_
 
@@ -69,7 +69,7 @@ So in a world where we have lots of small services (maybe microservices), each p
 ## Staying In Sync
 
 [Martin Kleppmann](https://martin.kleppmann.com/) made the case for one solution in his talk [Staying in Sync: From Transactions to Streams](http://www.infoq.com/presentations/event-streams-kafka).
-The problem essentially is that most of us no longer live in a world where we have a single monolithic application talking to a single monolithic database - at Sky Betting and Gaming we certainly don’t.
+The problem essentially is that most of us no longer live in a world where we have a single monolithic application talking to a single monolithic database - at Sky Betting & Gaming we certainly don’t.
 Most companies have a multitude of derived data stores like caches, search indexes, recommendation engines - all those myriad data stores which support individual services.
 
 ![Insanity](/images/insanity.png)
