@@ -138,7 +138,7 @@ For example, consider the diagram. Each layer has redundancy, so the failures de
 
 And so the idea that Peter and Kolton developed was one that started with the _lineage of successful outcomes_ and from that DAG, extracted a set of trees, each of which is sufficient to produce a good outcome. For each one of those trees, breaking _one step_ will break that path (e.g. breaking RepA or Bcast1 in the diagram).
 
-And so now the space of interesting failures can be written as a boolean formula in [conjunctive normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form):
+Now the space of interesting failures can be written as a boolean formula in [conjunctive normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form):
 
 >(RepA OR Bcast1) AND (RepA OR Bcast2) AND (RepB OR Bcast2) AND (RepB OR Bcast1)
 
