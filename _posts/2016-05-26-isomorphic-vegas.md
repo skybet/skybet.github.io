@@ -19,7 +19,7 @@ We had a few requirements:
 * Single code base for all devices
 * Allow us to integrate with our existing PHP Games and Promotional backend tools
 
-The project started, as many technical projects do, a prototype trying out Facebook's new ReactJS framework. We were able to create a modern single page app that could respond to different screen sizes with ease! Both our engineers and designers loved the simplistic workflow, state management using Flux, powerful debugging tools and performance of the virtual DOM. Soon after, the decision was made to adopt it.
+The project started, as many technical projects do, as a prototype trying out Facebook's new ReactJS framework. We were able to create a modern single page app that could respond to different screen sizes with ease! Both our engineers and designers loved the simplistic workflow, state management using Flux, powerful debugging tools and performance of the virtual DOM. Soon after, the decision was made to adopt it.
 
 Being early adopters of React however, we were left with a load of questions:
 
@@ -57,8 +57,6 @@ app.rehydrate(state, (err, context) => {
 ```
 
 With our stores now populated with initial state from the server (such as games and promotions), we are able to build some simple data end points that will keep these stores up to date as and when needed... neat!
-
-Using this setup, we can even execute flux actions by passing them down in future requests to the server as JSON, very useful when pushing updates to our clients state from the server.
 
 With our application's flux state now rehydrating from the server, we needed to handle rendering our React components on the server.
 
