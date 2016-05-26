@@ -83,6 +83,6 @@ Technically, we aren't actually rendering our React components at all, only spec
 
 ## Conclusion
 
-Taking a step back from Vegas after two years and observing it's fundamental design is an interesting process. As most modern web crawlers have become more powerful, SEO is less of a problem for React applications. If we were to re-write Vegas from scratch, we would probably scrap using PHP for server side rendering and focus on rendering with Node.JS and React.
+Taking a step back from Vegas after two years, observing it's fundamental design is an interesting process. As most modern web crawlers have become more powerful, SEO is less of a problem for React applications. If we were to re-write Vegas from scratch, we would probably scrap using PHP for server side rendering and focus on rendering with Node.JS and React.
 
 That being said, I am very proud of the current state of the site and we are definitely moving in the right direction. We are slowly moving more and more of our logic to our front end giving us far more control over the user experience. Every day working on Vegas is exciting, using the latest technologies to make betting and gaming better!
