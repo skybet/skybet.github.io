@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Isomorphic Vegas
-date:       2016-05-26 09:00:00
+date:       2016-05-27 09:00:00
 summary:    A summary of how we use isomorphism to render Vegas and keep state consistent between our servers and clients
 author:     andrew_munro
 image:      fluxible_react_logo.png
@@ -11,13 +11,13 @@ tags:       engineering, javascript, ReactJS
 
 ## Introduction
 
-Back during the final months of 2014, a new SBG technology project was being born. The project, codenamed 'OneVegas', aimed to link both our mobile and desktop Vegas sites into a single responsive one. Tired of years being tied into feature-dry content management systems, we wanted to move away from them entirely and focus on fast continuous delivery to ensure quality and flexibility with the sites design.
+Back during the final months of 2014, a new Sky Betting & Gaming technology project was being born. The project, codenamed 'OneVegas', aimed to link both our mobile and desktop Vegas sites into a single responsive one. Tired of years being tied into feature-dry content management systems, we wanted to move away from them entirely and focus on fast continuous delivery to ensure quality and flexibility with the sites design.
 
 We had a few requirements:
 
-* Single page application for best possible browser performance
+* Single responsive application for best possible browser experience
 * Single code base for all devices
-* Allow us to integrate with our existing PHP Games and Promotional backend tools
+* Allow us to integrate with our existing various backend RESTful services
 
 The project started, as many technical projects do, as a prototype trying out Facebook's new ReactJS framework. We were able to create a modern single page app that could respond to different screen sizes with ease! Both our engineers and designers loved the simplistic workflow, state management using Flux, powerful debugging tools and performance of the virtual DOM. Soon after, the decision was made to adopt it.
 
@@ -34,7 +34,7 @@ To maintain SEO friendliness and plug into our existing server rendering (such a
 
 > Isomorphism is the functional aspect of seamlessly switching between client- and server-side rendering without losing state.
 
-One early solution floating around the web was to use React on the server to render the page initially before sending it down to the clients. This is quite a popular solution today, but back in 2014 we decided against it due to performance and scalability concerns. SBG was already set up and very good at scaling and maintaining large PHP applications so naturally we wanted to exploit this.
+One early solution floating around the web was to use React on the server to render the page initially before sending it down to the clients. This is quite a popular solution today, but back in 2014 we decided against it due to performance and scalability concerns. SB&G was already set up and very good at scaling and maintaining large PHP applications so naturally we wanted to exploit this.
 
 ## Fluxible
 
@@ -79,10 +79,10 @@ This helps us by allowing the server to embed `<noscript>` tags within these ele
 </div>
 ```
 
-Technically, we aren't actually rendering our React components at all, only specifying where in the markup we want them to be rendered. This comes with a few drawbacks such as adding to the initial loading time, but it achieves everything we need it to and we are able to integrate with our other existing SBG products far more easily.
+Technically, we aren't actually rendering our React components at all, only specifying where in the markup we want them to be rendered. This comes with a few drawbacks such as adding to the initial loading time, but it achieves everything we need it to and we are able to integrate with our other existing SB&G products far more easily.
 
 ## Conclusion
 
-Taking a step back from Vegas after two years, observing it's fundamental design is an interesting process. As most modern web crawlers have become more powerful, SEO is less of a problem for React applications. If we were to re-write Vegas from scratch, we would probably scrap using PHP for server side rendering and focus on rendering with Node.JS and React.
+Taking a step back from Vegas after two years, observing it's fundamental design is an interesting process. As most modern web crawlers have become more powerful, SEO is less of a problem for React applications. The React ecosystem and community has also developed to a much better state than it was in two years ago. There are far more tools available to us which would allow us to simplify our solution significantly.
 
 That being said, I am very proud of the current state of the site and we are definitely moving in the right direction. We are slowly moving more and more of our logic to our front end giving us far more control over the user experience. Every day working on Vegas is exciting, using the latest technologies to make betting and gaming better!
