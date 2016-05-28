@@ -6,8 +6,8 @@ author:
 - darrell_taylor
 date:       2016-03-30 11:00:00
 summary:    Our CRM team rely on having clean phone numbers to push SMS messages to customers, various people have tried creating some logic for this validation but surely this is a solved problem.
-category:   data
-tags:       data, spark
+category:   Data
+tags:       Data, Spark
 ---
 
 ### The Problem

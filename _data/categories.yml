@@ -1,0 +1,53 @@
+- name: Data
+  slug: data
+
+- name: Agile
+  slug: agile
+
+- name: Devops
+  slug: devops
+
+- name: Product
+  slug: product
+
+- name: Deployment
+  slug: deployment
+
+- name: Hardware
+  slug: hardware
+
+- name: Jruby
+  slug: jruby
+
+- name: Velocity
+  slug: velocity
+
+- name: Community
+  slug: community
+
+- name: Incident Response
+  slug: incident-response
+
+- name: UI Engineering
+  slug: ui-engineering
+
+- name: Workflow
+  slug: workflow
+
+- name: Big Data
+  slug: big-data
+
+- name: Software Engineering
+  slug: software-engineering
+
+- name: Security
+  slug: security
+
+- name: Organisation
+  slug: organisation
+
+- name: Node.js
+  slug: nodejs
+
+- name: Conferences
+  slug: conferences

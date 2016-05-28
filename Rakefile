@@ -72,6 +72,51 @@ task :clean do
   cleanup
 end
 
+desc 'Create a category'
+task :createCategory, [:name] do |t, args|
+  if args.name == nil then
+    puts "ERROR: Please provide a category name"
+    exit 1
+  end
+
+  categoriesFile = File.read("_data/categories.yml")
+  categoryExists = categoriesFile.match(/name\: #{Regexp.escape(args.name)}$/)
+
+  if categoryExists then
+    puts "ERROR: Category already exists"
+    exit 1
+  end
+
+  def slugify (title)
+    # strip characters and whitespace to create valid filenames, also lowercase
+    return title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  end
+
+  filename = "category/" + slugify(args.name) + ".md"
+
+  if not File.exists?(filename) then
+    File.open(filename, 'w') do |f|
+      f.puts "---"
+      f.puts "layout:    category"
+      f.puts "title:     '" + args.name + "'"
+      f.puts "category:  " + args.name
+      f.puts "permalink: /category/" + slugify(args.name) + "/"
+      f.puts "---"
+    end
+  else
+    puts "ERROR: Category file already exists"
+    exit 1
+  end
+
+  File.open('_data/categories.yml', 'a') do |f|
+    f.puts ""
+    f.puts "- name: " + args.name
+    f.puts "  slug: " + slugify(args.name)
+  end
+
+  puts "SUCCESS: Category " + args.name + " has been created with slug " + slugify(args.name)
+end
+
 
 desc 'Preview on local machine (server with --auto)'
 task :preview => :clean do

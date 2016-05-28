@@ -27,9 +27,13 @@ fixedHeader: true
                     </time>
                 </div>
                 {% if page.category %}
-                <span class="post--category">
-                    {{ page.category }}
-                </span>
+                    {% for data_category in site.data.categories %}
+                        {% if data_category.name == page.category %}
+                            <span class="post--category">
+                                <a href="/category/{{ data_category.slug }}/">{{ page.category }}</a>
+                            </span>
+                        {% endif %}
+                    {% endfor %}
                 {% endif %}
             </header>
 

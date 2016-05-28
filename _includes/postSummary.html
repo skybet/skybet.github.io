@@ -53,7 +53,11 @@
         {% if post.category %}
         <div class="categories flex-item">
             <header>Category:</header>
-            <p>{{ post.category }}</p>
+            {% for data_category in site.data.categories %}
+                {% if data_category.name == post.category %}
+                    <p><a href="/category/{{ data_category.slug }}/">{{ post.category }}</a></p>
+                {% endif %}
+            {% endfor %}
         </div>
         {% endif %}
         <div class="read flex-item">

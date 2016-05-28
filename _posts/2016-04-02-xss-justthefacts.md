@@ -4,7 +4,7 @@ title:      XSS - Just the facts, ma'am
 author:     dan_adams
 date:       2016-04-02 11:00:00
 summary:    A basic primer on Cross-site scripting (XSS) and its prevention
-category:   security
+category:   Security
 tags:       security,scripting,xss,sanitisation,encoding,vulnerability,exploit
 ---
 

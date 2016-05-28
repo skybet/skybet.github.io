@@ -4,7 +4,7 @@ title:      Horses, batteries and staples - tips for effective password usage
 author:     dan_adams
 date:       2016-03-28 11:00:00
 summary:    Tips for effective password usage, for both end users and system administrators
-category:   security
+category:   Security
 tags:       security passwords
 ---
 
