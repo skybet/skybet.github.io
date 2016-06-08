@@ -1,0 +1,40 @@
+---
+layout:     raw
+title:      Sky Betting &amp; Gaming Engineering
+summary:    We bring the excitement of Sports Betting, Casino Games, Poker and Bingo to millions of customers as a modern, technology-led company working across a range of cutting-edge technologies.
+nav:        false
+nav_title:  Articles
+nav_weight: 0
+className:  homepage
+isArticle:  false
+---
+
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+  {% include postSummary.html %}
+{% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination">
+    <div class="flex flex--center">
+        <div class="flex-item text--left">
+            {% if paginator.previous_page %}
+              <a href="{{ paginator.previous_page_path }}" class="btn btn--primary">Previous</a>
+            {% else %}
+              <a class="btn btn--primary btn--disabled ">Previous</a>
+            {% endif %}
+        </div>
+        
+        <div class="flex-item text--center">
+            <span class="page_number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+        </div>
+        
+        <div class="flex-item text--right">
+            {% if paginator.next_page %}
+              <a href="{{ paginator.next_page_path }}" class="btn  btn--primary">Next</a>
+            {% else %}
+              <a class="btn btn--primary btn--disabled ">Next</a>
+            {% endif %}
+        </div>
+    </div>  
+</div>
