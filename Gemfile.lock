@@ -130,6 +130,7 @@ PLATFORMS
 DEPENDENCIES
   anemone
   github-pages
+  jekyll-paginate
   rake
 
 BUNDLED WITH
