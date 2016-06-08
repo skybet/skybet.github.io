@@ -55,6 +55,7 @@ $color-highlight: #d3d3d3; // light grey
 $color-light: #ebebeb; // very light grey
 $color-dark: #09204c; // darker blue
 $color-whtrans: rgba(255,255,255,.5);
+$color-darkGrey: #777;
 
 /* FOOTER */
 $footer-logo-height:     32px !default;
@@ -76,3 +77,4 @@ $footer-background:      #222222 !default;
 @import "home";
 @import "buttons";
 @import "forms";
+@import "pagination";
