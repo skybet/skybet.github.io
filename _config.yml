@@ -2,10 +2,11 @@ name: Sky Betting & Gaming Engineering
 markdown: kramdown
 url: http://engineering.skybettingandgaming.com
 host: 0.0.0.0
+permalink: /:year/:month/:day/:title/
 gems:
     - jekyll-feed
     - jekyll-paginate
-paginate: 5
+paginate: 10
 paginate_path: "/:num/"
 kramdown:
     input: GFM
