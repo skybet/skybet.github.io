@@ -45,6 +45,17 @@
             background: darken($color-secondary, 10%);
         }
     }
+    
+    &.btn--disabled {
+        background: $color-darkGrey;
+        color: white;
+        pointer-events: none;
+        opacity: 0.4;
+
+        &:hover {
+            background: $color-darkGrey;
+        }
+    }
 
     &.btn--xsmall {
         font-size: 70%;

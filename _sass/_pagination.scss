@@ -1,0 +1,20 @@
+
+// Pagination
+// -------------------------------------------------------------------------------
+
+.pagination {
+    margin-bottom: $base-line;
+    margin-right: $base-line/2;
+    margin-left: $base-line;
+
+    @include media-query(xs-s) {
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: $base-line*2;
+    }
+
+    @include media-query(xl) {
+        margin-left: 0;
+        margin-right: $base-line/2;
+    }
+}

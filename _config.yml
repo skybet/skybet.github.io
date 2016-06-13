@@ -5,6 +5,9 @@ host: 0.0.0.0
 permalink: /:year/:month/:day/:title/
 gems:
     - jekyll-feed
+    - jekyll-paginate
+paginate: 10
+paginate_path: "/:num/"
 kramdown:
     input: GFM
     syntax_highlighter: rouge
