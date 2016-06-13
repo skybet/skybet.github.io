@@ -4,8 +4,8 @@ title:      Preventing phishing attacks - an example of defence in depth
 author:     dan_adams
 date:       2016-02-29 11:00:00
 summary:    Phishing attacks are difficult to entirely prevent against, but are a good example of a situation in which "defence in depth" is appropriate.
-category:   security
-tags:       security
+category:   Security
+tags:       Security
 ---
 
 "Phishing" attacks are attempts to acquire information such as usernames, passwords, and credit card details by masquerading as a trustworthy entity. The name derives from the similarity of using a bait in an attempt to catch a victim from a pool and the "bait" normally consist of an electronic message such as an email sent to a large group with the hope that some small percentage of targeted victims will fall for the ploy.
