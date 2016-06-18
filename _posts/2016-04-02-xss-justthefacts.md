@@ -8,7 +8,7 @@ category:   Security
 tags:       security,scripting,xss,sanitisation,encoding,vulnerability,exploit
 ---
 
-One of the simplest and most prevalent vulnerabilities found in web applications that we pentest is Cross-Site Scripting or XSS. It is still the third most critical vulnerability according to the [https://www.owasp.org/index.php/Top10](Owasp Top 10 Vulnerabilities) list as of 2013, and closely linked to the number 1 most critical vulnerability: injection.
+One of the simplest and most prevalent vulnerabilities found in web applications that we pentest is Cross-Site Scripting or XSS. It is still the third most critical vulnerability according to the [Owasp Top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10) list as of 2013, and closely linked to the number 1 most critical vulnerability: injection.
 
 Clearly, despite its ubiquity, there is still a lot of uncertainty amongst developers and others around what exactly XSS is and how to prevent it. Very often the topic is made overly complex, when in reality it is relatively simple to both understand and defend against.
 
