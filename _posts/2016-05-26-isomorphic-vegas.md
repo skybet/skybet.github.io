@@ -6,7 +6,7 @@ summary:    A summary of how we use isomorphism to render Vegas and keep state c
 author:     andrew_munro
 image:      fluxible_react_logo.png
 category:   Organisation
-tags:       engineering, javascript, ReactJS
+tags:       engineering, javascript, react
 ---
 
 ## Introduction
@@ -19,7 +19,7 @@ We had a few requirements:
 * Single code base for all devices
 * Allow us to integrate with our existing various backend RESTful services
 
-The project started, as many technical projects do, as a prototype trying out Facebook's new ReactJS framework. We were able to create a modern single page app that could respond to different screen sizes with ease! Both our engineers and designers loved the simplistic workflow, state management using Flux, powerful debugging tools and performance of the virtual DOM. Soon after, the decision was made to adopt it.
+The project started, as many technical projects do, as a prototype trying out Facebook's new React framework. We were able to create a modern single page app that could respond to different screen sizes with ease! Both our engineers and designers loved the simplistic workflow, state management using Flux, powerful debugging tools and performance of the virtual DOM. Soon after, the decision was made to adopt it.
 
 Being early adopters of React however, we were left with a load of questions:
 

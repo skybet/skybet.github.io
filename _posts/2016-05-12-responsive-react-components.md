@@ -2,7 +2,7 @@
 layout:     post
 title:      Responsive React Components
 date:       2016-05-12 15:48:00
-summary:    The early spotting of technical debt within our new responsive Sky Vegas ReactJS codebase enabled the squad to implement an elegant solution to rendering components based on the current device's viewport size.
+summary:    The early spotting of technical debt within our new responsive Sky Vegas React codebase enabled the squad to implement an elegant solution to rendering components based on the current device's viewport size.
 author:     matt_kirwan
 image:      responsive-react-components_header.png
 category:   UI Engineering
@@ -89,7 +89,7 @@ Bean.on(
 );
 ```
 
-This then allows us to listen to `window` functions such as `resize` and trigger a ReactJS Action as a callback to that event.
+This then allows us to listen to `window` functions such as `resize` and trigger a React Action as a callback to that event.
 
 File: viewportChangeAction
 ------
@@ -200,7 +200,7 @@ class AnyComponent extends React.Component {
 
         // This is where the magic happens
         let menuButton = (size === ViewportSizes.PALM || size === ViewportSizes.LAP) ? <MenuButton/> : null;
-        
+
         return (
             <div>
                 <Search/>
