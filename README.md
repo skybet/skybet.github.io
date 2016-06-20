@@ -41,11 +41,12 @@ If an article has been created by multiple authors, you can specify the `author`
      - author_key
      - another_author_key
     ---
-    
+
 ### Style Guide
 
 * The company name should always be referred to as "Sky Betting & Gaming"
 * In markdown files such as posts, you don't need to encode html entities (e.g. ampersand). In HTML, you do.
+* Take note of formatting/capitalisation of different framework/languages (e.g. JavaScript, Node.js); we aim to be consistent with the formal documentation for that framework/language.
 
 ### Images
 
