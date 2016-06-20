@@ -38,6 +38,20 @@ From the first day of work I’ve been involved in all the above activities and 
 
 The work day begins at any time between 08:00 and 09:30. This flexi-time allows for people to work to hours more suitable to their travel needs. The day ends between 16:00 and 18:30 to align with the flexible starting hours.
 
+# Technology and The Way We Work
+**Sky Betting and Gaming** has adopted team organization in a similar vein to the the ‘Spotify Tribes Model’. This way of working arranges departments into ‘tribes’ with each of these tribes further broken down into smaller working teams. It is a very efficient model which allows for high levels of collaborative working (A theme which is encouraged throughout the business).
+
+**Sky Betting and Gaming** has an excellent technology stack in each tribe. My tribe in particular has thoroughly impressed. In the short time here I have had exposer to several different platforms and a plethora of programming languages and technologies all fit for purpose. My knowledge in my specialized field has been expanded but I’ve also discovered interests in areas not normally considered from the perspective of a data engineer (This is partly due to the excellent collaborative efforts throughout the business).
+
+# And Finally.. The City
+When I started working at SBG the city was an afterthought. Its appeal was there but I hadn’t had the time to appreciate it in the way I have once I’d settled after a few weeks here at SBG.
+
+On my first day at work, for our lunch break, my colleague and I took a trip to the town center. The city center is surprisingly short 5 minute walk away from the office offering up a variety of eateries on the way. A usual dining area is Trinity Kitchens; A collection of in door food stalls offering up anything from tortillas to duck and pancakes.
+
+The city as a whole is vibrant and entrancing and has become. The city as much an influence on my satisfaction as the job itself.
+
+
+
 
 
 I thought It would be a good idea to spend part of this fund attending the **[Big Data Spain](http://www.bigdataspain.org/)** conferences in Madrid. As a software engineer within the Data Team I'm really interested in learning more about cutting-edge technologies such as _Spark_, _Hadoop_, _Machine Learning_ and real-time data processing, to be able to make use of them in some of the projects we are currently working on.
