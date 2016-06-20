@@ -25,6 +25,20 @@ Some of the things that first struck me about working at **Sky Betting and Gamin
 
 After the first week had passed I was raring to getting started with some coding. Work began at a manageable pace with guidance eventually leading to very independent work as expected. This ‘easing in’ period was, in my own personal opinion, excellent! I’d joined the company with a fellow colleague from my previous employer and we were stationed in close proximity to two amazing senior engineers… You know who you are. Throughout the first two months they were on hand to thoroughly explain concepts which were new to us but to also assure us that our beginnings in the work environment are a learning process and so moving at our own pace was encouraged.
 
+# The 'Average' Day
+To say average day is the wrong choice of words as no two days at SBG are the same but things that I have found myself doing on an ‘average’ day as a Data Engineer include:
+-	Development (encompassing stability, improvement, enhancements as well as the creation of pipelines and more)
+-	Regular planning and inception meetings to facilitate the needs of the business and the developments we intend to implement
+-	Various forms of QA testing
+-	Pool tables (Everyone needs a break here and there  )
+-	Eating out for lunch at one the many food places within the city center
+-	Online and in work training when possible as well as when required
+
+From the first day of work I’ve been involved in all the above activities and more. The list seems exhaustive but the environment we work in means it is easily manageable. 
+
+The work day begins at any time between 08:00 and 09:30. This flexi-time allows for people to work to hours more suitable to their travel needs. The day ends between 16:00 and 18:30 to align with the flexible starting hours.
+
+
 
 I thought It would be a good idea to spend part of this fund attending the **[Big Data Spain](http://www.bigdataspain.org/)** conferences in Madrid. As a software engineer within the Data Team I'm really interested in learning more about cutting-edge technologies such as _Spark_, _Hadoop_, _Machine Learning_ and real-time data processing, to be able to make use of them in some of the projects we are currently working on.
 
