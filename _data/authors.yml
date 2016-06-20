@@ -228,3 +228,14 @@ jon_bulbrook:
     bio: Currently a Software Engineer in the Gaming Promotions Squad, working on internal APIs and real-time promotions using Apache Kafka and NodeJS. Also worked on the new Sky Vegas platform using ReactJS, Javascript and PHP.
     twitter: mrjpsycho
     github: mrjpsycho
+
+tom_davidson:
+    name: Tom Davidson
+    image: tom_davidson.jpg
+    role: Senior Infrastructure Engineer / Delivery
+    tribe: Infrastructure
+    startDate: 24-02-2014
+    bio: Part of the Delivery squad who are responsible for deploying, upgrading & scaling the PaaS that underpins the majority of the Sky Betting & Gaming products. His philosophy is: Why do something manually more than once when you can script or automate it.
+    interests: automation, scripting, virtualisation, *nix
+    twitter: tpd1001
+    github: tpd1001
