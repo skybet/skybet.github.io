@@ -9,8 +9,10 @@ author:     marcus_ojerinde_ardalla
 ---
 
 <a name="english"></a>
+_The following blog post is an informal detailing of the first few months at Sky Betting and Gaming (SBG) as a Junior Data Engineer. The intention of this post is to give a brief overview of what to expect when you join as a recent graduate as well as life here at SkyBet. An earlier blog post of a similar vein can be found 
+here_:
+http://engineering.skybettingandgaming.com/2016/03/16/life-after-graduation/
 
-<a href="#spanish">[Llévame a la versión en Español]</a>
 
 As with almost every tech company nowadays, **Sky Betting & Gaming** is concerned about their employees and their continuous learning, either signing us up for courses to get new certificates or going to conferences.
 That's why last year **Sky Betting & Gaming** created the **Tech Ninja Fund**.
