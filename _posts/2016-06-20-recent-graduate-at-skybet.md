@@ -9,16 +9,22 @@ author:     marcus_ojerinde_ardalla
 ---
 
 <a name="english"></a>
-_The following blog post is an informal detailing of the first few months at Sky Betting and Gaming (SBG) as a Junior Data Engineer. The intention of this post is to give a brief overview of what to expect when you join as a recent graduate as well as life here at SkyBet. An earlier blog post of a similar vein can be found 
+_The following blog post is an informal detailing of the first few months at **Sky Betting and Gaming** (SBG) as a Junior Data Engineer. The intention of this post is to give a brief overview of what to expect when you join as a recent graduate as well as life here at **Sky Betting And Gaming**. An earlier blog post of a similar vein can be found 
 here_:
 http://engineering.skybettingandgaming.com/2016/03/16/life-after-graduation/
 
 
-As with almost every tech company nowadays, **Sky Betting & Gaming** is concerned about their employees and their continuous learning, either signing us up for courses to get new certificates or going to conferences.
-That's why last year **Sky Betting & Gaming** created the **Tech Ninja Fund**.
+Sports and Data Engineering! My two passions together in one place. How could I not be excited to start life at this amazing place of work in the city of Leeds! (Leeds is a wonderful place to live but more on that later). 
 
-# What's that?
-**Tech Ninja Fund**, as its name suggests, is a fund that everyone here at **Sky Betting & Gaming** have, it consists of £1000 we can spend in many different ways such as courses where we can learn new technologies we are currently using in the company,as well as getting new hardware/software, attending conferences, books,etc.
+
+# About Myself
+Before joining **Sky Betting and Gaming** I was a recent graduate working in the big data field as a data engineering at Company X. A company working with similar technologies to those encountered at **Sky Betting and Gaming** but operating in a different manner.  The change of job and role was nice but also needed. I’d decided to try something new and more in tune with my interests which lead me to a role at **Sky Betting and Gaming**.
+
+# Getting Started
+Some of the things that first struck me about working at **Sky Betting and Gaming** were the openness and clear direction of the business that I was shown in the first few weeks. My first few days at **Sky Betting and Gaming** involved a lot of meetings and introductions with people all over the business which helped immensely in adapting to the business culture at **Sky Betting and Gaming**. The people were friendly, the environment motivating, but most of all I was excited to get started in some ‘real work’ (Not to say these meetings and introductions weren’t but I personally couldn’t wait to play around on my work station ).
+
+After the first week had passed I was raring to getting started with some coding. Work began at a manageable pace with guidance eventually leading to very independent work as expected. This ‘easing in’ period was, in my own personal opinion, excellent! I’d joined the company with a fellow colleague from my previous employer and we were stationed in close proximity to two amazing senior engineers… You know who you are. Throughout the first two months they were on hand to thoroughly explain concepts which were new to us but to also assure us that our beginnings in the work environment are a learning process and so moving at our own pace was encouraged.
+
 
 I thought It would be a good idea to spend part of this fund attending the **[Big Data Spain](http://www.bigdataspain.org/)** conferences in Madrid. As a software engineer within the Data Team I'm really interested in learning more about cutting-edge technologies such as _Spark_, _Hadoop_, _Machine Learning_ and real-time data processing, to be able to make use of them in some of the projects we are currently working on.
 
