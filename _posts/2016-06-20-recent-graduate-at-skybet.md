@@ -49,3 +49,8 @@ When I started working at SBG the city was an afterthought. Its appeal was there
 On my first day at work, for our lunch break, my colleague and I took a trip to the town center. The city center is surprisingly short 5 minute walk away from the office offering up a variety of eateries on the way. A usual dining area is Trinity Kitchens; A collection of in door food stalls offering up anything from tortillas to duck and pancakes.
 
 The city as a whole is vibrant and entrancing and has become. The city as much an influence on my satisfaction as the job itself.
+
+# For those who are interested
+Sky Betting and Gaming have a variety of opportunities for graduates which can be found here:
+http://skybetcareers.com/our-tribes/early-careers-tribe
+Have a look and see what peaks your interest :)
