@@ -92,15 +92,32 @@ Because these options are somewhat cryptic, and because you have to specify *all
 /usr/openv/netbackup/bin/admincmd/bpplinfo ${policy} -modify -use_virtual_machine 1 -alt_client_name MEDIA_SERVER -snapshot_method VMware_v2 -application_discovery 1 -snapshot_method_args file_system_optimization=1,rTO=0,snapact=2,drive_selection=0,Virtual_machine_backup=2,enable_vCloud=0,rHz=10,multi_org=0,rLim=10,disable_quiesce=0,nameuse=1,ignore_irvm=0,skipnodisk=0,exclude_swap=1,post_events=1,trantype=san:nbd,serverlist=${vcenter_server}
 ```
 
-## Adding MEDIA_SERVER as a client to ${policy}
-/usr/openv/netbackup/bin/admincmd/bpplclients ${policy} -add MEDIA_SERVER VMware VMware
-Next, you need to craft a VMware Intelligent Policy (VIP) query to just select the subset of VMs you want and deselect the things you don't want. In this example, we first select any hosts we want (linking with OR and enclosing in brackets) and then deselect Test/Staging VMs and those that are powered off.
+## Populating VMware Intelligent Policy Query
 
-# Populating VMware Intelligent Policy (VIP) Query into ${policy}
+We are now ready to select out clients to backup. You can do this manually, but NetBackup provides a much better way of selecting the VMs to backup - using a VMware Intelligent Policy (VIP) query. This is a powerful query language that can select VMs based on the hostname, VM display name, ESXi host they reside on, whether they are powered on and many more. It has the traditional logical operators that you would expect, and can also be configured with parentheses for more advanced queries.
+
+In our example, we are creating a VIP query that selects VMs based on the displayname of the VM in vCenter (because not all of our VMs have valid hostnames for legacy reasons). The query selects VMs with a displayname that contains one of two strings, concatenated with a logical OR and enclosed in parentheses. It's output is then filtered using AND NOT to exclude any Test or Staging VMs and any VM that is powered off.
+``` bash
 /usr/openv/netbackup/bin/admincmd/bpplinclude ${policy} -add vmware:/?filter=(Displayname Contains "nms0" OR Displayname Contains "nmsdb0") AND NOT Powerstate Equal poweredOff AND NOT Displayname Contains "stg" AND NOT Displayname Contains "tst"
+```
+
+## Adding MEDIA_SERVER as a client
+
+This next step resolves an issue that seems to be undocumented
+
+Finally, you should be able to initiate a manual backup from the CLI, only there is a bug (under investigation with Veritas) and it doesn't work until you perform the following:
+Click on the policy and click on the edit policy button. Infrastructure & Security Delivery > NetBackup Operational Support > image2016-3-15 11:14:25.png
+Click on the Clients Tab.
+Don't make any changes and click OK.
+This is now resolved with the step of adding "MEDIA_SERVER" as a client to the policy.
+Now you can initiate a manual backup from the CLI.
+``` bash
+/usr/openv/netbackup/bin/admincmd/bpplclients ${policy} -add MEDIA_SERVER VMware VMware
+```
+
+# Creating Import SLPs on ${remote_master} for ${policy}
 Then, you need to create the SLPs for each Schedule you plan to create.
 If you are replicating to another site, first you need to create the Import SLPs in the destination site and then create the SLPs in the source site to first backup and then perform the replication.
-# Creating Import SLPs on ${remote_master} for ${policy}
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 0
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 3
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 8
