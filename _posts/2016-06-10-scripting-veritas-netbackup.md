@@ -73,7 +73,7 @@ Creating the policy is the easy part. All you need is the name of the policy and
 /usr/openv/netbackup/bin/admincmd/bppolicynew ${policy} -M ${local_master}
 ```
 
-## Configure as VMware policy
+# Configure as VMware policy
 
 Now that we have our policy, we need to reconfigure it as VMware policy, rather than the default Standard (Unix) one. There are some key options for VMware policies that we need to set at this point to maximise the efficiency of VM backups, namely enabling the following:
 * Block Level Incncremental Backup - this uses the VMware Changed Block Tracking capability of VM Hardware v7+ VMs.
@@ -83,7 +83,7 @@ We also need to state the Storage Unit that the backup image will reside on. In 
 /usr/openv/netbackup/bin/admincmd/bpplinfo ${policy} -set -active -pt VMware -blkincr 1 -use_accelerator 1 -residence ${local_stu}
 ```
 
-## Setting VMware Options
+# Setting VMware Options
 
 There are some additional options that apply to VMware policies that can only be set once the policy is a VMware policy. This is a very long command line, and the majority of the options are to do with configuring the VMware snapshot method that will be used to create a VM snapshot and then back it up.
 
@@ -92,7 +92,7 @@ Because these options are somewhat cryptic, and because you have to specify *all
 /usr/openv/netbackup/bin/admincmd/bpplinfo ${policy} -modify -use_virtual_machine 1 -alt_client_name MEDIA_SERVER -snapshot_method VMware_v2 -application_discovery 1 -snapshot_method_args file_system_optimization=1,rTO=0,snapact=2,drive_selection=0,Virtual_machine_backup=2,enable_vCloud=0,rHz=10,multi_org=0,rLim=10,disable_quiesce=0,nameuse=1,ignore_irvm=0,skipnodisk=0,exclude_swap=1,post_events=1,trantype=san:nbd,serverlist=${vcenter_server}
 ```
 
-## Populating VMware Intelligent Policy Query
+# Populating VMware Intelligent Policy Query
 
 We are now ready to select out clients to backup. You can do this manually, but NetBackup provides a much better way of selecting the VMs to backup - using a VMware Intelligent Policy (VIP) query. This is a powerful query language that can select VMs based on the hostname, VM display name, ESXi host they reside on, whether they are powered on and many more. It has the traditional logical operators that you would expect, and can also be configured with parentheses for more advanced queries.
 
@@ -101,25 +101,39 @@ In our example, we are creating a VIP query that selects VMs based on the displa
 /usr/openv/netbackup/bin/admincmd/bpplinclude ${policy} -add vmware:/?filter=(Displayname Contains "nms0" OR Displayname Contains "nmsdb0") AND NOT Powerstate Equal poweredOff AND NOT Displayname Contains "stg" AND NOT Displayname Contains "tst"
 ```
 
-## Adding MEDIA_SERVER as a client
+# Adding MEDIA_SERVER as a client
 
 This next step resolves an issue that seems not to be documented adequately by Veritas. Having created a policy using all the CLI commands in this article, I found that when I tried to perform a manual backup of the policy, it returned an error 239 that no clients could be found. I discovered that if you edit the policy, click on the Clients tab, *don't* make any changes and click OK, it then works.
 
-Cue extensive investigation with Veritas Tech Support, who were at times clearly reluctant to investigate further, stating something along the lines of, "None of our customers has ever tried to do this before. We can investigate, but you'll have to provide debugging logs". You provice the CLI as an interface to the product - I cannot believe no-one has tried it before.
+Cue extensive investigation with Veritas Tech Support, who were at times clearly reluctant to investigate further, stating something along the lines of, "None of our customers has ever tried to do this before. We can investigate, but you'll have to provide debugging logs". You provide the CLI as an interface to the product - I cannot believe no-one has tried it before!
 
 Anyway, it was discovered that you *must* have a client defined in the policy, even though you are backing up clients using a VIP query. To this end, there is a reserved word "MEDIA_SERVER" that you must add as a VMware client to the policy.
 ``` bash
 /usr/openv/netbackup/bin/admincmd/bpplclients ${policy} -add MEDIA_SERVER VMware VMware
 ```
 
-# Creating Import SLPs on ${remote_master} for ${policy}
+## Creating Storage Lifecycle Policies
+
+In order to be able to replicate backup images to a remote NetBackup Domain (with a different master server), we need to create Storage Lifecycle Policies. These control where a backup image is initially written and the retention time of the image. They can also have subsequent actions, such as to Duplicate (same NBU Domain) or Replicate (different NBU Domain) the images to another destination.
+
+We have a need to ensure that an off-site backup image is created, and this is performed using NetBackup AIR. This maximises the bandwidth of your WAN link by utilising deduplication data and only sending unique blocks when replicating.
+
+Configuring SLPs via the command line is the most complex part of the process as they require multiple, comma separated values to come options, depending on the number of actions in the SLP. The complexities of this are to great to go into in detail here, but hopefully this will give an indication of how the SLP configuration command line is constructed.
+
+For simplicity, I am only covering the creation of a weekly schedule and associated SLPs. In reality, you may well have daily, monthly and even yearly schedules and SLPs. However, the basics of the configuration is the same.
+
+# Creating Import SLPs in remote NBU domain
+
+The first step in configuring SLPs for replication is to create an Import SLP in the remote NBU domain. Because the remote NBU domain has no knowledge of anything about the backup image, it needs to run an import job once the replication is complete. This is specified in the local SLP and consequently the remote import SLP must already exist ot the command will fail.
+ 
+
 Then, you need to create the SLPs for each Schedule you plan to create.
 If you are replicating to another site, first you need to create the Import SLPs in the destination site and then create the SLPs in the source site to first backup and then perform the replication.
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 0
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 3
+ssh ${remote_master} /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 0
+ssh ${remote_master} /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 3
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 8
 
-# Creating SLPs for ${policy}
+# Creating locl SLPs
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_daily -source 0,1 -managed 0,0 -rl 0,0
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_weekly -source 0,1 -managed 0,0 -rl 3,3
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_monthly -source 0,1 -managed 0,0 -rl 8,8
