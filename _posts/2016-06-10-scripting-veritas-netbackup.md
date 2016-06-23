@@ -25,12 +25,9 @@ A policy can be as simple as a simple filesystem backup to local storage units w
 
 Putting all this together in a single one-liner tool with a few custom options requires that many CLI commands need to interact with the output from a previous command and modify their command line switches and options accordingly.
 
-### something
-blah
-
 ### Naming Conventions
 
-This is a good point to briefly discuss naming conventions. In order to be able to maintain consistency across multiple policy creations, and especially across multiple users, it is essential to have a defined naming convention. For our purposes, the folowing naming convention was adopted, in which the various components of NetBackup are broken down into segment according to the Policy Type:
+This is a good point to briefly discuss naming conventions. In order to be able to maintain consistency across multiple policy creations, and especially across multiple users, it is essential to have a defined naming convention. For our purposes, the following naming convention was adopted, in which the various components of NetBackup are broken down into segment according to the Policy Type:
 * All text is to be in lower case (to avoid complications in a mixed UNIX/Windows environment).
 * Only alphanumeric characters and underscore are permitted.
 * Underscores should be used in place of spaces.
@@ -60,6 +57,9 @@ For this blog post, we will just statically define variables, but in real operat
 ``` bash
 local_master=local.master.fqdn
 remote_master=remote.master.fqdn
+local_stu=stu_disk_${local_master%%.*}
+remote_stu=stu_disk_${remote_master%%.*}
+vcenter_server=vcenter.server.fqdn
 site=test_site
 owner=infra
 type=vm
@@ -73,20 +73,26 @@ Creating the policy is the easy part. All you need is the name of the policy and
 /usr/openv/netbackup/bin/admincmd/bppolicynew ${policy} -M ${local_master}
 ```
 
-## Configure VMware Options
+## Configure as VMware policy
 
 Now that we have our policy, we need to reconfigure it as VMware policy, rather than the default Standard (Unix) one. There are some key options for VMware policies that we need to set at this point to maximise the efficiency of VM backups, namely enabling the following:
 * Block Level Incncremental Backup - this uses the VMware Changed Block Tracking capability of VM Hardware v7+ VMs.
 * VMware Accelerator - this negates the need to re-copy every block for a Full backup, instead using blocks from the previous Full.
 We also need to state the Storage Unit that the backup image will reside on. In order to be able to subsequently perform replication of backup images with AIR, we need to configure the policy with a destination of a DeDup storage device.
 ``` bash
-/usr/openv/netbackup/bin/admincmd/bpplinfo ${policy} -set -active -pt VMware -blkincr 1 -use_accelerator 1 -residence stu_disk_appliance
+/usr/openv/netbackup/bin/admincmd/bpplinfo ${policy} -set -active -pt VMware -blkincr 1 -use_accelerator 1 -residence ${local_stu}
 ```
 
-## Setting VMware options for policy ${policy}
-/usr/openv/netbackup/bin/admincmd/bpplinfo ${policy} -modify -use_virtual_machine 1 -alt_client_name MEDIA_SERVER -snapshot_method VMware_v2 -application_discovery 1 -snapshot_method_args file_system_optimization=1,rTO=0,snapact=2,drive_selection=0,Virtual_machine_backup=2,enable_vCloud=0,rHz=10,multi_org=0,rLim=10,disable_quiesce=0,nameuse=1,ignore_irvm=0,skipnodisk=0,exclude_swap=1,post_events=1,trantype=san
+## Setting VMware Options
 
-# Adding MEDIA_SERVER as a client to ${policy}
+There are some additional options that apply to VMware policies that can only be set once the policy is a VMware policy. This is a very long command line, and the majority of the options are to do with configuring the VMware snapshot method that will be used to create a VM snapshot and then back it up.
+
+Because these options are somewhat cryptic, and because you have to specify *all* of them, I found it easier to create a human readable configuration file and then construct the command line with a shell function using that config file.
+``` bash
+/usr/openv/netbackup/bin/admincmd/bpplinfo ${policy} -modify -use_virtual_machine 1 -alt_client_name MEDIA_SERVER -snapshot_method VMware_v2 -application_discovery 1 -snapshot_method_args file_system_optimization=1,rTO=0,snapact=2,drive_selection=0,Virtual_machine_backup=2,enable_vCloud=0,rHz=10,multi_org=0,rLim=10,disable_quiesce=0,nameuse=1,ignore_irvm=0,skipnodisk=0,exclude_swap=1,post_events=1,trantype=san:nbd,serverlist=${vcenter_server}
+```
+
+## Adding MEDIA_SERVER as a client to ${policy}
 /usr/openv/netbackup/bin/admincmd/bpplclients ${policy} -add MEDIA_SERVER VMware VMware
 Next, you need to craft a VMware Intelligent Policy (VIP) query to just select the subset of VMs you want and deselect the things you don't want. In this example, we first select any hosts we want (linking with OR and enclosing in brackets) and then deselect Test/Staging VMs and those that are powered off.
 
@@ -95,19 +101,19 @@ Next, you need to craft a VMware Intelligent Policy (VIP) query to just select t
 Then, you need to create the SLPs for each Schedule you plan to create.
 If you are replicating to another site, first you need to create the Import SLPs in the destination site and then create the SLPs in the source site to first backup and then perform the replication.
 # Creating Import SLPs on ${remote_master} for ${policy}
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -uf 4 -residence stu_disk_remote_appliance -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 0
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 4 -residence stu_disk_remote_appliance -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 3
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -uf 4 -residence stu_disk_remote_appliance -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 8
+/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 0
+/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 3
+/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 8
 
 # Creating SLPs for ${policy}
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -uf 0,3 -residence stu_disk_appliance,__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_daily -source 0,1 -managed 0,0 -rl 0,0
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 0,3 -residence stu_disk_appliance,__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_weekly -source 0,1 -managed 0,0 -rl 3,3
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -uf 0,3 -residence stu_disk_appliance,__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_monthly -source 0,1 -managed 0,0 -rl 8,8
+/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_daily -source 0,1 -managed 0,0 -rl 0,0
+/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_weekly -source 0,1 -managed 0,0 -rl 3,3
+/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_monthly -source 0,1 -managed 0,0 -rl 8,8
 Otherwise, just create the local SLPs.
 # Creating SLPs for ${policy}
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -residence stu_disk_appliance -rl 0
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -residence stu_disk_appliance -rl 3
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -residence stu_disk_appliance -rl 8
+/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -residence ${local_stu} -rl 0
+/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -residence ${local_stu} -rl 3
+/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -residence ${local_stu} -rl 8
 After that, you can create all your Schedules and their associated SLPs and backup windows. I have included a section for each Skybet Retention Class.
 # Creating weekly full schedule in ${policy} to use created SLPs
 /usr/openv/netbackup/bin/admincmd/bpplsched ${policy} -add weekly -st FULL -residence ${policy}_weekly -res_is_stl 1
