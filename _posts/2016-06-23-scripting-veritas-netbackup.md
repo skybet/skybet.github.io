@@ -2,32 +2,33 @@
 layout:     post
 title:      Scripting NetBackup Policy Creation
 author:     tom_davidson
-date:       2016-06-10 13:40:21
-summary:    Veritas NetBackup has an extensive suite of CLI commands that can be used to configure most aspects of the product. However, documentation and examples of the use of these commands can be sparse.
-finding the correct syntax for all the commands with the documentation and community 
-Virtual Sports is one of our most popular products; here is one of the ways we improved our monitoring of it.
+date:       2016-06-23 13:40:21
+summary:    The documentation and examples of the use of NetBackup commands can be sparse. Here is how we used the CLI to script our policy creation.
 image:      tbc.png
-category:   Backup
+category:   Deployment
 tags:       linux, unix, scripting, bash, vmware, netbackup, policy, slp, replication, air
 ---
 
 Veritas NetBackup is a powerful backup platform, with extensive range of functionality. Some of the key features are the ability to backup a VMware Virtual Machine (VM) and to replicate backup images to remote sites.
 
-Our requirement is to have a repeatable process that can be used to create many tens, even hundreds of policies to backup VMs and replicate them to one or two remote sites. The use of the NetBackup Java Remote Administration Console (RAC) to perform this configuration would be very time consuming and the risk of human error high. The consequences of could mean the inability to restore data in the event of a disaster.
+Our requirement is to have a repeatable process that can be used to create many tens, even hundreds of policies to backup VMs and replicate them to one or two remote sites. The use of the NetBackup Java Remote Administration Console (RAC) to perform this configuration would be very time consuming and the risk of human error high. The consequences of this could mean the inability to restore data in the event of a disaster.
 
-### The Challenge
+# The Challenge
 
-NetBackup does not yet have any APIs that can be used to programatically configure it, but it does come with extensive suite of CLI commands that can be used to configure most aspects of the product. However, documentation and examples of the use of these commands can be sparse and difficult to understand.
+NetBackup does not (yet) have any APIs that can be used to programatically configure it, but it does come with extensive suite of CLI commands that can be used to configure most aspects of the product. However, documentation and examples of the use of these commands can be sparse and difficult to understand.
 
-Some commands can be simple with a few, single option switches, but some can be very complex with tens of key-value pairs per switch, or with a variable number of key-value pairs depending on how many sub-operations you are configuring within a given object.
+Some commands can be simple with a few, single option switches, but some can be very complex with many key-value pairs per switch, or with a variable number of key-value pairs depending on how many sub-operations you are configuring within a given object.
 
-A policy can be as simple as a simple filesystem backup to local Storage Units (STU) with one schedule, or can be very complex with the backup of multiple VMs with a query language, multiple schedules, with multiple Storage Lifecycle Policies (SLP) each performing Auto Image Replication (AIR) to multiple sites, each of which may require import policies to be created on remote NetBackup Domains.
+A policy can be as simple as a simple filesystem backup to local Storage Units (STU) with one schedule, or can be very complex with the backup of multiple VMs with a query language, multiple schedules, with multiple Storage Lifecycle Policies (SLP) each performing Auto Image Replication (AIR) to multiple sites, each of which require import policies to have been created on remote NetBackup Domains.
 
 Putting all this together in a single one-liner tool with a few custom options requires that many CLI commands need to interact with the output from a previous command and modify their command line switches and options accordingly.
+
+I'm not going to go into the meaning of every option for every command, but simply present the commands that worked for us. If you require more details, please drop me a line or consult the man pages or Veritas Tech Support.
 
 ### Naming Conventions
 
 This is a good point to briefly discuss naming conventions. In order to be able to maintain consistency across multiple policy creations, and especially across multiple users, it is essential to have a defined naming convention. For our purposes, the following naming convention was adopted, in which the various components of NetBackup are broken down into segment according to the Policy Type:
+
 * All text is to be in lower case (to avoid complications in a mixed UNIX/Windows environment).
 * Only alphanumeric characters and underscore are permitted.
 * Underscores should be used in place of spaces.
@@ -36,6 +37,7 @@ This is a good point to briefly discuss naming conventions. In order to be able 
 * Other text must be reproduced verbatim.
 
 The tags used in the sections below are defined in the table below.
+
 | Tag  | Description |
 | --- | ----------- |
 | site | The datacentre site code
@@ -45,15 +47,12 @@ The tags used in the sections below are defined in the table below.
 | policy_name | The name of the policy that uses this SLP.
 | schedule | The name of the schedule that an SLP will be used in.
 
-| class | The optional Skybet Retention Class (see in the Schedules>VMware section below) is one of:
-| platinum, gold, silver, bronze
-It only needs to be defined to differentiate from servers of a similar type requiring different Skybet retention classes. e.g. VDI servers. 
-
-### The Commands
+# The Commands
 
 ## Configuring the variables
 
 For this blog post, we will just statically define variables, but in real operations these will be dynamically set by other means. How do do this is left as an exercise for the reader.
+
 ``` bash
 local_master=local.master.fqdn
 remote_master=remote.master.fqdn
@@ -65,49 +64,55 @@ owner=infra
 type=vm
 schedule=weekly
 policy=${site}_${owner}_${type}_nms
+```
 
 ## Creating the policy
 
 Creating the policy is the easy part. All you need is the name of the policy and the name of the master server:
+
 ``` bash
 /usr/openv/netbackup/bin/admincmd/bppolicynew ${policy} -M ${local_master}
 ```
 
-# Configure as VMware policy
+### Configure as VMware policy
 
 Now that we have our policy, we need to reconfigure it as VMware policy, rather than the default Standard (Unix) one. There are some key options for VMware policies that we need to set at this point to maximise the efficiency of VM backups, namely enabling the following:
 * Block Level Incncremental Backup - this uses the VMware Changed Block Tracking capability of VM Hardware v7+ VMs.
 * VMware Accelerator - this negates the need to re-copy every block for a Full backup, instead using blocks from the previous Full.
 We also need to state the Storage Unit that the backup image will reside on. In order to be able to subsequently perform replication of backup images with AIR, we need to configure the policy with a destination of a DeDup storage device.
+
 ``` bash
 /usr/openv/netbackup/bin/admincmd/bpplinfo ${policy} -set -active -pt VMware -blkincr 1 -use_accelerator 1 -residence ${local_stu}
 ```
 
-# Setting VMware Options
+### Setting VMware Options
 
 There are some additional options that apply to VMware policies that can only be set once the policy is a VMware policy. This is a very long command line, and the majority of the options are to do with configuring the VMware snapshot method that will be used to create a VM snapshot and then back it up.
 
 Because these options are somewhat cryptic, and because you have to specify *all* of them, I found it easier to create a human readable configuration file and then construct the command line with a shell function using that config file.
+
 ``` bash
 /usr/openv/netbackup/bin/admincmd/bpplinfo ${policy} -modify -use_virtual_machine 1 -alt_client_name MEDIA_SERVER -snapshot_method VMware_v2 -application_discovery 1 -snapshot_method_args file_system_optimization=1,rTO=0,snapact=2,drive_selection=0,Virtual_machine_backup=2,enable_vCloud=0,rHz=10,multi_org=0,rLim=10,disable_quiesce=0,nameuse=1,ignore_irvm=0,skipnodisk=0,exclude_swap=1,post_events=1,trantype=san:nbd,serverlist=${vcenter_server}
 ```
 
-# Populating VMware Intelligent Policy Query
+### Populating VMware Intelligent Policy Query
 
 We are now ready to select out clients to backup. You can do this manually, but NetBackup provides a much better way of selecting the VMs to backup - using a VMware Intelligent Policy (VIP) query. This is a powerful query language that can select VMs based on the hostname, VM display name, ESXi host they reside on, whether they are powered on and many more. It has the traditional logical operators that you would expect, and can also be configured with parentheses for more advanced queries.
 
 In our example, we are creating a VIP query that selects VMs based on the displayname of the VM in vCenter (because not all of our VMs have valid hostnames for legacy reasons). The query selects VMs with a displayname that contains one of two strings, concatenated with a logical OR and enclosed in parentheses. It's output is then filtered using AND NOT to exclude any Test or Staging VMs and any VM that is powered off.
+
 ``` bash
 /usr/openv/netbackup/bin/admincmd/bpplinclude ${policy} -add vmware:/?filter=(Displayname Contains "nms0" OR Displayname Contains "nmsdb0") AND NOT Powerstate Equal poweredOff AND NOT Displayname Contains "stg" AND NOT Displayname Contains "tst"
 ```
 
-# Adding MEDIA_SERVER as a client
+### Adding MEDIA_SERVER as a client
 
 This next step resolves an issue that seems not to be documented adequately by Veritas. Having created a policy using all the CLI commands in this article, I found that when I tried to perform a manual backup of the policy, it returned an error 239 that no clients could be found. I discovered that if you edit the policy, click on the Clients tab, *don't* make any changes and click OK, it then works.
 
-Cue extensive investigation with Veritas Tech Support, who were at times clearly reluctant to investigate further, stating something along the lines of, "None of our customers has ever tried to do this before. We can investigate, but you'll have to provide debugging logs". You provide the CLI as an interface to the product - I cannot believe no-one has tried it before!
+Cue extensive investigation with Veritas Tech Support, who were at times clearly reluctant to investigate further, stating something along the lines of, "None of our customers has ever tried to do this before. We can investigate, but you'll have to provide debugging logs". You (Veritas) provide the CLI as an interface to the product - I cannot believe no-one has tried it before!
 
-Anyway, it was discovered that you *must* have a client defined in the policy, even though you are backing up clients using a VIP query. To this end, there is a reserved word "MEDIA_SERVER" that you must add as a VMware client to the policy.
+Anyway, it was discovered that you *must* have a client defined in the policy, even though you are backing up VM clients using a VIP query. To this end, there is a reserved word "MEDIA_SERVER" that you must add as a VMware client to the policy.
+
 ``` bash
 /usr/openv/netbackup/bin/admincmd/bpplclients ${policy} -add MEDIA_SERVER VMware VMware
 ```
@@ -118,23 +123,22 @@ In order to be able to replicate backup images to a remote NetBackup Domain (wit
 
 We have a need to ensure that an off-site backup image is created, and this is performed using NetBackup AIR. This maximises the bandwidth of your WAN link by utilising deduplication data and only sending unique blocks when replicating.
 
-Configuring SLPs via the command line is the most complex part of the process as they require multiple, comma separated values to come options, depending on the number of actions in the SLP.  The complexities of this are too great to go into in finre detail here, but hopefully this will give an indication of how the SLP configuration command line is constructed.
+Configuring SLPs via the command line is the most complex part of the process as they require multiple, comma separated values to some options, depending on the number of actions in the SLP.  The complexities of this are too great to go into in fine detail here, but hopefully this will give an indication of how the SLP configuration command line is constructed.
 
-For simplicity, we are only covering the creation of a weekly schedule and associated SLPs. In reality, you may well have daily, monthly and even yearly schedules and SLPs. However, the basics of the configuration is the same. From a naming convention perspective, we have simply taken the policy name and added a suffix indicating the name of the schedule to which this SLP will be linked. We have alwo kept the name of the remote SLP the same as that of the local SLP. This also has the side effect of being able to easily see in the RAC when this specific import job is running and know that it relates to a backup image of a particular policy from the cource site.
+For simplicity, we are only covering the creation of a weekly schedule and associated SLPs. In reality, you may well have daily, monthly and even yearly schedules and SLPs. However, the basics of the configuration is the same. From a naming convention perspective, we have simply taken the policy name and added a suffix indicating the name of the schedule to which this SLP will be linked. We have also kept the name of the remote SLP the same as that of the local SLP. This also has the side effect of being able to easily see in the RAC when this specific import job is running and know that it relates to a backup image of a particular policy from the source site.
 
-I'm also not going to go into the meaning of every option, but simply present the command that worked for us. If you require more details, please consult the man pages or Veritas Tech Support.
+### Creating Import SLPs in remote NBU domain
 
-# Creating Import SLPs in remote NBU domain
-
-The first step in configuring SLPs for replication is to create an Import SLP in the remote NBU domain. Because the remote NBU domain has no knowledge of anything about the backup image, it needs to run an import job once the replication is complete. This is specified in the local SLP and consequently the remote import SLP must already exist of the command will fail.
+The first step in configuring SLPs for replication is to create an Import SLP in the remote NBU domain. Because the remote NBU domain has no knowledge of anything about the backup image, it needs to run an import job once the replication is complete. This is specified in the local SLP and consequently the remote import SLP must already exist or the command will fail.
 
 When creating an Import SLP, the "used for" switch (-uf) is set to 4 to set this as an Import action. You then need to specify the dedup STU where the image will reside on the remote site. Some of the options for the command to create/modify an SLP must be specified, even if the option is not relevant for the action. This is done by the presence of the "__NA__" tag. You can also configure the retention level (-rl) of this replicated image if you require it ti be different from the source image.
+
 ``` bash
 ssh ${remote_master} /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 3
 ```
-This is performed from the local master server over ssh with the use of SSH public keys.
+This is performed from the local master server over SSH using public keys.
 
-# Creating local SLPs
+### Creating local SLPs
 
 Now that we have our remote SLP created, we can configure the local SLP. The command syntax is the same, but this time, we are creating a Backup action followed by a Replication action in the SLP. This necessitates adding additional comma separated values to most of the options. For all the options, the structure is the same: the value for the first action for each option is the first comma separated value. The value for the second action is the second comma separated value etc. While it seems complicated, the hard part is actually getting the right option values for the each of the options that action requires, including when to use the "__NA__" tag.
 
@@ -151,29 +155,30 @@ For the Replication action, the "used for" switch (-uf) is set to 3
 ```
 
 If you wanted to replicate to two different NBU domains, you need to add an additional comma separated option to the most of the options as per the example below.
+
 ``` bash
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 0,3,3 -residence ${local_stu},__NA__,__NA__ -target_master __NA__,${remote_master},${remote_master2} -target_importslp __NA__,${policy}_weekly,${policy}_weekly -source 0,1,1 -managed 0,0,0 -rl 3,3,3
 ```
 
-# Creating SLPs for ${policy}
+### Creating SLPs for ${policy}
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -residence ${local_stu} -rl 3
 
 ## Creating Schedules
 
-# Creating weekly full schedule in ${policy} to use created SLPs
+### Creating weekly full schedule in ${policy} to use created SLPs
 After that, you can create all your Schedules and their associated SLPs and backup windows. I have included a section for each Skybet Retention Class.
 /usr/openv/netbackup/bin/admincmd/bpplsched ${policy} -add weekly -st FULL -residence ${policy}_weekly -res_is_stl 1
 /usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} weekly -rl 3 -freq 345600
 /usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} weekly -2 28800 28800
 
-# Displaying policy query for ${policy}
+### Displaying policy query for ${policy}
 Everything is now complete. You can display the VIP query and perform a test of the query to check the list of VMs that will be backed up.
 /usr/openv/netbackup/bin/admincmd/bpplinclude ${policy} -L
 
-# Testing policy query for ${policy}
+### Testing policy query for ${policy}
 /usr/openv/netbackup/bin/nbdiscover -noxmloutput -noreason -includedonly -policy ${policy}
 
-# Initiating manual backup for ${policy}
+### Initiating manual backup for ${policy}
 Now you can initiate a manual backup from the CLI.
 /usr/openv/netbackup/bin/bpbackup -i -p ${policy} -s weekly
 
@@ -182,6 +187,6 @@ Now you can initiate a manual backup from the CLI.
 
 There are many CLI commands that are required to create a fully functional policy, and it's beyond the scope of this document to document all the possible options we might use. Instead, I've documented how I've setup all the policies by default, with sections to cover off each of the different Skybet Retention Classes. For anything outside this scope, the reader is invited to RTFM.
 
-### Wrapping Up
+# Wrapping Up
 
 some closing content will go here.
