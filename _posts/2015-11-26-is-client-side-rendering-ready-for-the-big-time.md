@@ -91,7 +91,7 @@ Keep checking for a follow on post containing the full results of this test.
 [mbet]: https://m.skybet.com
 [web timeline]: https://en.wikipedia.org/wiki/Timeline_of_web_browsers
 [ajax]: https://en.wikipedia.org/wiki/Ajax_(programming)
-[ajax crawling scheme]: https://support.google.com/webmasters/answer/174992?hl=en
+[ajax crawling scheme]: https://developers.google.com/webmasters/ajax-crawling/docs/learn-more
 [fetch and render]: https://www.google.co.uk/webmasters
 [poc]: http://www.skybet-nextgen.com
 
