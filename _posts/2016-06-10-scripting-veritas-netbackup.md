@@ -21,7 +21,7 @@ NetBackup does not yet have any APIs that can be used to programatically configu
 
 Some commands can be simple with a few, single option switches, but some can be very complex with tens of key-value pairs per switch, or with a variable number of key-value pairs depending on how many sub-operations you are configuring within a given object.
 
-A policy can be as simple as a simple filesystem backup to local storage units with one schedule, or can be very complex with the backup of multiple VMs with a query language, multiple schedules, with multiple Storage Lifecycle Policies (SLP) each performing Auto Image Replication (AIR) to multiple sites, each of which may require import policies to be created on remote NetBackup Domains.
+A policy can be as simple as a simple filesystem backup to local Storage Units (STU) with one schedule, or can be very complex with the backup of multiple VMs with a query language, multiple schedules, with multiple Storage Lifecycle Policies (SLP) each performing Auto Image Replication (AIR) to multiple sites, each of which may require import policies to be created on remote NetBackup Domains.
 
 Putting all this together in a single one-liner tool with a few custom options requires that many CLI commands need to interact with the output from a previous command and modify their command line switches and options accordingly.
 
@@ -120,20 +120,24 @@ We have a need to ensure that an off-site backup image is created, and this is p
 
 Configuring SLPs via the command line is the most complex part of the process as they require multiple, comma separated values to come options, depending on the number of actions in the SLP. The complexities of this are to great to go into in detail here, but hopefully this will give an indication of how the SLP configuration command line is constructed.
 
-For simplicity, I am only covering the creation of a weekly schedule and associated SLPs. In reality, you may well have daily, monthly and even yearly schedules and SLPs. However, the basics of the configuration is the same.
+For simplicity, we are only covering the creation of a weekly schedule and associated SLPs. In reality, you may well have daily, monthly and even yearly schedules and SLPs. However, the basics of the configuration is the same. From a naming convention perspective, we have simply taken the policy name and added a suffix indicating the name of the schedule to which this SLP will be linked. We have alwo kept the name of the remote SLP the same as that of the local SLP. This also has the side effect of being able to easily see in the RAC when this specific import job is running and know that it relates to a backup image of a particular policy from the cource site.
+
+I'm also not going to go into the meaning of every option, but simply present the command that worked for us. If you require more details, please consult the man pages or Veritas Tech Support.
 
 # Creating Import SLPs in remote NBU domain
 
-The first step in configuring SLPs for replication is to create an Import SLP in the remote NBU domain. Because the remote NBU domain has no knowledge of anything about the backup image, it needs to run an import job once the replication is complete. This is specified in the local SLP and consequently the remote import SLP must already exist ot the command will fail.
- 
+The first step in configuring SLPs for replication is to create an Import SLP in the remote NBU domain. Because the remote NBU domain has no knowledge of anything about the backup image, it needs to run an import job once the replication is complete. This is specified in the local SLP and consequently the remote import SLP must already exist of the command will fail.
 
-Then, you need to create the SLPs for each Schedule you plan to create.
-If you are replicating to another site, first you need to create the Import SLPs in the destination site and then create the SLPs in the source site to first backup and then perform the replication.
-ssh ${remote_master} /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 0
+When creating an Import SLP, the "used for" switch (-uf) is set to 4 to set this as an Import action. You then need to specify the dedup STU where the image will reside on the remote site. Some of the options for the command to create/modify an SLP must be specified, even if the option is not relevant for the action. This is done by the presence of the "__NA__" tag. You can also configure the retention level (-rl) of this replicated image if you require it ti be different from the source image.
+``` bash
 ssh ${remote_master} /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 3
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 8
+```
+This is performed from the local master server over ssh with the use of SSH public keys.
 
-# Creating locl SLPs
+# Creating local SLPs
+
+Now that we have our
+
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_daily -source 0,1 -managed 0,0 -rl 0,0
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_weekly -source 0,1 -managed 0,0 -rl 3,3
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_monthly -source 0,1 -managed 0,0 -rl 8,8
