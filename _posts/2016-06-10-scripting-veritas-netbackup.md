@@ -118,7 +118,7 @@ In order to be able to replicate backup images to a remote NetBackup Domain (wit
 
 We have a need to ensure that an off-site backup image is created, and this is performed using NetBackup AIR. This maximises the bandwidth of your WAN link by utilising deduplication data and only sending unique blocks when replicating.
 
-Configuring SLPs via the command line is the most complex part of the process as they require multiple, comma separated values to come options, depending on the number of actions in the SLP. The complexities of this are to great to go into in detail here, but hopefully this will give an indication of how the SLP configuration command line is constructed.
+Configuring SLPs via the command line is the most complex part of the process as they require multiple, comma separated values to come options, depending on the number of actions in the SLP.  The complexities of this are too great to go into in finre detail here, but hopefully this will give an indication of how the SLP configuration command line is constructed.
 
 For simplicity, we are only covering the creation of a weekly schedule and associated SLPs. In reality, you may well have daily, monthly and even yearly schedules and SLPs. However, the basics of the configuration is the same. From a naming convention perspective, we have simply taken the policy name and added a suffix indicating the name of the schedule to which this SLP will be linked. We have alwo kept the name of the remote SLP the same as that of the local SLP. This also has the side effect of being able to easily see in the RAC when this specific import job is running and know that it relates to a backup image of a particular policy from the cource site.
 
@@ -136,71 +136,45 @@ This is performed from the local master server over ssh with the use of SSH publ
 
 # Creating local SLPs
 
-Now that we have our
+Now that we have our remote SLP created, we can configure the local SLP. The command syntax is the same, but this time, we are creating a Backup action followed by a Replication action in the SLP. This necessitates adding additional comma separated values to most of the options. For all the options, the structure is the same: the value for the first action for each option is the first comma separated value. The value for the second action is the second comma separated value etc. While it seems complicated, the hard part is actually getting the right option values for the each of the options that action requires, including when to use the "__NA__" tag.
 
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_daily -source 0,1 -managed 0,0 -rl 0,0
+For the Backup action, the "used for" switch (-uf) is set to 0 and we need to specify the dedup STU there the image will reside in the -residence option. 
+
+For the Replication action, the "used for" switch (-uf) is set to 3
+
+ to set this as an Import action. You then need to specify the dedup STU where the image will reside on the remote site. Some of the options for the command to create/modify an SLP must be specified, even if the option is not relevant for the action. This is done by the presence of the "__NA__" tag. You can also configure the retention level (-rl) of this replicated image if you require it ti be different from the source image.
+
+, referencing the remote SLP in the -target_importslp option.
+
+``` bash
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_weekly -source 0,1 -managed 0,0 -rl 3,3
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_monthly -source 0,1 -managed 0,0 -rl 8,8
-Otherwise, just create the local SLPs.
+```
+
+If you wanted to replicate to two different NBU domains, you need to add an additional comma separated option to the most of the options as per the example below.
+``` bash
+/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 0,3,3 -residence ${local_stu},__NA__,__NA__ -target_master __NA__,${remote_master},${remote_master2} -target_importslp __NA__,${policy}_weekly,${policy}_weekly -source 0,1,1 -managed 0,0,0 -rl 3,3,3
+```
+
 # Creating SLPs for ${policy}
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_daily -add -residence ${local_stu} -rl 0
 /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -residence ${local_stu} -rl 3
-/usr/openv/netbackup/bin/admincmd/nbstl ${policy}_monthly -add -residence ${local_stu} -rl 8
+
+## Creating Schedules
+
+# Creating weekly full schedule in ${policy} to use created SLPs
 After that, you can create all your Schedules and their associated SLPs and backup windows. I have included a section for each Skybet Retention Class.
-# Creating weekly full schedule in ${policy} to use created SLPs
 /usr/openv/netbackup/bin/admincmd/bpplsched ${policy} -add weekly -st FULL -residence ${policy}_weekly -res_is_stl 1
 /usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} weekly -rl 3 -freq 345600
 /usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} weekly -2 28800 28800
 
-# Creating daily schedule in ${policy} to use created SLPs
-/usr/openv/netbackup/bin/admincmd/bpplsched ${policy} -add daily -st INCR -residence ${policy}_daily -res_is_stl 1
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -rl 0 -freq 86400
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -0 21600 18000
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -1 28800 28800
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -3 28800 28800
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -4 28800 28800
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -5 28800 28800
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -6 21600 18000
-# Creating weekly full schedule in ${policy} to use created SLPs
-/usr/openv/netbackup/bin/admincmd/bpplsched ${policy} -add weekly -st FULL -residence ${policy}_weekly -res_is_stl 1
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} weekly -rl 3 -freq 345600
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} weekly -2 28800 28800
-
-# Creating daily schedule in ${policy} to use created SLPs
-/usr/openv/netbackup/bin/admincmd/bpplsched ${policy} -add daily -st INCR -residence ${policy}_daily -res_is_stl 1
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -rl 0 -freq 86400
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -0 21600 18000
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -1 28800 28800
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -3 28800 28800
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -4 28800 28800
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -5 28800 28800
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} daily -6 21600 18000
-# Creating weekly full schedule in ${policy} to use created SLPs
-/usr/openv/netbackup/bin/admincmd/bpplsched ${policy} -add weekly -st FULL -residence ${policy}_weekly -res_is_stl 1
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} weekly -rl 3 -freq 345600
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} weekly -2 28800 28800
-# Creating monthly full schedule in ${policy} to use created SLPs
-/usr/openv/netbackup/bin/admincmd/bpplsched ${policy} -add monthly -st FULL -residence ${policy}_monthly -res_is_stl 1
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} monthly -rl 8 -freq 2419200
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} monthly -0 0 3600
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} monthly -1 0 3600
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} monthly -2 0 3600
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} monthly -3 0 3600
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} monthly -4 0 3600
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} monthly -5 0 3600
-/usr/openv/netbackup/bin/admincmd/bpplschedrep ${policy} monthly -6 0 3600
-Everything is now complete. You can display the VIP query and perform a test of the query to check the list of VMs that will be backed up.
 # Displaying policy query for ${policy}
+Everything is now complete. You can display the VIP query and perform a test of the query to check the list of VMs that will be backed up.
 /usr/openv/netbackup/bin/admincmd/bpplinclude ${policy} -L
+
 # Testing policy query for ${policy}
 /usr/openv/netbackup/bin/nbdiscover -noxmloutput -noreason -includedonly -policy ${policy}
-Finally, you should be able to initiate a manual backup from the CLI, only there is a bug (under investigation with Veritas) and it doesn't work until you perform the following:
-Click on the policy and click on the edit policy button. Infrastructure & Security Delivery > NetBackup Operational Support > image2016-3-15 11:14:25.png
-Click on the Clients Tab.
-Don't make any changes and click OK.
-This is now resolved with the step of adding "MEDIA_SERVER" as a client to the policy.
-Now you can initiate a manual backup from the CLI.
+
 # Initiating manual backup for ${policy}
+Now you can initiate a manual backup from the CLI.
 /usr/openv/netbackup/bin/bpbackup -i -p ${policy} -s weekly
 
 
