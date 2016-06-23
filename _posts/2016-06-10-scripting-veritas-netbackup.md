@@ -103,14 +103,11 @@ In our example, we are creating a VIP query that selects VMs based on the displa
 
 ## Adding MEDIA_SERVER as a client
 
-This next step resolves an issue that seems to be undocumented
+This next step resolves an issue that seems not to be documented adequately by Veritas. Having created a policy using all the CLI commands in this article, I found that when I tried to perform a manual backup of the policy, it returned an error 239 that no clients could be found. I discovered that if you edit the policy, click on the Clients tab, *don't* make any changes and click OK, it then works.
 
-Finally, you should be able to initiate a manual backup from the CLI, only there is a bug (under investigation with Veritas) and it doesn't work until you perform the following:
-Click on the policy and click on the edit policy button. Infrastructure & Security Delivery > NetBackup Operational Support > image2016-3-15 11:14:25.png
-Click on the Clients Tab.
-Don't make any changes and click OK.
-This is now resolved with the step of adding "MEDIA_SERVER" as a client to the policy.
-Now you can initiate a manual backup from the CLI.
+Cue extensive investigation with Veritas Tech Support, who were at times clearly reluctant to investigate further, stating something along the lines of, "None of our customers has ever tried to do this before. We can investigate, but you'll have to provide debugging logs". You provice the CLI as an interface to the product - I cannot believe no-one has tried it before.
+
+Anyway, it was discovered that you *must* have a client defined in the policy, even though you are backing up clients using a VIP query. To this end, there is a reserved word "MEDIA_SERVER" that you must add as a VMware client to the policy.
 ``` bash
 /usr/openv/netbackup/bin/admincmd/bpplclients ${policy} -add MEDIA_SERVER VMware VMware
 ```
