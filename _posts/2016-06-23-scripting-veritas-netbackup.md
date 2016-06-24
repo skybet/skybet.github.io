@@ -186,21 +186,33 @@ nbstl ${policy}_weekly -add -uf 0,3,3 -residence ${local_stu},__NA__,__NA__ -tar
 
 ## Creating Schedules
 
-The final 
+The final stage is to create the schedules in the policy. This has to happen last because we need to specify the SLP as a destination for the backup image.
 
 ### Creating weekly full schedule
 
-After that, you can create all your Schedules and their associated SLPs and backup windows. I have included a section for each Skybet Retention Class.
+The first step is adding the schedule itself. We give it a name (-add) and state that the type of backup is a full backup (-st). The next options override the policy default residence (STU) and retention levels by specifying the SLP to the ```-residence``` option and adding an option to state that it is a **ST**orage **L**ifecycle destination.
 
 ``` bash
 bpplsched ${policy} -add weekly -st FULL -residence ${policy}_weekly -res_is_stl 1
-bpplschedrep ${policy} weekly -rl 3 -freq 345600
-bpplschedrep ${policy} weekly -2 28800 28800
 ```
+
+Then we configure it with a frequency based schedule, specifying the retention level (which will be overriden) and the frequency in seconds. It's easier to use shell arithmetic here if you don't know off the top of your head how many seconds there are in a week!
+
+``` bash
+bpplschedrep ${policy} weekly -rl 3 -freq $[86400*7]
+```
+
+Lastly, we define the schedule window. The day that the schedule will run on is a numeric switch using the usual Unix day numbering scheme where Sunday is 0. The two values to this option are that start time in seconds after midnight and the duration of the window, also in seconds. Again, the use of shell arithmetic helps here, specifying a 2am start and lasting for 4 hours.
+
+``` bash
+bpplschedrep ${policy} weekly -2 $[3600*2] $[3600*4]
+```
+
+You can add multiple schedule windows all on the same command line, though we found it easier just to put the days of the week into a for loop and run a separate ```bpplschedrep``` each time.
 
 ## Check Your Work
 
-Por policy creation is now complete. We can use the CLI to check what we have done and that it works as expected. Finally, once you are happy, you can kick off a manual backup using a defined schedule, rather than waiting for the schedule to trigger.
+Our policy creation is now complete. We can use the CLI to check what we have done and that it works as expected. Finally, once you are happy, you can kick off a manual backup using a defined schedule, rather than waiting for the schedule to trigger.
 
 ### Displaying policy settings
 

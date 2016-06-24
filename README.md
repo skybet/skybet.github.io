@@ -17,7 +17,7 @@ If making updates to the layout, use the sass in the `_scss/` directory.
 
 ## Adding a New Article
 
-To add a new article you need to add a new file in markdown format in the `_posts` directory following the naming conventions of the existing files. The file will need to include [Jeykll front matter](http://jekyllrb.com/docs/frontmatter/) like this:
+To add a new article you need to add a new file in [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) format in the `_posts` directory following the naming conventions of the existing files. The file will need to include [Jeykll front matter](http://jekyllrb.com/docs/frontmatter/) like this:
 
     ---
     layout:     post
