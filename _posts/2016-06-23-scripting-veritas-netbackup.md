@@ -27,7 +27,7 @@ I'm not going to go into the meaning of every option for every command, but simp
 
 ### Naming Conventions
 
-This is a good point to discuss naming conventions. In order to be able to maintain consistency across multiple policy creations, and especially across multiple users, it is essential to have a defined naming convention. For our purposes, the following naming convention was adopted, in which the various components of NetBackup are broken down into segment according to the Policy Type:
+This is a good point to discuss naming conventions. In order to be able to maintain consistency across multiple policy creations, and especially across multiple users, it is essential to have a defined naming convention. For our purposes, the following naming convention was adopted, in which the various components of NetBackup are broken down into segments according to the Policy Type:
 
 * All text is to be in lower case (to avoid complications in a mixed UNIX/Windows environment).
 * Only alphanumeric characters and underscore are permitted.
@@ -36,9 +36,9 @@ This is a good point to discuss naming conventions. In order to be able to maint
 * Any segment in [square_brackets] is options.
 * Other text must be reproduced verbatim.
 
-The tags we have used are defined in the table below.
+The segments we have used are defined in the table below.
 
-| Tag  | Description |
+| Segment  | Description |
 | :--- | :----------- |
 | site | The datacentre site code
 | owner | The owner of the data being backed up by this policy: bet, gam, infra, data
@@ -59,7 +59,7 @@ The actual naming convention is as follows:
 
 ## Configuring the variables
 
-For this blog post, we will just statically define variables, but in real operations these will be dynamically set by other means. How do do this is left as an exercise for the reader.
+For this blog post, we will just statically define variables, but in real operations these will mostly be dynamically set by other means. How do do this is left as an exercise for the reader.
 
 ``` bash
 local_master=local.master.fqdn
@@ -94,9 +94,11 @@ bppolicynew ${policy} -M ${local_master}
 ### Configure as VMware policy
 
 Now that we have our policy, we need to reconfigure it as VMware policy, rather than the default Standard (Unix) one. There are some key options for VMware policies that we need to set at this point to maximise the efficiency of VM backups, namely enabling the following:
+
 * Block Level Incncremental Backup - this uses the VMware Changed Block Tracking capability of VM Hardware v7+ VMs.
 * VMware Accelerator - this negates the need to re-copy every block for a Full backup, instead using blocks from the previous Full.
-We also need to state the Storage Unit that the backup image will reside on. In order to be able to subsequently perform replication of backup images with AIR, we need to configure the policy with a destination of a DeDup storage device.
+
+We also need to state the Storage Unit that the backup image will reside on. In order to be able to subsequently perform replication of backup images with AIR, we need to configure the policy with a destination of a DeDup storage device (though this will be overridden later).
 
 ``` bash
 bpplinfo ${policy} -set -active -pt VMware -blkincr 1 -use_accelerator 1 -residence ${local_stu}
@@ -106,7 +108,7 @@ bpplinfo ${policy} -set -active -pt VMware -blkincr 1 -use_accelerator 1 -reside
 
 There are some additional options that apply to VMware policies that can only be set once the policy is a VMware policy. This is a very long command line, and the majority of the options are to do with configuring the VMware snapshot method that will be used to create a VM snapshot and then back it up.
 
-Because these options are somewhat cryptic, and because you have to specify *all* of them, I found it easier to create a human readable configuration file and then construct the command line with a shell function using that config file.
+Because these options are somewhat cryptic, and because you have to specify *all* of them, I found it easier to create a human readable configuration file and then construct the command line with a shell function using that config file, but I've simply displayed the command here.
 
 ``` bash
 bpplinfo ${policy} -modify -use_virtual_machine 1 -alt_client_name MEDIA_SERVER -snapshot_method VMware_v2 -application_discovery 1 -snapshot_method_args file_system_optimization=1,rTO=0,snapact=2,drive_selection=0,Virtual_machine_backup=2,enable_vCloud=0,rHz=10,multi_org=0,rLim=10,disable_quiesce=0,nameuse=1,ignore_irvm=0,skipnodisk=0,exclude_swap=1,post_events=1,trantype=san:nbd,serverlist=${vcenter_server}
@@ -124,7 +126,7 @@ bpplinclude ${policy} -add vmware:/?filter=(Displayname Contains "nms0" OR Displ
 
 ### Adding MEDIA_SERVER as a client
 
-This next step resolves an issue that seems not to be documented adequately by Veritas. Having created a policy using all the CLI commands in this article, I found that when I tried to perform a manual backup of the policy, it returned an error 239 that no clients could be found. I discovered that if you edit the policy, click on the Clients tab, *don't* make any changes and click OK, it then works.
+This next step resolves an issue that seems not to be documented adequately by Veritas. Having created a policy using all the CLI commands in this article (excluding this section), I found that when I tried to perform a manual backup of the policy, it returned an error 239 that no clients could be found. I discovered that if you edit the policy, click on the Clients tab, *don't* make any changes and click OK, it then works.
 
 Cue extensive investigation with Veritas Tech Support, who were at times clearly reluctant to investigate further, stating something along the lines of, "None of our customers has ever tried to do this before. We can investigate, but you'll have to provide debugging logs". You (Veritas) provide the CLI as an interface to the product - I cannot believe no-one has tried it before!
 
@@ -157,7 +159,7 @@ This is performed from the local master server over SSH using public keys.
 
 ### Creating local SLPs
 
-Now that we have our remote SLP created, we can configure the local SLP. The command syntax is the same, but this time, we are creating a Backup action followed by a Replication action in the SLP. This necessitates adding additional comma separated values to most of the options. For all the options, the structure is the same: the value for the first action for each option is the first comma separated value. The value for the second action is the second comma separated value etc. While it seems complicated, the hard part is actually getting the right option values for the each of the options that action requires, including when to use the ```__NA__``` tag.
+Now that we have our remote SLP created, we can configure the local SLP. The command syntax is the same, but this time, we are creating a Backup action followed by a Replication action in the SLP. This necessitates adding additional comma separated values to most of the options. For all those options, the structure is the same: the value for the first action for each option is the first comma separated value. The value for the second action is the second comma separated value etc. While it seems complicated, the hard part is actually getting the right option values for the each of the options that action requires, including when to use the ```__NA__``` tag.
 
 For the Backup action:
 
@@ -178,7 +180,7 @@ When you use an SLP in a schedule as we are, it overrides certain values in the 
 nbstl ${policy}_weekly -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_weekly -source 0,1 -managed 0,0 -rl 3,3
 ```
 
-If you wanted to replicate to two different NBU domains, you need to add an additional comma separated option to the most of the options as per the example below.
+If you wanted to replicate to two different NBU domains, you need to add an additional series of comma separated values to the options as per the example below.
 
 ``` bash
 nbstl ${policy}_weekly -add -uf 0,3,3 -residence ${local_stu},__NA__,__NA__ -target_master __NA__,${remote_master},${remote_master2} -target_importslp __NA__,${policy}_weekly,${policy}_weekly -source 0,1,1 -managed 0,0,0 -rl 3,3,3
@@ -202,7 +204,7 @@ Then we configure it with a frequency based schedule, specifying the retention l
 bpplschedrep ${policy} weekly -rl 3 -freq $[86400*7]
 ```
 
-Lastly, we define the schedule window. The day that the schedule will run on is a numeric switch using the usual Unix day numbering scheme where Sunday is 0. The two values to this option are that start time in seconds after midnight and the duration of the window, also in seconds. Again, the use of shell arithmetic helps here, specifying a 2am start and lasting for 4 hours.
+Lastly, we define the schedule window. The day that the schedule will run on is a numeric switch using the usual Unix day numbering scheme where Sunday is 0. The two values to this option are the start time in seconds after midnight and the duration of the window, also in seconds. Again, the use of shell arithmetic helps here, specifying a 2am start and lasting for 4 hours in this example.
 
 ``` bash
 bpplschedrep ${policy} weekly -2 $[3600*2] $[3600*4]
@@ -216,10 +218,16 @@ Our policy creation is now complete. We can use the CLI to check what we have do
 
 ### Displaying policy settings
 
+You can display many of the basic settings for your policy and it's schedules in a mostly human readable format with the following commands.
+
+``` bash
+bpplinfo ${policy} -L
+bpplsched ${policy} -L
+```
 
 ### Displaying policy query
 
-You can display the VIP query and perform a test of the query to check the list of VMs that will be backed up. You might want to do this as if you run multiple ```bpplinclude``` commands to correct a minor error, you in fact add multiple VIP queries and these could potentially result in multiple simultaneous backups of VMs.
+It is also possible display the VIP query. You might want to do this as if you run multiple ```bpplinclude``` commands to correct a minor error, you in fact add multiple VIP queries and these could potentially result in multiple simultaneous backups of VMs.
 
 ``` bash
 bpplinclude ${policy} -L
@@ -227,7 +235,7 @@ bpplinclude ${policy} -L
 
 ### Testing policy query
 
-We can also test exactly which VMs the VIP Query evaluates to by running the following command. If you remove the -includedonly switch, you will get a list of all 
+We can also test exactly which VMs the VIP query evaluates to by running the following command. If you remove the -includedonly switch, you will get an unsorted list of all VMs, prefixed with a + for included and a - for excluded.
 
 ``` bash
 nbdiscover -noxmloutput -noreason -includedonly -policy ${policy}
@@ -235,17 +243,14 @@ nbdiscover -noxmloutput -noreason -includedonly -policy ${policy}
 
 ### Initiating manual backup
 
-Now you can initiate a manual backup from the CLI.
+Now you can initiate a manual backup from the CLI, specifying the schedule you wish to use.
 
 ``` bash
 bpbackup -i -p ${policy} -s weekly
 ```
 
+# Conclusion
 
+This is just an example of what can be achieved by scripting NetBackup. There are many enhancements that could be made using the CLI tools that NetBackup provides. We have also scripted the migration of production DBs from our legacy NetBackup platform to a new one and have used it multiple times successfully.
 
-
-There are many CLI commands that are required to create a fully functional policy, and it's beyond the scope of this document to document all the possible options we might use. Instead, I've documented how I've setup all the policies by default, with sections to cover off each of the different Skybet Retention Classes. For anything outside this scope, the reader is invited to RTFM.
-
-# Wrapping Up
-
-some closing content will go here.
+I do actually have a script and a suite of shell functions that turn all the above into a one-liner with three options, but it's a bit dirty and kludgy and not really ready for publication! But I have used it to deploy most of our production VM backup policies, so it *does* work.
