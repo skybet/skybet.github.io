@@ -2,7 +2,7 @@
 layout:     post
 title:      Scripting NetBackup Policy Creation
 author:     tom_davidson
-date:       2016-06-23 13:40:21
+date:       2016-06-24 13:40:21
 summary:    The documentation and examples of the use of NetBackup commands can be sparse. Here is how we used the CLI to script our policy creation.
 image:      veritas_bash.png
 category:   Deployment
