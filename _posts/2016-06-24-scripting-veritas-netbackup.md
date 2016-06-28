@@ -13,7 +13,7 @@ Veritas NetBackup is a powerful backup platform, with extensive range of functio
 
 Our requirement is to have a repeatable process that can be used to create many tens, even hundreds of policies to backup VMs and replicate them to one or two remote sites. The use of the NetBackup Java Remote Administration Console (RAC) to perform this configuration would be very time consuming and the risk of human error high. The consequences of this could mean the inability to restore data in the event of a disaster.
 
-# The Challenge
+## The Challenge
 
 NetBackup does not (yet) have any APIs that can be used to programatically configure it, but it does come with extensive suite of CLI commands that can be used to configure most aspects of the product. However, documentation and examples of the use of these commands can be sparse and difficult to understand.
 
@@ -55,9 +55,9 @@ The actual naming convention is as follows:
 | SLP | ```<policy_name>_<schedule>```
 | Schedule | ```hourly, daily, weekly, monthly, yearly```
 
-# The Commands
+## The Commands
 
-## Configuring the variables
+### Configuring the variables
 
 For this blog post, we will just statically define variables, but in real operations these will mostly be dynamically set by other means. How do do this is left as an exercise for the reader.
 
@@ -83,7 +83,7 @@ MANPATH=/usr/openv/man:$MANPATH
 export PATH MANPATH
 ```
 
-## Creating the policy
+### Creating the policy
 
 Creating the policy is the easy part. All you need is the name of the policy and the name of the master server:
 
@@ -136,7 +136,7 @@ Anyway, it was discovered that you *must* have a client defined in the policy, e
 bpplclients ${policy} -add MEDIA_SERVER VMware VMware
 ```
 
-## Creating Storage Lifecycle Policies
+### Creating Storage Lifecycle Policies
 
 In order to be able to replicate backup images to a remote NetBackup Domain (with a different master server), we need to create Storage Lifecycle Policies. These control where a backup image is initially written and the retention time of the image. They can also have subsequent actions, such as to Duplicate (same NBU Domain) or Replicate (different NBU Domain) the images to another destination.
 
@@ -186,7 +186,7 @@ If you wanted to replicate to two different NBU domains, you need to add an addi
 nbstl ${policy}_weekly -add -uf 0,3,3 -residence ${local_stu},__NA__,__NA__ -target_master __NA__,${remote_master},${remote_master2} -target_importslp __NA__,${policy}_weekly,${policy}_weekly -source 0,1,1 -managed 0,0,0 -rl 3,3,3
 ```
 
-## Creating Schedules
+### Creating Schedules
 
 The final stage is to create the schedules in the policy. This has to happen last because we need to specify the SLP as a destination for the backup image.
 
@@ -212,7 +212,7 @@ bpplschedrep ${policy} weekly -2 $[3600*2] $[3600*4]
 
 You can add multiple schedule windows all on the same command line, though we found it easier just to put the days of the week into a for loop and run a separate `bpplschedrep` each time.
 
-## Check Your Work
+### Check Your Work
 
 Our policy creation is now complete. We can use the CLI to check what we have done and that it works as expected. Finally, once you are happy, you can kick off a manual backup using a defined schedule, rather than waiting for the schedule to trigger.
 
@@ -249,7 +249,7 @@ Now you can initiate a manual backup from the CLI, specifying the schedule you w
 bpbackup -i -p ${policy} -s weekly
 ```
 
-# Conclusion
+## Conclusion
 
 This is just an example of what can be achieved by scripting NetBackup. There are many enhancements that could be made using the CLI tools that NetBackup provides. We have also scripted the migration of production DBs from our legacy NetBackup platform to a new one and have used it multiple times successfully.
 
