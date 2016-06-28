@@ -32,8 +32,8 @@ This is a good point to discuss naming conventions. In order to be able to maint
 * All text is to be in lower case (to avoid complications in a mixed UNIX/Windows environment).
 * Only alphanumeric characters and underscore are permitted.
 * Underscores should be used in place of spaces.
-* Any segment in <angled_brackets> is mandatory.
-* Any segment in [square_brackets] is options.
+* Any segment in `<angled_brackets>` is mandatory.
+* Any segment in `[square_brackets]` is options.
 * Other text must be reproduced verbatim.
 
 The segments we have used are defined in the table below.
