@@ -74,7 +74,7 @@ schedule=weekly
 policy=${site}_${owner}_${type}_nms
 ```
 
-To ease the readability of the bash commands, we are going avoid prefixing the full path for most commands by setting the PATH variable to a sensible value. Please be aware that while most of these commands are in the ```/usr/openv/netbackup/bin/admincmd``` path, the test/display commands used at the end are in the ```/usr/openv/netbackup/bin``` path. You will need to allow for this in your scripts if you don't set the PATH.
+To ease the readability of the bash commands, we are going avoid prefixing the full path for most commands by setting the PATH variable to a sensible value. Please be aware that while most of these commands are in the `/usr/openv/netbackup/bin/admincmd` path, the test/display commands used at the end are in the `/usr/openv/netbackup/bin` path. You will need to allow for this in your scripts if you don't set the PATH.
 
 ``` bash
 NBU_BIN=/usr/openv/netbackup/bin
@@ -150,7 +150,7 @@ For simplicity, we are only covering the creation of a weekly schedule and assoc
 
 The first step in configuring SLPs for replication is to create an Import SLP in the remote NBU domain. Because the remote NBU domain has no knowledge of anything about the backup image, it needs to run an import job once the replication is complete. This is specified in the local SLP and consequently the remote import SLP must already exist or the command will fail.
 
-When creating an Import SLP, the "used for" switch (-uf) is set to 4 to set this as an Import action. You then need to specify the dedup STU where the image will reside on the remote site. Some of the options for the command to create/modify an SLP must be specified, even if the option is not relevant for the action. This is done by the presence of the ```__NA__``` tag. You can also configure the retention level (-rl) of this replicated image if you require it to be different from the source image.
+When creating an Import SLP, the "used for" switch (`-uf`) is set to 4 to set this as an Import action. You then need to specify the dedup STU where the image will reside on the remote site. Some of the options for the command to create/modify an SLP must be specified, even if the option is not relevant for the action. This is done by the presence of the `__NA__` tag. You can also configure the retention level (`-rl`) of this replicated image if you require it to be different from the source image.
 
 ``` bash
 ssh ${remote_master} /usr/openv/netbackup/bin/admincmd/nbstl ${policy}_weekly -add -uf 4 -residence ${remote_stu} -target_master __NA__ -target_importslp __NA__ -source 0 -managed 3 -rl 3
@@ -159,22 +159,22 @@ This is performed from the local master server over SSH using public keys.
 
 ### Creating local SLPs
 
-Now that we have our remote SLP created, we can configure the local SLP. The command syntax is the same, but this time, we are creating a Backup action followed by a Replication action in the SLP. This necessitates adding additional comma separated values to most of the options. For all those options, the structure is the same: the value for the first action for each option is the first comma separated value. The value for the second action is the second comma separated value etc. While it seems complicated, the hard part is actually getting the right option values for the each of the options that action requires, including when to use the ```__NA__``` tag.
+Now that we have our remote SLP created, we can configure the local SLP. The command syntax is the same, but this time, we are creating a Backup action followed by a Replication action in the SLP. This necessitates adding additional comma separated values to most of the options. For all those options, the structure is the same: the value for the first action for each option is the first comma separated value. The value for the second action is the second comma separated value etc. While it seems complicated, the hard part is actually getting the right option values for the each of the options that action requires, including when to use the `__NA__` tag.
 
 For the Backup action:
 
-* The "used for" switch (-uf) is set to 0 (Backup)
-* We need to specify the dedup STU there the image will reside in the -residence option. 
-* The -target_master and -target_importslp have no meaning, so use the ```__NA__``` tag.
+* The "used for" switch (`-uf`) is set to 0 (Backup)
+* We need to specify the dedup STU there the image will reside in the `-residence` option. 
+* The `-target_master` and `-target_importslp` have no meaning, so use the `__NA__` tag.
 
 For the Replication action
 
-* the "used for" switch (-uf) is set to 3 (Replication)
-* We use the ```__NA__``` tag for -residence since the import SLP controls this.
-* Now we specify the master server FQDN in the remote site for -target_master
-* The value for -target_importslp is the name of the dedup STU in the remote site.
+* the "used for" switch (`-uf`) is set to 3 (Replication)
+* We use the `__NA__` tag for `-residence` since the import SLP controls this.
+* Now we specify the master server FQDN in the remote site for `-target_master`
+* The value for `-target_importslp` is the name of the dedup STU in the remote site.
 
-When you use an SLP in a schedule as we are, it overrides certain values in the policy and the key ones are retention level and residence (STU). Consequently, we need to take care to set the retention level (-rl) in the SLP to the desired value. In this case, a value of 3 means a retention of 1 month, typical for a weekly backup.
+When you use an SLP in a schedule as we are, it overrides certain values in the policy and the key ones are retention level and residence (STU). Consequently, we need to take care to set the retention level (`-rl`) in the SLP to the desired value. In this case, a value of 3 means a retention of 1 month, typical for a weekly backup.
 
 ``` bash
 nbstl ${policy}_weekly -add -uf 0,3 -residence ${local_stu},__NA__ -target_master __NA__,${remote_master} -target_importslp __NA__,${policy}_weekly -source 0,1 -managed 0,0 -rl 3,3
@@ -192,7 +192,7 @@ The final stage is to create the schedules in the policy. This has to happen las
 
 ### Creating weekly full schedule
 
-The first step is adding the schedule itself. We give it a name (-add) and state that the type of backup is a full backup (-st). The next options override the policy default residence (STU) and retention levels by specifying the SLP to the ```-residence``` option and adding an option to state that it is a **ST**orage **L**ifecycle destination.
+The first step is adding the schedule itself. We give it a name (`-add`) and state that the type of backup is a full backup (`-st`). The next options override the policy default residence (STU) and retention levels by specifying the SLP to the `-residence` option and adding an option to state that it is a **ST**orage **L**ifecycle destination.
 
 ``` bash
 bpplsched ${policy} -add weekly -st FULL -residence ${policy}_weekly -res_is_stl 1
@@ -210,7 +210,7 @@ Lastly, we define the schedule window. The day that the schedule will run on is 
 bpplschedrep ${policy} weekly -2 $[3600*2] $[3600*4]
 ```
 
-You can add multiple schedule windows all on the same command line, though we found it easier just to put the days of the week into a for loop and run a separate ```bpplschedrep``` each time.
+You can add multiple schedule windows all on the same command line, though we found it easier just to put the days of the week into a for loop and run a separate `bpplschedrep` each time.
 
 ## Check Your Work
 
@@ -227,7 +227,7 @@ bpplsched ${policy} -L
 
 ### Displaying policy query
 
-It is also possible display the VIP query. You might want to do this as if you run multiple ```bpplinclude``` commands to correct a minor error, you in fact add multiple VIP queries and these could potentially result in multiple simultaneous backups of VMs.
+It is also possible display the VIP query. You might want to do this as if you run multiple `bpplinclude` commands to correct a minor error, you in fact add multiple VIP queries and these could potentially result in multiple simultaneous backups of VMs.
 
 ``` bash
 bpplinclude ${policy} -L
@@ -235,7 +235,7 @@ bpplinclude ${policy} -L
 
 ### Testing policy query
 
-We can also test exactly which VMs the VIP query evaluates to by running the following command. If you remove the -includedonly switch, you will get an unsorted list of all VMs, prefixed with a + for included and a - for excluded.
+We can also test exactly which VMs the VIP query evaluates to by running the following command. If you remove the `-includedonly` switch, you will get an unsorted list of all VMs, prefixed with a + for included and a - for excluded.
 
 ``` bash
 nbdiscover -noxmloutput -noreason -includedonly -policy ${policy}
