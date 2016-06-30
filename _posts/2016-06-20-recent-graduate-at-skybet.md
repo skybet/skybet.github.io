@@ -49,6 +49,5 @@ On my first day at work, for our lunch break, my colleague and I took a trip to 
 The city as a whole is vibrant and entrancing and has become. The city as much an influence on my satisfaction as the job itself.
 
 # For those who are interested
-Sky Betting and Gaming have a variety of opportunities for graduates which can be found here:
-http://skybetcareers.com/our-tribes/early-careers-tribe
+Sky Betting and Gaming have a variety of opportunities for graduates which can be found [here](http://skybetcareers.com/our-tribes/early-careers-tribe)
 Have a look and see what peaks your interest :)
