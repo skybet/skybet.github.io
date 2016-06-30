@@ -56,4 +56,4 @@ We’re looked after whilst we’re working too, with tonnes of on-the-job activ
 
 # Are you about to graduate? Perhaps you already have?
 
-If all of this sounds like something you’d like to be a part of then [take a look at our graduate programme](http://skybetcareers.com/graduates).
+If all of this sounds like something you’d like to be a part of then [take a look at our graduate programme](http://skybetcareers.com/our-tribes/early-careers-tribe).

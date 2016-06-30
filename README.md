@@ -17,7 +17,7 @@ If making updates to the layout, use the sass in the `_scss/` directory.
 
 ## Adding a New Article
 
-To add a new article you need to add a new file in markdown format in the `_posts` directory following the naming conventions of the existing files. The file will need to include [Jeykll front matter](http://jekyllrb.com/docs/frontmatter/) like this:
+To add a new article you need to add a new file in [markdown](https://guides.github.com/features/mastering-markdown/) format in the `_posts` directory following the naming conventions of the existing files. The file will need to include [Jeykll front matter](http://jekyllrb.com/docs/frontmatter/) like this:
 
     ---
     layout:     post
@@ -41,11 +41,13 @@ If an article has been created by multiple authors, you can specify the `author`
      - author_key
      - another_author_key
     ---
-    
+
 ### Style Guide
 
 * The company name should always be referred to as "Sky Betting & Gaming"
 * In markdown files such as posts, you don't need to encode html entities (e.g. ampersand). In HTML, you do.
+* Post headings should start at `h2` (`##`, as the post title will be the `h1`) with a properly nested hierarchy.
+* Take note of formatting/capitalisation of different framework/languages (e.g. JavaScript, Node.js); we aim to be consistent with the formal documentation for that framework/language.
 
 ### Images
 
@@ -76,5 +78,5 @@ Again, add the author's image to the `images/authors` directory with the same fi
 
 ## Rendering the Site Locally
 
-To render the site locally you need to `cd` into your cloned repository and run `bundle install` to install all the rubygems which Github Pages (where the site gets hosted) uses, for compatibility reasons.  The site itself is powered by [jekyll](https://jekyllrb.com).  You can then run `bundle exec rake` (which calls `jekyll serve`) which will result in the site being available on `http://127.0.0.1:4000/`, re-rendering if you make any changes.  If you have any trouble getting the gems to install (particularly within OS X's default environment), we recommend installing [rvm](https://rvm.io).
+To render the site locally, first you need to `sudo gem install bundler`. Then you can `cd` into your cloned repository and run `bundle install` to install all the rubygems which Github Pages (where the site gets hosted) uses, for compatibility reasons.  The site itself is powered by [jekyll](https://jekyllrb.com).  You can then run `bundle exec rake` (which calls `jekyll serve`) which will result in the site being available on `http://127.0.0.1:4000/`, re-rendering if you make any changes.  If you have any trouble getting the gems to install (particularly within OS X's default environment), we recommend installing [rvm](https://rvm.io).
 

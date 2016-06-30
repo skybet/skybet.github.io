@@ -160,7 +160,7 @@ james_moorhouse:
     role: Software Engineer
     tribe: Bet
     startDate: 13-07-2015
-    bio: Software Engineer in the Bet & Customer Transactions squad where he works primarily on the Bet Tracker product, written using a combination of PHP and React.js.
+    bio: Software Engineer in the Bet & Customer Transactions squad where he works primarily on the Bet Tracker product, written using a combination of PHP and React.
     interests: Running, snowboarding, cars, gym, electronic music and some web based technology thrown in there for good measure
     twitter: JJMoorhouse0
 
@@ -179,7 +179,7 @@ adam_blanchard:
     role: Software Engineer
     tribe: Gaming
     startDate: 13-07-2015
-    bio: Software Engineer in the Sky Vegas squad, working on the release of the new desktop and mobile platforms using PHP, JavaScript and React.js.
+    bio: Software Engineer in the Sky Vegas squad, working on the release of the new desktop and mobile platforms using PHP, JavaScript and React.
     twitter: blanchodam
 
 adam_pointer:
@@ -225,7 +225,7 @@ jon_bulbrook:
     role: Software Engineer
     tribe: Gaming
     startDate: 14-07-2014
-    bio: Currently a Software Engineer in the Gaming Promotions Squad, working on internal APIs and real-time promotions using Apache Kafka and NodeJS. Also worked on the new Sky Vegas platform using ReactJS, Javascript and PHP.
+    bio: Currently a Software Engineer in the Gaming Promotions Squad, working on internal APIs and real-time promotions using Apache Kafka and NodeJS. Also worked on the new Sky Vegas platform using React, JavaScript and PHP.
     twitter: mrjpsycho
     github: mrjpsycho
     
@@ -236,3 +236,14 @@ marcus_ojerinde_ardalla:
     tribe: Data
     bio: "A Young Data Engineer With a Passion For All Things Sports"
     github: MarcusDevel
+
+tom_davidson:
+    name: Tom Davidson
+    image: tom_davidson.png
+    role: Senior Infrastructure Engineer / Delivery
+    tribe: Infrastructure
+    startDate: 24-02-2014
+    bio: Part of the Delivery squad who are responsible for deploying, upgrading & scaling the PaaS that underpins the majority of the Sky Betting & Gaming products. His philosophy is, "Why do something manually more than once when you can script or automate it."
+    interests: automation, scripting, virtualisation, linux
+    twitter: tpd1001
+    github: tpd1001

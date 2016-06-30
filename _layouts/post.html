@@ -21,7 +21,7 @@ fixedHeader: true
             <header class="grid-1-1">
                 <h1>{{ page.title | markdownify | remove: '<p>' | remove: '</p>' }}</h1>
                 <div class="date">
-                    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
+                    <time datetime="{{ page.date | date: "%Y-%m-%d" }}">
                         <span class="day">{{ page.date | date: "%-d" }}</span>
                         <span class="month">{{ page.date | date: "%b '%y" }}</span>
                     </time>

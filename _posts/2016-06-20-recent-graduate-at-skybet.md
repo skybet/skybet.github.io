@@ -3,7 +3,7 @@ layout:     post
 title:      A Recent Graduates Guide to Sky Betting & Gaming…
 date:       2016-06-30 10:00
 summary:    A recent graduates blog on their first few months at Sky Betting and Gaming as well as what to expect.
-category:   Graduates, Data Engineering
+category:   Data
 tags:       Leeds, Data, Engineer, Graudate
 author:     marcus_ojerinde_ardalla
 ---
