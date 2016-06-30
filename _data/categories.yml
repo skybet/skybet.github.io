@@ -51,3 +51,9 @@
 
 - name: Conferences
   slug: conferences
+
+- name: Graduates
+  slug: graduates
+
+- name: Data Engineering
+  slug: data-engineering
