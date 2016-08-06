@@ -51,3 +51,6 @@
 
 - name: Conferences
   slug: conferences
+
+- name: Operations
+  slug: operations

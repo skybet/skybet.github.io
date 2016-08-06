@@ -4,7 +4,7 @@ title:      CSI Skybet
 author:     colin_ameigh
 date:       2016-08-09 12:00:00
 summary:    A tale of football, nodejs, and rabbits.
-image:      football-rabbit/footybunny.png
+image:      football-rabbit/footybunnycropped.png
 category:   Operations
 tags:       rca
 ---
