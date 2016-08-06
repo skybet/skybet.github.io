@@ -4,7 +4,7 @@ title:      CSI Skybet
 author:     colin_ameigh
 date:       2016-08-01 12:00:00
 summary:    A tale of football, nodejs, and rabbits.
-image:      football-rabbit.png
+image:      football-rabbit/footybunny.png
 category:   Operations
 tags:       rca
 ---
@@ -16,7 +16,7 @@ With the new football season coming up, I thought it might be interesting to
 look at a problem that occurred near the end of last season, and the diagnostic
 process as I worked with the support team to track down the root cause.
 
-<RABBIT WITH FOOTBALL PIC>
+![Football and Rabbit](/images/football-rabbit/footybunny.png)
 
 My tale begins in the early afternoon of May 30th.  The football season is in
 its final throes and I am providing on-site engineering support.
@@ -134,7 +134,7 @@ I talk through the on-site diagnostics and theories with several of my colleague
 when it strikes me that the two hosts were behaving very similarly, so I
 compare the memory usage between the processes on the affected hosts.
 
-<PICTURE OF OPSVIEW GRAPH CAPTURED>
+![Graph comparing two hosts](/images/football-rabbit/graph1.png)
 
 Interestingly, apart from a few areas of variation, they are in step - so it
 really must be a data issue.  I manually examine the code and step through
@@ -144,17 +144,17 @@ somewhere.
 
 And here’s the rabbit...
 
-<RABBIT PIC>
+![A rabbit](/images/football-rabbit/whome.png)
 
 No, not that one, this one:
 
-<RABBITMQ LOGO>
+![RabbitMQ Logo](/images/logos/rabbitmq_logo.png)
 
 The scoreboard processor publishes updates to a rabbitmq exchange in order to
 push these updates to customers on pages displaying those scoreboards via an
 active websocket.
 
-<DIAGRAM>
+![Diagram showing situation](/images/football-rabbit/system-diagram.png)
 
 The live hosts publish to 4 downstream rabbitmq hosts, two for the live service
 and two to propagate the data to a proof of concept test hosted in AWS.  But we
@@ -166,7 +166,7 @@ change.  If we change one of the hosts to remove the POC rabbitmq from the
 process configuration, and restart it.  Also restarting the process on the
 other host to get a baseline.
 
-<PICTURE OF OPSVIEW GRAPH FROM DIAGNOSTIC CHANGE>
+![Graph showing effect of change](/images/football-rabbit/graph2.png)
 
 Okay - that’s positive, the green line is the reconfigured host, and it’s more
 healthy.  It looks like we have a positive match on the slug from the smoking
@@ -186,16 +186,18 @@ about rabbitmq, you’ll know that that’s really bad thing.  Rabbitmq performs
 unexpected ways when it has a large number of undelivered messages on its
 queues.
 
+![Unexpected rabbit behaviour](/images/football-rabbit/unexpected.png)
+
 But surely those messages have a TTL?
 -------------------------
 
-That’s true, but rabbitmq also behaves in a non-intuitive way.  The queues in
-question are “durable”, so that if the consuming process restarts we don’t lose
-any messages.  In this case, the consumers have been disabled so the messages
-are continually building up.  Rabbitmq only checks the TTL on a message when it
-is delivering to the consumer - this avoids the need to periodically check the
-TTL of the messages in the queue, but does mean that a queue with no consumer
-will only ever get cleared by manual intervention.
+That’s true, but rabbitmq also behaves in a non-intuitive way when it comes to
+TTL.  The queues in question are “durable”, so that if the consuming process
+restarts we don’t lose any messages.  In this case, the consumers have been
+disabled so the messages are continually building up.  Rabbitmq only checks the
+TTL on a message when it is delivering to the consumer - this avoids the need
+to periodically check the TTL of the messages in the queue, but does mean that
+a queue with no consumer will only ever get cleared by manual intervention.
 
 Aren’t the rabbitmq hosts monitored?
 -------------------------
@@ -225,9 +227,10 @@ back up to the point where rabbitmq stopped accepting new messages.
 Fixing it properly
 --------
 
-Of course, the diagnostic change, whilst it proved the problem is not a permanent
-fix.  So our chef recipes needed tweaking, testing and running on the live hosts,
-as well as the rabbit queues being correctly deleted from those hosts.
+Of course, the diagnostic change, whilst it confirmed what the problem was, is
+not a permanent fix.  So our chef recipes needed tweaking, testing and running
+on the live hosts, as well as the rabbit queues being correctly deleted and not
+just purged from those hosts.
 
 Conclusion and a moral
 -----
@@ -239,13 +242,12 @@ by the time we had our weekend support review on Monday, so we were able to
 discuss the problem and the fixes in order to communicate our findings to other
 teams.
 
-As it happens, the football scoreboard
-process wasn’t the only thing affected by this problem, other processes on the
-same hosts also showed increasing memory usage - but they weren’t particularly
-noted at the time because their increase was at a lower rate due to a lower
-message throughput.  Another host dealing with other kinds of messages was also
-affected, but had more base memory available to it so never got into a alarm
-state.
+As it happens, the football scoreboard process wasn’t the only thing affected
+by this problem, other processes on the same hosts also showed increasing
+memory usage - but they weren’t particularly noted at the time because their
+increase was at a lower rate due to a lower message throughput.  Another host
+dealing with other kinds of messages was also affected, but had more base
+memory available to it so never got into a alarm state.
 
 So the moral is - don’t downtime checks because a service has been
 decommissioned.
