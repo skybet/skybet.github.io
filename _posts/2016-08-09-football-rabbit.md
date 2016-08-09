@@ -44,7 +44,7 @@ the scoreboards on the front end.
 
 So what is consuming all the memory?
 
-A quick ‘ps auxw’ reveals a specific process at 80% memory usage.
+A quick `ps auxw` reveals a specific process at 80% memory usage.
 
 ```
 node (scoreboard-football)
@@ -88,7 +88,7 @@ no-one appears to have noticed.
 -------------------------
 
 That particular host is configured and managed by chef cookbooks.  So did
-chef-client run on that host on Thursday?  No.  So the configuration of the
+chef-client run on that host on Thursday?  No: so the configuration of the
 host has not changed.
 
 Meanwhile - a second host has alarmed on memory usage.  This new host is a
@@ -105,7 +105,7 @@ again.   So restart the process to make it through the afternoon.
 
 It’s not the code itself, could it have been something else to do with the code
 release?  Well, a code release would also have released NPM modules that the
-scoreboard processor depends on.   But we use NPMs “shrink-wrap” functionality
+scoreboard processor depends on.   But we use NPM's “shrink-wrap” functionality
 to pin the module versions to avoid problems of this kind from an unexpected
 module upgrade.
 
@@ -172,9 +172,9 @@ Okay - that’s positive, the green line is the reconfigured host, and it’s mo
 healthy.  It looks like we have a positive match on the slug from the smoking
 gun.
 
-As we had identified the cause of the issue.  We also checked the downstream
+As we had identified the cause of the issue, we also checked the downstream
 rabbitmqhosts and cleared the millions of undelivered messages that we found
-there (resulting in the flatline on the blue line), before restarting the
+there (resulting in the flatline on the blue line) before restarting the
 processes one final time.
 
 But why does this cause high memory usage? 
