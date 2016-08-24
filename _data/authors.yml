@@ -239,3 +239,8 @@ tom_davidson:
     interests: automation, scripting, virtualisation, linux
     twitter: tpd1001
     github: tpd1001
+
+john_hague:
+    name: John Hague
+    image: john_hague.jpg
+    role: Learning and Development Manager
