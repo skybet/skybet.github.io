@@ -12,7 +12,7 @@
                 {{ author.name }}
             {% if page.className != 'authors' %}</a>{% endif %}
         </h1>
-        <h4>{{ author.role }} · {{ author.tribe }} Tribe</h4>
+        {% if author.tribe and author.role %}<h4>{{ author.role }} · {{ author.tribe }} Tribe</h4>{% endif %}
 
         {% if author.startDate %}
         <h4>Working at Sky Betting &amp; Gaming since {{ author.startDate | date: '%Y' }}</h4>
