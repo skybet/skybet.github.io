@@ -364,6 +364,9 @@ task :check_links do
   end
 end
 
+require 'rspec/core/rake_task'
+desc 'Validate posts, authors and categories'
+RSpec::Core::RakeTask.new(:validate)
 
 #
 # General support functions

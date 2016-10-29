@@ -82,4 +82,4 @@ To render the site locally, first you need to `sudo gem install bundler`. Then y
 
 ## Validating your edits
 
-You can run the tests to make sure that your post, category and authors changes are considered valid.  To do this run `bundle exec rspec`.
+You can run the tests to make sure that your post, category and authors changes are considered valid.  To do this run `bundle exec rake validate`.
