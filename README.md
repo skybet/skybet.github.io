@@ -80,3 +80,6 @@ Again, add the author's image to the `images/authors` directory with the same fi
 
 To render the site locally, first you need to `sudo gem install bundler`. Then you can `cd` into your cloned repository and run `bundle install` to install all the rubygems which Github Pages (where the site gets hosted) uses, for compatibility reasons.  The site itself is powered by [jekyll](https://jekyllrb.com).  You can then run `bundle exec rake` (which calls `jekyll serve`) which will result in the site being available on `http://127.0.0.1:4000/`, re-rendering if you make any changes.  If you have any trouble getting the gems to install (particularly within OS X's default environment), we recommend installing [rvm](https://rvm.io).
 
+## Validating your edits
+
+You can run the tests to make sure that your post, category and authors changes are considered valid.  To do this run `bundle exec rspec`.
