@@ -54,3 +54,6 @@
 
 - name: Operations
   slug: operations
+
+- name: Infrastructure
+  slug: infrastructure
