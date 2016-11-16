@@ -2,7 +2,7 @@
 layout:     post
 title:      Does finishing things destroy efficiency?
 author:     richard_woodhead
-date:       2016-10-24 12:00:00
+date:       2016-11-16 9:20:00
 summary:    Is the finished item anti agile?
 image:      destroy_efficiency.jpeg
 category:   Agile
