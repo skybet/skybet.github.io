@@ -239,3 +239,11 @@ tom_davidson:
     interests: automation, scripting, virtualisation, linux
     twitter: tpd1001
     github: tpd1001
+
+richard_woodhead:
+    name: Richard Woodhead
+    image: richard_woodhead.jpeg
+    role: Agile Coach
+    interests: parenting
+    tribe: Bet
+    startDate: 09-09-2013
