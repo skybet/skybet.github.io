@@ -2,7 +2,7 @@
 layout:     post
 title:      Hacker Herding - Ten Lessons Learned From Launching a Bug Bounty Programme
 author:     dan_adams
-date:       2016-11-17 11:00:00
+date:       2016-11-18 11:59:00
 summary:    Lessons learned from operating a bug bounty programme, and some tips for launching your own
 category:   Security
 tags:       security, hacking, bugs, vulnerabilities, exploits, bounty
