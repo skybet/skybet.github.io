@@ -239,3 +239,12 @@ tom_davidson:
     interests: automation, scripting, virtualisation, linux
     twitter: tpd1001
     github: tpd1001
+
+patrick_holmes:
+    name: Patrick Holmes
+    image: patrick_holmes.png
+    role: Head of Cloud Delivery
+    tribe: Infrastructure
+    startDate: 29-02-2016
+    bio: Member of the Infrastructure Tribe, responsible for the operational delivery of the SBG cloud platforms and central tech services. Likes: Resilience, automation and autoscaling.  Dislikes: Single points of failure.
+    twitter: PatrickAtYork
