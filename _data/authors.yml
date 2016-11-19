@@ -244,7 +244,8 @@ patrick_holmes:
     name: Patrick Holmes
     image: patrick_holmes.png
     role: Head of Cloud Delivery
-    tribe: Infrastructure
+    tribe: Infrastructure & Security
     startDate: 29-02-2016
-    bio: Member of the Infrastructure Tribe, responsible for the operational delivery of the SBG cloud platforms and central tech services. Likes: Resilience, automation and autoscaling.  Dislikes: Single points of failure.
+    bio: Member of the Infrastructure & Security Tribe, responsible for the operational delivery of the SBG cloud platforms and central tech services.
+    interests: Resilience, Automation, Monitoring, Fault Tolerance
     twitter: PatrickAtYork
