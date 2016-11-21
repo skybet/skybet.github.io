@@ -2,7 +2,7 @@
 layout:     post
 title:      Automating Performance Optimisation in a Highly Virtualised Infrastructure Platform
 author:     lee_odonnell
-date:       2016-11-15 12:00:00
+date:       2016-11-21 14:10:00
 summary:    Together with our partners at Turbonomic we’ve put together a video about how we optimise our highly virtualised platform.
 image:      automating-performance-optimisation.png
 category:   Infrastructure
