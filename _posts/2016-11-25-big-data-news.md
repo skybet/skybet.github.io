@@ -1,14 +1,14 @@
 ---
 layout:     post
 title:      Our Top 10 Big Data News Sources
-date:       2016-11-21 12:00
+date:       2016-11-25 12:00
 summary:    Keeping on top of an area of technology that is as rapidly moving as the big data ecosystem is hard.  Our data tribe share some of their resources for keeping up to date.
 category:   Big Data
 tags:       Data, News
 author:     alice_kaerast
 ---
 
-At a recent internal course on how to get started blogging we discussed the importance of blogs as a way of keeping up to date with technology.  That's even more important in the faster moving parts of technology like big data.  We spoke to people in our data tribe about how they keep up to date, resulting in this collection of our top ten data-related newsletters.
+At a recent internal course on how to get started blogging we discussed the importance of blogs as a way of keeping up to date with technology.  That's even more important in the faster moving parts of technology like big data.  We spoke to people in our data tribe about how they keep up to date, resulting in this collection of our top ten (plus one) data-related newsletters.
 
 * [Data Elixir](http://dataelixir.com/) is a relatively new newsletter containing curated data science news and resources from around the web.  It's a great mix of news, tutorials, and tools.  Several days after a publication there's still conversations going on aroud the office about articles from this newsletter.
 
@@ -27,6 +27,8 @@ At a recent internal course on how to get started blogging we discussed the impo
 * [Data is Plural](https://tinyletter.com/data-is-plural) is a little unique in this list, covering a weekly selection of open datasets.  From the useful to the unusual, there's plenty here to play with if you're wanting to try out some new ideas.  Quite often but not always US-focused.
 
 * [Data Science Weekly](https://www.datascienceweekly.org/) as the name suggests is very specifically for data scientists.  As a big data engineer it's something to skim read, as a data scientist there's lots of interesting topics.
+
+* [Artificial Intelligence Weekly](http://aiweekly.co) is a weekly collection of news and resources on AI and Machine Learning.  It's mostly good for seeing what other companies are doing in this cutting edge area of technology, but there's also some useful software and hardware mentions.
 
 * [High Scalability](http://highscalability.com) comes out on a Friday afternoon, and reading this on the train home from work has become something of a tradition.  From interesting projects to play around with over the weekend to inspiring thoughts around operating at scale, there's always hidden gems in this rather large weekly blog.  Whilst the other selections in this list sometimes have duplicate articles, this one is usually a very different collection of content.
 
