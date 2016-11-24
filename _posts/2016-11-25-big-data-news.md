@@ -32,4 +32,6 @@ At a recent internal course on how to get started blogging we discussed the impo
 
 * [High Scalability](http://highscalability.com) comes out on a Friday afternoon, and reading this on the train home from work has become something of a tradition.  From interesting projects to play around with over the weekend to inspiring thoughts around operating at scale, there's always hidden gems in this rather large weekly blog.  Whilst the other selections in this list sometimes have duplicate articles, this one is usually a very different collection of content.
 
+If podcasts are more your thing then start with [this list](https://medium.com/@mattfogel/the-10-best-ai-data-science-and-machine-learning-podcasts-d7495cfb127c)
+
 Finally there are some great people on Twitter posting shorter thoughts on all areas of big data.  As a starter for ten, Silicon Republic recently shared [18 top data science accounts you need to follow on Twitter](https://www.siliconrepublic.com/business/data-science-women-twitter).
