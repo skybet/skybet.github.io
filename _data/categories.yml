@@ -19,6 +19,9 @@
 - name: Jruby
   slug: jruby
 
+- name: Early Careers
+  slug: early-careers
+
 - name: Velocity
   slug: velocity
 
