@@ -6,6 +6,7 @@ summary:    The transition of an engineering student into a DevOps graduate, thr
 category:   Early Careers
 tags:       Graduates, DevOps, Careers
 author:     david_sunter
+image:      early_careers.jpg
 ---
 
 Currently I’m a DevOps Graduate at Sky Betting and Gaming. DevOps is not really an easy role to define, but from my brief experience I think that a DevOps engineers are multi-disciplinary engineers, yet are specialists in the integration of systems. This role is really interesting, and perfect for me as I get to be involved with all of the different aspects of the company, from testing, to development work and also the deployment of a product. What I am really trying to say is: if you like understanding the flow of information, solving problems by using analytical approaches or like to debug broken code – you should consider a role in DevOps.
@@ -20,5 +21,5 @@ If you or anyone you know enjoys a challenge then take a look at the new [Gradua
 
 ![Sky Betting & Gaming Eareer Careers](/images/early_careers.jpg "Sky Betting & Gaming Early Careers")
 
-###Useful Links
+### Useful Links
 James Moorhouse Blog: [Life After Graduation](http://engineering.skybettingandgaming.com/2016/03/16/life-after-graduation/)
