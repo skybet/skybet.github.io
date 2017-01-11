@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Taking a Chance - A Graduate DevOps Blog
-date:       2017-01-05 12:00
+date:       2017-01-11 12:00
 summary:    The transition of an engineering student into a DevOps graduate, through the Software Academy at Sky Betting and Gaming. 
 category:   Early Careers
 tags:       Graduates, DevOps, Careers
