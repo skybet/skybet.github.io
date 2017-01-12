@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Hadoop: The Data Storage Elephant"
-date:       2017-01-11
+date:       2017-01-12 12:00
 summary:    Outline of how Hadoop works and how it is used at SBG
 author:     serena_wadsworth
 category:   Data
