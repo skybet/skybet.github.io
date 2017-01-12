@@ -9,11 +9,6 @@ tags:       big data, hadoop, RDBMS
 ---
 
 
-
-
-
-# Hadoop: the data storage elephant
-
 ![Hadoop Logo](https://qph.ec.quoracdn.net/main-qimg-72801635cd370644216413122d826044-c?convert_to_webp=true)
 Photo credit: Google
 
