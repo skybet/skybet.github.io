@@ -101,6 +101,7 @@ rand-write: io=65536MB, bw=1530.1MB/s, iops=391926, runt= 42807msec
 lat (usec): min=19, max=13972, avg=326.25, stdev=93.51
 cpu       : usr=25.68%, sys=74.31%, ctx=411, majf=0, minf=6857
 ```
+
 # The Future
  
 Several remaining parts of our graphing system are undergoing upgrades and some work to scale out better, in order to match both the demand and the new capacity at the end of the chain. Our new hardware permitted us to uplift the storage retention for our data, keeping high resolution data for longer and medium resolution data indefinitely.  Our next challenges are the tooling, know-how, and opportunities to make use of this resource to better understand our estate.
