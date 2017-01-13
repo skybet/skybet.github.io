@@ -16,18 +16,18 @@ This leads to a rather narrow set of requirements, and there are a couple of opt
 
 | Solution | Rejection reason |
 |----------|------------------|
-| Spark    | Memory hungry, microbatches rather than actual streaming, requires experience of Hadoop to use well |
-| Flume    | Fine for simple ingest, but difficult to extend and lags behind on kafka client support |
-| Node     | Some of our front-end developers do actually use this, but as it doesn't run on the JVM you don't get good support for the latest kafka client libraries |
-| JRuby     | We use this quite a lot within our data tribe, and it works for putting small amounts of data into kafka, but not at scale |
-| Flink     | We were quite excited about Flink, and may revisit it at some point for the CEP (Complex Event Processing) support.  But for now, there are simpler options. |
-| Nifi      | Lacking support for the latest kafka client libraries, plus there are simpler options for just kafka ingestion and processing |
-| Samza     | Runs on Yarn, requiring a Hadoop cluster |
-| Storm     | Similar to Flink but not as good |
+| [Spark](https://spark.apache.org/streaming/)    | Memory hungry, microbatches rather than actual streaming, requires experience of Hadoop to use well |
+| [Flume](https://flume.apache.org/)    | Fine for simple ingest, but difficult to extend and lags behind on kafka client support |
+| [Node](https://github.com/skybet/kafka-node)     | Some of our front-end developers do actually use this, but as it doesn't run on the JVM you don't get good support for the latest kafka client libraries |
+| [JRuby](https://github.com/joekiller/jruby-kafka)     | We use this quite a lot within our data tribe, and it works for putting small amounts of data into kafka, but not at scale |
+| [Flink](https://flink.apache.org/)     | We were quite excited about Flink, and may revisit it at some point for the CEP (Complex Event Processing) support.  But for now, there are simpler options. |
+| [Nifi](https://nifi.apache.org/)      | Lacking support for the latest kafka client libraries, plus there are simpler options for just kafka ingestion and processing |
+| [Samza](https://samza.apache.org/)     | Runs on Yarn, requiring a Hadoop cluster |
+| [Storm](https://storm.apache.org/)     | Similar to Flink but not as good |
 
 # Chosen Solutions
 
-Our chosen tooling for realtime streaming is a combination of Kafka Connect and Kafka Streams, falling back to Akka for when we are not directly dealing with kafka.
+Our chosen tooling for realtime streaming is a combination of [Kafka Connect](http://docs.confluent.io/current/connect/intro.html) and [Kafka Streams](https://www.confluent.io/product/kafka-streams/), falling back to [Akka](http://akka.io/) for when we are not directly dealing with kafka.
 
 ![Kafka Connect & Kafka Streams](/images/Streaming.jpg)
 
