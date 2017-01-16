@@ -19,6 +19,9 @@
 - name: Jruby
   slug: jruby
 
+- name: Early Careers
+  slug: early-careers
+
 - name: Velocity
   slug: velocity
 
@@ -51,3 +54,9 @@
 
 - name: Conferences
   slug: conferences
+
+- name: Operations
+  slug: operations
+
+- name: Infrastructure
+  slug: infrastructure

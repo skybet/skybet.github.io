@@ -1,10 +1,10 @@
 <head>
  <meta charset="utf-8">
- <title>{% if page.isArticle %}Sky Betting &amp; Gaming Engineering: {% endif %}{{ page.title }}</title>
+ <title>{% if layout.isArticle %}Sky Betting &amp; Gaming Engineering: {% endif %}{{ page.title }}</title>
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name=viewport content="width=device-width,initial-scale=1.0">
 
- {% if page.isArticle %}
+ {% if layout.isArticle %}
  <meta property="og:type" content="article" />
  <meta property="article:published_date" content="{{ page.date | date_to_xmlschema }}" />
  {% else %}
@@ -17,6 +17,11 @@
  <meta name="twitter:title" content="{{ page.title }}" />
  <meta name="twitter:card" content="summary" />
  <meta name="twitter:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}logo.png{% endif %}" />
+
+ {% if layout.isArticle %}
+ <meta name="twitter:label1" value="Time">
+ <meta name="twitter:data1" value="{{ page.content | number_of_words | divided_by: 120 }} minutes read 🕑">
+ {% endif %}
 
  <meta property="og:site_name" content="Sky Betting &amp; Gaming Engineering Blog" />
  <meta property="og:title" content="{{ page.title }}" />

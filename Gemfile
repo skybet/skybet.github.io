@@ -6,3 +6,6 @@ gem 'github-pages'
 group :development do
   gem 'anemone'
 end
+group :test do
+  gem 'rspec'
+end
