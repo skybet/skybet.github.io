@@ -284,3 +284,11 @@ gary_mulder:
     startDate: 01-01-2016
     hasLeft: true
     bio: After 10 years as a Systems Administrator, now specialising in Site Reliability and Performance Analysis. Likes making fast computers run faster. And maximum-pain chilli peppers.
+
+marcus_ojerinde_ardalla:
+    name: Marcus Ojerinde-Ardalla
+    image: marcus_ojerinde_ardalla.jpg
+    role: Junior Data Engineer
+    tribe: Data
+    bio: "A Young Data Engineer With a Passion For All Things Sports"
+    github: MarcusDevel
