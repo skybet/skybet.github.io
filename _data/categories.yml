@@ -60,3 +60,6 @@
 
 - name: Infrastructure
   slug: infrastructure
+
+- name: Tech Talks
+  slug: tech-talks
