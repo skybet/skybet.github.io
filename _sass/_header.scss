@@ -18,6 +18,9 @@ header.page {
         ul {
             margin: 0;
             padding: 13px 0;
+            li {
+                display: inline-block;
+            }
         }
     }
 
