@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Towards a realtime streaming architecture"
-date:       2017-01-20 12:00
+date:       2017-01-23 12:00
 summary:    Outline of the streaming architecture we are standardising around in the data tribe at Sky Betting & Gaming
 author:     alice_kaerast
 category:   Data
