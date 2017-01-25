@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Sky Betting & Gaming's January 2017 Tech Talks
-date:       2017-01-24 10:00
+date:       2017-01-25 10:00
 summary:    Join Adele, Mark, Tom, Mark, Adam & John for our January 2017 edition of Sky Bet Tech Talks on Retrospectives, AGILE Programme Management, Discovery & Experimentation and Squad Health Checks
 category:   Tech Talks
 tags:       Tech, Talk, Agile, Discovery, Experimentation, Squads
