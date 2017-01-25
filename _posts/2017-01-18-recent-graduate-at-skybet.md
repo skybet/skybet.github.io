@@ -50,4 +50,4 @@ The city as a whole is vibrant and entrancing and has become. The city as much a
 # For those who are interested
 Sky Betting & Gaming have a variety of opportunities for graduates which can be found [here](http://skybetcareers.com/our-tribes/early-careers-tribe)
 
-Have a look and see what peaks your interest :)
+Have a look and see what piques your interest :)
