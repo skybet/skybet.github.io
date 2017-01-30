@@ -2,7 +2,7 @@
 layout:     post
 title:      Lessons Learned for Incident Commanders
 date:       2017-01-30 09:00
-summary:    Lessons learned and tips from live incidents and firedrills, which factor into our SBG Incident Command training
+summary:    Incident command is a reasonably new area of focus for SBG. In a nutshell it's a nominated technical person known as the Incident Commander (IC) who gives direction in order to resolve incidents and restore service as quickly as possible. This blog post contains some of the insights and 'lessons learned' by our teams from their experiences in live incidents and exercises (known internally as fire drills) which are given to incident commanders as they work to improve their skills.
 category:   Incident Response
 tags:       Incident management, Incident command
 author:     patrick_holmes
