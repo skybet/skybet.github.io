@@ -9,9 +9,9 @@ author:     patrick_holmes
 image:      peace_war_inccmd.jpg
 ---
 
-Incident command is a reasonably new area of focus for SBG, in a nutshell it's a nominated technical personnel known as the Incident Commander (IC) who gives direction in order to resolve incidents and restore service as quickly as possible.
+Incident command is a reasonably new area of focus for SBG. In a nutshell it's a nominated technical person known as the Incident Commander (IC) who gives direction in order to resolve incidents and restore service as quickly as possible.
 
-This blog post contains some of the insights and 'lessons learned' by our teams from their experiences in live incidents and exercises (known internally as fire drills) which are given to incident commanders as they work to improve their skills. The methodology for this is largely forked from O'Reilly's highly recommended [Incident Management for Operations](http://shop.oreilly.com/product/0636920036159.do) book, influences from SAR/British Army doctrine, with some additions based on some of our lessons learned.
+This blog post contains some of the insights and 'lessons learned' by our teams from their experiences in live incidents and exercises (known internally as fire drills) which are given to incident commanders as they work to improve their skills. The methodology for this is largely forked from O'Reilly's highly recommended [Incident Management for Operations](http://shop.oreilly.com/product/0636920036159.do) book, influences from SAR/British Army doctrine, with some additions based on some of our experiences across the company.
 
 ***
 
