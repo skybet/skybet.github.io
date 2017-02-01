@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Lessons Learned for Incident Commanders
-date:       2017-01-30 09:00
+date:       2017-02-02 12:00
 summary:    Incident command is a reasonably new area of focus for SBG. In a nutshell we have a nominated technical person known as the Incident Commander (IC) who gives direction in order to resolve an incident and restore service as quickly as possible.<br><br>This blog post contains some of the insights and 'lessons learned' by our teams from their experiences in live incidents and exercises (known internally as fire drills) as they work to improve their skills and reduce our <abbr title="Mean time to resolution">MTRR</abbr>.
 category:   Incident Response
 tags:       Incident management, Incident command
