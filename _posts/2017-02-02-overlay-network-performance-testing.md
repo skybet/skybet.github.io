@@ -14,6 +14,7 @@ As one of the engineers working on our next-generation platform in the Bet tribe
 It turns out there are a wide variety of overlay networks to choose from and they all have different characteristics.  The current networking model for containers (e.g. Docker and Rkt - CoreOS' similar product) is called CNI and theoretically any overlay network that is CNI compliant can be used in Kubernetes.  The first wave of cutting down these networks is by ease of install - If I'm going to be testing networks en masse, I don't want to be spending days installing to find they're not suitable.
 
 This meant a much smaller list to benchmark - the ones that had kubeadm addons that can be installed quickly on a disposable cluster.  This list is :
+
 * Flannel - the default CoreOS (what we're probably going to use as our base OS) overlay network
 * Calico - the first major overlay network to have network policy support (ACLs for network, similar to firewalls)
 * Canal - This is effectively Flannel's overlay network with Calico's policy model, and is so similar to Flannel it's probably not worth testing
@@ -21,6 +22,7 @@ This meant a much smaller list to benchmark - the ones that had kubeadm addons t
 * Romana - This turned out to be not an overlay network per se, although it is a networking layer, but was later discarded because we want an overlay network
 
 # Requirements other than performance
+
 * **Sky Betting and Gaming** exists in a regulated business so we do require our new platform to have network policy support from the get go
 * We also have to be able to explain the stack to all our on-call engineers, so the simpler the better
 * Our newest datacentre is being set up with Cisco's ACI kit so support for that would be nice to have, but not in any way a necessity
