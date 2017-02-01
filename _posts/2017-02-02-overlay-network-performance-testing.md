@@ -37,7 +37,7 @@ Having done a fair bit of reading and looking at the tools available to test the
 
 To ensure that the test was cross-AZ in amazon (profile for worst-case, it can only get better!), I used a container replica set of 3 on a kubernetes 3-worker cluster.
 
-I then ran `iperf3` as a udp client and asked it to attempt to transfer 1, 10, 100 megabits/s and 1 and 3 gigabits/s to give a range of data for each overlay network.   Also for comparison, I did the same test for AWS instances without an overlay network and a test in our Guernsey Datacentre.
+I then ran `iperf3` as a udp client and asked it to attempt to transfer 1, 10, 100 megabits/s and 1 and 3 gigabits/s to give a range of data for each overlay network.   Also for comparison, I did the same test for AWS instances without an overlay network and a test in one of our non-cloud datacentres.
 
 One of the things about running on AWS is that the instance size makes a difference to the network throttling that Amazon apply, so I ran the Weave test and the plain AWS networking test a second time, running on an m4.xlarge cluster rather than an m4.large.
 
