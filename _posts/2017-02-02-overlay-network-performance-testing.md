@@ -15,11 +15,11 @@ It turns out there are a wide variety of overlay networks to choose from and the
 
 This meant a much smaller list to benchmark - the ones that had kubeadm addons that can be installed quickly on a disposable cluster.  This list is :
 
-* Flannel - the default CoreOS (what we're probably going to use as our base OS) overlay network
-* Calico - the first major overlay network to have network policy support (ACLs for network, similar to firewalls)
-* Canal - This is effectively Flannel's overlay network with Calico's policy model, and is so similar to Flannel it's probably not worth testing
-* Weave - Another good alternative that has network policy support built in
-* Romana - This turned out to be not an overlay network per se, although it is a networking layer, but was later discarded because we want an overlay network
+* [Flannel](https://github.com/coreos/flannel) - the default CoreOS (what we're probably going to use as our base OS) overlay network
+* [Calico](https://www.projectcalico.org/) - the first major overlay network to have network policy support (ACLs for network, similar to firewalls)
+* [Canal](https://github.com/projectcalico/canal) - This is effectively Flannel's overlay network with Calico's policy model, and is so similar to Flannel it's probably not worth testing
+* [Weave](https://www.weave.works/products/weave-net/) - Another good alternative that has network policy support built in
+* [Romana](http://romana.io/) - This turned out to be not an overlay network per se, although it is a networking layer, but was later discarded because we want an overlay network
 
 # Requirements other than performance
 
