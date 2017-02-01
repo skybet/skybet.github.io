@@ -302,3 +302,11 @@ ashley_broadley:
     bio: "Likes Programming, Board Games, Cycling, Squash, Thai Boxing and Pilates."
     github: ls12styler
     twitter: ls12styler
+
+john_kitson:
+    name: John Kitson
+    image: john_kitson.jpg
+    role: Scrum Master
+    tribe: Gaming
+    startDate: 06-02-2015
+    bio: "John works as a Scrum Master in the Gaming Tribe, covering the Gaming Promotions and Casino squads. John is a father of one and in his spare time enjoys running and organising at his local junior parkrun."
