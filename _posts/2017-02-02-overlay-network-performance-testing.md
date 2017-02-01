@@ -8,7 +8,7 @@ tags:       Networking, Performance, Containers, Docker, Kubernetes
 author:     martyn_ranyard
 ---
 
-As one of the engineers working on our next-generation platform in the Bet tribe of **Sky Betting and Gaming**, I was tasked with choosing an overlay network for our container scheduler (we're going with Kubernetes but that's a story for a different post).  But just how do you choose an overlay network for a platform when you don't know exactly what will be running on it yet?  Here's how I went about it, some stats and some conclusions I came to.
+As one of the engineers working on our next-generation platform in the Bet tribe of **Sky Betting & Gaming**, I was tasked with choosing an overlay network for our container scheduler (we're going with Kubernetes but that's a story for a different post).  But just how do you choose an overlay network for a platform when you don't know exactly what will be running on it yet?  Here's how I went about it, some stats and some conclusions I came to.
 
 # What are the options?
 It turns out there are a wide variety of overlay networks to choose from and they all have different characteristics.  The current networking model for containers (e.g. Docker and Rkt - CoreOS' similar product) is called CNI and theoretically any overlay network that is CNI compliant can be used in Kubernetes.  The first wave of cutting down these networks is by ease of install - If I'm going to be testing networks en masse, I don't want to be spending days installing to find they're not suitable.
@@ -23,7 +23,7 @@ This meant a much smaller list to benchmark - the ones that had kubeadm addons t
 
 # Requirements other than performance
 
-* **Sky Betting and Gaming** exists in a regulated business so we do require our new platform to have network policy support from the get go
+* **Sky Betting & Gaming** exists in a regulated business so we do require our new platform to have network policy support from the get go
 * We also have to be able to explain the stack to all our on-call engineers, so the simpler the better
 * Our newest datacentre is being set up with Cisco's ACI kit so support for that would be nice to have, but not in any way a necessity
 * The network must work in AWS as that is where our initial deployment will be (it can't interfere with AWS' networking)
