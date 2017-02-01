@@ -37,11 +37,11 @@ Having done a fair bit of reading and looking at the tools available to test the
 
 To ensure that the test was cross-AZ in amazon (profile for worst-case, it can only get better!), I used a container replica set of 3 on a kubernetes 3-worker cluster.
 
-I then ran `iperf3` as a udp client and asked it to attempt to transfer 1, 10, 100 megabits/s and 1 and 3 gigabits/s to give a range of data for each overlay network. Also for comparison, I did the same test for AWS instances without an overlay network and a test in our Guernsey Datacentre.
+I then ran `iperf3` as a udp client and asked it to attempt to transfer 1, 10, 100 megabits/s and 1 and 3 gigabits/s to give a range of data for each overlay network.   Also for comparison, I did the same test for AWS instances without an overlay network and a test in our Guernsey Datacentre.
 
 One of the things about running on AWS is that the instance size makes a difference to the network throttling that Amazon apply, so I ran the Weave test and the plain AWS networking test a second time, running on an m4.xlarge cluster rather than an m4.large.
 
-The final thing to note in terms of methodology is that these networks have all been tested with out-of-the-box settings, specifically the settings provided by the addons linked to on the [kubernetes addons page](https://kubernetes.io/docs/admin/addons/).  I'm sure that tuning and tweaking these network addons would provide different results, however, there are not enough hours in the day to work through all the permutations.  As always, your milage may vary and you should not assume that these results apply directly to your setup.
+The final thing to note in terms of methodology is that these networks have all been tested with out-of-the-box settings, specifically the settings provided by the addons linked to on the [kubernetes addons page](https://kubernetes.io/docs/admin/addons/).  I'm sure that tuning and tweaking these network addons would provide different results, however, there are not enough hours in the day to work through all the permutations.  As always, your mileage may vary and you should not assume that these results apply directly to your setup.
 
 # The data
 
@@ -62,11 +62,11 @@ It turns out that making graphs of summaries in Excel (LibreOffice really) doesn
 
 # Conclusion
 
-Given our current setup is Kubernetes on CoreOS ContainerLinux and ContainerLinux default is Flannel overlay and Calico policy, what we have decided to do is... nothing!  The exercise has shown that all the mature overlay networks are similar performance-wise with the exception of Calico, and there's no compelling reason to switch.
+Given our current setup is Kubernetes on CoreOS ContainerLinux and ContainerLinux default is Flannel overlay and Calico policy, what we have decided to do is… nothing!  The exercise has shown that all the mature overlay networks are similar performance-wise with the exception of Calico, and there's no compelling reason to switch.
 
 If you are looking for which you should use in a different scenario and have no preferences, I'd recommend Weave, but purely because I had a struggle to get Flannel to work using the addon model and calico topped out first at transfer speed.
 
-# And Finally.. Interesting lessons learned
+# And Finally… Interesting lessons learned
 
 * Be sure to check your hosts have the "Check Source/Dest" disabled if you're running an overlay network on AWS or you may have issues.  Unfortunately there's no way to set this on an ASG/Launch config level, so if you want to auto-scale, you'll need to give the hosts permission to set this on boot.
 * Calico did happen to go non-responsive on one host machine multiple times during my tests, but I didn't really have time to investigate why, and I'd got the performance data I needed, but it's another reason I wouldn't feel comfortable choosing that tech.
