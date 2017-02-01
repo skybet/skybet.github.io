@@ -41,7 +41,7 @@ While in an emergency incident, courtesy can often take a back seat to resolving
 - Expecting the receiver to acknowledge and repeat back a summary of the assignment, and
 - Giving a specific time to complete the task.
 
-> IC: “Network ops, International tribe are seeing are seeing packet loss on their office VPN to the DC. Can you drop off the call, take a look and get back to me at 0915?”
+> IC: “Network ops, International tribe are seeing packet loss on their office VPN to the DC. Can you drop off the call, take a look and get back to me at 0915?”
 
 > Netops: “Will do, Network ops on-call dropping off the call to link up International and investigate their VPN, will report back to you in 15 minutes.”
 
