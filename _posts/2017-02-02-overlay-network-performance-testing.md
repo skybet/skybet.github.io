@@ -44,10 +44,19 @@ The final thing to note in terms of methodology is that these networks have all 
 # The data
 
 The raw output of iperf3 output looks somewhat like this :
-
+![iperf3 Output](/images/iperf-output.jpg)
 I tabulated this data per Network and it looks like this :
+![Calico](/images/overlay-network/Calico.jpg)
+![Weave](/images/overlay-network/Weave.jpg)
+![Flannel](/images/overlay-network/Flannel.jpg)
 
 Some (not so pretty) graphs :
+Max Speed Acheived
+![Max Speed Acheived](/images/overlay-network/MaxChart.jpg)
+Normalised Average Transferred data
+![Max Speed Acheived](/images/overlay-network/NormChart.jpg)
+
+It turns out that making graphs of summaries in Excel (LibreOffice really) doesn't do much for the presentability of highly technical data.
 
 # Conclusion
 
