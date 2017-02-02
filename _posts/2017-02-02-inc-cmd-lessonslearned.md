@@ -10,7 +10,6 @@ image:      peace_war_inccmd.jpg
 ---
 
 ![Incident Room - External](/images/isocon_inccmd.jpg)
-
 Incident command is a reasonably new area of focus for SBG. In a nutshell we have a nominated technical person known as the Incident Commander (IC) who gives direction in order to resolve an incident and restore service as quickly as possible.
 
 This blog post contains some of the insights and 'lessons learned' by our teams from their experiences in live incidents and exercises (known internally as fire drills) as they work to improve their skills and reduce our <abbr title="Mean time to resolution">MTRR</abbr>. The methodology for this is largely forked from O'Reilly's highly recommended [Incident Management for Operations](http://shop.oreilly.com/product/0636920036159.do) book, influences from <abbr title="Search and Rescue">SAR</abbr>/British Army doctrine, with some additions based on some of our experiences across the company.
@@ -18,6 +17,8 @@ This blog post contains some of the insights and 'lessons learned' by our teams 
 ***
 
 ![Incident Room - The Bunker](/images/bunker_inccmd.jpg)
+
+***
 
 #### DON'T PANIC!
 It’s just a computer system and a technical problem that needs solving, the only difference between this and a JIRA story is the manner of approach and doing it with urgency. Take a 'Condor moment' then crack on with systematically triaging your way through the issues and bringing the impacted services back online.
