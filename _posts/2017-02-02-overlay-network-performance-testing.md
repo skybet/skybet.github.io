@@ -13,13 +13,15 @@ As one of the engineers working on our next-generation platform in the Bet tribe
 # What are the options?
 It turns out there are a wide variety of overlay networks to choose from and they all have different characteristics.  The current networking model for containers (e.g. Docker and Rkt - CoreOS' similar product) is called CNI and theoretically any overlay network that is CNI compliant can be used in Kubernetes.  The first wave of cutting down these networks is by ease of install - If I'm going to be testing networks en masse, I don't want to be spending days installing to find they're not suitable.
 
-This meant a much smaller list to benchmark - the ones that had kubeadm addons that can be installed quickly on a disposable cluster.  This list is :
+This meant a much smaller list to benchmark - the ones that had kubeadm* addons that can be installed quickly on a disposable cluster.  This list is :
 
 * [Flannel](https://github.com/coreos/flannel) - the default CoreOS (what we're probably going to use as our base OS) overlay network
 * [Calico](https://www.projectcalico.org/) - the first major overlay network to have network policy support (ACLs for network, similar to firewalls)
 * [Canal](https://github.com/projectcalico/canal) - This is effectively Flannel's overlay network with Calico's policy model, and is so similar to Flannel it's probably not worth testing
 * [Weave](https://www.weave.works/products/weave-net/) - Another good alternative that has network policy support built in
 * [Romana](http://romana.io/) - This turned out to be not an overlay network per se, although it is a networking layer, but was later discarded because we want an overlay network
+
+*kubeadm is Kubernetes' rather clever "setup wizard" type tool which allows you to set up a Kubernetes cluster extremely quickly.
 
 # Requirements other than performance
 
@@ -30,12 +32,13 @@ This meant a much smaller list to benchmark - the ones that had kubeadm addons t
 
 It turns out, other than the ACI nice to have, the three we whittled it down to all cover those if you add the Calico policy model to Flannel.
 
-# How do you test network performance
-I have learned everything I know about networking by osmosis and doing.  This puts me at a disadvantage when it comes to network performance because that's usually "Somebody else's problem".  Not this time, this time it's mine, oh well, a learning opportunity.
+# How do you test network performance?
+I have learned everything I know about networking by osmosis and doing.  This puts me at a disadvantage when it comes to network performance because that's usually "Somebody else's problem".  Not this time; this time it's mine.  Oh well, that just makes it a learning opportunity!
 
 Having done a fair bit of reading and looking at the tools available to test the various networks, I settled on the fine tool [iperf3](https://iperf.fr/) which specifically allows us to measure using UDP and measure [jitter](https://en.wikipedia.org/wiki/Packet_delay_variation) (which I knew to be a bad thing, but didn't have a good grip on what it was before reading about it).
 
-To ensure that the test was cross-AZ in amazon (profile for worst-case, it can only get better!), I used a container replica set of 3 on a kubernetes 3-worker cluster.
+To ensure that the test was across availability zones* in amazon (profile for worst-case, it can only get better!), I used a container replica set of 3 on a kubernetes 3-worker cluster with each worker in a different availability zone.
+*Availability zones (AZs) in amazon are theoretical boundaries between it's "datacenters".  Theoretically, no more than one AZ will ever be down at once but it does create network overhead.
 
 I then ran `iperf3` as a udp client and asked it to attempt to transfer 1, 10, 100 megabits/s and 1 and 3 gigabits/s to give a range of data for each overlay network.   Also for comparison, I did the same test for AWS instances without an overlay network and a test in one of our non-cloud datacentres.
 
