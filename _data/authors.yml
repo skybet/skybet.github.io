@@ -303,6 +303,15 @@ ashley_broadley:
     github: ls12styler
     twitter: ls12styler
 
+patrick_holmes:
+    name: Patrick Holmes
+    image: patrick_holmes.png
+    role: Head of Cloud Delivery
+    tribe: Infrastructure & Security
+    startDate: 29-02-2016
+    bio: "Member of the Infrastructure & Security Tribe, responsible for the operational delivery of the SBG cloud platforms and infrastructure services"
+    twitter: PJHGB
+
 john_kitson:
     name: John Kitson
     image: john_kitson.jpg
