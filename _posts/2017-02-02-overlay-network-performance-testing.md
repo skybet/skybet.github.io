@@ -10,6 +10,9 @@ author:     martyn_ranyard
 
 As one of the engineers working on our next-generation platform in the Bet tribe of **Sky Betting & Gaming**, I was tasked with choosing an overlay network for our container scheduler (we're going with Kubernetes but that's a story for a different post).  But just how do you choose an overlay network for a platform when you don't know exactly what will be running on it yet?  Here's how I went about it, some stats and some conclusions I came to.
 
+# What is an overlay network?
+Look out for a further post about container schedulers and why we chose Kubernetes in the Bet tribe, but effectively an overlay network allows containers to appear as if they are on the same network even though they may be running on different machines, even in different datacenters.  You can think of it as a VPN between containers without the encryption overhead (you can even have encryption on it but most people don't.)
+
 # What are the options?
 It turns out there are a wide variety of overlay networks to choose from and they all have different characteristics.  The current networking model for containers (e.g. Docker and Rkt - CoreOS' similar product) is called CNI and theoretically any overlay network that is CNI compliant can be used in Kubernetes.  The first wave of cutting down these networks is by ease of install - If I'm going to be testing networks en masse, I don't want to be spending days installing to find they're not suitable.
 
