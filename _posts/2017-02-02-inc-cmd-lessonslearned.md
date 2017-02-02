@@ -2,7 +2,7 @@
 layout:     post
 title:      Lessons Learned for Incident Commanders
 date:       2017-02-02 12:00
-summary:    Incident command is a reasonably new area of focus for SBG. In a nutshell we have a nominated technical person known as the Incident Commander (IC) who gives direction in order to resolve an incident and restore service as quickly as possible.<br><br>This blog post contains some of the insights and 'lessons learned' by our teams from their experiences in live incidents and exercises (known internally as fire drills) as they work to improve their skills and reduce our <abbr title="Mean time to resolution">MTRR</abbr>.
+summary:    Incident command is a reasonably new area of focus for SBG. In a nutshell we have a nominated technical person known as the Incident Commander (IC) who gives direction in order to resolve an incident and restore service as quickly as possible.<br><br>This blog post contains some of the insights and 'lessons learned' by our teams from their experiences in live incidents and exercises (known internally as fire drills) as they work to improve their skills and reduce our <abbr title="Mean time to resolution">MTTR</abbr>.
 category:   Incident Response
 tags:       Incident management, Incident command
 author:     patrick_holmes
@@ -12,7 +12,7 @@ image:      peace_war_inccmd.jpg
 ![Incident Room - External](/images/isocon_inccmd.jpg)
 Incident command is a reasonably new area of focus for SBG. In a nutshell we have a nominated technical person known as the Incident Commander (IC) who gives direction in order to resolve an incident and restore service as quickly as possible.
 
-This blog post contains some of the insights and 'lessons learned' by our teams from their experiences in live incidents and exercises (known internally as fire drills) as they work to improve their skills and reduce our <abbr title="Mean time to resolution">MTRR</abbr>. The methodology for this is largely forked from O'Reilly's highly recommended [Incident Management for Operations](http://shop.oreilly.com/product/0636920036159.do) book, influences from <abbr title="Search and Rescue">SAR</abbr>/British Army doctrine, with some additions based on some of our experiences across the company.
+This blog post contains some of the insights and 'lessons learned' by our teams from their experiences in live incidents and exercises (known internally as fire drills) as they work to improve their skills and reduce our <abbr title="Mean time to resolution">MTTR</abbr>. The methodology for this is largely forked from O'Reilly's highly recommended [Incident Management for Operations](http://shop.oreilly.com/product/0636920036159.do) book, influences from <abbr title="Search and Rescue">SAR</abbr>/British Army doctrine, with some additions based on some of our experiences across the company.
 
 ***
 
