@@ -312,3 +312,20 @@ martyn_ranyard:
     bio: "Multi-faceted geek, some people collect things and call it a hobby, I collect hobbies."
     github: iMartyn
     twitter: iMartyn
+
+patrick_holmes:
+    name: Patrick Holmes
+    image: patrick_holmes.png
+    role: Head of Cloud Delivery
+    tribe: Infrastructure & Security
+    startDate: 29-02-2016
+    bio: "Member of the Infrastructure & Security Tribe, responsible for the operational delivery of the SBG cloud platforms and infrastructure services"
+    twitter: PJHGB
+
+john_kitson:
+    name: John Kitson
+    image: john_kitson.jpg
+    role: Scrum Master
+    tribe: Gaming
+    startDate: 06-02-2015
+    bio: "John works as a Scrum Master in the Gaming Tribe, covering the Gaming Promotions and Casino squads. John is a father of one and in his spare time enjoys running and organising at his local junior parkrun."
