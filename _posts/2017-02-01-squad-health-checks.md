@@ -2,7 +2,7 @@
 layout:     post
 title:      Squad Health Checks
 date:       2017-02-01 10:00
-summary:    Join Adele, Mark, Tom, Mark, Adam & John for our January 2017 edition of Sky Bet Tech Talks on Retrospectives, AGILE Programme Management, Discovery & Experimentation and Squad Health Checks
+summary:    Enabling Continuous Improvement through regular introspection by the teams themselves.
 category:   Tech Talks
 tags:       Tech, Talk, Agile, Squads, Health Checks
 author:     john_kitson
