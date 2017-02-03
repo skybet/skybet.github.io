@@ -303,6 +303,16 @@ ashley_broadley:
     github: ls12styler
     twitter: ls12styler
 
+martyn_ranyard:
+    name: Martyn Ranyard
+    image: martyn_ranyard.jpg
+    role: Platform Engineer
+    tribe: Bet
+    startDate: 12-12-2014
+    bio: "Multi-faceted geek, some people collect things and call it a hobby, I collect hobbies."
+    github: iMartyn
+    twitter: iMartyn
+
 patrick_holmes:
     name: Patrick Holmes
     image: patrick_holmes.png
