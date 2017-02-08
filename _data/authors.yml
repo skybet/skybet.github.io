@@ -266,7 +266,7 @@ serena_wadsworth:
     role: Test Engineer
     tribe: Data
     startDate: 01-08-2016
-    bio: Engineer working in the Data Science squad of Data Tribe. Immersing myself in the world of Hadoop and trying to learn some R. When not at work I enjoy playing PS4 and trying to crossfit.  
+    bio: Engineer working in the Data Science squad of Data Tribe. Immersing myself in the world of Hadoop and trying to learn some R. When not at work I enjoy playing PS4 and trying to crossfit.
 
 john_denholm:
     name: John Denholm
@@ -329,3 +329,11 @@ john_kitson:
     tribe: Gaming
     startDate: 06-02-2015
     bio: "John works as a Scrum Master in the Gaming Tribe, covering the Gaming Promotions and Casino squads. John is a father of one and in his spare time enjoys running and organising at his local junior parkrun."
+
+sophia_chambers:
+    name: Sophia Chambers
+    image: sophia_chambers.jpg
+    role: Junior Software Engineer
+    tribe: Core
+    startDate: 12-08-2016
+    bio: 
