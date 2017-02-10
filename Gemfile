@@ -2,7 +2,7 @@
 source "https://rubygems.org"
 
 gem 'rake'
-gem 'github-pages'
+gem 'github-pages', group: :jekyll_plugins
 group :development do
   gem 'anemone'
 end
