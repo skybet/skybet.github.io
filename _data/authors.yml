@@ -241,6 +241,14 @@ jon_bulbrook:
     twitter: mrjpsycho
     github: mrjpsycho
 
+marcus_ojerinde_ardalla:
+    name: Marcus Ojerinde-Ardalla
+    image: marcus_ojerinde_ardalla.jpg
+    role: Junior Data Engineer
+    tribe: Data
+    bio: "A Young Data Engineer With a Passion For All Things Sports"
+    github: MarcusDevel
+
 tom_davidson:
     name: Tom Davidson
     image: tom_davidson.png
@@ -266,7 +274,7 @@ serena_wadsworth:
     role: Test Engineer
     tribe: Data
     startDate: 01-08-2016
-    bio: Engineer working in the Data Science squad of Data Tribe. Immersing myself in the world of Hadoop and trying to learn some R. When not at work I enjoy playing PS4 and trying to crossfit.  
+    bio: Engineer working in the Data Science squad of Data Tribe. Immersing myself in the world of Hadoop and trying to learn some R. When not at work I enjoy playing PS4 and trying to crossfit.
 
 john_denholm:
     name: John Denholm
