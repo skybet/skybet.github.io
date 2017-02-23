@@ -251,9 +251,9 @@ lee_odonnell:
     bio: Leads the delivery of high scale, secure and high performance infrastructure platforms for SB&G. Background in electronic engineering of high performance computing platforms, telecoms and software engineering of internet solutions
 
 callum_leahy:
-    name: Callum callum_leahy
-    image: 
+    name: Callum Leahy
+    image: callum_leahy.jpg
     role: Graduate Software Engineer
     tribe: Gaming
-    startDate: 01-07-2016
-    bio: Graduate Software Engineer working within the Gaming promotions squad within SB&G, 
+    startDate: 01-08-2016
+    bio: Part of the team delivering real time promotion information to our internal customers, working with Apache Kafka and NodeJS
