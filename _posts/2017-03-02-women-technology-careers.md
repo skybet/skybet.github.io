@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      How do we increase the numbers of women in technology based careers?
-date:       2017-02-07 18:00
+date:       2017-03-02 12:00
 summary:    How to tackle the technology industry’s disheartening gender imbalance from the perspective of a female software engineer.
 image:      women-in-it-tickets.jpg
 category:   Community
