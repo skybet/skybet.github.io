@@ -19,6 +19,7 @@ The platform currently used within the Gaming Promotions Squad largely relies on
 The Confluent Schema Registry is an idea by the creators of the Kafka platform. It is a secure and safe way of storing schema versions and ensuring that an accurate history is kept in case a rollback is needed. The schema registry is stored in the _schema topic, which is on Kafka itself. So anyone who has access to Kafka will therefore have access to the schema registry. This gives us the GPS squad end-to-end schema availability meaning we can massively increase the reliability of a system.
 
 ![Provides end-to-end Schemas](/images/schemas-end-to-end.png)
+
 simple glance at a kafka pipeline
 
 ## Why we need it
