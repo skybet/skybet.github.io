@@ -80,6 +80,10 @@ Again, add the author's image to the `images/authors` directory with the same fi
 
 To render the site locally, first you need to `sudo gem install bundler`. Then you can `cd` into your cloned repository and run `bundle install` to install all the rubygems which Github Pages (where the site gets hosted) uses, for compatibility reasons.  The site itself is powered by [jekyll](https://jekyllrb.com).  You can then run `bundle exec rake` (which calls `jekyll serve`) which will result in the site being available on `http://127.0.0.1:4000/`, re-rendering if you make any changes.  If you have any trouble getting the gems to install (particularly within OS X's default environment), we recommend installing [rvm](https://rvm.io).
 
+If you already have Docker and docker-compose installed, and don't do much Ruby work, you might find it easier to use the Docker way of running the site locally.  Run `docker-compose up` to launch the site in a container and after it has installed dependencies you can browse to `http://127.0.0.1:4000/`.  You can also validate your work by running `docker exec skybetgithubio_jekyll_1 rake validate`.
+
+If you are doing something more than editing articles then it is possible you will need to restart the Jekyll instance or container to pick these changes up.  You shouldn't need to do this routinely while editing articles because Jekyll is called with the `--watch --future` arguments.
+
 ## Validating your edits
 
 You can run the tests to make sure that your post, category and authors changes are considered valid.  To do this run `bundle exec rake validate`.

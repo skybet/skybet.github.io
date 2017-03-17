@@ -13,6 +13,16 @@ andy_burgin:
     tribe: Data
     bio: "When not organising Leeds DevOps, or conference speaking, Andy is improving our underlying Hadoop data platform."
 
+david_sunter:
+    name: David Sunter
+    image: david_sunter.jpg
+    role: Graduate DevOps Engineer, Platform Services
+    tribe: Early Careers
+    startDate: 01-08-2016
+    bio: "Dave joined on the first software academy ran by SB&G in August 2016, now working in Platform Services Team as a Gradaute Dev Ops Engineer."
+    interests: Football, Tennis, Cricket, Snowboarding, Gaming, Technology
+    twitter: davidasunter
+
 gav_harris:
     name: Gav Harris
     image: gavin_harris.jpg
@@ -257,3 +267,81 @@ callum_leahy:
     tribe: Gaming
     startDate: 01-08-2016
     bio: Part of the team delivering real time promotion information to our internal customers, working with Apache Kafka and NodeJS
+
+serena_wadsworth:
+    name: Serena Wadsworth
+    image: serena-wadsworth.jpg
+    role: Test Engineer
+    tribe: Data
+    startDate: 01-08-2016
+    bio: Engineer working in the Data Science squad of Data Tribe. Immersing myself in the world of Hadoop and trying to learn some R. When not at work I enjoy playing PS4 and trying to crossfit.
+
+john_denholm:
+    name: John Denholm
+    image: john_denholm.jpg
+    role: Lead Platform Engineer
+    tribe: Bet
+    startDate: 01-01-2012
+    bio: Longtime Skybet engineer, generally in charge of all things Graphite. Likes cats and whiskey.
+
+gary_mulder:
+    name: Gary Mulder
+    image: gary_mulder.jpg
+    role: Site Reliability Engineer
+    tribe: Bet
+    startDate: 01-01-2016
+    hasLeft: true
+    bio: After 10 years as a Systems Administrator, now specialising in Site Reliability and Performance Analysis. Likes making fast computers run faster. And maximum-pain chilli peppers.
+
+marcus_ojerinde_ardalla:
+    name: Marcus Ojerinde-Ardalla
+    image: marcus_ojerinde_ardalla.png
+    role: Junior Data Engineer
+    tribe: Data
+    bio: "A Young Data Engineer With a Passion For All Things Sports"
+    github: MarcusDevel
+
+ashley_broadley:
+    name: Ashley Broadley
+    image: ashley_broadley.png
+    role: Principal Engineer
+    tribe: Gaming
+    startDate: 06-02-2012
+    bio: "Likes Programming, Board Games, Cycling, Squash, Thai Boxing and Pilates."
+    github: ls12styler
+    twitter: ls12styler
+
+martyn_ranyard:
+    name: Martyn Ranyard
+    image: martyn_ranyard.jpg
+    role: Platform Engineer
+    tribe: Bet
+    startDate: 12-12-2014
+    bio: "Multi-faceted geek, some people collect things and call it a hobby, I collect hobbies."
+    github: iMartyn
+    twitter: iMartyn
+
+patrick_holmes:
+    name: Patrick Holmes
+    image: patrick_holmes.png
+    role: Head of Cloud Delivery
+    tribe: Infrastructure & Security
+    startDate: 29-02-2016
+    bio: "Member of the Infrastructure & Security Tribe, responsible for the operational delivery of the SBG cloud platforms and infrastructure services"
+    twitter: PJHGB
+
+john_kitson:
+    name: John Kitson
+    image: john_kitson.jpg
+    role: Scrum Master
+    tribe: Gaming
+    startDate: 06-02-2015
+    bio: "John works as a Scrum Master in the Gaming Tribe, covering the Gaming Promotions and Casino squads. John is a father of one and in his spare time enjoys running and organising at his local junior parkrun."
+
+sophia_chambers:
+    name: Sophia Chambers
+    image: sophia_chambers.jpg
+    role: Junior Software Engineer
+    tribe: Core
+    startDate: 12-08-2016
+    bio: Currently a software engineer in the Core UI tribe based in Sheffield. Favouring all things javascript.
