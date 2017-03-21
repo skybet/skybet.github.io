@@ -2,9 +2,9 @@
 layout:     post
 title:      Implementing The Schema Registry
 date:       2017-03-17 12:00
-summary:    Keeping on top of an area of technology that is as rapidly moving as the big data ecosystem is hard. Our data tribe share some of their resources for keeping up to date.
-category:   Data
-tags:       Data, Improvements
+summary:    Article describing the use of a Schema Registry, why we need it and takes a look at how we did it.
+category:   Gaming  
+tags:       Gaming Promotions, Reliability
 author:     callum_leahy
 ---
 
