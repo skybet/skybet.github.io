@@ -7,6 +7,8 @@ className:  category
 fixedHeader: true
 ---
 
+<h1 class="category">{{ page.title }}</h1>
+
 {% if site.categories[page.category] %}
   {% for post in site.categories[page.category] %}
     {% include postSummary.html %}
