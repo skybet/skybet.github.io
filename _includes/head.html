@@ -19,8 +19,12 @@
  <meta name="twitter:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}logo.png{% endif %}" />
 
  {% if layout.isArticle %}
- <meta name="twitter:label1" value="Reading time">
- <meta name="twitter:data1" value="{{ page.content | number_of_words | divided_by: 120 }} min 🕑">
+ {% if page.author && site.data.authors[page.author].twitter %}
+ <meta name="twitter:creator:id" content="@{{ site.data.authors[page.author].twitter }}" />
+ {% endif %}
+
+ <meta name="twitter:label1" content="Reading time" />
+ <meta name="twitter:data1" content="{{ page.content | number_of_words | divided_by: 120 }} min 🕑" />
  {% endif %}
 
  <meta property="og:site_name" content="Sky Betting &amp; Gaming Engineering Blog" />
