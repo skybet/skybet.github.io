@@ -21,7 +21,7 @@ The Confluent Schema Registry is an idea by the creators of the Kafka platform. 
 
 ![Provides end-to-end Schemas](/images/schemas-end-to-end.png)
 
-simple glance at a kafka pipeline
+*A simple glance at a kafka pipeline*
 
 ## Why we need it
 
@@ -29,8 +29,7 @@ The main reason that this work was needed was to ensure uniform schemas across d
 
 ## How we do it
 
-Our Registry client was built to spec with the [Confluent Schema Registry]( 
-http://docs.confluent.io/3.1.1/schema-registry/docs/). For the development of the client we have used NodeJS; using a Node package ensures it is reusable to deploy by other teams. When looking into the use of Node we realized that there were disadvantages, such as language native functions, specifically data serialization. However, we believed this was offset by the obvious advantage of having the use of NPM. NPM would be used to combat the native deserialization functionality by using the [AVSC package](https://github.com/mtth/avsc). This package is an implementation of the Avro specification, which specifically uses JavaScript. This use of JavaScript allows commonality, thus making it easier to encode and decode messages sent in Avro, provided the correct schema is given.
+Our Registry client was built to spec with the [Confluent Schema Registry](http://docs.confluent.io/3.1.1/schema-registry/docs/). For the development of the client we have used NodeJS; using a Node package ensures it is reusable to deploy by other teams. When looking into the use of Node we realized that there were disadvantages, such as language native functions, specifically data serialization. However, we believed this was offset by the obvious advantage of having the use of NPM. NPM would be used to combat the native deserialization functionality by using the [AVSC package](https://github.com/mtth/avsc). This package is an implementation of the Avro specification, which specifically uses JavaScript. This use of JavaScript allows commonality, thus making it easier to encode and decode messages sent in Avro, provided the correct schema is given.
 
 The main part to the Schema Registry implementation is the client, it is a layer on top of the Schema Registry Restful Service. The Node package interacts with the Registry Service to return schemas to the client. Once retrieved the package then caches the schemas to ensure it's as efficient as possible when it comes to timings and network resources. Once cached it then passes the schema to another package, which in turn is resolved into a promise of an encoded or decoded message back to the consumer of the package.
 
@@ -38,4 +37,4 @@ The Confluent Schema Registry has a specific format in which messages should be 
 
 ## Overview
 
-The Schema Registry is essential to teams using Apache Avro and Kafka to stream data from one end to another, the registry makes the encoding and decoding of these messages much more reliable and easy to collaborate on. The registry holds all different versions of a schema and can be accessed by anyone relevant to the kafka stream. The schemas are then used to encode and decode Avro encoded messages, usually from Kafka.
+The Schema Registry is essential to teams using Apache Avro and Kafka to stream data from one end to another, the registry makes the encoding and decoding of these messages much more reliable and easy to collaborate on. The registry holds all different versions of a schema and can be accessed by anyone relevant to the Kafka stream. The schemas are then used to encode and decode Avro encoded messages, usually from Kafka.
