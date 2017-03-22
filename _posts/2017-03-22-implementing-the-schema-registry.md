@@ -1,9 +1,9 @@
 ---
 layout:     post
 title:      Implementing The Schema Registry
-date:       2017-03-17 12:00
+date:       2017-03-22 11:00
 summary:    Article describing the use of a Schema Registry, why we need it and takes a look at how we did it.
-category:   Gaming  
+category:   Gaming
 tags:       Gaming Promotions, Reliability
 author:     callum_leahy
 ---
@@ -30,7 +30,7 @@ The main reason that this work was needed was to ensure uniform schemas across d
 ## How we do it
 
 Our Registry client was built to spec with the [Confluent Schema Registry]( 
-http://docs.confluent.io/3.1.1/schema-registry/docs/). For the development of the client we have used NodeJS; using a Node package ensures it is reusable to deploy by other teams. When looking into the use of Node we realized that there were disadvantages, such as language native functions, specifically data serialization. However, we believed this was offset by the obvious advantage of having the use of NPM. NPM would be used to combat the native deserialization functionality by using the [AVSC package](https://github.com/mtth/avsc). This package is an implementation of the Avro, which specifically uses JavaScript. This use of JavaScript allows commonality, thus making it easier to encode and decode messages sent in Avro, provided the correct schema is given.
+http://docs.confluent.io/3.1.1/schema-registry/docs/). For the development of the client we have used NodeJS; using a Node package ensures it is reusable to deploy by other teams. When looking into the use of Node we realized that there were disadvantages, such as language native functions, specifically data serialization. However, we believed this was offset by the obvious advantage of having the use of NPM. NPM would be used to combat the native deserialization functionality by using the [AVSC package](https://github.com/mtth/avsc). This package is an implementation of the Avro specification, which specifically uses JavaScript. This use of JavaScript allows commonality, thus making it easier to encode and decode messages sent in Avro, provided the correct schema is given.
 
 The main part to the Schema Registry implementation is the client, it is a layer on top of the Schema Registry Restful Service. The Node package interacts with the Registry Service to return schemas to the client. Once retrieved the package then caches the schemas to ensure it's as efficient as possible when it comes to timings and network resources. Once cached it then passes the schema to another package, which in turn is resolved into a promise of an encoded or decoded message back to the consumer of the package.
 
