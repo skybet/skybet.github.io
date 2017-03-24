@@ -62,7 +62,10 @@ main, article {
     width: 100%;
 
     img {
-        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
     }
     a {
         color: $color-default;
