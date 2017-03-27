@@ -51,10 +51,7 @@ Following the logic that TypeScript was just a superset of javascript, we were h
 
 ### Refactoring to ES6
 
-As time went on, we realised that to take advantage of some of the cooler TypeScript features such as using generics to allow us to specify types to our props and state, that we would have to use ES6 syntax. In hindsight this was probably one , actually upgrading our code to ES6 syntax, but would go a long way to providing us with what we were after in the first place: the ability to model our data as objects with strict types.
-
- 1. Convert from ES5 React.createClass to ES6 class based syntax
- 2. Fix imports/exports statements from ES5 to ES6 syntax
+We realised that we were going to have to convert from ES5 JavaScript to ES6 in order to take best advantage of the React integration with TypeScript. This worked, fundamentally, by using the Generics feature provided by TypeScript and allowed us to define what the props and state of each component looked like. 
 
 ### Define static methods
 ![Static Type Error](/images/mybets-typescript/static-type.png)
@@ -65,7 +62,7 @@ It turns out we were calling a lot of methods on our classes/components in a sta
 ### Import type definitions for external node_modules libraries that we were using
 What would the modern javascript world be without node_modules? Well, the good news is that TypeScript supports external javascript modules. The bad news is that in order to fully benefit from TypeScript, each of your external modules needs its own type definitions in order to let TypeScript know how the module should behave.
 
-With TypeScript 2.0 and above, for most popular modules, someone out there will have already compiled TypeScript definitions for your module and it's as simple as running
+With TypeScript 2.0 and above, for most popular modules, there should be open source TypeScript definitions for your module and it's as simple as running
 ```
 npm install @types/<module_name> //e.g. npm install @types/react
 ```
