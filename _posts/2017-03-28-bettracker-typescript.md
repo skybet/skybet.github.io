@@ -19,9 +19,9 @@ As a product, My Bets allows our customers to view, track and cash out any of th
 Confused? don't worry, you're not alone. The important thing to note is that we needed to be able to model complex data structures and their relationships to each other. TypeScript seemed perfect for this. Like using babel, it promised to give us ES6 features ahead of time but also allowed us to add strict types to give us more control over our data structure.
 
 ## What is TypeScript
-If you're not familiar with [TypeScript](https://github.com/Microsoft/TypeScript/), it's an open source language created by Microsoft  which compiles down into vanilla JavaScript. JavaScript is itself TypeScript, TypeScript is just a superset of javascript which includes typings and a few other bits of syntactic sugar such as Enums and Interfaces - things that you'd be used to seeing in "grown up" OOP languages.
+If you're not familiar with [TypeScript](https://github.com/Microsoft/TypeScript/), it's an open source language created by Microsoft  which compiles down into vanilla JavaScript. JavaScript is itself TypeScript, TypeScript is just a superset of JavaScript which includes typings and a few other bits of syntactic sugar such as Enums and Interfaces - things that you'd be used to seeing in "grown up" OOP languages.
 
-Once you're happy with your TypeScript, you simply run `tsc` (TypeScript compile). TypeScript will then perform static analysis of your code and remove all of the type hints and other TypeScript goodness and emit pure vanilla javascript. It will even compile from ES6 to ES5, making your code cross device friendly.
+Once you're happy with your TypeScript, you simply run `tsc` (TypeScript compile). TypeScript will then perform static analysis of your code and remove all of the type hints and other TypeScript goodness and emit pure vanilla JavaScript. It will even compile from ES6 to ES5, making your code cross device friendly.
 
 The clever part comes with the static type analysis, given all of the parameter type hints, return types, interfaces etc that you've written in your codebase, the compiler will analyse your code and make sure it all makes sense. This is a good thing because TypeScript is sanity checking your code for you as part of your development process, long before it ever reaches the production environment.
 
