@@ -10,7 +10,7 @@ author:     james_moorhouse
 
 ## Introduction
 
-Back in October 2016 my team were looking for ways we could improve our My Bets product which was written using ReactJS. We'd first made the product about 2 and a half years ago, much before my time, when ReactJS was still fairly new on the scene. As such, the React library itself had been through quite a few changes since then and a few of our design patterns were in need of a spring clean.
+Back in October 2016 my team were looking for ways we could improve our My Bets product which was written using React. We'd first made the product about 2 and a half years ago, much before my time, when React was still fairly new on the scene. As such, the React library itself had been through quite a few changes since then and a few of our design patterns were in need of a spring clean.
 
 As a product, My Bets allows our customers to view, track and cash out any of their bets. Bets these days are complex: they can consist of many selections with multiple outcomes across multiple events; then we need to track the history of a bet - i.e. all the data at the time it was placed compared to the equivalent, current data.
 
