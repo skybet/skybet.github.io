@@ -26,9 +26,9 @@ Once you're happy with your TypeScript, you simply run `tsc` (TypeScript compile
 The clever part comes with the static type analysis, given all of the parameter type hints, return types, interfaces etc that you've written in your codebase, the compiler will analyse your code and make sure it all makes sense. This is a good thing because TypeScript is sanity checking your code for you as part of your development process, long before it ever reaches the production environment.
 
 Other major benefits of TypeScript include:
-- better IDE support
-- support for interfaces
-- support for Enums
+- Better IDE support
+- Support for interfaces
+- Support for Enums
 
 ## Refactoring our App to use TypeScript
 Once we'd decided on TypeScript we needed to come up with a sensible process for upgrading our rather large, business critical application, whilst it was still being worked on by other developers.
