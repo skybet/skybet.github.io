@@ -16,7 +16,7 @@ As a product, My Bets allows our customers to view, track and cash out any of th
 
 ![My Bets Expanded](/images/mybets-typescript/mybets-expanded.png)
 
-Confused? don't worry, you're not alone. The important thing to note is that we needed to be able to model complex data structures and their relationships to each other. TypeScript seemed perfect for this. Like using babel, it promised to give us ES6 features ahead of time but also allowed us to add strict types to give us more control over our data structure.
+Confused? Don't worry, you're not alone. The important thing to note is that we needed to be able to model complex data structures and their relationships to each other. TypeScript seemed perfect for this. Like using babel, it promised to give us ES6 features ahead of time but also allowed us to add strict types to give us more control over our data structure.
 
 ## What is TypeScript
 If you're not familiar with [TypeScript](https://github.com/Microsoft/TypeScript/), it's an open source language created by Microsoft  which compiles down into vanilla JavaScript. JavaScript is itself TypeScript, TypeScript is just a superset of JavaScript which includes typings and a few other bits of syntactic sugar such as Enums and Interfaces - things that you'd be used to seeing in "grown up" OOP languages.
@@ -62,7 +62,7 @@ It turns out we were calling a lot of methods on our classes/components in a sta
 ### Import type definitions for external node_modules libraries that we were using
 What would the modern JavaScript world be without node_modules? Well, the good news is that TypeScript supports external JavaScript modules. The bad news is that in order to fully benefit from TypeScript, each of your external modules needs its own type definitions in order to let TypeScript know how the module should behave.
 
-With TypeScript 2.0 and above, for most popular modules, there should be open source TypeScript definitions for your module and it's as simple as running
+With TypeScript 2.0 and above, for most of the popular modules, there should be open source TypeScript definitions for your module and it's as simple as running:
 ```
 npm install @types/<module_name> //e.g. npm install @types/react
 ```
