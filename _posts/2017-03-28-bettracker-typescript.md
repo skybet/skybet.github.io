@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Modernizing our Application with TypeScript
+title:      Modernising our Application with TypeScript
 date:       2017-03-28 09:00
 summary:    How we used TypeScript to successfully refactor a large business critical codebase.
 category:   Software Engineering
