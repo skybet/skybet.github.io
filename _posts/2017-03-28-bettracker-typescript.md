@@ -43,18 +43,36 @@ to the following:
 
 
 ### Converting to TypeScript
-Following the logic that TypeScript was just a superset of JavaScript, we were hoping it would just be a case of renaming all of our files and swapping babel for TypeScript in our build process. What actually happened was a bit different, we'd expected a couple of rough edges when we moved to TypeScript, but nothing on the scale that we experienced. Integrating TypeScript as part of the build process was rather straight forwards, but when we ran TypeScript compile on our codebase we were faced with an absolute mountain of errors at the static analysis stage.
- On first pass, we were presented with about 1800 errors all looking a bit like the following:
 
-![A long list of error messages we encountered the first time we ran typescript compile](/images/mybets-typescript/compile-errors.png)
+Following the logic that TypeScript was just a superset of JavaScript, we were hoping it would just be a case of renaming all of our files and swapping babel for TypeScript in our build process. What actually happened was a bit different: we'd expected a couple of rough edges when we moved to TypeScript, but nothing on the scale that we experienced. Integrating TypeScript as part of the build process was rather straight forwards, but when we ran TypeScript compile on our codebase we were faced with an absolute mountain of errors at the static analysis stage.
 
+On first pass, we were presented with about 1800 errors all looking a bit like the following:
+
+```bash
+(46,7): error TS2339: Property 'setImagePathPrepend'  does not exist on type '{}'.
+(50,7): error TS2339: Property 'getImagePathPrepend'  does not exist on type '{}'.
+(54,7): error TS2339: Property 'setBetslipOutcomeHelper' does not exist on type '{}'.
+(58,7): error TS2339: Property 'addOutcomesToBetslip' does not exist on type '{}'.
+(62,7): error TS2339: Property 'setShowBetAgainButton' does not exist on type '{}'.
+(66,7): error TS2339: Property 'shouldShowBetAgainButton' does not exist on type '{}'.
+(70,7): error TS2339: Property 'setQualifiedVideoStreams' does not exist on type '{}'.
+(74,7): error TS2339: Property 'getQualifiedVideoStreams' does not exist on type '{}'.
+(78,7): error TS2339: Property 'setDisableHRCashoutAfterStartTime' does not exist on type '{}'.
+(82,7): error TS2339: Property 'shouldDisableHRCashoutAfterStartTime' does not exist on type '{}'.
+(86,7): error TS2339: Property 'setCsrfToken' does not exist on type '{}'.
+(90,7): error TS2339: Property 'getCsrfToken' does not exist on type '{}'.
+(106,7): error TS2339: Property 'formatLongDate' does not exist on type '{}'.
+```
 
 ### Refactoring to ES6
 
 We realised that we were going to have to convert from ES5 JavaScript to ES6 in order to take best advantage of the React integration with TypeScript. This worked, fundamentally, by using the Generics feature provided by TypeScript and allowed us to define what the props and state of each component looked like.
 
 ### Define static methods
-![Static Type Error](/images/mybets-typescript/static-type.png)
+
+```bash
+(74,7): error TS2339: Property 'getQualifiedVideoStreams' does not exist on type '{}'.
+```
 
 It turns out we were calling a lot of methods on our classes/components in a static context, without them being static. This is fine in ES5 JavaScript where there is no context of static methods or properties, but TypeScript wouldn't be doing its job properly unless it enforced strict standards. Solving these errors was a simple case of declaring static any methods which were or could be called in a static context.
 
