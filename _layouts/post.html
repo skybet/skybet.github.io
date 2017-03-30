@@ -43,11 +43,13 @@ fixedHeader: true
         {% if site.categories[page.category].size > 1 %}
         <div class="related-posts">
             <h3 class="page-title">Want to read more about {{ page.category }}? Check out these related articles...</h3>
-            {% for post in site.categories[page.category] %}
-              {% if post.title != page.title %}
+            <div class="column">
+                {% for post in site.categories[page.category] %}
+                {% if post.title != page.title %}
                 {% include relatedPosts.html %}
-              {% endif %}
-            {% endfor %}
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
         {% endif %}
     </section>

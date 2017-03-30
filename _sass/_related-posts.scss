@@ -7,30 +7,23 @@
         margin-right: 0;
     }
 
-    &:after {
-        content: "";
-        display: block;
-        clear: both;
+    .column {
+        @include media-query(s) {
+            column-count: 2;
+            column-gap: 1em;
+        }
+
+
+        @include media-query(l) {
+            column-count: 2;
+            column-gap: 1em;
+        }
+
     }
 
     .related-post {
         break-inside: avoid;
         margin: 0 0 1em;
-        float: left;
-        width: 100%;
-
-        @include media-query(s) {
-            width: calc(50% - 0.5em);
-        }
-
-        @include media-query(l) {
-            width: calc(50% - 0.5em);
-        }
-
-        &:nth-child(odd) {
-            float: right;
-            clear: right;
-        }
 
         h2 {
             margin-top: 0;
