@@ -27,7 +27,7 @@
             width: calc(50% - 0.5em);
         }
 
-        &:nth-child(even) {
+        &:nth-child(odd) {
             float: right;
             clear: right;
         }

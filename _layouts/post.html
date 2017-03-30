@@ -40,15 +40,16 @@ fixedHeader: true
             {{ content }}
         </div>
 
+        {% if site.categories[page.category].size > 1 %}
         <div class="related-posts">
             <h3 class="page-title">Want to read more about {{ page.category }}? Check out these related articles...</h3>
-            {% if site.categories[page.category] %}
             {% for post in site.categories[page.category] %}
-            {% include relatedPosts.html %}
+              {% if post.title != page.title %}
+                {% include relatedPosts.html %}
+              {% endif %}
             {% endfor %}
-            {% endif %}
         </div>
-
+        {% endif %}
     </section>
 
     <aside class="grid-xs-s-1-1 grid-m-xl-1-3">
