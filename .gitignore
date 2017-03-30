@@ -10,3 +10,5 @@ vendor
 .vendor
 .jekyll-metadata
 node_modules
+.vendor
+.jekyll-metadata
