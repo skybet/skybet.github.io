@@ -29,6 +29,7 @@
 
         &:nth-child(even) {
             float: right;
+            clear: right;
         }
 
         h2 {
