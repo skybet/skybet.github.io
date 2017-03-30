@@ -1,41 +1,16 @@
-<header class="page">
-    {% if page.fixedHeader != true %}
-    <div class="grid">
-        <div class="grid-1-1 page-title">
+<header class="page{% if page.fixedHeader %} headFixed{% endif %}">
+
+    <nav class="sticky">
+
+        <div class="page-title">
             <a href="/">
-                <svg class="sbg-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <use xlink:href="/images/logos/skybettingandgaming.svg#logo"></use>
-                </svg>
+            <svg class="sbg-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <use xlink:href="/images/logos/skybettingandgaming.svg#logo"></use>
+            </svg>
             </a>
         </div>
-    </div>
-    {% endif %}
 
-    <div class="sticky{% if page.fixedHeader %} headFixed{% endif %}">
-        <div class="grid">
-            <nav class="grid-xs-s-1-2 grid-m-xl-1-2 btnNavLarge">
-            {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
-            <ul>
-            {% for node in nav %}
-                <li class="{{node.nav_class}}">
-                    {% if page.url == node.url %}
-                        <a href="{{node.url}}" class="btn btn--primary current">{{node.nav_title}}</a>
-                    {% else %}
-                        <a href="{{node.url}}" class="btn btn--primary {{node.nav_class}}">{{node.nav_title}}</a>
-                    {% endif %}
-                </li>
-            {% endfor %}
-            </ul>
-            </nav>
-
-            <nav class="grid-xs-s-1-2 grid-m-xl-1-2 logoSmall hide">
-                <a href="/">
-                    <svg class="sbg-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <use xlink:href="/images/logos/skybettingandgaming.svg#logo"></use>
-                    </svg>
-                </a>
-            </nav>
-
+        <div class="mobile-menu">
             <a class="trigger hide-s-xl">
                 <svg width="100%" height="100%" viewBox="0 0 60 60" preserveAspectRatio="none">
                     <g class="icon icon--grid">
@@ -50,43 +25,30 @@
                     </g>
                 </svg>
             </a>
-
-
-            <div class="grid-xs-s-1-2 grid-m-xl-1-2 social hide-xs">
-                {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
-                <div class="{{node.nav_class}} hide slide-right">
-                    {% for node in nav %}
-                        {% if page.url == node.url %}
-                            <a href="{{node.url}}" class="btn btn--primary current">{{node.nav_title}}</a>
-                        {% else %}
-                            <a href="{{node.url}}" class="btn btn--primary {{node.nav_class}}">{{node.nav_title}}</a>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                <ul class="social-list">
-                    <li><a class="fa fa-twitter" href="https://twitter.com/SBGEngineers"></a></li>
-                    <li><a class="fa fa-github-alt" href="https://github.com/skybet"></a></li>
-                    <li><a class="fa fa-linkedin" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
-                </ul>
-            </div>
-
-            <div class="grid-xs-s-1-1 social hide hide-s-xl mobile-menu">
-                {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
-                {% for node in nav %}
-                    <div class="{{node.nav_class}} hide slide-right">
-                        {% if page.url == node.url %}
-                            <a href="{{node.url}}" class="btn btn--primary current">{{node.nav_title}}</a>
-                        {% else %}
-                            <a href="{{node.url}}" class="btn btn--primary {{node.nav_class}}">{{node.nav_title}}</a>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-                <ul class="social-list">
-                    <li><a class="fa fa-twitter" href="https://twitter.com/SBGEngineers"></a></li>
-                    <li><a class="fa fa-github-alt" href="https://github.com/skybet"></a></li>
-                    <li><a class="fa fa-linkedin" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
-                </ul>
-            </div> <!-- ./mobile-menu -->
         </div>
-    </div>
+
+        <div class="page-links">
+            {% assign nav = (site.pages | where: "nav",true | sort: "nav_weight") %}
+            <ul>
+            {% for node in nav %}
+                <li class="{{node.nav_class}}">
+                    {% if page.url == node.url %}
+                        <a href="{{node.url}}" class="btn btn--primary current">{{node.nav_title}}</a>
+                    {% else %}
+                        <a href="{{node.url}}" class="btn btn--primary {{node.nav_class}}">{{node.nav_title}}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+
+        <div class="social">
+            <ul class="social-list">
+                <li><a class="fa fa-twitter" href="https://twitter.com/SBGEngineers"></a></li>
+                <li><a class="fa fa-github-alt" href="https://github.com/skybet"></a></li>
+                <li><a class="fa fa-linkedin" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
+            </ul>
+        </div>
+
+    </nav>
 </header>

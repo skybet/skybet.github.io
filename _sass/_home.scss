@@ -20,6 +20,8 @@
 
             h1 {
                 margin-bottom: $h1-margin-bottom / 2;
+                @include gradient-text();
+                display: inline-block;
             }
         }
     }
@@ -39,7 +41,8 @@
 
         a {
             text-decoration: none;
-            color: $color-default;
+            display: inline-block;
+            @include gradient-text();
         }
     }
 
@@ -58,6 +61,7 @@
 
     .date {
         background: $color-default;
+        background: linear-gradient(135deg, $color-default 20%, $color-primary 100%);
         border-radius: 100%;
         width: 80px;
         height: 80px;
@@ -94,11 +98,14 @@
     }
 
     .post--category {
-        background-color: $color-highlight;
-        border-radius: 3px;
-        padding: $base-line/4 $base-line/2;
-        display: inline-block;
-        margin-bottom: $base-line/2;
+        display: block;
+        a {
+            background-color: $color-highlight;
+            border-radius: 3px;
+            padding: $base-line/4 $base-line/2;
+            display: inline-block;
+            margin-bottom: $base-line/2;
+        }
     }
 
     .cta {
@@ -133,9 +140,6 @@
     margin-bottom: $base-line;
 
     .area {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
         display: flex;
         padding: 0;
 
@@ -159,6 +163,11 @@
             width: 100%;
             margin: 0 0 $base-line 0;
             padding: $base-line/2;
+
+            h1 {
+                @include gradient-text();
+                display: inline-block;
+            }
         }
 
         ul {
@@ -167,9 +176,7 @@
 
             @include media-query(l) {
                 &.split-columns {
-                    -webkit-column-count: 2;
-                       -moz-column-count: 2;
-                            column-count: 2;
+                    column-count: 2;
                 }
             }
 

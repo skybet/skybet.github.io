@@ -12,4 +12,6 @@ kramdown:
     input: GFM
     syntax_highlighter: rouge
 exclude:
-    [vendor]
+    - [vendor]
+    - spec
+    - node_modules

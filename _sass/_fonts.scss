@@ -47,6 +47,7 @@ h1 {
     line-height: $h1-line-height;
     margin-bottom: $h1-margin-bottom;
 
+
     @include media-query(xs) {
         font-size: $h1-font-size * .8;
         margin-bottom: $h1-margin-bottom * .8;
@@ -196,12 +197,7 @@ pre.highlight, pre.highlight > code {
     white-space: pre;
     word-spacing: normal;
     word-break: normal;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
     tab-size: 4;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
     hyphens: none;
 }
 

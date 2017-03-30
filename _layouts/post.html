@@ -39,6 +39,16 @@ fixedHeader: true
 
             {{ content }}
         </div>
+
+        <div class="related-posts">
+            <h3 class="page-title">Want to read more about {{ page.category }}? Check out these related articles...</h3>
+            {% if site.categories[page.category] %}
+            {% for post in site.categories[page.category] %}
+            {% include relatedPosts.html %}
+            {% endfor %}
+            {% endif %}
+        </div>
+
     </section>
 
     <aside class="grid-xs-s-1-1 grid-m-xl-1-3">

@@ -13,7 +13,7 @@ This is source for our public engineering site at http://engineering.skybettinga
 
 All changes are welcome from additional articles, to styling changes, etc. If you're not comfortable with a pull request you can email <engineering@skybettingandgaming.com> directly with your post in [Markdown format](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/) with any accompanying pictures.
 
-If making updates to the layout, use the sass in the `_scss/` directory.
+If making updates to the layout, use the sass in the `_sass/` directory. There is a gulp task which listens and compiles and also runs the output through autoprefixer, which means you don't have to manually add vendor prefixes to styles, and cleanCSS to minify. Use `gulp watch` to run this locally.
 
 ## Adding a New Article
 
