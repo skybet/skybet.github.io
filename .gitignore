@@ -2,6 +2,7 @@
 _site
 npm-debug.log
 .sass-cache
+css/*
 .bundle
 vendor
 .idea
