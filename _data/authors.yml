@@ -241,6 +241,14 @@ jon_bulbrook:
     twitter: mrjpsycho
     github: mrjpsycho
 
+marcus_ojerinde_ardalla:
+    name: Marcus Ojerinde-Ardalla
+    image: marcus_ojerinde_ardalla.jpg
+    role: Junior Data Engineer
+    tribe: Data
+    bio: "A Young Data Engineer With a Passion For All Things Sports"
+    github: MarcusDevel
+
 tom_davidson:
     name: Tom Davidson
     image: tom_davidson.png
