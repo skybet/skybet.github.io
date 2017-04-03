@@ -10,13 +10,15 @@
 
     .column {
         @include media-query(s) {
-            column-count: 2;
-            column-gap: 1em;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1em;
         }
 
         @include media-query(l) {
-            column-count: 2;
-            column-gap: 1em;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1em;
         }
 
     }

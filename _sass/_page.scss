@@ -65,6 +65,13 @@ body {
     float: left;
 }
 
+a {
+    color: $color-default;
+
+    &:hover {
+        color: darken($color-default, 20%);
+    }
+}
 
 main, article {
     margin: 0 auto;
@@ -76,13 +83,6 @@ main, article {
         text-align: center;
         margin: 0 auto;
         display: block;
-    }
-    a {
-        color: $color-default;
-
-        &:hover {
-            color: darken($color-default, 20%);
-        }
     }
 }
 
@@ -198,13 +198,17 @@ aside {
     }
 }
 
+.authors-page {
+    margin-top: -370px;
+
+    @include media-query(xs-s) {
+        margin-top: -170px;
+    }
+
+}
 .authors {
     margin: $base-line 0;
     box-sizing: border-box;
-
-    // @include media-query(xs-s) {
-    //     margin-top: -130px;
-    // }
 
     .author-section {
         background: $color-whtrans;
@@ -290,9 +294,13 @@ aside {
 }
 
 .comments {
-    background: linear-gradient(135deg, rgba(0, 27, 92, 0.7) 0%, rgba(178, 8, 28, 0.7) 100%);
+    background: linear-gradient(135deg, rgba(0, 27, 92, 0.12) 0%, rgba(178, 8, 28, 0.12) 100%);
     color: $color-default;
     padding: 20px 0;
+
+    a.publisher-anchor-color {
+        color: #001b5c!important;
+    }
 }
 
 footer {
