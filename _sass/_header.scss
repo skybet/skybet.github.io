@@ -3,6 +3,11 @@ header.page {
     background-position: center;
     background-size: cover;
     position: relative;
+    height: 430px;
+
+    @include media-query(xs-s) {
+        height: 220px;
+    }
 
     &:before {
         content: "";
@@ -39,7 +44,6 @@ header.page {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        position: relative;
         margin: 0 auto;
         width: 100%;
         flex-wrap: wrap;
@@ -140,12 +144,24 @@ header.page {
 
     &.headFixed {
         position: fixed;
-        top:0; right: 0; left:0;
+        top: 0; right: 0; left:0;
         width: 100%;
         z-index: 100;
+        height: 70px;
+
 
         .sticky {
             min-height: 70px;
+
+            &:before {
+                content: "";
+                background: linear-gradient(135deg, $color-default 0%, $color-primary 100%);
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
         }
 
         .page-title {
@@ -251,9 +267,5 @@ header.page {
     .trigger--active .icon--cross {
         opacity: 1;
         transform: scale3d(1, 1, 1);
-    }
-
-    .headFixed & {
-        background: linear-gradient(135deg, $color-default 0%, $color-primary 100%);
     }
 }

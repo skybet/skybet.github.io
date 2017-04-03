@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    color: darken($color-default, 10%);
+    color: $color-default;
     background-image: url('/images/bg/page-bg.png');
     background-position: top center;
     overflow-x: hidden;
@@ -12,9 +12,19 @@ body {
     line-height: 24px;
     font-family: $SkyRegular;
 
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
     &.headFixed {
-        article.grid, main {
-            padding-top: 435px;
+        article.article:before, main.list:before {
+            content: "";
+            display: block;
+            height: 430px;
+
+            @include media-query(xs-s) {
+                height: 220px;
+            }
         }
     }
 }
@@ -191,6 +201,10 @@ aside {
 .authors {
     margin: $base-line 0;
     box-sizing: border-box;
+
+    // @include media-query(xs-s) {
+    //     margin-top: -130px;
+    // }
 
     .author-section {
         background: $color-whtrans;

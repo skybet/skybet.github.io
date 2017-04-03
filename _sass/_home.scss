@@ -14,7 +14,7 @@
         }
 
         header {
-            padding: 0 $base-line*3 0 0;
+            padding: 0 60px 0 0;
             border-bottom: 1px solid $color-default;
             margin-bottom: $base-line*0.5;
 
@@ -70,15 +70,10 @@
         left: -40px;
         color: $color-light;
 
-        @include media-query(xs-s) {
-            left: 10px;
-            top: -40px;
-        }
-
         .details & {
             right: 0;
             left: auto;
-            top: 10px;
+            top: -5px;
         }
 
         .day, .month {
@@ -94,6 +89,22 @@
         }
         .month {
             font-size: 14px;
+        }
+
+        @include media-query(xs-s) {
+            width: 60px;
+            height: 60px;
+            top: -40px;
+            left: 10px;
+
+            .day {
+                font-size: 28px;
+                margin: 10px auto 0;
+            }
+            .month {
+                font-size: 13px;
+                margin-top: -4px;
+            }
         }
     }
 
