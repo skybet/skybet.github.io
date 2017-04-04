@@ -1,4 +1,4 @@
-<header class="page{% if page.fixedHeader %} headFixed{% endif %}">
+<header class="page{% if page.fixedHeader %} headFixed{% endif %} {% if page.image %}hasImage{% endif %}" {% if page.image %}style="background-image: url('/images/{{ page.image }}');"{% endif %}>
 
     <nav class="sticky">
 
@@ -44,9 +44,9 @@
 
         <div class="social">
             <ul class="social-list">
-                <li><a class="fa fa-twitter" href="https://twitter.com/SBGEngineers"></a></li>
-                <li><a class="fa fa-github-alt" href="https://github.com/skybet"></a></li>
-                <li><a class="fa fa-linkedin" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
+                <li><a target="_blank" class="fa fa-twitter" href="https://twitter.com/SBGEngineers"></a></li>
+                <li><a target="_blank" class="fa fa-github-alt" href="https://github.com/skybet"></a></li>
+                <li><a target="_blank" class="fa fa-linkedin" href="https://www.linkedin.com/company/sky-betting-and-gaming"></a></li>
             </ul>
         </div>
 

@@ -31,7 +31,7 @@
     }
 
     &:hover {
-        cursor: pointer!important;
+        cursor: pointer;
     }
 
     &.btn--default {
@@ -59,7 +59,7 @@
 
             &:after {
                 opacity: 1;
-                height: 600% !important;
+                height: 1500%;
             }
         }
     }

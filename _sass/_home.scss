@@ -14,9 +14,13 @@
         }
 
         header {
-            padding: 0 60px 0 0;
+            padding: 0 80px 0 0;
             border-bottom: 1px solid $color-default;
             margin-bottom: $base-line*0.5;
+
+            @include media-query(xs-s) {
+                padding: 0 60px 0 0;
+            }
 
             h1 {
                 margin-bottom: $h1-margin-bottom / 2;
@@ -166,7 +170,6 @@
             margin: -12px -12px 12px -12px;
             text-transform: uppercase;
             background: $color-highlight;
-            color: white;
             padding: 6px 10px;
         }
 
