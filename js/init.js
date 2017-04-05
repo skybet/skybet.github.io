@@ -34,7 +34,7 @@
                 Handler = isTouch ? 'touchstart' : 'click';
 
             if (!~Elements.header.classList.value.indexOf('hasImage')) {
-                var images = ['header-bg.jpg', 'header-bg2.jpg', 'header-bg3.jpg', 'header-bg4.jpg', 'header-bg5.jpg', 'header-bg6.jpg', 'header-bg7.jpg'];
+                var images = ['header-bg.jpg', 'header-bg2.jpg', 'header-bg3.jpg', 'header-bg5.jpg', 'header-bg6.jpg', 'header-bg7.jpg'];
                 Elements.header.style.backgroundImage = 'url(/images/bg/' + images[Math.floor(Math.random() * images.length)] + ')';
             }
 
