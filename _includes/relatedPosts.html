@@ -1,0 +1,52 @@
+{% assign minutes = post.content | number_of_words | divided_by: 120 %}
+{% if minutes == 0 %}
+{% assign minutes = 1 %}
+{% endif %}
+
+<div class="post related-post">
+    <div class="date">
+        <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
+            <span class="day">{{ post.date | date: "%-d" }}</span>
+            <span class="month">{{ post.date | date: "%b '%y" }}</span>
+        </time>
+    </div>
+
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+
+    {% if post.summary %}
+    {{ post.summary | markdownify }}
+    {% endif %}
+
+    <div class="cta flex">
+        <div class="author flex-item">
+            {% assign authorCount = post.author | join: "," | split: "," | size %}
+            {% if authorCount > 1 # pluralize filter not working as expected %}
+            <header>Authors:</header>
+            {% else %}
+            <header>Author:</header>
+            {% endif %}
+
+            <p>
+            {% if post.author == empty %}
+            No author
+            {% else %}
+              {% for a in post.author %}
+                {% assign author=site.data.authors[a] %}
+                {% if forloop.first %}
+                  <a href="/authors#{{ a }}">{{ author.name }}</a>
+                {% elsif forloop.last %}
+                  and <a href="/authors#{{ a }}">{{ author.name }}</a>
+                {% else %}
+                  , <a href="/authors#{{ a }}">{{ author.name }}</a>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            </p>
+        </div>
+
+        <div class="read flex-item">
+            <header>Time:</header>
+            <p>{{ minutes }} minute read</p>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 (function() {
     'use strict';
 
+
     var st = document.readyState,
         readyHandlers = false,
         running = false,
@@ -12,34 +13,44 @@
                 running = false;
             });
         },
+
         readyFn = function() {
+
             var isTouch = window.hasOwnProperty('ontouchstart') && window.ontouchstart,
                 Elements = {
-                    'sticky': document.querySelector('.sticky'),
+                    'header': document.querySelector('header'),
                     'body': document.querySelector('body'),
                     'title': document.querySelector('.page-title'),
                     'trigger': document.querySelector('.trigger'),
+                    'pageLinks': document.querySelector('.page-links'),
+                    'social': document.querySelector('.social'),
                     'menu': document.querySelector('.mobile-menu'),
                     'authors': document.querySelector('main section .authors'),
                 },
                 Positions = {
-                    'sticky': Elements.sticky.offsetTop,
+                    'pageLinks': Elements.pageLinks.offsetTop,
                     'doc': window.scrollY,
                 },
                 Handler = isTouch ? 'touchstart' : 'click';
+
+            if (!~Elements.header.classList.value.indexOf('hasImage')) {
+                var images = ['header-bg.jpg', 'header-bg2.jpg', 'header-bg3.jpg', 'header-bg5.jpg', 'header-bg6.jpg', 'header-bg7.jpg'];
+                Elements.header.style.backgroundImage = 'url(/images/bg/' + images[Math.floor(Math.random() * images.length)] + ')';
+            }
+
 
             if (!!Elements.title) {
                 window.addEventListener('scroll', scrollFn);
                 window.addEventListener('optimisedScroll', function() {
                     Positions.doc = window.scrollY;
 
-                    if (Positions.doc >= Positions.sticky) {
-                        if (!Elements.sticky.classList.contains('headFixed')) {
-                            Elements.sticky.classList.add('headFixed');
+                    if (Positions.doc >= Positions.pageLinks) {
+                        if (!Elements.header.classList.contains('headFixed')) {
+                            Elements.header.classList.add('headFixed');
                             Elements.body.classList.add('headFixed');
                         }
-                    } else if (Elements.sticky.classList.contains('headFixed')) {
-                        Elements.sticky.classList.remove('headFixed');
+                    } else if (Elements.header.classList.contains('headFixed')) {
+                        Elements.header.classList.remove('headFixed');
                         Elements.body.classList.remove('headFixed');
                     }
                 }, false);
@@ -49,6 +60,8 @@
                 Elements.trigger.addEventListener(Handler, function() {
                     Elements.trigger.classList.toggle('trigger--active');
                     Elements.menu.classList.toggle('trigger--active');
+                    Elements.pageLinks.classList.toggle('trigger--active');
+                    Elements.social.classList.toggle('trigger--active');
                 }, false);
             }
 

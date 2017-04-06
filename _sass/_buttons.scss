@@ -5,52 +5,70 @@
 .btn {
     padding: 10px 18px;
     border: none;
+    position: relative;
+    display: block;
     display: inline-block;
     text-decoration: none;
-    font-family: skyRegualr, Arial, sans-serif;
+    font-family: $SkyRegular;
     font-size: 100%;
     border-radius: 3px;
     box-sizing: border-box;
     background: transparent;
     cursor: pointer!important;
     margin-bottom: 4px;
+    transition: all 1s ease;
+    overflow: hidden;
+
+    &:after {
+        content: "";
+        position: absolute;
+        height: 0%;
+        left: 50%;
+        top: 50%;
+        width: 150%;
+        z-index: -1;
+        transition: all 0.75s ease 0s;
+    }
 
     &:hover {
-        cursor: pointer!important;
+        cursor: pointer;
     }
 
     &.btn--default {
-        border: 2px solid $color-primary;
-        color: $color-primary;
+        border: 2px solid $color-default;
+        color: $color-default;
         padding: 8px 18px;
 
         &:hover {
-            border: 2px solid darken($color-primary, 5%);
-            color: darken($color-primary, 5%);
+            border: 2px solid darken($color-default, 5%);
+            color: darken($color-default, 5%);
         }
     }
     &.btn--primary {
-        background: $color-primary;
-        color: $color-default;
+        border: 2px solid $color-default;
+        padding: 8px 18px;
+
+        &:after {
+            background: darken($color-default, 5%);
+            opacity: .5;
+            transform: translateY(-50%) translateX(-50%) rotate(90deg);
+        }
 
         &:hover {
-            background: darken($color-primary, 5%);
-        }
-    }
-    &.btn--secondary {
-        background: $color-secondary;
-        color: white;
+            color: $color-light;
 
-        &:hover {
-            background: darken($color-secondary, 10%);
+            &:after {
+                opacity: 1;
+                height: 1500%;
+            }
         }
     }
-    
+
     &.btn--disabled {
-        background: $color-darkGrey;
-        color: white;
+        border: 2px solid $color-darkGrey;
+        color: $color-darkGrey;
         pointer-events: none;
-        opacity: 0.4;
+        opacity: 0.6;
 
         &:hover {
             background: $color-darkGrey;
@@ -141,5 +159,3 @@
         }
     }
 }
-
-
