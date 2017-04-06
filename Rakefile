@@ -9,7 +9,7 @@ task :default => :preview
 #
 # $compass = false # default
 # $compass = true  # if you wish to run compass as well
-$gulp = true  # if you wish to run gulp as well
+$gulp = ENV.fetch("GULP", false)  # if you wish to run gulp as well
 #
 # Notice that Jekyll 2.0 supports sass natively, so you might want to have a look
 # at the functions provided by Jekyll instead of using the functions provided here.
