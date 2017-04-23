@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      So you've been asked to support a Kafka cluster
+title:      Getting started with testing Kafka
 date:       2017-04-28 09:00
 summary:    There can be a gap between the people being asked to support a Kafka cluster and the people who's job it is to produce and consume from it.  In this blog post we aim to quickly get you up and running with a local instance as well as some portable tooling to test it.
 category:   Data
@@ -8,7 +8,7 @@ tags:       kafka
 author:     alice_kaerast
 ---
 
-Building Kafka clusters is becoming ridiculously easy for anyone these days, but there's often a gap between the people who's job it is to build Kafka and the people who's job it is to produce and consume from it.  In this blog we're going to run through running a local Kafka cluster as well as producing and consuming from it.
+Building Kafka clusters is becoming ridiculously easy for anyone these days, but there's often a gap between the people who's job it is to build Kafka and the people who's job it is to produce and consume from it.  In this blog we're going to run through standing up a local Kafka cluster instance and then look at some portable tools for reading and writing from it.
 
 But before we get started, we should note that it probably isn't wise to publish arbitrary messages to production Kafka topics unless you know what they do.
 
@@ -17,7 +17,7 @@ But before we get started, we should note that it probably isn't wise to publish
 
 ## Kafka on Docker
 
-It used to be that running Kafka locally required downloading zookeeper and kafka packages, and carefully configuring and running them.  With the advent of Confluent and Docker, those days are over.
+It used to be that running Kafka locally required downloading zookeeper and kafka packages and carefully configuring and running them with limited documentation.  With the advent of Confluent and Docker, those days are over.  We can easily stand up a local Kafka instance in just two commands without having to understand anything of the how or why.
 
 Following the [Confluent Quickstart Guide](http://docs.confluent.io/current/cp-docker-images/docs/quickstart.html), let's get Zookeeper and Kafka up and running using Docker.
 
@@ -78,6 +78,8 @@ Now we could stop here and be satisfied, but it's important to realise that you 
 docker run --rm filia/ponysay "hello world" | ./kafkacat -b localhost:29092 -t foo
 ```
 
+So by now you should have the tools to play around with Kafka locally, and have some portable tooling you can use to play with real Kafka clusters.  You don't need to write any code to do this, and you don't even need Java installed.  The most basic integrations with Kafka will publish and subscribe messages in just the same way with libraries available for all popular programming languages.
+
 ## Kafka Schemas
 
 By now you should be starting to question whether it's sensible to publish any old messages to a given Kafka topic, and the answer is no, it really isn't.  That's why we have the Schema Registry component of the Confluent stack to ensure that all messages we are consuming conform to the standard (Avro) format that has been defined for the topic.
@@ -86,6 +88,4 @@ But adding these restrictions makes it hard to test with kafkacat, because now a
 
 But there are tools starting to appear which can be used to test your stack with Avro and the Schema Registry.
 
-[Landoop's Avro Generator](https://github.com/Landoop/landoop-avro-generator) is a tool we've only recently come across.  It generates a large number of messages in varying Avro formats and publishes them to a number of fixed topics - integrating with the Confluent Schema Registry.  A random data generator in Avro format if you will.  We'll save the details of using this tool and configuring/using the Schema Registry for a future blog post.
-
-So by now you should have the tools to play around with Kafka locally, and have some portable tooling you can use to play with real Kafka clusters.
+[Landoop's Avro Generator](https://github.com/Landoop/landoop-avro-generator) is a tool we've only recently come across.  It generates a large number of messages in varying Avro formats and publishes them to a number of fixed topics - integrating with the Confluent Schema Registry.  A random data generator in Avro format if you will.  We'll cover getting started with the Schema Registry and using this tool to test it in a future post.
