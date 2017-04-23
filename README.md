@@ -82,7 +82,7 @@ To render the site locally, first you need to `sudo gem install bundler`. Then y
 
 If you are making UI updates you will also need to run `npm install`, then you can then run `GULP=1 bundle exec rake` to call the gulp build with the existing set up.
 
-If you already have Docker and docker-compose installed, and don't do much Ruby work, you might find it easier to use the Docker way of running the site locally.  Run `docker-compose up` to launch the site in a container and after it has installed dependencies you can browse to `http://127.0.0.1:4000/`.  You can also validate your work by running `docker exec skybetgithubio_jekyll_1 rake validate`.  You can also use Docker to generate the CSS from the Sass `docker run -v `pwd`:/src -p 9090:8080  -e GULP_TASK="watch"  -d -t -i agomezmoron/docker-gulp`
+If you already have Docker and docker-compose installed, and don't do much Ruby work, you might find it easier to use the Docker way of running the site locally.  Run `docker-compose up` to launch the site in a container and after it has installed dependencies you can browse to `http://127.0.0.1:4000/`.  You can also validate your work by running `docker exec skybetgithubio_jekyll_1 rake validate`.  Docker will run a second container to generate the css from the sass, but you can also do this separately with `docker run --rm -v `pwd`:/src -p 9090:8080  -e GULP_TASK="watch" -t -i agomezmoron/docker-gulp`
 
 
 If you are doing something more than editing articles then it is possible you will need to restart the Jekyll instance or container to pick these changes up.  You shouldn't need to do this routinely while editing articles because Jekyll is called with the `--watch --future` arguments.
