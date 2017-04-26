@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "How we broke Hadoop by optimising services"
-date:       2017-03-30 12:00
+date:       2017-04-26 16:00
 summary:    We've been optimising the allocation of services in our Hadoop cluster recently.  It turns out a quiet Hadoop gateway server is a bad one.
 author:     alice_kaerast
 category:   Data
