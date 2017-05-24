@@ -2,7 +2,7 @@
 layout:     post
 title:      "Dinosaur bitten by Python, saved by Jesus"
 date:       2017-04-26 16:00
-summary:    We've been optimising the allocation of services in our Hadoop cluster recently.  It turns out a quiet Hadoop gateway server is a bad one.
+summary:    Turns out driving Infrastructure with code via APIs isn't that scary after all for your ageing engineer, it's actually fun!
 author:     andrew_newsome
 category:   Infrastructure
 tags:       API, automation, MDNS, python
