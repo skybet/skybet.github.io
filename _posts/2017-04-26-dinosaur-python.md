@@ -4,9 +4,12 @@ title:      "Dinosaur bitten by Python, saved by Jesus"
 date:       2017-04-26 16:00
 summary:    Turns out driving Infrastructure with code via APIs isn't that scary after all for your ageing engineer, it's actually fun!
 author:     andrew_newsome
+image:      python.png
 category:   Infrastructure
 tags:       API, automation, MDNS, python
 ---
+
+![Aging Dinosaur](/images/dinosaur.jpg)
 
 I'm a bit of an ageing dinosaur from back in the day when computers were expensive. I'm not talking expensive like now. I mean really expensive! You know, the sort of mountain of cash you'd need today to buy a second rate premiership striker who'd guarantee you 7 or 8 goals a season. Provided of course he didn't withdraw his services because the back office staff inadvertently gave him the wrong scented lip balm at half time. Vendors made so much margin on these goliath machines that they used to come with a couple of engineers to feed and water them for the rest of their working lives.
 
