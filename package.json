@@ -1,7 +1,7 @@
 {
   "name": "skybet.github.io",
   "version": "1.0.0",
-  "description": "Sky Betting & Gaming Engineering Site",
+  "description": "Sky Betting & Gaming Technology Site",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
