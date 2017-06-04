@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    color: darken($color-default, 10%);
+    color: $color-default;
     background-image: url('/images/bg/page-bg.png');
     background-position: top center;
     overflow-x: hidden;
@@ -12,9 +12,19 @@ body {
     line-height: 24px;
     font-family: $SkyRegular;
 
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
     &.headFixed {
-        article.grid, main {
-            padding-top: 90px;
+        article.article:before, main.list:before {
+            content: "";
+            display: block;
+            height: 430px;
+
+            @include media-query(xs-s) {
+                height: 220px;
+            }
         }
     }
 }
@@ -55,6 +65,13 @@ body {
     float: left;
 }
 
+a {
+    color: $color-default;
+
+    &:hover {
+        color: darken($color-default, 20%);
+    }
+}
 
 main, article {
     margin: 0 auto;
@@ -62,14 +79,10 @@ main, article {
     width: 100%;
 
     img {
-        width: 100%;
-    }
-    a {
-        color: $color-default;
-
-        &:hover {
-            color: darken($color-default, 20%);
-        }
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
     }
 }
 
@@ -185,6 +198,14 @@ aside {
     }
 }
 
+.authors-page {
+    margin-top: -370px;
+
+    @include media-query(xs-s) {
+        margin-top: -170px;
+    }
+
+}
 .authors {
     margin: $base-line 0;
     box-sizing: border-box;
@@ -229,9 +250,6 @@ aside {
                 background-color: $color-highlight;
                 border-radius: 3px;
                 padding: $base-line/4 $base-line/2;
-                -webkit-box-flex: none;
-                -webkit-flex: none;
-                -ms-flex: none;
                 flex: none;
                 border: none;
                 width: auto;
@@ -246,9 +264,6 @@ aside {
 
 
 .flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -256,9 +271,6 @@ aside {
     align-content: center;
 
     .flex-item {
-        -webkit-box-flex: 1;
-        -webkit-flex: 1;
-        -ms-flex: 1;
         flex: 1;
         flex-grow: 1;
     }
@@ -272,7 +284,6 @@ aside {
         .flex-item {
             padding: 10px;
             width: 20%;
-            border: solid 1px #e7e7e7;
             border-right: 1px solid $color-default;
         }
     }
@@ -283,9 +294,13 @@ aside {
 }
 
 .comments {
-    background: $color-primary;
+    background: linear-gradient(135deg, rgba(0, 27, 92, 0.12) 0%, rgba(178, 8, 28, 0.12) 100%);
     color: $color-default;
     padding: 20px 0;
+
+    a.publisher-anchor-color {
+        color: #001b5c!important;
+    }
 }
 
 footer {

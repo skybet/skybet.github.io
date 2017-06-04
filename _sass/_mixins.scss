@@ -1,11 +1,4 @@
-/* VENDOR PREFIX MIXIN */
-@mixin vendor($property, $value...) {
-    -webkit-#{$property}: $value;
-    -moz-#{$property}: $value;
-    -ms-#{$property}: $value;
-    -o-#{$property}: $value;
-    #{$property}: $value;
-}
+
 
 /* TRANSITIONS MIXIN */
 @mixin transition($args...) {
@@ -43,4 +36,16 @@
 @keyframes anim {
     0% {transform: translateY(0);}
     100% {transform: translateY(100%);}
+}
+
+@mixin gradient-text {
+    color: $color-default;
+
+    @supports (-webkit-background-clip: text) {
+        background: linear-gradient(to right, $color-default 0%, $color-primary 100%);
+        background-size: 120% 120%;
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }

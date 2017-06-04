@@ -6,3 +6,9 @@ npm-debug.log
 vendor
 .idea
 *.iml
+*.sw[op]
+.vendor
+.jekyll-metadata
+node_modules
+.vendor
+.jekyll-metadata

@@ -2,6 +2,7 @@
 layout:    default
 isArticle: true
 fixedHeader: true
+className: post
 ---
 
 {% assign minutes = content | number_of_words | divided_by: 120 %}
@@ -13,7 +14,7 @@ fixedHeader: true
 {% assign author = site.data.authors[page.author] %}
 {% endif %}
 
-<article class="grid">
+<article class="grid article">
 
     <section class="grid-xs-s-1-1 grid-m-xl-2-3 details">
 
@@ -39,6 +40,19 @@ fixedHeader: true
 
             {{ content }}
         </div>
+
+        {% if site.categories[page.category].size > 1 %}
+        <div class="related-posts">
+            <h3 class="page-title">Want to read more about {{ page.category }}? Check out these related articles...</h3>
+            <div class="column">
+                {% for post in site.categories[page.category] %}
+                {% if post.title != page.title %}
+                {% include relatedPosts.html %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
     </section>
 
     <aside class="grid-xs-s-1-1 grid-m-xl-1-3">

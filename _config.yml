@@ -11,5 +11,4 @@ paginate_path: "/:num/"
 kramdown:
     input: GFM
     syntax_highlighter: rouge
-exclude:
-    [vendor]
+exclude: ['vendor', 'node_modules', 'spec']

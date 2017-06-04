@@ -1,0 +1,64 @@
+body {
+    // display: flex
+}
+
+// FONTS
+// sizes in px, but no need to put the px, these are converted to em
+$base-font-size:        16!default;
+$base-line-height:      24!default;
+
+$font-url:              "/fonts"!default;
+
+// HEADINGS
+// sizes in px, but no need to put the px, these are converted to em
+$h1-size:               36!default; // .h1
+$h2-size:               30!default; // .h2
+$h3-size:               24!default; // .h3
+$h4-size:               20!default; // .h4
+$h5-size:               16!default; // .h5
+$h6-size:               14!default; // .h6
+$heading-font:          'SkyRegular', Arial, sans-serif!default;
+
+// GRIDS
+$grid-prefix:          "grid-"!default;
+
+// sizes in px, but no need to put the px, these are converted into
+// default breakpoints, s = small (mobile), m = medium (tablet), l = large (desk),
+// xl = xtra large (desk-wide)
+// site with limit creates the max-width class to limit width of content */
+$s-start-breakpoint:    400!default;
+$m-breakpoint:          800!default;
+$l-breakpoint:          1000!default;
+$xl-breakpoint:         1200!default;
+$site-width-limit:      1400!default;
+
+$color-default:     #001b5c;
+$color-primary:     #b2081c;
+$color-secondary:   #1446a5;
+$color-highlight:   #d3d3d3;
+$color-light:       #ebebeb;
+$color-dark:        #05163e;
+$color-whtrans:     rgba(255,255,255,.5);
+$color-darkGrey:    #777;
+// FOOTER
+$footer-logo-height:     32px !default;
+$footer-text-colour:     #ffffff !default;
+$footer-background:      #222222 !default;
+
+@import "mixins";
+@import "normalize";
+@import "reset";
+@import "grids";
+@import "spacing";
+@import "https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css";
+@import "font-sizes";
+@import "fonts";
+@import "helper";
+
+@import "page";
+@import "header";
+@import "home";
+@import "buttons";
+@import "forms";
+@import "pagination";
+@import "related-posts";

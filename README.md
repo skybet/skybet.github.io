@@ -13,7 +13,7 @@ This is source for our public engineering site at http://engineering.skybettinga
 
 All changes are welcome from additional articles, to styling changes, etc. If you're not comfortable with a pull request you can email <engineering@skybettingandgaming.com> directly with your post in [Markdown format](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/) with any accompanying pictures.
 
-If making updates to the layout, use the sass in the `_scss/` directory.
+If making updates to the layout, use the sass in the `_sass/` directory. There is a gulp task which listens and compiles and also runs the output through autoprefixer, which means you don't have to manually add vendor prefixes to styles, and cleanCSS to minify. This runs as part of the jekyll build.
 
 ## Adding a New Article
 
@@ -78,7 +78,13 @@ Again, add the author's image to the `images/authors` directory with the same fi
 
 ## Rendering the Site Locally
 
-To render the site locally, first you need to `sudo gem install bundler`. Then you can `cd` into your cloned repository and run `bundle install` to install all the rubygems which Github Pages (where the site gets hosted) uses, for compatibility reasons.  The site itself is powered by [jekyll](https://jekyllrb.com).  You can then run `bundle exec rake` (which calls `jekyll serve`) which will result in the site being available on `http://127.0.0.1:4000/`, re-rendering if you make any changes.  If you have any trouble getting the gems to install (particularly within OS X's default environment), we recommend installing [rvm](https://rvm.io).
+To render the site locally, first you need to `sudo gem install bundler`. Then you can `cd` into your cloned repository and run `bundle install` to install all the rubygems which Github Pages (where the site gets hosted) uses, for compatibility reasons.  The site itself is powered by [jekyll](https://jekyllrb.com), run `bundle exec rake` (which calls `jekyll serve`) which will result in the site being available on `http://127.0.0.1:4000/`, re-rendering if you make any changes.  If you have any trouble getting the gems to install (particularly within OS X's default environment), we recommend installing [rvm](https://rvm.io).
+
+If you are making UI updates you will also need to run `npm install`, then you can then run `GULP=1 bundle exec rake` to call the gulp build with the existing set up.
+
+If you already have Docker and docker-compose installed, and don't do much Ruby work, you might find it easier to use the Docker way of running the site locally.  Run `docker-compose up` to launch the site in a container and after it has installed dependencies you can browse to `http://127.0.0.1:4000/`.  You can also validate your work by running `docker exec skybetgithubio_jekyll_1 rake validate`.
+
+If you are doing something more than editing articles then it is possible you will need to restart the Jekyll instance or container to pick these changes up.  You shouldn't need to do this routinely while editing articles because Jekyll is called with the `--watch --future` arguments.
 
 ## Validating your edits
 
