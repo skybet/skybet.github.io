@@ -134,6 +134,14 @@ dan_adams:
     interests: Hiking, history, philosophy, space tech
     bio: "Dan is our go-to guy for any security-related questions, and works with our teams around the business to ensure we are running a secure platform"
 
+jake_roberts:
+    name: Jake Roberts
+    image: jake_roberts.jpg
+    role: Security Operations Analyst
+    tribe: Infrastructure & Security
+    interests: Privacy, PC Gaming, D&B
+    bio: "Part of the Security Operations team at SkyBet."
+
 ian_thomas:
     name: Ian Thomas
     image: ian_thomas.jpg
