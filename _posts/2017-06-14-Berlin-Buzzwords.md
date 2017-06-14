@@ -34,7 +34,7 @@ Frank Lyaruu's talk on [embracing database diversity](https://berlinbuzzwords.de
 
 Maxim Zaks asked some great questions about [why we're still using JSON](https://berlinbuzzwords.de/17/session/why-are-we-using-json) and looked at how binary formats perform much better.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The talk about JSON inefficiency was eye-opening. It would be interesting to see how Avro compares to the other formats tested <a href="https://twitter.com/iceX33">@iceX33</a> <a href="https://twitter.com/hashtag/bbuzz?src=hash">#bbuzz</a> <a href="https://t.co/f0LCzMSR9Z">pic.twitter.com/f0LCzMSR9Z</a></p>&mdash; Ville Brofeldt (@VilleVBro) <a href="https://twitter.com/VilleVBro/status/874864566420852736">June 14, 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The talk about JSON inefficiency was eye opening. Would be interesting to see how Avro compares to the other formats tested <a href="https://twitter.com/iceX33">@iceX33</a> <a href="https://twitter.com/hashtag/bbuzz?src=hash">#bbuzz</a> <a href="https://t.co/f0LCzMSR9Z">pic.twitter.com/f0LCzMSR9Z</a></p>&mdash; Ville Brofeldt (@VilleVBro) <a href="https://twitter.com/VilleVBro/status/874864566420852736">June 14, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I would highly recommend next year's Berlin Buzzwords, especially as it will be combined with a second conference in 2018 - one on governance and management of open source communities.
