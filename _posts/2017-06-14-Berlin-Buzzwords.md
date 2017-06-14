@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Berlin Buzzwords 2017
-date:       2017-06-16 09:00
+date:       2017-06-14 09:00
 summary:    What we learned at Berlin Buzzwords 2017
 category:   Data
 tags:       kafka
