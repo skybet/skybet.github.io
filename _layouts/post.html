@@ -92,7 +92,7 @@ className: post
 </section>
 
 
-{% if page.disablecomments == nil or page.disablecomments == false %}
+{% unless page.disablecomments %}
 <script>
 (function() {
   var disqus_shortname = 'skybet';
@@ -102,6 +102,6 @@ className: post
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
 </script>
-{% endif %}
+{% endunless %}
 
 {% include footer.html %}
