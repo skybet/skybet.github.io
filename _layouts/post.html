@@ -82,11 +82,17 @@ className: post
 <section class="comments">
     <div class="grid">
         <div class="grid-1-1">
+            {% if page.disablecomments %}
+            <div id="disqus_thread">Comments have been disabled for this post</div>
+            {% else %}
             <div id="disqus_thread"></div>
+            {% endif %}
         </div>
     </div>
 </section>
 
+
+{% unless page.disablecomments %}
 <script>
 (function() {
   var disqus_shortname = 'skybet';
@@ -96,5 +102,6 @@ className: post
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
 </script>
+{% endunless %}
 
 {% include footer.html %}
