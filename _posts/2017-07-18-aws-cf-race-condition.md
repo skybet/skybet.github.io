@@ -49,11 +49,13 @@ The four resources it contains are described below.
 AWSTemplateFormatVersion: "2010-09-09"
 
 Resources:
+  # A kinesis stream to hook up to our Lambda function
   Stream:
     Type: "AWS::Kinesis::Stream"
     Properties:
       ShardCount: 1
 
+  # A lambda function that doesn't do a lot
   Lambda:
     Type: "AWS::Lambda::Function"
     Properties:
@@ -66,6 +68,8 @@ Resources:
       Handler: "index.handler"
       Role: !GetAtt Role.Arn
 
+  # A role for the lambda function to assume
+  # that gives access to read from Stream
   Role:
     Type: "AWS::IAM::Role"
     Properties:
@@ -94,6 +98,7 @@ Resources:
             Action: "kinesis:ListStreams"
             Resource: !Sub "arn:aws:kinesis:${AWS::Region}:${AWS::AccountId}:stream/*"
 
+  # Mapping Stream to Lambda
   SourceMapping:
     Type: "AWS::Lambda::EventSourceMapping"
     Properties:
@@ -101,6 +106,8 @@ Resources:
       FunctionName: !Ref Lambda
       StartingPosition: "TRIM_HORIZON"
 ```
+
+[Download the template](/resources/aws-cf-race-condition/1-race-start.yml)
 
 `Stream` is the Kinesis stream, our event source.
 
@@ -126,71 +133,22 @@ order things to satisfy all the dependencies correctly.
 ### The problem
 
 Now, let's add a second Kinesis stream `Stream2` and map it into the Lambda function.
+Heres's a summary of what changes in the template.
 
 ```yaml
----
-AWSTemplateFormatVersion: "2010-09-09"
-
 Resources:
-  Stream:
-    Type: "AWS::Kinesis::Stream"
-    Properties:
-      ShardCount: 1
-
+  # this is the new Kinesis stream
   Stream2:
     Type: "AWS::Kinesis::Stream"
     Properties:
       ShardCount: 1
 
-  Lambda:
-    Type: "AWS::Lambda::Function"
-    Properties:
-      Runtime: "nodejs4.3"
-      Code:
-        ZipFile: !Sub |
-          exports.handler = function(event, context) {
-            console.log('hello world!');
-          };
-      Handler: "index.handler"
-      Role: !GetAtt Role.Arn
+  Stream: ...
+  Lambda: ...
+  Role: ...
+  SourceMapping: ...
 
-  Role:
-    Type: "AWS::IAM::Role"
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-        - Effect: "Allow"
-          Principal:
-            Service:
-            - "lambda.amazonaws.com"
-          Action:
-          - "sts:AssumeRole"
-      Path: "/"
-      Policies:
-      - PolicyName: "root"
-        PolicyDocument:
-          Version: "2012-10-17"
-          Statement:
-          - Effect: "Allow"
-            Action:
-            - "kinesis:GetRecords"
-            - "kinesis:GetShardIterator"
-            - "kinesis:DescribeStream"
-            Resource:
-            - !GetAtt Stream.Arn
-            - !GetAtt Stream2.Arn
-          - Effect: "Allow"
-            Action: "kinesis:ListStreams"
-            Resource: !Sub "arn:aws:kinesis:${AWS::Region}:${AWS::AccountId}:stream/*"
-
-  SourceMapping:
-    Type: "AWS::Lambda::EventSourceMapping"
-    Properties:
-      EventSourceArn: !GetAtt Stream.Arn
-      FunctionName: !Ref Lambda
-      StartingPosition: "TRIM_HORIZON"
-
+  # mapping Stream2 onto Lambda
   SourceMapping2:
     Type: "AWS::Lambda::EventSourceMapping"
     Properties:
@@ -199,6 +157,8 @@ Resources:
       StartingPosition: "TRIM_HORIZON"
 
 ```
+
+[Download the full template](/resources/aws-cf-race-condition/2-race-fail.yml)
 
 When we're updating a stack through the console, we can see a summary of the
 changes that CloudFormation is going to make.
@@ -251,77 +211,30 @@ to assume the new role.
 Here's the final template, renaming `Role` to `Role2`
 and updating the Role property of `Lambda` accordingly.
 
-```yaml
+``` yaml
 ---
 AWSTemplateFormatVersion: "2010-09-09"
 
 Resources:
-  Stream:
-    Type: "AWS::Kinesis::Stream"
-    Properties:
-      ShardCount: 1
+  Stream: ...
+  Stream2: ...
 
-  Stream2:
-    Type: "AWS::Kinesis::Stream"
-    Properties:
-      ShardCount: 1
-
+  # Lambda needs to re-referenced to Role2
   Lambda:
     Type: "AWS::Lambda::Function"
-    Properties:
-      Runtime: "nodejs4.3"
-      Code:
-        ZipFile: !Sub |
-          exports.handler = function(event, context) {
-            console.log('hello world!');
-          };
-      Handler: "index.handler"
+    Properties: ...as before
       Role: !GetAtt Role2.Arn
 
+  # renaming Role to Role2 will ensure a new security token is requested
   Role2:
     Type: "AWS::IAM::Role"
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-        - Effect: "Allow"
-          Principal:
-            Service:
-            - "lambda.amazonaws.com"
-          Action:
-          - "sts:AssumeRole"
-      Path: "/"
-      Policies:
-      - PolicyName: "root"
-        PolicyDocument:
-          Version: "2012-10-17"
-          Statement:
-          - Effect: "Allow"
-            Action:
-            - "kinesis:GetRecords"
-            - "kinesis:GetShardIterator"
-            - "kinesis:DescribeStream"
-            Resource:
-            - !GetAtt Stream.Arn
-            - !GetAtt Stream2.Arn
-          - Effect: "Allow"
-            Action: "kinesis:ListStreams"
-            Resource: !Sub "arn:aws:kinesis:${AWS::Region}:${AWS::AccountId}:stream/*"
+    Properties: ...as before
 
-  SourceMapping:
-    Type: "AWS::Lambda::EventSourceMapping"
-    Properties:
-      EventSourceArn: !GetAtt Stream.Arn
-      FunctionName: !Ref Lambda
-      StartingPosition: "TRIM_HORIZON"
-
-  SourceMapping2:
-    Type: "AWS::Lambda::EventSourceMapping"
-    Properties:
-      EventSourceArn: !GetAtt Stream2.Arn
-      FunctionName: !Ref Lambda
-      StartingPosition: "TRIM_HORIZON"
+  SourceMapping: ...
+  SourceMapping2: ...
 ```
+
+[Download the full template](/resources/aws-cf-race-condition/2-race-fail.yml)
 
 Here's the change set, confirming the difference in activities.
 We're going to replace the role, instead of updating it in-place.
