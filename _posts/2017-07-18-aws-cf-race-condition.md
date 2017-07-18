@@ -249,7 +249,7 @@ That'll mean that the Lambda must request a new access token when it tries
 to assume the new role.
 
 Here's the final template, renaming `Role` to `Role2`
-and updating the Role property of 'Lambda' accordingly.
+and updating the Role property of `Lambda` accordingly.
 
 ```yaml
 ---
