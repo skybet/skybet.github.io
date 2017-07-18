@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Avoid CloudFormation Distress with this Amazing Trick!
+title:      Avoid CloudFormation Distress with this One Weird Trick!
 date:       2017-07-18 15:00
 summary:    A nasty race condition in CloudFormation Lambda support and how you can avoid it
 category:   Cloud Computing
