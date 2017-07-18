@@ -48,7 +48,14 @@ h1 {
     margin-bottom: $h1-margin-bottom;
 
     @include media-query(xs) {
+        font-size: $h1-font-size * .7;
+        line-height: $h1-line-height * .7;
+        margin-bottom: $h1-margin-bottom * .7;
+    }
+
+    @include media-query(s) {
         font-size: $h1-font-size * .8;
+        line-height: $h1-line-height * .8;
         margin-bottom: $h1-margin-bottom * .8;
     }
 }
@@ -58,8 +65,9 @@ h2 {
     margin-bottom: $h2-margin-bottom;
 
     @include media-query(xs) {
-        font-size: $h2-font-size * .8;
-        margin-bottom: $h2-margin-bottom * .8;
+        font-size: $h2-font-size * .7;
+        line-height: $h2-line-height * .7;
+        padding-bottom: $h2-margin-bottom * .7;
     }
 }
 h3 {
@@ -68,8 +76,9 @@ h3 {
     margin-bottom: $h3-margin-bottom;
 
     @include media-query(xs) {
-        font-size: $h3-font-size * .8;
-        margin-bottom: $h3-margin-bottom * .8;
+        font-size: $h3-font-size * .7;
+        line-height: $h3-line-height * .7;
+        margin-bottom: $h3-margin-bottom * .7;
     }
 }
 h4 {
@@ -78,8 +87,8 @@ h4 {
     margin-bottom: $h4-margin-bottom;
 
     @include media-query(xs) {
-        font-size: $h4-font-size * .8;
-        margin-bottom: $h4-margin-bottom * .8;
+        font-size: $h4-font-size * .7;
+        margin-bottom: $h4-margin-bottom * .7;
     }
 }
 
@@ -139,8 +148,8 @@ hr {
     }
 
     @include media-query(xs) {
-        margin-top: $base-margin-top * .8 - $one-px;
-        height: $base-margin-top * .8 / 2;
+        margin-top: $base-margin-top * .7 - $one-px;
+        height: $base-margin-top * .7 / 2;
     }
 }
 
@@ -196,12 +205,7 @@ pre.highlight, pre.highlight > code {
     white-space: pre;
     word-spacing: normal;
     word-break: normal;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
     tab-size: 4;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
     hyphens: none;
 }
 

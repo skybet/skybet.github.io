@@ -1,98 +1,88 @@
-
 header.page {
-    background-image: url('/images/bg/header-bg.jpg');
     background-position: center;
     background-size: cover;
+    position: relative;
+    height: 430px;
+
+    @include media-query(xs-s) {
+        height: 220px;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(135deg, rgba(0, 27, 92, 0.7) 0%, rgba(178, 8, 28, 0.7) 100%);
+    }
 
     a {
         text-decoration: none;
     }
 
-    .sticky {
-        background: $color-default;
-        height: 70px;
-    }
+    .btn--primary {
+        border: 2px solid white;
+        color: white;
+        line-height: 1.625em;
+        margin: 0;
 
-    .btnNavLarge {
-
-        ul {
-            margin: 0;
-            padding: 13px 0;
-            li {
-                display: inline-block;
-            }
+        @include media-query(xs) {
+            font-size: 12px;
+            padding: 8px 13px;
         }
     }
 
-    .headFixed {
-        position: fixed;
-        top:0; left:0;
+    svg {
         width: 100%;
-        z-index: 100;
-
-        .btnNavLarge {
-            display: none;
-        }
-        .trigger {
-            display: inline-block!important;
-
-            @include media-query(s-xl) {
-                display: none!important;
-            }
-        }
-
-        .logoSmall.hide {
-            display: inline-block!important;
-
-            .sbg-logo {
-                fill: white;
-                height: 60px;
-                width: 100px;
-                margin-top: 5px;
-                display: block;
-
-                @include media-query(s-xl) {
-                    margin: -55px 0 0 0;
-                    -webkit-transform: translateY(100%);
-                            transform: translateY(100%);
-                    -webkit-animation: anim .5s 1;
-                            animation: anim .5s 1;
-                }
-
-            }
-        }
-
-        .slide-right.hide {
-            display: block!important;
-
-            @include media-query(s-xl) {
-                margin: -48px 160px 0 0;
-                -webkit-transform: translateY(100%);
-                        transform: translateY(100%);
-                -webkit-animation: anim .5s 1;
-                        animation: anim .5s 1;
-            }
-        }
-
+        height: auto;
     }
 
-    .grid {
-        z-index: 2;
-        padding: 0 10px;
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0 auto;
+        width: 100%;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        position: relative;
 
         @include media-query(xl) {
-            padding: 0;
+            padding: 10px;
+        }
+
+        div {
+            position: relative;
+            flex-grow: 1;
+            flex-shrink: 1;
+            display: flex;
+            align-self: center;
         }
     }
 
     ul {
         list-style: none;
         padding: 0;
+        margin: 0;
+        line-height: 0;
+
+        li {
+            display: inline-block;
+            margin: 0;
+            line-height: 0;
+        }
     }
 
     .page-title {
+        width: 100%;
+        justify-content: center;
+
         .sbg-logo {
-            fill: $color-default;
+            fill: $color-light;
             max-height: 200px;
             margin: 100px auto;
             display: block;
@@ -105,11 +95,14 @@ header.page {
     }
 
     .social {
-        padding: 10px 10px 0 0;
-        text-align: right;
+        justify-content: flex-end;
     }
 
-    ul.social-list {
+    .mobile-menu {
+        display: none;
+    }
+
+    .social-list {
         text-align: right;
         margin: 0;
 
@@ -122,6 +115,11 @@ header.page {
             text-align: center;
             margin-left: 5px;
 
+            @include media-query(xs) {
+                height: 36px;
+                width: 36px;
+            }
+
             &:hover {
                 color: white
             }
@@ -132,6 +130,11 @@ header.page {
                 font-size: 25px;
                 margin-top: 8px;
 
+                @include media-query(xs) {
+                    font-size: 22px;
+                    margin-top: 6px;
+                }
+
                 &:hover {
                     color: white;
                 }
@@ -139,27 +142,100 @@ header.page {
         }
     }
 
-    .mobile-menu.trigger--active {
-        display: block!important;
-        background: $color-default;
+    &.headFixed {
+        position: fixed;
+        top: 0; right: 0; left:0;
+        width: 100%;
+        z-index: 100;
+        height: 70px;
 
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        padding: 20px;
-
-        .slide-right {
-            margin-bottom: $base-margin-bottom / 2;
+        &:before {
+            background: linear-gradient(135deg, $color-default 0%, $color-primary 100%);
         }
 
+
+        .sticky {
+            min-height: 70px;
+
+            @include media-query(xs) {
+                background: linear-gradient(135deg, $color-default 0%, $color-primary 100%);
+            }
+
+        }
+
+        .page-title {
+            width: auto;
+            justify-content: flex-start;
+
+            @include media-query(s-xl) {
+                margin: -100px 0 0 0;
+                transform: translateY(100%);
+                animation: anim .5s 1;
+                max-height: 46px;
+            }
+
+            .sbg-logo {
+                height: 55px;
+                max-width: 110px;
+                margin: 0;
+            }
+        }
+
+        .page-links {
+            justify-content: flex-end;
+
+            @include media-query(s-xl) {
+                margin: -92px 0 0 0;
+                transform: translateY(100%);
+                animation: anim .5s 1;
+            }
+
+            @include media-query(xs) {
+                display: none;
+
+                &.trigger--active {
+                    display: block;
+                    text-align: right;
+                    padding: 20px 0;
+                    width: 100%;
+                }
+
+                .btn--primary {
+                    padding: 8px 18px;
+                    font-size: 14px;
+                    margin-left: 4px;
+                }
+            }
+        }
+
+        .social {
+            max-width: 170px;
+
+            @include media-query(xs) {
+                display: none;
+
+                &.trigger--active {
+                    display: block;
+                    text-align: right;
+                    padding: 0 0 10px;
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .mobile-menu {
+            @include media-query(xs) {
+                display: inline-block;
+            }
+        }
     }
+
 
     /* Trigger button with SVG */
     .trigger {
         float: right;
         padding: 0;
-        margin: 15px 10px 0 0;
+        margin: 0;
         width: 40px;
         height: 40px;
         outline: none;
@@ -176,9 +252,7 @@ header.page {
     }
 
     .icon {
-        -webkit-transform-origin: 50% 50%;
         transform-origin: 50% 50%;
-        -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
         transition: opacity 0.3s, transform 0.3s;
     }
 
@@ -186,13 +260,11 @@ header.page {
     .icon--cross,
     .trigger--active .icon--grid {
         opacity: 0;
-        -webkit-transform: scale3d(0.5, 0.5, 1);
         transform: scale3d(0.5, 0.5, 1);
     }
 
     .trigger--active .icon--cross {
         opacity: 1;
-        -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
     }
 }

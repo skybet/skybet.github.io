@@ -14,12 +14,18 @@
         }
 
         header {
-            padding: 0 $base-line*3 0 0;
+            padding: 0 80px 0 0;
             border-bottom: 1px solid $color-default;
             margin-bottom: $base-line*0.5;
 
+            @include media-query(xs-s) {
+                padding: 0 60px 0 0;
+            }
+
             h1 {
                 margin-bottom: $h1-margin-bottom / 2;
+                @include gradient-text();
+                display: inline-block;
             }
         }
     }
@@ -39,7 +45,8 @@
 
         a {
             text-decoration: none;
-            color: $color-default;
+            display: inline-block;
+            @include gradient-text();
         }
     }
 
@@ -58,6 +65,7 @@
 
     .date {
         background: $color-default;
+        background: linear-gradient(135deg, $color-default 20%, $color-primary 100%);
         border-radius: 100%;
         width: 80px;
         height: 80px;
@@ -66,15 +74,10 @@
         left: -40px;
         color: $color-light;
 
-        @include media-query(xs-s) {
-            left: 10px;
-            top: -40px;
-        }
-
         .details & {
             right: 0;
             left: auto;
-            top: 10px;
+            top: -5px;
         }
 
         .day, .month {
@@ -91,14 +94,33 @@
         .month {
             font-size: 14px;
         }
+
+        @include media-query(xs-s) {
+            width: 60px;
+            height: 60px;
+            top: -40px;
+            left: 10px;
+
+            .day {
+                font-size: 28px;
+                margin: 10px auto 0;
+            }
+            .month {
+                font-size: 13px;
+                margin-top: -4px;
+            }
+        }
     }
 
     .post--category {
-        background-color: $color-highlight;
-        border-radius: 3px;
-        padding: $base-line/4 $base-line/2;
-        display: inline-block;
-        margin-bottom: $base-line/2;
+        display: block;
+        a {
+            background-color: $color-highlight;
+            border-radius: 3px;
+            padding: $base-line/4 $base-line/2;
+            display: inline-block;
+            margin-bottom: $base-line/2;
+        }
     }
 
     .cta {
@@ -133,9 +155,6 @@
     margin-bottom: $base-line;
 
     .area {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
         display: flex;
         padding: 0;
 
@@ -151,7 +170,6 @@
             margin: -12px -12px 12px -12px;
             text-transform: uppercase;
             background: $color-highlight;
-            color: white;
             padding: 6px 10px;
         }
 
@@ -159,6 +177,11 @@
             width: 100%;
             margin: 0 0 $base-line 0;
             padding: $base-line/2;
+
+            h1 {
+                @include gradient-text();
+                display: inline-block;
+            }
         }
 
         ul {
@@ -167,9 +190,7 @@
 
             @include media-query(l) {
                 &.split-columns {
-                    -webkit-column-count: 2;
-                       -moz-column-count: 2;
-                            column-count: 2;
+                    column-count: 2;
                 }
             }
 
@@ -199,6 +220,10 @@
         width: 100%;
         height: 100%;
     }
+}
+
+.category {
+    margin-top: $base-line/2;
 }
 
 .wrap-break {

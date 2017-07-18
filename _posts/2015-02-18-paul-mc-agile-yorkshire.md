@@ -4,7 +4,7 @@ title:      "Paul McCormick @ Agile Yorkshire: From Projects to Investment Theme
 author:     paul_mccormick
 date:       2015-02-18 12:15:35
 summary:    A talk about the importance of forming product teams and investment themes rather than trying to execute projects.
-images:     paulmc-agile-yorkshire.png
+image:     paulmc-agile-yorkshire.png
 category:   Agile
 tags:       structure, workflow, methodologies
 ---

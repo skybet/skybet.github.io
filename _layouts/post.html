@@ -2,6 +2,7 @@
 layout:    default
 isArticle: true
 fixedHeader: true
+className: post
 ---
 
 {% assign minutes = content | number_of_words | divided_by: 120 %}
@@ -13,7 +14,7 @@ fixedHeader: true
 {% assign author = site.data.authors[page.author] %}
 {% endif %}
 
-<article class="grid">
+<article class="grid article">
 
     <section class="grid-xs-s-1-1 grid-m-xl-2-3 details">
 
@@ -39,6 +40,19 @@ fixedHeader: true
 
             {{ content }}
         </div>
+
+        {% if site.categories[page.category].size > 1 %}
+        <div class="related-posts">
+            <h3 class="page-title">Want to read more about {{ page.category }}? Check out these related articles...</h3>
+            <div class="column">
+                {% for post in site.categories[page.category] %}
+                {% if post.title != page.title %}
+                {% include relatedPosts.html %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
     </section>
 
     <aside class="grid-xs-s-1-1 grid-m-xl-1-3">
@@ -58,7 +72,7 @@ fixedHeader: true
         {% endif %}
 
         <div class="twitter-container hide-xs-s">
-            <a class="twitter-timeline" href="https://twitter.com/SBGEngineers" data-widget-id="650399762827624448" data-chrome="transparent" data-tweet-limit="3">Tweets by @SBGEngineers</a>
+            <a class="twitter-timeline" href="https://twitter.com/SBGTechTeam" data-widget-id="650399762827624448" data-chrome="transparent" data-tweet-limit="3">Tweets by @SBGTechTeam</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
             </script>
         </div>
@@ -68,11 +82,17 @@ fixedHeader: true
 <section class="comments">
     <div class="grid">
         <div class="grid-1-1">
+            {% if page.disablecomments %}
+            <div id="disqus_thread">Comments have been disabled for this post</div>
+            {% else %}
             <div id="disqus_thread"></div>
+            {% endif %}
         </div>
     </div>
 </section>
 
+
+{% unless page.disablecomments %}
 <script>
 (function() {
   var disqus_shortname = 'skybet';
@@ -82,5 +102,6 @@ fixedHeader: true
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
 </script>
+{% endunless %}
 
 {% include footer.html %}

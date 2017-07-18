@@ -134,6 +134,14 @@ dan_adams:
     interests: Hiking, history, philosophy, space tech
     bio: "Dan is our go-to guy for any security-related questions, and works with our teams around the business to ensure we are running a secure platform"
 
+jake_roberts:
+    name: Jake Roberts
+    image: jake_roberts.jpg
+    role: Security Operations Analyst
+    tribe: Infrastructure & Security
+    interests: Privacy, PC Gaming, D&B
+    bio: "Part of the Security Operations team at SkyBet."
+
 ian_thomas:
     name: Ian Thomas
     image: ian_thomas.jpg
@@ -260,6 +268,14 @@ lee_odonnell:
     startDate: 01-01-2010
     bio: Leads the delivery of high scale, secure and high performance infrastructure platforms for SB&G. Background in electronic engineering of high performance computing platforms, telecoms and software engineering of internet solutions
 
+callum_leahy:
+    name: Callum Leahy
+    image: callum_leahy.jpg
+    role: Graduate Software Engineer
+    tribe: Gaming
+    startDate: 01-08-2016
+    bio: Part of the team delivering real time promotion information to our internal customers, working with Apache Kafka and NodeJS
+
 serena_wadsworth:
     name: Serena Wadsworth
     image: serena-wadsworth.jpg
@@ -303,6 +319,25 @@ ashley_broadley:
     github: ls12styler
     twitter: ls12styler
 
+martyn_ranyard:
+    name: Martyn Ranyard
+    image: martyn_ranyard.jpg
+    role: Platform Engineer
+    tribe: Bet
+    startDate: 12-12-2014
+    bio: "Multi-faceted geek, some people collect things and call it a hobby, I collect hobbies."
+    github: iMartyn
+    twitter: iMartyn
+
+patrick_holmes:
+    name: Patrick Holmes
+    image: patrick_holmes.png
+    role: Head of Cloud Delivery
+    tribe: Infrastructure & Security
+    startDate: 29-02-2016
+    bio: "Member of the Infrastructure & Security Tribe, responsible for the operational delivery of the SBG cloud platforms and infrastructure services"
+    twitter: PJHGB
+
 john_kitson:
     name: John Kitson
     image: john_kitson.jpg
@@ -310,6 +345,22 @@ john_kitson:
     tribe: Gaming
     startDate: 06-02-2015
     bio: "John works as a Scrum Master in the Gaming Tribe, covering the Gaming Promotions and Casino squads. John is a father of one and in his spare time enjoys running and organising at his local junior parkrun."
+
+sophia_chambers:
+    name: Sophia Chambers
+    image: sophia_chambers.jpg
+    role: Junior Software Engineer
+    tribe: Core
+    startDate: 12-08-2016
+    bio: Currently a software engineer in the Core UI tribe based in Sheffield. Favouring all things javascript.
+
+andrew_newsome:
+    name: Andrew Newsome
+    image: andrew_newsome.jpg
+    role: Lead Cloud Reliability Engineer
+    tribe: Infrastructure & Security
+    startDate: 20-08-2012
+    bio: "Member of the Infrastructure & Security Tribe, responsible for the reliability of the SBG cloud platforms and infrastructure services"
 
 paul_brabban:
     name: Paul Brabban

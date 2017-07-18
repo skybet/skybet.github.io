@@ -1,0 +1,13 @@
+jekyll:
+    image: jekyll/jekyll:pages
+    command: jekyll serve --watch --incremental --future
+    ports:
+        - 4000:4000
+    volumes:
+        - .:/srv/jekyll
+gulp:
+    image: agomezmoron/docker-gulp
+    environment:
+        - GULP_TASK="watch"
+    volumes:
+        - .:/src

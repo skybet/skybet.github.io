@@ -64,5 +64,8 @@
 - name: Tech Talks
   slug: tech-talks
 
+- name: Gaming
+  slug: gaming
+
 - name: Cloud Computing
   slug: cloud-computing
