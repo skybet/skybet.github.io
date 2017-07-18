@@ -362,3 +362,12 @@ andrew_newsome:
     startDate: 20-08-2012
     bio: "Member of the Infrastructure & Security Tribe, responsible for the reliability of the SBG cloud platforms and infrastructure services"
 
+paul_brabban:
+    name: Paul Brabban
+    image: paul_brabban.jpg
+    role: Principal Data Engineer
+    tribe: International
+    startDate: 01-03-2016
+    bio: "Paul leads the Data Engineering squad in the International Tribe and runs the (def shef) functional programming meetup in Sheffield."
+    github: brabster
+    twitter: brabster

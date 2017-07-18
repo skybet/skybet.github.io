@@ -1,0 +1,71 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+  Stream:
+    Type: "AWS::Kinesis::Stream"
+    Properties:
+      ShardCount: 1
+
+  # this is the new Kinesis stream
+  Stream2:
+    Type: "AWS::Kinesis::Stream"
+    Properties:
+      ShardCount: 1
+
+  Lambda:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      Runtime: "nodejs4.3"
+      Code:
+        ZipFile: !Sub |
+          exports.handler = function(event, context) {
+            console.log('hello world!');
+          };
+      Handler: "index.handler"
+      Role: !GetAtt Role.Arn
+
+  Role:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Effect: "Allow"
+          Principal:
+            Service:
+            - "lambda.amazonaws.com"
+          Action:
+          - "sts:AssumeRole"
+      Path: "/"
+      Policies:
+      - PolicyName: "root"
+        PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Effect: "Allow"
+            Action:
+            - "kinesis:GetRecords"
+            - "kinesis:GetShardIterator"
+            - "kinesis:DescribeStream"
+            Resource:
+            - !GetAtt Stream.Arn
+            - !GetAtt Stream2.Arn
+          - Effect: "Allow"
+            Action: "kinesis:ListStreams"
+            Resource: !Sub "arn:aws:kinesis:${AWS::Region}:${AWS::AccountId}:stream/*"
+
+  SourceMapping:
+    Type: "AWS::Lambda::EventSourceMapping"
+    Properties:
+      EventSourceArn: !GetAtt Stream.Arn
+      FunctionName: !Ref Lambda
+      StartingPosition: "TRIM_HORIZON"
+
+  # mapping Stream2 onto Lambda
+  SourceMapping2:
+    Type: "AWS::Lambda::EventSourceMapping"
+    Properties:
+      EventSourceArn: !GetAtt Stream2.Arn
+      FunctionName: !Ref Lambda
+      StartingPosition: "TRIM_HORIZON"
