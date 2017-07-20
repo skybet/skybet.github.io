@@ -55,7 +55,7 @@ First, the Test Kitchen configuration. Kitchen uses YAML for configuration, and 
 The driver configuration comes first, of which there are many. Docker provides the features we need. Chef Zero is the provisioner, which will be used to configure the container after it has been created by the dockerfile.
 
 
-```
+```yaml
 ---
 driver:
   name: docker
@@ -78,7 +78,7 @@ Important to note here is the volume mount. When run in CI, this means that the 
 
 Next, the suites are defined. Each suite is a container with its own Chef run list, and containers can be linked together. Here we create a fixtured MySQL server which is linked to our Node.js application container:
 
-```
+```yaml
 suites:
   - name: db-server # Fixtured MySQL container
     run_list:
@@ -110,7 +110,7 @@ The Chef recipes themselves are fairly simple.
 
 ```lint.rb``` Installs the ```eslint``` utility and runs it, outputting the result to the shared volume
 
-```
+```ruby
 #run eslint inside the container, output the results to the shared volume mount
 execute "Install eslint" do
   command "/opt/node/bin/npm i -g eslint"
@@ -128,7 +128,7 @@ end
 
 ```test.rb``` Runs ```npm test``` and outputs the test result to the shared volume
 
-```
+```ruby
 #run npm test and copy the resulting Mocha test report to the Jenkins workspace for analysis by Pipeline
 execute "run npm test" do
   command "npm install && npm run test"
@@ -147,7 +147,7 @@ end
 
 ```build.rb``` Runs ```npm install``` and installs the production dependencies
 
-```
+```ruby
 #prune the installation and install npm production dependencies
 execute "run npm install" do
   command "npm prune && npm install --production"
@@ -158,7 +158,7 @@ end
 
 ```vendor.rb``` Creates a deployable artefact of the node application in the shared volume mount
 
-```
+```ruby
 #Create a .tbz2 containing the node application and all its production dependencies
 execute "build artefact" do
   command "/bin/tar -cvjf #{node['workspace']}/build/event-service-v#{node['new_tag_version']}.tbz2 event-service/"
@@ -169,7 +169,7 @@ end
 
 A fairly simple set of steps to build an application. Test results, when run by Jenkins, are output into the Jenkins workspace for later analysis. What ties this together is Jenkins Pipeline. The ```workflow.groovy``` for this example is described below. This DSL is run by Jenkins when a new tagged version of the event-service is needed:
 
-```
+```groovy
 def rubyPath     = '/opt/chefdk/embedded/bin/ruby --external-encoding=UTF-8 --internal-encoding=UTF-8 '
 
 def env = "event-service"
@@ -193,7 +193,7 @@ CI=true kitchen verify
 ```
 Some definitions. Slack is used to notify teams of completed builds at the end of the workflow. The Test Kitchen commands run the Kitchen configuration defined above.
 
-```
+```groovy
 node("slave-docker") {
     currentBuild.setDisplayName("${env} #${currentBuild.number}")
     branch = "release"
@@ -201,13 +201,13 @@ node("slave-docker") {
 
 Select a Jenkins slave and set the current display name of the build. This is useful for providing developer feedback during a workflow.
 
-```
+```groovy
     stage name: "checkout-${env}", concurrency: 1
     checkout([$class: 'GitSCM', branches: [[name: branch]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[url: repo]]])
 ```
 The first CI stage. This will check out the event-service git repository to the Jenkins workspace
 
-```
+```groovy
     stage name: "get-new-tag-${env}", concurrency: 1
     sh '''#!/usr/bin/bash
     LASTTAG=`git describe --abbrev=0 --tags`;
@@ -220,7 +220,7 @@ The first CI stage. This will check out the event-service git repository to the 
 ```
 This is a utility stage that determines the next tag version for the repository based off the previous tag version. This is a required workaround since Jenkins Pipeline ```sh``` steps currently don't have any return values. There is an issue raised for this.
 
-```
+```groovy
     stage name: "test-kitchen-${env}", concurrency: 1
     wrap([$class: 'AnsiColorSimpleBuildWrapper', colorMapName: "xterm"]) {
         sh kitchen
@@ -228,25 +228,25 @@ This is a utility stage that determines the next tag version for the repository 
 ```
 The main stage. Runs Test Kitchen, which builds and verifies the application in docker containers using Chef. The Chef recipes output test results and a build artefact to the Jenkins workspace.
 
-```
+```groovy
     stage name: "warnings-${env}", concurrency: 1
     step([$class: 'WarningsPublisher', canComputeNew: false, canResolveRelativePaths: false, consoleParsers: [[parserName: 'Foodcritic']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', parserConfigurations: [[parserName: 'JSLint', pattern: 'build/lint-*.xml']], unHealthy: ''])
 ```
 The lint output is parsed by Jenkins, JSLint for the Node.js and Foodcritic for the Chef recipes.
 
-```
+```groovy
     stage name: "junit-${env}", concurrency: 1
     step([$class: 'JUnitResultArchiver', keepLongStdio: true, testResults: 'build/test-*.xml'])
 ```
 The test output from ```npm test``` is analysed by Jenkins. Failed tests here results in a failed build
 
-```
+```groovy
     stage name: "archive-${env}", concurrency: 1
     step([$class: 'ArtifactArchiver', artifacts: 'build/*.tbz2', excludes: ''])
 ```
 This stage tells Jenkins to archive the artefact produced by the ```vendor.rb``` Chef recipe
 
-```
+```groovy
     stage name: "push-tag-${env}", concurrency: 1
     sh "git tag -a event-service-v${newtag} -m \"event-service-v${newtag} pushed by Jenkins\""
     sh "git push --tags"

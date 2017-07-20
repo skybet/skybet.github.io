@@ -48,7 +48,7 @@ Following the logic that TypeScript was just a superset of JavaScript, we were h
 
 On first pass, we were presented with about 1800 errors all looking a bit like the following:
 
-```bash
+```
 (46,7): error TS2339: Property 'setImagePathPrepend'  does not exist on type '{}'.
 (50,7): error TS2339: Property 'getImagePathPrepend'  does not exist on type '{}'.
 (54,7): error TS2339: Property 'setBetslipOutcomeHelper' does not exist on type '{}'.
@@ -70,7 +70,7 @@ We realised that we were going to have to convert from ES5 JavaScript to ES6 in 
 
 ### Define static methods
 
-```bash
+```
 (74,7): error TS2339: Property 'getQualifiedVideoStreams' does not exist on type '{}'.
 ```
 
@@ -81,14 +81,14 @@ It turns out we were calling a lot of methods on our classes/components in a sta
 What would the modern JavaScript world be without node_modules? Well, the good news is that TypeScript supports external JavaScript modules. The bad news is that in order to fully benefit from TypeScript, each of your external modules needs its own type definitions in order to let TypeScript know how the module should behave.
 
 With TypeScript 2.0 and above, for most of the popular modules, there should be open source TypeScript definitions for your module and it's as simple as running:
-```
-npm install @types/<module_name> //e.g. npm install @types/react
+```bash
+npm install @types/<module_name> # e.g. npm install @types/react
 ```
 
 For less popular modules, or perhaps even your own private JavaScript modules you will have to write your own definitions. Below is an example of a definition we made for the npm path module. Note - we've not gone to any great detail to make this complete, we've added just enough information to describe the methods we wanted to use in our code
 
 Below is an example of our own type definition for the [path module](https://www.npmjs.com/package/path)
-```
+```typescript
 declare module path {
     /**
      * Joins 2 url parts together
