@@ -47,6 +47,7 @@ If you have included a ```code``` block for a language that does not appear in t
     * Bash
     * CSS (included in core Prism download)
     * Go
+    * Groovy
     * HTML (included in core Prism download)
     * Javascript (included in core Prism download)
     * Python
