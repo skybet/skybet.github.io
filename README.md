@@ -42,7 +42,7 @@ If an article has been created by multiple authors, you can specify the `author`
      - another_author_key
     ---
 
-If you have included a ```code``` block for a language that does not appear in the list below as part of your article, you will also need to update the client-side syntax highlighting library we use - [Prism](http://prismjs.com/) - to include rules for that language.  You can create a new bundle on the Prism website, which should include all the languages in the list, plus your new language.  Store this in the `_prism.scss` file within the `_sass` directory; you should also add this language to this README.
+If you have included a ```code``` block for a language that does not appear in the list below as part of your article, you will also need to update the client-side syntax highlighting library we use - [Prism](http://prismjs.com/) - to include rules for that language.  You can create a new bundle on the Prism website, which should include all the languages in the list, plus your new language for CSS and JS: the existing files have a link in a comment at the top which will prepopulate the checkboxes.  You should then add the language to this list.
 
     * Bash
     * CSS (included in core Prism download)
