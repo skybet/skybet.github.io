@@ -48,7 +48,7 @@ Following the logic that TypeScript was just a superset of JavaScript, we were h
 
 On first pass, we were presented with about 1800 errors all looking a bit like the following:
 
-```
+```bash
 (46,7): error TS2339: Property 'setImagePathPrepend'  does not exist on type '{}'.
 (50,7): error TS2339: Property 'getImagePathPrepend'  does not exist on type '{}'.
 (54,7): error TS2339: Property 'setBetslipOutcomeHelper' does not exist on type '{}'.
@@ -70,7 +70,7 @@ We realised that we were going to have to convert from ES5 JavaScript to ES6 in 
 
 ### Define static methods
 
-```
+```bash
 (74,7): error TS2339: Property 'getQualifiedVideoStreams' does not exist on type '{}'.
 ```
 
