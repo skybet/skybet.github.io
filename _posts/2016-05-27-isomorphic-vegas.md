@@ -46,7 +46,7 @@ Upon creating our stores, we then populate it with JSON data embedded into the D
 
 The code to achieve this on the client front-end looks like this:
 
-```
+```javascript
 const app = new Fluxible();
 app.registerStore(require('stores/PageStore'));
 
@@ -70,7 +70,7 @@ Rosin will look for a react component located at `my/react/component`, instantia
 
 This helps us by allowing the server to embed `<noscript>` tags within these elements which will simply get stripped out by Rosin and replaced with the React component. However for browsers without javascript enabled (such as search engine crawlers), these no-script tags can be populated with content we intend for the search engine to see. We can also populate them with static content that we want to be presented to users before the page loads.
 
-```
+```html
 // Mustache template file
 <div data-react-component="react/game/GamesList">
     <noscript>

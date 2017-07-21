@@ -122,7 +122,7 @@ Nothing too crazy here, we have an ASG + LC which will launch five instances bas
 ### User Data
 If we build this now, we will get a set of five Consul nodes, we won't get a Cluster. As I alluded to before, we need to do a little post launch config to get the nodes to start talking to each other. If we make sure our Consul AMI has the AWS CLI tools installed, it's fairly easy to use that to query AWS and ask for all instances tagged 'consul', get their IP addresses, shove those values into Consul's config file and finally, start the service.
 
-```
+```bash
 #!/bin/bash
 
 internalIP=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)

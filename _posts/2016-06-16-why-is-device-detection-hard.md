@@ -67,7 +67,7 @@ The former makes sure that the content returned to the device is fully optimised
 
 Because both User-Agent analysis and feature detection are unreliable on their own, most solutions look at using a hybrid approach, tailored towards their individual needs - this tends to use a combination of User-Agent analysis, feature detection, and modern browser technologies. We can use these technologies to decide whether to provide a retina (e.g. iPhone 4 or better) resolution image, or to save bandwidth by returning a standard resolution image by using the new HTML5 [srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Example_3_Using_the_srcset_attribute) attribute.
 
-```
+```html
 <img class="tile__inner-mouseout" src="king-kong-cash.jpg" srcset="king-kong-cash.jpg 1x, king-kong-cash-retina.jpg 2x" alt="King Kong Cash">
 ```
 

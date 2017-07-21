@@ -56,7 +56,7 @@ Thanks Google!  Their phone number library [libphonenumber](https://github.com/g
 
 ### Proof of concept
 
-```sh
+```
 darrell@darrell-hadoop python (dev) $ python
 Python 2.7.6 (default, Jun 22 2015, 17:58:13)
 [GCC 4.8.2] on linux2
@@ -171,7 +171,7 @@ df.write.parquet(
 
 To run this code in the cluster is simple, we just need to pass in the library along with the code we've just written to spark-submit.
 
-```sh
+```bash
 spark-submit --py-files phonenumbers.zip clean_phone_numbers.py
 ```
 
