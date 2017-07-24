@@ -71,7 +71,7 @@ A few sprints later...
 ![Sprint 14 Burndown](/images/intl-data-agile/14-notbad.png)
 *April 2017 - Heading in the Right Direction*
 
-I think it's fair to say our Burndown charts started heading in the right direction.
+I think it's fair to say our burndown charts started heading in the right direction.
 
 Down.
 
@@ -96,6 +96,9 @@ We'd look at how many points we cleared in the previous sprint
 and commit to 20% less than that for the next.
 Buffer meant we could deliver what we'd committed to,
 even given the inevitable estimation error and random tasks that always pop up mid-sprint.
+Buffer means that instead of missing our commitment,
+we normally bring a bit of work into sprint towards the end and slightly over-deliver.
+Much better!
 
 Using "ideal engineering days" and limiting our ticket points helped us plan in more detail
 and identify tasks we hadn't really understood or looked at in enough detail.
@@ -134,7 +137,7 @@ allowing us to quickly replan part of our delivery to work around the problem.
 ### Cycle Times
 
 Burndown charts only tell part of the story.
-Our control chart over the past six months shows how quickly we've been getting tickets done.
+Our control chart over the past six months tells us how quickly we've been getting tickets done.
 
 ![Control Chart](/images/intl-data-agile/control-chart.png)
 *Ticket Cycle Times, Last 6 Months*
@@ -151,9 +154,9 @@ The things we tried that seemed to help us achieve a consistent velocity,
 reduce cycle time, improve squad morale and deliver our commitments include:
 
 - Aiming to be predictable (instead of fast)
-- Being strict about how many points we take into sprint
+- Strictly taking only the points that velocity - buffer allows into sprint
 - Ensuring that squad members confirm that they can personally commit to the sprint
-- If anyone can't commit, keep planning until everyone can
+- If anyone can't commit, planning until everyone can
 - Taking important agile roles like Product Owner and Scrum Master into the squad full-time
 - Switching from physical boards to Jira to track metrics
 - Learning how to use Jira better and ensuring that the board is up to date
