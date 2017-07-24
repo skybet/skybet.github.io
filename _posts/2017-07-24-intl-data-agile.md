@@ -105,6 +105,10 @@ which helped identify work that had become stuck.
 Delivering our commitment meant much more positive feelings in the squad as we closed each sprint.
 That helped improve the mood as we went into retrospectives and planning,
 which made it easier to invest more time in those ceremonies to get another good sprint together.
+We also started celebrating end of sprint by doing our retrospective over lunch in a local eating establishment.
+Sky Betting and Gaming encourages squads to do this kind of thing and although it's tough to measure,
+I think getting out of the office helps establish a rhythm to the sprints
+and build relationships and understanding between squad members.
 
 ### Sprint #20
 
@@ -147,9 +151,13 @@ The things we tried that seemed to help us achieve a consistent velocity,
 reduce cycle time, improve squad morale and deliver our commitments include:
 
 - Aiming to be predictable (instead of fast)
+- Being strict about how many points we take into sprint
+- Ensuring that squad members confirm that they can personally commit to the sprint
+- If anyone can't commit, keep planning until everyone can
 - Taking important agile roles like Product Owner and Scrum Master into the squad full-time
 - Switching from physical boards to Jira to track metrics
 - Learning how to use Jira better and ensuring that the board is up to date
+- Ensuring that we account for holiday and other absence in the upcoming sprint
 - Planning "buffer" time at 20% of points total
 - Working right-to-left and swarming in standups
 - Using "ideal engineering days" as a points measure
