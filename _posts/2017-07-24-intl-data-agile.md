@@ -59,7 +59,7 @@ We would sometimes go two weeks without putting anything into production.
 
 I felt we could do better if we committed more to scrum,
 and the rest of the squad bought into giving that a try.
-Around this point our product owner moved on and forced one of us to step up to that role.
+Around this point our product owner moved on so one of us had to step up to that role.
 We decided to take the scrum master role into the squad too,
 so both roles were being done full time by someone working with the squad.
 As I was squad lead by this point, I took on those jobs and starting reading up!
