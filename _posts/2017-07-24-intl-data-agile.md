@@ -60,8 +60,9 @@ We would sometimes go two weeks without putting anything into production.
 I felt we could do better if we committed more to scrum,
 and the rest of the squad bought into giving that a try.
 Around this point our product owner moved on so one of us had to step up to that role.
-We decided to take the scrum master role into the squad too,
-so both roles were being done full time by someone working with the squad.
+Our scrum master was about to become the Tribe's Agile Delivery Manager,
+so we decided to take the scrum master role into the squad too,
+taking coaching and spot-checks from our ex-scrum master.
 As I was squad lead by this point, I took on those jobs and starting reading up!
 
 A few sprints later...
@@ -88,16 +89,17 @@ We'd started making changes, and the evidence suggests they were making a differ
 I think a fundamental change that enabled improvement is that we stopped trying to go fast.
 We'd started trying to be *predictable*.
 That led us to spend more time planning,
-explicitly commit to deliver what we'd planned,
-to then pay a little more attention to metrics.
+to explicitly commit to deliver what we'd planned,
+and then to pay a little more attention to metrics.
 
 Aiming for predictability also meant we had to introduce "buffer" as part of planning.
 We'd look at how many points we cleared in the previous sprint
 and commit to 20% less than that for the next.
-Buffer meant we could deliver what we'd committed to,
-even given the inevitable estimation error and random tasks that always pop up mid-sprint.
 Buffer means that instead of missing our commitment,
-we normally bring a bit of work into sprint towards the end and slightly over-deliver.
+we normally bring work into sprint towards the end and slightly over-deliver,
+so our velocity started to naturally stabilise.
+It meant we could deliver what we'd committed to,
+even given the inevitable estimation error and random tasks that always pop up mid-sprint.
 Much better!
 
 Using "ideal engineering days" and limiting our ticket points helped us plan in more detail
@@ -130,9 +132,11 @@ so I think it's fair to say that pretty much every release puts some value into 
 The sprint before had involved a mammoth *four hour* planning session.
 We had one large and important deliverable that involved changes in several components.
 Even with all that planning, we still ran into difficulties when an AWS issue
-stopped us clearing completed work out or our release pipeline!
-The planning did help make sure everyone understood what was going on,
-allowing us to quickly replan part of our delivery to work around the problem.
+stopped us clearing completed work out of our release pipeline!
+The detailed planning did help make sure everyone understood what was going on,
+so we were able to work around the problem with a quick re-plan.
+It chewed up all our buffer and took a couple of hours of overtime,
+but the stories we'd committed to went into production on time.
 
 ### Cycle Times
 
@@ -144,7 +148,8 @@ Our control chart over the past six months tells us how quickly we've been getti
 
 Given that the y-axis is an logarithmic scale, we can see some of those early, long running tickets
 spending nearly 120 days in sprint before being cleared.
-We've had the average cycle time down to around 1.5 days, but we're creeping back up.
+Variability in elapsed time has reduced.
+Although we've had the average cycle time down to around 1.5 days, we're creeping back up.
 I guess that goes to show that you need to keep an eye on your metrics even when things seem to be going well!
 
 ### In Summary
@@ -153,10 +158,10 @@ We hope that sharing our story helps others who may be struggling.
 The things we tried that seemed to help us achieve a consistent velocity,
 reduce cycle time, improve squad morale and deliver our commitments include:
 
-- Aiming to be predictable (instead of fast)
-- Strictly taking only the points that velocity - buffer allows into sprint
+- Aiming to be predictable instead of fast
+- Strictly taking only the points that velocity and buffer allow into sprint
 - Ensuring that squad members confirm that they can personally commit to the sprint
-- If anyone can't commit, planning until everyone can
+- Staying in planning until *everyone* really can commit
 - Taking important agile roles like Product Owner and Scrum Master into the squad full-time
 - Switching from physical boards to Jira to track metrics
 - Learning how to use Jira better and ensuring that the board is up to date
@@ -166,7 +171,7 @@ reduce cycle time, improve squad morale and deliver our commitments include:
 - Using "ideal engineering days" as a points measure
 - Investing more time and effort in planning to break down to smaller tickets
 - Aiming for ticket sizes of 1-2 points
-- Max ticket size of 5 points, with those tickets representing a lot of uncertainty
+- Max ticket size of 5 points, paying more attention in standups to those larger tickets
 - Paying attention to and reacting to our burndown and cycle times
 
 Many of the things we tried came from a book I used as reference,
