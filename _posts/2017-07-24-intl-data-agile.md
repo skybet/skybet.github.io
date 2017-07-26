@@ -146,7 +146,7 @@ Our control chart over the past six months tells us how quickly we've been getti
 ![Control Chart](/images/intl-data-agile/control-chart.png)
 *Ticket Cycle Times, Last 6 Months*
 
-Given that the y-axis is an logarithmic scale, we can see some of those early, long running tickets
+Given that the y-axis is a logarithmic scale, we can see some of those early, long running tickets
 spending nearly 120 days in sprint before being cleared.
 Variability in elapsed time has reduced.
 Although we've had the average cycle time down to around 1.5 days, we're creeping back up.
