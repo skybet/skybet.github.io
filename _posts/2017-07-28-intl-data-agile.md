@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Fixing Agile in International Data Engineering
-date:       2017-07-24 15:00
+date:       2017-07-28 10:00
 summary:    How we achieved a stable velocity and frequent delivery based on scrum
 category:   Agile
 tags:       agile, scrum, velocity, slack
