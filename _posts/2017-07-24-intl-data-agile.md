@@ -152,6 +152,17 @@ Variability in elapsed time has reduced.
 Although we've had the average cycle time down to around 1.5 days, we're creeping back up.
 I guess that goes to show that you need to keep an eye on your metrics even when things seem to be going well!
 
+### Jira Reports
+
+The burndown and control charts came from Jira.
+That's right, Jira does reports, but it's an easy feature to miss.
+
+![Jira Reports](/images/intl-data-agile/jira-reports.png)
+*Jira Reports*
+
+Access reports by clicking on the icon circled in the screenshot above.
+Choose your report from the drop-down that says "Control Chart" in the screenshot.
+
 ### In Summary
 
 We hope that sharing our story helps others who may be struggling.
