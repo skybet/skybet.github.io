@@ -60,7 +60,7 @@ alice_kaerast:
     image: alice_kaerast.png
     role: Big Data Architect
     tribe: Data
-    bio: "Alice played a key role in building our Hadoop-based data platform as a DevOps Engineer, and now applies this engineering experience as an Architect as we continue to evolve our platform."
+    bio: "Alice played a key role in building our Hadoop-based data platform as a DevOps Engineer, and now applies this engineering experience as an Architect as we continue to evolve our platform.<br>Pronouns: they/them."
     github: WheresAlice
 
 paul_mccormick:
