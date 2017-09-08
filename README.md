@@ -108,6 +108,7 @@ If you are doing something more than editing articles then it is possible you wi
 
 Docker and Docker Compose are the best way of rendering the site locally on a Mac because the version of Ruby is too old (2.1 is the minimum due to Nokogiri).  However, you can install a newer version of Ruby to run natively if you prefer.
 
+0. `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` to install Homebrew if you don't already have it (see https://brew.sh)
 1. `brew install rbenv ruby-build` to install dependencies.  This might take a while depending on what you already have installed
 2. `eval "$(rbenv init -)"` and add this to your .bash_profile or .zshrc so that rbenv is automatically loaded
 3. `rbenv install 2.4.1` to actually install Ruby 2.4.1.  This will take some time to compile
