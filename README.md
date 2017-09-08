@@ -102,8 +102,21 @@ If you are making UI updates you will also need to run `npm install`, then you c
 
 If you already have Docker and docker-compose installed, and don't do much Ruby work, you might find it easier to use the Docker way of running the site locally.  Run `docker-compose up` to launch the site in a container and after it has installed dependencies you can browse to `http://127.0.0.1:4000/`.  You can also validate your work by running `docker exec skybetgithubio_jekyll_1 rake validate`.  Docker will run a second container to generate the css from the sass, but you can also do this separately with `docker run --rm -v `pwd`:/src -p 9090:8080  -e GULP_TASK="watch" -t -i agomezmoron/docker-gulp`
 
-
 If you are doing something more than editing articles then it is possible you will need to restart the Jekyll instance or container to pick these changes up.  You shouldn't need to do this routinely while editing articles because Jekyll is called with the `--watch --future` arguments.
+
+### Mac setup
+
+Docker and Docker Compose are the best way of rendering the site locally on a Mac because the version of Ruby is too old (2.1 is the minimum due to Nokogiri).  However, you can install a newer version of Ruby to run natively if you prefer.
+
+1. `brew install rbenv ruby-build` to install dependencies.  This might take a while depending on what you already have installed
+2. `eval "$(rbenv init -)"` and add this to your .bash_profile or .zshrc so that rbenv is automatically loaded
+3. `rbenv install 2.4.1` to actually install Ruby 2.4.1.  This will take some time to compile
+4. `rbenv global 2.4.1` to make Ruby 2.4.1 the default
+5. `rehash` if you are using zsh so that it knows about the new ruby binary stub
+5. `ruby -v` to make sure it works
+6. `gem install bundler` to install bundler
+
+You can now follow the rest of the instructions to render the site locally.  The first time you serve the site locally you'll be asked to allow ruby to listen for network connections, you should agree to this.
 
 ## Validating your edits
 
