@@ -4,7 +4,7 @@ markdown: kramdown
 url: http://engineering.skybettingandgaming.com
 host: 0.0.0.0
 permalink: /:year/:month/:day/:title/
-gems:
+plugins:
     - jekyll-feed
     - jekyll-paginate
 paginate: 10
