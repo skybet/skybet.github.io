@@ -117,7 +117,7 @@ You can now follow the rest of the instructions to render the site locally.  The
 
 ### Docker setup
 
-Whilst there is a docker-compose file to render the site locally, it is largely unsupported and frequently breaks.  The instructions below may work for you, but we are considering removing this completely.
+Whilst there is a docker-compose file to render the site locally, it is largely unsupported and frequently breaks.  We are considering removing this completely but are happy to accept a Pull Request if you can get this to work consistently.
 
 Run `docker-compose up` to launch the site in a container and after it has installed dependencies you can browse to `http://127.0.0.1:4000/`.  You can also validate your work by running `docker exec skybetgithubio_jekyll_1 rake validate`.  Docker will run a second container to generate the css from the sass, but you can also do this separately with `docker run --rm -v `pwd`:/src -p 9090:8080  -e GULP_TASK="watch" -t -i agomezmoron/docker-gulp`
 
