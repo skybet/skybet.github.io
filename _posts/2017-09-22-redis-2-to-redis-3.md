@@ -29,7 +29,7 @@ This allowed for a simpler set up, but alas twemproxy didn't support redis clust
 
 ![Redis3 Cluster](/images/Redis3-Cluster.svg)
 
-With this we were able to shard data automatically, and failovers and failbacks were largely automatic. The application knew which nodes existed, and when writing data if they wrote to the wrong node the cluster would redirect that write automatically. This was the configuration that was chosen, and it worked we had a shared in-memory cache that was reasonably robust, and could cope with basic failure modes without intervention. During testing we did find some flaws. Replication was on a node by node basis, so if we lost a master node, then it's slave became a single point of failure until the dead node was restored into service, also only the masters voted on the cluster health, so if we lost too many masters too quickly the cluster wouldn't self heal. But this was better than we had.
+With this we were able to shard data automatically, and failovers and failbacks were largely automatic. The application knew which nodes existed, and when writing data if they wrote to the wrong node the cluster would redirect that write automatically. This was the configuration that was chosen, and it worked we had a shared in-memory cache that was reasonably robust, and could cope with basic failure modes without intervention. During testing we did find some flaws. Replication was on a node by node basis, so if we lost a master node, then its slave became a single point of failure until the dead node was restored into service, also only the masters voted on the cluster health, so if we lost too many masters too quickly the cluster wouldn't self heal. But this was better than we had.
 
 ### Moving forward
 
