@@ -1,7 +1,6 @@
 (function() {
     'use strict';
 
-
     var st = document.readyState,
         readyHandlers = false,
         running = false,
