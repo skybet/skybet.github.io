@@ -81,10 +81,19 @@ header.page {
         width: 100%;
         justify-content: center;
 
+        .sbg-logo-wrap {
+            height: 360px;
+            display: flex;
+            align-items: center;
+
+            @include media-query(xs-s) {
+                height: 160px;
+            }
+        }
+
         .sbg-logo {
             fill: $color-light;
             max-height: 200px;
-            margin: 100px auto;
             display: block;
 
             @include media-query(xs-s) {
@@ -156,6 +165,10 @@ header.page {
 
         .sticky {
             min-height: 70px;
+
+            .sbg-logo-wrap {
+                height: 55px;
+            }
 
             @include media-query(xs) {
                 background: linear-gradient(135deg, $color-default 0%, $color-primary 100%);
