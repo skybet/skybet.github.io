@@ -76,13 +76,13 @@ powerful’ after all. Which leads us neatly on to…
 ## Boring is powerful
 
 Jon Topper from [The Scale Factory](http://www.scalefactory.com/)
-gave a great talk on idea of keeping your platform ‘boring’, which
+gave a great talk on the idea of keeping your platform ‘boring’, which
 can be split into two main ideas; first of all, that software is
 rarely complete right from the start, features are always added
 over time. As the ‘fashionableness’ of a product decreases over
 time, feature availability, quality, reliability, security and
 collective knowledge all increase. The release schedule of former
-industry darling MongoDB illustrates the point: 
+industry darling MongoDB illustrates the point:
 
 ![MongoDB release schedule](/images/MongoDB_release_schedule.png) 
 
