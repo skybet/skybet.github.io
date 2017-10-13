@@ -390,3 +390,13 @@ craig_stewart:
     bio: "An experienced Systems Administrator and Professional member of BCS"
     interests: cycling, swimming, debate
     twitter: pmb00cs
+
+rob_groves:
+    name: Rob Groves
+    image: rob_groves.png
+    role: SRE
+    tribe: Bet
+    startDate: 31-07-2012
+    bio: ""
+    github: MrYeti1
+    twitter: MrYeti1
