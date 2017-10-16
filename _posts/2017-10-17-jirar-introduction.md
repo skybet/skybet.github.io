@@ -93,22 +93,4 @@ Read the jiraR README for advice on setting up customfields to power the worktyp
 
 Hopefully this post has inspired you to visualise your own projects and talk about the output with your team. Anyone can kickoff the discussion as everyone hates being blocked, so why not start today… The reports built into Jira are a good starting point, but sometimes you need more. Hopefully this project is simple enough to encourage you to experiment with personalised views of your own workflow.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Check it out here: https://github.com/skybet/jirar
