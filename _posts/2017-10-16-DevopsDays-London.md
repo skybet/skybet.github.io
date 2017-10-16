@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      DevopsDays London 2017
-date:       2017-10-06
+date:       2017-10-16
 summary:    A look at DevopsDays London 2017
 category:   Devops
 tags:       Devops
