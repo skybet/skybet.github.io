@@ -44,7 +44,7 @@ The Phased Cycle Time charts are quite complicated, but they can be interpreted 
 
 ![JiraR WorkType Distribution diagram](/images/jirarWorkType.png)
 
-Our management suggest we split our work so that 70% of our time is roadmap work, with the remaining 30% split between BAU and addressing Tech Debt. This chart shows what our actual distribution of completed tickets is, using a custom field in Jira to record the work-type.
+Our management suggest we split our work so that 70% of our time is roadmap work, with the remaining 30% split between BAU and addressing Tech Debt. This chart shows what our actual distribution of completed tickets is, using a CustomField in Jira to record the work-type.
 
 Using this information, squads have evidence to give to their product owners to ‘self-correct’ when they are being asked to do too much roadmap work. Everyone knows letting tech-debt build up is troublesome, the best way to tackle it is to keep on top of it.
 
@@ -56,7 +56,7 @@ This doesn’t mean that we can only spend 30% of our time resolving tech-debt. 
 * Velocity: Number of tickets completed
 * Column Usage: Which columns get skipped?
 * Burnup: Businesses love burnup
-* Spend: How many tickets are completed as CAPEX vs OPEX (from a customfield in Jira)
+* Spend: How many tickets are completed as CAPEX vs OPEX (from a CustomField in Jira)
 
 
 ## Using this yourself
@@ -87,7 +87,7 @@ All being well, This extracts the data from your Jira api using the Node.JS scri
 Next, it runs a Rmd script ([R Markdown](http://rmarkdown.rstudio.com/)) to generate the graphics from that CSV file.
 Optionally, if you have added your confluence details in `atlassianDetails.sh`, it uploads the report to confluence for others to see.
 
-Read the jiraR README for advice on setting up customfields to power the worktype and spend charts.
+Read the jiraR [README](https://github.com/skybet/jirar/blob/master/README.md) for advice on setting up Jira’s CustomFields to power the worktype and spend charts.
 
 ## Summary
 

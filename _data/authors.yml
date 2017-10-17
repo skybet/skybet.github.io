@@ -381,6 +381,15 @@ leanne_jagger:
     bio: "Software engineer working on in-house trading tools, typically using Java, React, Node and a serverless architecture in AWS."
     github: Leanne182x
 
+rob_groves:
+    name: Rob Groves
+    image: rob_groves.png
+    role: SRE
+    tribe: Bet
+    startDate: 31-07-2012
+    github: MrYeti1
+    twitter: MrYeti1
+
 craig_stewart:
     name: Craig Stewart
     image: craig_stewart.png
@@ -390,12 +399,3 @@ craig_stewart:
     bio: "An experienced Systems Administrator and Professional member of BCS"
     interests: cycling, swimming, debate
     twitter: pmb00cs
-
-rob_groves:
-    name: Rob Groves
-    image: rob_groves.png
-    role: SRE
-    tribe: Bet
-    startDate: 31-07-2012
-    github: MrYeti1
-    twitter: MrYeti1
