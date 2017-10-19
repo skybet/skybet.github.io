@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      JiraR Introduction
-date:       2017-10-17 15:45:00
+date:       2017-10-19 10:00:00
 summary:    Introducing some pictures of Jira
 author:     rob_groves
 image:      jirarAnnotated.jpg
