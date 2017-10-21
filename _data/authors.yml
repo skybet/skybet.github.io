@@ -400,6 +400,15 @@ craig_stewart:
     interests: cycling, swimming, debate
     twitter: pmb00cs
 
+paul_whitehead:
+    name: Paul Whitehead
+    image: paul_whitehead.jpg
+    role: Senior Performance Test Engineer
+    tribe: Core
+    startDate: 17-05-2016
+    bio: "Specialist in Performance Testing and Operational Acceptance Testing. PerfOps &  #Perfmatters"
+    twitter: Response_Times
+
 adam stacey:
     name: Adam Stacey
     image: adam_stacey.jpg
