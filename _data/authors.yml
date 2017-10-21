@@ -381,6 +381,15 @@ leanne_jagger:
     bio: "Software engineer working on in-house trading tools, typically using Java, React, Node and a serverless architecture in AWS."
     github: Leanne182x
 
+rob_groves:
+    name: Rob Groves
+    image: rob_groves.png
+    role: SRE
+    tribe: Bet
+    startDate: 31-07-2012
+    github: MrYeti1
+    twitter: MrYeti1
+
 craig_stewart:
     name: Craig Stewart
     image: craig_stewart.png
@@ -399,3 +408,12 @@ paul_whitehead:
     startDate: 17-05-2016
     bio: "Specialist in Performance Testing and Operational Acceptance Testing. PerfOps &  #Perfmatters"
     twitter: Response_Times
+
+adam stacey:
+    name: Adam Stacey
+    image: adam_stacey.jpg
+    role: Senior Devops Engineer
+    tribe: Core
+    startDate: 05-09-2016
+    bio: "Proud to be part of the Core Tribe in Sheffield, a keen cyclist and parent"
+    twitter: zed_dog
