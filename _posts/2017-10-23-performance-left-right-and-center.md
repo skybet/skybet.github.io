@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Performance Left Right and Center.
-date:       2017-10-21
+date:       2017-10-23
 summary:    Why we need a holistic approach to performance testing in Agile development  - it's not all about Shifting Left.
 image:      perf-lrc-frontpage.jpg
 category:   Testing
