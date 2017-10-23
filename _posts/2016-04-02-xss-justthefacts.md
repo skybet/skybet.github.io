@@ -23,7 +23,8 @@ At its simplest, XSS relies on a website returning executable code to a client t
 
 A trivial example of a website that could be vulnerable to this could be as simple as a site containing a single form that echoes your name back to you: you enter your name ("Bob") in a login form field, and the website returns "Hello, Bob" in its HTTP response. If the website can instead be forced to process the name of `<script>...</script>` then it is possible to inject JavaScript into unsuspecting visitors' browsers.
 
-[![Bobby Tables cartoon](https://imgs.xkcd.com/comics/exploits_of_a_mom.png)](https://xkcd.com/327/)
+[![Exploits of a Mom](https://imgs.xkcd.com/comics/exploits_of_a_mom.png "Her daughter is named Help I'm trapped in a driver's license factory.")](https://xkcd.com/327/)
+<cite>Source: [xkcd](https://xkcd.com/327/). Licence: [CC BY-NC 2.5](https://xkcd.com/license.html)</cite>
 
 It is this combination of the widespread susceptibility to XSS with the powerful payloads that the vulnerability that can deliver and the relative simplicity of exploiting it that make XSS such an important threat to protect against.
 
