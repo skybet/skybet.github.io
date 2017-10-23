@@ -69,3 +69,6 @@
 
 - name: Cloud Computing
   slug: cloud-computing
+
+- name: Testing
+  slug: testing
