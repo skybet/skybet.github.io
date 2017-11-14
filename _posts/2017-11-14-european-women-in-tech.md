@@ -9,7 +9,7 @@ author:     holly_straker
 image:      european-wit/european-wit-conference-hall.jpg
 ---
 
-As Sky Betting and Gaming has started its journey, leveraging Diversity & Inclusion, it’s been great to see the energy from people around the business. Last week, I attended the European Women in Tech Conference to learn from some of the biggest tech businesses in the world. Here are my Top 10 Messages:
+As Sky Betting and Gaming has started its journey leveraging Diversity & Inclusion, it’s been great to see the energy from people around the business. Last week, I attended the European Women in Tech Conference to learn from some of the biggest tech businesses in the world. Here are my Top 10 Messages:
 
 
 1.	**IBM-** soon we will be able to monitor our mental health on smart watches.
