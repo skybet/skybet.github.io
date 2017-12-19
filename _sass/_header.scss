@@ -222,7 +222,7 @@ header.page {
         }
 
         .social {
-            max-width: 170px;
+            max-width: 220px;
 
             @include media-query(xs) {
                 display: none;
