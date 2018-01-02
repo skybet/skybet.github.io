@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Technical Challenges We Encountered When Moving to a Serverless Architecture in AWS
-date:       2017-12-21 09:00
+date:       2018-01-02 09:00
 summary:    A look at some of the technical challenges we encountered when we moved to a serverless architecture in AWS and how we overcame them.
 image:      challenges-faced-moving-to-serverless/LoadTest_AutoScaleDelay.png
 category:   Cloud Computing
