@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      devopsdays Berlin 2017
-date:       2018-01-04 15:00:00
+date:       2018-01-05 08:00:00
 summary:    A look at the highlights of devopsdays Berlin 2017
 author:     oliver_leaver-smith
 image:		kalkscheune.jpg
