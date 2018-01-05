@@ -426,3 +426,13 @@ holly_straker:
     tribe: People & Support
     startDate: 10-07-2017
     bio: "Working to create a learning and inclusive culture at Sky Betting and Gaming"
+
+oliver_leaver-smith:
+    name: Oliver Leaver-Smith
+    image: ols.jpg
+    role: Devops Engineer
+    tribe: Core
+    startDate: 01-01-2017
+    bio: "Dad, husband, computer-man. Oiling APIs, polishing LAMPs, greasing the wheels, and doing devops in Core Tribe at Sky Betting and Gaming."
+    github: muggahtee
+    twitter: muggahtee
