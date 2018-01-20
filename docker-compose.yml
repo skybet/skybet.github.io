@@ -1,10 +1,9 @@
 jekyll:
-    image: jekyll/jekyll
-    command: jekyll serve --watch --incremental --future
+    image: kaerast/rake-preview
     ports:
         - 4000:4000
     volumes:
-        - .:/srv/jekyll
+        - .:/usr/src/app
 gulp:
     image: agomezmoron/docker-gulp
     environment:
