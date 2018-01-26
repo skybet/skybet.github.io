@@ -1,4 +1,5 @@
 require 'rspec'
+require 'date'
 require 'safe_yaml'
 
 categories_file = SafeYAML.load_file('_data/categories.yml')
