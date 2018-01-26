@@ -117,11 +117,7 @@ You can now follow the rest of the instructions to render the site locally.  The
 
 ### Docker setup
 
-Whilst there is a docker-compose file to render the site locally, it is largely unsupported and frequently breaks.  We are considering removing this completely but are happy to accept a Pull Request if you can get this to work consistently.
-
-Run `docker-compose up` to launch the site in a container and after it has installed dependencies you can browse to `http://127.0.0.1:4000/`.  You can also validate your work by running `docker exec skybetgithubio_jekyll_1 rake validate`.  Docker will run a second container to generate the css from the sass, but you can also do this separately with `docker run --rm -v `pwd`:/src -p 9090:8080  -e GULP_TASK="watch" -t -i agomezmoron/docker-gulp`
-
-If you are doing something more than editing articles then it is possible you will need to restart the Jekyll instance or container to pick these changes up.  You shouldn't need to do this routinely while editing articles because Jekyll is called with the `--watch --future` arguments.
+Many of you will be aware of `pscli` for running development tools locally via Docker.  There's an equivalent tool for working with static site generators like Jekyll called [Staticli](https://github.com/staticli/staticli).  Once you have downloaded this and have Docker installed, you can render the site locally with `staticli rake`.  There's also a similar command for running the gulp tasks `staticli gulp`.
 
 ## Validating your edits
 
