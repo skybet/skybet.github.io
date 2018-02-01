@@ -22,4 +22,4 @@ If you or anyone you know enjoys a challenge then take a look at the new [Gradua
 ![Sky Betting & Gaming Eareer Careers](/images/early_careers.jpg "Sky Betting & Gaming Early Careers")
 
 ### Useful Links
-James Moorhouse Blog: [Life After Graduation](http://engineering.skybettingandgaming.com/2016/03/16/life-after-graduation/)
+James Moorhouse Blog: [Life After Graduation](/2016/03/16/life-after-graduation/)

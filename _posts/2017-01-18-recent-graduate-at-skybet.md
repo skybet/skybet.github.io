@@ -1,14 +1,14 @@
 ---
 layout:     post
-title:      A Recent Graduates Guide to Sky Betting & Gaming…
+title:      A Recent Graduate's Guide to Sky Betting & Gaming…
 date:       2017-01-18 10:00
-summary:    A recent graduates blog on their first few months at Sky Betting & Gaming as well as what to expect.
+summary:    A recent graduate's blog on their first few months at Sky Betting & Gaming as well as what to expect.
 category:   Data
 tags:       Leeds, Data, Engineer, Graudate
 author:     marcus_ojerinde_ardalla
 ---
 
-_The following blog post is an informal detailing of the first few months at **Sky Betting & Gaming** (SBG) as a Junior Data Engineer. The intention of this post is to give a brief overview of what to expect when you join as a recent graduate as well as life here at **Sky Betting & Gaming**. An earlier blog post of a similar vein can be found [here](http://engineering.skybettingandgaming.com/2016/03/16/life-after-graduation/)_
+_The following blog post is an informal detailing of the first few months at **Sky Betting & Gaming** (SBG) as a Junior Data Engineer. The intention of this post is to give a brief overview of what to expect when you join as a recent graduate as well as life here at **Sky Betting & Gaming**. An earlier blog post of a similar vein can be found [here](/2016/03/16/life-after-graduation/)_
 
 
 Sports and Data Engineering! My two passions together in one place. How could I not be excited to start life at this amazing place of work in the city of Leeds! (Leeds is a wonderful place to live but more on that later).
