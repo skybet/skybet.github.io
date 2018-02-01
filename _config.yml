@@ -1,7 +1,7 @@
 name: Sky Betting & Gaming Technology
 title: Sky Betting & Gaming Technology
 markdown: kramdown
-url: http://engineering.skybettingandgaming.com
+url: https://technology.skybettingandgaming.com
 host: 0.0.0.0
 permalink: /:year/:month/:day/:title/
 plugins:

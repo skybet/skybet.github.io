@@ -1,7 +1,7 @@
 Sky Betting & Gaming Technology Site
 =====================================
 
-This is source for our public technology site at http://engineering.skybettingandgaming.com, rendered via [Jekyll](https://jekyllrb.com/docs/home/) through GitHub Pages.
+This is source for our public technology site at https://technology.skybettingandgaming.com, rendered via [Jekyll](https://jekyllrb.com/docs/home/) through GitHub Pages.
 
 ## How to Contribute
 
