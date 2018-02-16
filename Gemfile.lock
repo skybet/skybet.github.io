@@ -227,7 +227,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
-    ruby-enum (0.7.1)
+    ruby-enum (0.7.2)
       i18n
     rubyzip (1.2.1)
     safe_yaml (1.0.4)
