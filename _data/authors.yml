@@ -62,6 +62,7 @@ alice_kaerast:
     tribe: Data
     bio: "Alice played a key role in building our Hadoop-based data platform as a DevOps Engineer, and now applies this engineering experience as an Architect as we continue to evolve our platform.<br>Pronouns: they/them."
     github: WheresAlice
+    twitter: PrincenAlice
 
 paul_mccormick:
     name: Paul McCormick
