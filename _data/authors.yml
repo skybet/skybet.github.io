@@ -447,3 +447,13 @@ lucy_davinhart:
     bio: "Instigator of DevOps Shenanigans, Woman who Go, and Recreational Procrastinatrix.<br>Also completely incapable of deciding on a single consistent surname.<br>Pronouns: they/them or she/her."
     github: lucymhdavies
     twitter: lucydavinhart
+
+macs_dickinson:
+    name: Macs Dickinson
+    image: macs.jpg
+    role: Lead Software Engineer
+    tribe: Bet
+    startDate: 05-09-2017
+    bio: "Dad. Welsh. Cat person. Involved in Leeds Hack & Yorkshire Digital. Software Engineering Enthusiast."
+    github: macsdickinson
+    twitter: macsdickinson
