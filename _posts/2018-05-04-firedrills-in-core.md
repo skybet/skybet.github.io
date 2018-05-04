@@ -46,7 +46,7 @@ We also use this meeting to confirm  which of our environments the drill will ta
 Our firedrills are expected to be as incident-like as possible, and so we use the same tooling in a drill as we would in a real incident. Whether this be for deploying code, running batch jobs across the environment, or communicating with the incident response team.
 
 We use Slack heavily in Sky Betting and Gaming, so much so that when an incident is created we have a correspondingly named Slack channel which serves two purposes:
-1. We have a chronolical breakdown of what happened, and who did what. This is great for reviewing the incidents once the dust has settled and revisiting an incident if we spot similar behaviour in the future
+1. We have a chronological breakdown of what happened, and who did what. This is great for reviewing the incidents once the dust has settled and revisiting an incident if we spot similar behaviour in the future
 1. We keep other more general channels clear. This helps immensely when there are multiple incidents open at the same time, and helps to avoid cross-talk in other channels
 
 I mentioned earlier that the firedrill orchestrator will often be playing the role of multiple people. In the past this has proved quite tricky to keep track of, and ruins the immersion somewhat. 
