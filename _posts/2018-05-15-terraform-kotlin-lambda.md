@@ -18,12 +18,12 @@ That was the question I tried to answer in a proof-of-concept (PoC).  It's been 
 ## Background
 Software Engineering courses in the mid-90s taught the mechanics of building good projects.  In the main, they sought to introduce the software development lifecycle (SDLC) and familiarise students with it.  Work out what you're building, design it, build it, test it, ship.  There are problems with this sort of waterfall SDLC, not least of all the bugs and limitations introduced by coding and supporting it all in-house.  Perhaps design, build, test, delay, debug, delay, ship, patch?
 
-By the middle of the following decade, the model had turned on its head.  Engineers had become curators of code, sharing, selecting and refining an internet full of examples, frameworks, open source libraries, gists and StackOverflow answers to compose a solution.  "Not invented here" became a badge of honour, instead of a digital xenophobia that slowed innovation.
+By the middle of the following decade, the model had turned on its head.  Engineers had become curators of code, sharing, selecting and refining an internet full of examples, frameworks, open source libraries, gists and StackOverflow answers to compose a solution.  "Not invented here" became a badge of honour, instead of a digital prejudice that slowed innovation.
 
 ## The challenge
 ### Traffic spikes
-The nature and timing of major sporting events means that many customers place bets at the same time.  During those peaks, SkyBet's servers receive many hundreds of requests per second, over 350/s during the run up to this year's Grand National at Aintree.
-Like almost any large web service, SkyBet need an adaptive and reactive infrastructure that can cope with the spikes, but scale back during the quite times.
+The nature and timing of major sporting events means that many customers place bets at the same time.  During those peaks, Sky Betting and Gaming's servers receive many hundreds of requests per second, 445/s during the run up to this year's Grand National at Aintree.
+Like almost any large web service, Sky Betting and Gaming need an adaptive and reactive infrastructure that can cope with the spikes, but scale back during the quite times.
 
 ### Simple form processing and storage
 Bets are complex to strike, so for this PoC I've simplified the model.  Here's a static HTML form that purports to gather credit card information.  Because it's a PoC, it actually doesn't gather any sensitive data.
@@ -126,7 +126,7 @@ Serverless computing is another example of a shift that allows us to focus on th
 ### Advances in language tech
 Thinking back to those Software Engineering courses from twenty years ago, many taught C, Java and sometimes Haskell.  That language selection was pretty cutting edge at it's time.  C for memory management, Java for OO design and Haskell for a functional future that we didn't quite understand yet.
 
-SkyBet has always been progressive in its attitude towards language selection, so anything that lets the engineering teams cut _better_ code - cleaner, clearer, more reliable, more scalable - is welcomed into the supported tech stable.  Kotlin is a fantastic divergence from Java so let's use that for the PoC.  It's not one of the AWS Lambda natively supported languages, but as it's JVM-based we can compile a fat JAR and run in the same way as Java. 
+Sky Betting and Gaming has always been progressive in its attitude towards language selection, so anything that lets the engineering teams cut _better_ code - cleaner, clearer, more reliable, more scalable - is welcomed into the supported tech stable.  Kotlin is a fantastic divergence from Java so let's use that for the PoC.  It's not one of the AWS Lambda natively supported languages, but as it's JVM-based we can compile a fat JAR and run in the same way as Java. 
 
 ### Automated provisioning
 On the infrastructure-as-code (IAC) side, multi-cloud languages like Terraform are making it easier to spin up and glue all the pieces together; and there are a whole lot of pieces.  It also means the whole shooting match can be instantiated with a single `terraform apply`, rather than an elaborate "open this console window and tick this option" tutorial.
