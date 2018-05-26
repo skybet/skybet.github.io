@@ -33,6 +33,8 @@ We can now restart the application with these new parameters and we should see t
 
 ### JConsole
 
+![jconsole](/images/jmx-metrics-kafka-connect/jconsole.png)
+
 If you are running the application on your desktop or laptop environment, then you probably already have `jconsole` installed.  Running this will give you a GUI for connecting to the remote process and then give you some nice graphs for all the JMX metrics.  This is useful for very quickly checking that JMX metrics are being exposed correctly, but it is not particularly useful for monitoring the application.
 
 ### JMX Dump
@@ -44,6 +46,8 @@ java -jar jmx-dump-0.7.3-standalone.jar --dump-all -p 9010 | less
 ```
 
 Here is a good place to mention [Gron](https://github.com/tomnomnom/gron) - a portable commandline tool which makes JSON greppable and nicely colorises it.  Piping the output of jmx-dump into gron makes it much easier to read through the available metrics and document them.
+
+![gron output](/images/jmx-metrics-kafka-connect/jmxdump.png)
 
 At this point we could finish the blog, we have a way getting metrics from the application which you can parse using your favorite language and import into your monitoring tool of choice.  However, most of the teams around Sky Betting and Gaming are standardising on Prometheus and Alert Manager for their monitoring, so lets go a little further and actually monitor these metrics.
 
