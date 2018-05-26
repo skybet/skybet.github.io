@@ -2,20 +2,19 @@
 layout:     post
 title:      JMX Metrics in Kafka Connect
 date:       2018-05-26
-summary:    
+summary:    The use of JMX metrics in Java applications is often poorly documented and is a feature that people are often unaware of.  In this post we explore how to use the JMX metrics provided by Kafka Connect.
 author:     alice_kaerast
 image:
 category:   Operations
 ---
 
-For those of us who have been around for a while it is obvious that well-written Java applications expose a bunch of useful metrics via JMX and that graphing and alerting on these is the standard way of monitoring these applications.  It's so obvious and well-known that this isn't written about, and isn't covered in the software's documentation.  And this is a problem for the people whom this isn't obvious to.
+For those of us who have been around for a while it is obvious that well-written Java applications expose a bunch of useful metrics via JMX and that graphing and alerting on these is the standard way of monitoring these applications.  It's so obvious and well-known that this isn't written about, and often isn't covered in the software's documentation.  And this is a problem for the people for whom this isn't obvious.
 
-In reviewing a recent incident involving a Kafka Connect worker it became obvious that there is a gap here.  The team running the Kafka Connect instance were not aware of the rich JMX metrics, and were instead prodding the source and destination stores in various ways.  They weren't doing anything with the JMX metrics because they weren't aware of them.
+In reviewing a recent incident involving a Kafka Connect worker it became obvious that there is a gap here.  The team running the Kafka Connect cluster were not aware of the rich JMX metrics, and were instead prodding the source and destination stores in various ways.  They weren't doing anything with the JMX metrics because they weren't aware of them.
 
-It's true that JMX metrics are not particularly easy to do something with if you do not have a lot of experience in JVM applications, so let's talk about the metrics we can get from Kafka Connect and how to use them.
+It's true that JMX metrics are not particularly easy to use if you do not have a lot of experience in JVM applications, so let's talk about the metrics we can get from Kafka Connect and how to use them.
 
-Zenreach Engineering have already done [most of the work](https://github.com/zenreach/docker-kafka-connect) on this with their Docker image for Kafka Connect that includes jmx_exporter for Prometheus.  But lets take a look at what's involved as a learning exercise.
-
+Zenreach Engineering have already done [most of the work](https://github.com/zenreach/docker-kafka-connect) in exposing the Kafka Connect JMX metrics with their Docker image that includes jmx_exporter for Prometheus.  But lets take a look at what's involved as a learning exercise.
 
 ### Exposing the JMX metrics
 
@@ -28,7 +27,7 @@ JMX Metrics are exposed remotely via a TCP port, but most JVM applications don't
 -Dcom.sun.management.jmxremote.ssl=false
 ```
 
-If you plan on exposing these metrics over the network then you will want to investigate the authentication and SSL options and you may need to set the advertised hostname depending on your setup.  However since we are not exposing the JMX port over the network directly, we will not cover these here.
+If you plan on exposing these metrics over the network then you will want to investigate the authentication and SSL options, and you may need to set the advertised hostname too depending on your setup.  However since we are not exposing the JMX port over the network (and are connecting to localhost), we will not cover these here.
 
 We can now restart the application with these new parameters and we should see that the application is additionally listening on port 9010 (or whichever port you picked) by running `netstat -lntp`.
 
@@ -50,7 +49,7 @@ At this point we could finish the blog, we have a way getting metrics from the a
 
 ### Prometheus
 
-[Prometheus](https://prometheus.io) is a monitoring tool which ingests metrics, makes them graphable, and exposes them to Alert Manager which can send out alerts using a number of methods.  It pulls metrics from HTTP endpoints which are configured in its configuration file.  We therefore need a way of exposing the Kafka Connect metrics over HTTP in the format that Prometheus understands.
+[Prometheus](https://prometheus.io) is a monitoring tool which ingests metrics, makes them graphable, and exposes them to Alert Manager which can send out alerts using a number of methods.  It pulls metrics from HTTP endpoints which are added to the Prometheus configuration file.  We therefore need a way of exposing the Kafka Connect metrics over HTTP in the format that Prometheus understands.
 
 ### JMX Exporter
 
@@ -58,7 +57,7 @@ Prometheus provide [JMX Exporter](https://github.com/prometheus/jmx_exporter), a
 
 JMX Exporter can run in either of two modes - as a Java agent that is injected into the application you want to monitor or as a standalone process that connects to the JMX ports we have exposed.  There are some benefits in running it as an injected Java agent as this does expose additional CPU and memory metrics and is easier to configure for some applications.  However, we generally prefer to run it as a standalone process because this allows us to reconfigure the exporter without restarting the application and it is safer to not inject code into a production application.
 
-Because Prometheus recommend not running JMX Exporter as a separate service, there is limited documentation around actually doing this.  At Sky Betting and Gaming we have a Chef recipe that installs, configures and runs the service on a server.  For everyone else, you need to build the JMX Exporter code to generate `jmx_prometheus_server.jar` and then run it with:
+Because Prometheus recommend not running JMX Exporter as a separate service, there is limited documentation around actually doing this.  At Sky Betting and Gaming we have a Chef recipe that installs, configures and runs the service on a server.  For everyone else, you need to clone and build the JMX Exporter code from GitHub to generate `jmx_prometheus_server.jar` and then run it with:
 
 ```
 java -jar jmx_prometheus_server.jar jmx_exporter.yaml
@@ -70,7 +69,7 @@ Actually parsing JMX metric names and values is somewhat arcane knowledge, and t
 
 A good starting point is to use JMX Dump to discover the highest level metrics possible and begin with those.
 
-All of the Kafka services expose JMX metrics beginning with 'kafka' so this is a good starting point as a pattern for JMX Exporter.
+All of the Kafka services, including Kafka Connect, expose JMX metrics beginning with 'kafka' so this is a good starting point as a pattern for JMX Exporter.  The following configuration is the minimal configuration required to get JMX Exporter exposing the Kafka Connect JMX metrics:
 
 ```yaml
 lowercaseOutputName: true
@@ -86,6 +85,10 @@ With this configuration in place and the JMX Exporter process running, we can cu
 curl localhost:8080/metrics
 ```
 
-The output includes valid patterns that we can use to configure more specific metrics in the JMX Exporter configuration file in order to get better names.  This takes some trial and error, but will eventually lead to a [configuration file](https://github.com/zenreach/docker-kafka-connect/blob/master/jmx_exporter.yaml) for Kafka Connect that looks something like the one that Zenreach are using in their Docker container.
+The output includes valid patterns that we can use to configure more specific metrics in the JMX Exporter configuration file.  This will let us pick just the metrics that we care about, and it will allow us to give them more sensible names.  Configuring these patterns takes some trial and error, but will eventually lead to a [configuration file](https://github.com/zenreach/docker-kafka-connect/blob/master/jmx_exporter.yaml) for Kafka Connect that looks something like the one that Zenreach are using in their Docker container.
 
-This configuration file is also a good starting point if you are configuring JMX Exporter for other Kafka services, as it covers most of the ways of extracting metrics.
+This configuration file is also a good starting point if you are configuring JMX Exporter for other Kafka services, as it covers most of the ways of extracting metrics and many of the metrics across the Kafka services follow a fairly similar format.
+
+With the metrics that we care about being exposed by the JMX Exporter HTTP interface, we can now configure Prometheus to regularly poll this HTTP endpoint.  And we can then configure alerts in Alert Manager and build dashboards in a Grafana instance attached to Prometheus.  We should now have graphs on a screen in the office, and out of hours alerts being sent to on-call engineers.
+
+Hopefully this post has encouraged you to start using JMX metrics not just for Kafka Connect, but the whole of the Kafka platform as well as any other Java applications you might have running on your network.  Not every application has custom metrics that are as useful as the Kafka ones, but all Java applications will expose at least JVM metrics.
