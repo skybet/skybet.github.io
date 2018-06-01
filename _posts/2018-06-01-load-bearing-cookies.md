@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Load-Bearing Cookies
-date:       2018-05-31 13:00:00
+date:       2018-06-01 10:00:00
 summary:    Removing legacy code that seems completely unused can sometimes have very unpredictable consequences.
 category:   Software Engineering
 tags:       cookies, security
