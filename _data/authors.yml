@@ -110,6 +110,7 @@ colin_ameigh:
     image: colin_ameigh.jpg
     role: Principal Engineer
     tribe: Bet
+    hasLeft: true
     startDate: 07-09-2012
     bio: "Generalist with no preferred language.  Has been building large scale, high availability systems since the last millenium"
     interests: Almost everything
@@ -171,6 +172,7 @@ iker_gomez:
     image: iker_gomez.jpg
     role: Software Engineer
     tribe: Data
+    hasLeft: true
     startDate: 09-03-2015
     bio: "Iker is one of our Software Engineers in the Data Team keeping our pipelines alive... He is the team member responsible for the data team improving their Spanish language skills"
     twitter: GMZ_Iker
@@ -180,6 +182,7 @@ james_moorhouse:
     image: james_moorhouse.jpg
     role: Software Engineer
     tribe: Bet
+    hasLeft: true
     startDate: 13-07-2015
     bio: Software Engineer in the Bet & Customer Transactions squad where he works primarily on the Bet Tracker product, written using a combination of PHP and React.
     interests: Running, snowboarding, cars, gym, electronic music and some web based technology thrown in there for good measure
@@ -199,6 +202,7 @@ adam_blanchard:
     image: adam_blanchard.jpg
     role: Software Engineer
     tribe: Gaming
+    hasLeft: true
     startDate: 13-07-2015
     bio: Software Engineer in the Sky Vegas squad, working on the release of the new desktop and mobile platforms using PHP, JavaScript and React.
     twitter: blanchodam
@@ -282,6 +286,7 @@ serena_wadsworth:
     image: serena-wadsworth.jpg
     role: Test Engineer
     tribe: Data
+    hasLeft: true
     startDate: 01-08-2016
     bio: Engineer working in the Data Science squad of Data Tribe. Immersing myself in the world of Hadoop and trying to learn some R. When not at work I enjoy playing PS4 and trying to crossfit.
 
@@ -325,6 +330,7 @@ martyn_ranyard:
     image: martyn_ranyard.jpg
     role: Platform Engineer
     tribe: Bet
+    hasLeft: true
     startDate: 12-12-2014
     bio: "Multi-faceted geek, some people collect things and call it a hobby, I collect hobbies."
     github: iMartyn
@@ -344,6 +350,7 @@ john_kitson:
     image: john_kitson.jpg
     role: Scrum Master
     tribe: Gaming
+    hasLeft: true
     startDate: 06-02-2015
     bio: "John works as a Scrum Master in the Gaming Tribe, covering the Gaming Promotions and Casino squads. John is a father of one and in his spare time enjoys running and organising at his local junior parkrun."
 
@@ -368,6 +375,7 @@ paul_brabban:
     image: paul_brabban.jpg
     role: Principal Data Engineer
     tribe: International
+    hasLeft: true
     startDate: 01-03-2016
     bio: "Paul leads the Data Engineering squad in the International Tribe and runs the (def shef) functional programming meetup in Sheffield."
     github: brabster
