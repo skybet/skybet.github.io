@@ -4,7 +4,7 @@ title:      Optimising an AWS microservice - Part 1
 date:       2018-11-02
 summary:    In this two part post we'll talk about our learnings from optimising an AWS microservice to reduce latency and hit non-functional targets
 author:     jamie_munro
-image:      //TODO add image
+image:      optimising-aws-microservice/01-initial-system
 tags:       aws, serverless, cloud, microservices
 category:   Cloud Computing
 ---
