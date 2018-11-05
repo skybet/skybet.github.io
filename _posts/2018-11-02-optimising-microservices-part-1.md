@@ -23,13 +23,13 @@ The above diagram shows our initial system design. There are three main componen
 * This is stored in a DynamoDB table fronted by an API that allows the traders to PUT opinion and our system to GET it when required
 
 ### The Pricing Model
-* This is a java lambda - you pass it a description of what might happen in a football match along with the necessary opinion and it returns a price.
-* E.G. you might request “Leeds Utd to score 3+ goals” and it might tell you this is 2/1
+* This is a Java lambda - you pass it a description of what might happen in a football match along with the necessary opinion and it returns a price.
+* For example, you might request “Leeds Utd to score 3+ goals” and it might tell you this is 2/1
 * This includes some in-memory caching so that if a lambda instance receives two requests with the same opinion then it only performs the majority of the calculations once 
 
 ### Pricing Service
 * This is made up of an API Gateway and Java/Kotlin lambda
-* The API Gateway has a ‘Lambda Authoriser’ that ensures our system can only be accessed from whitelisted ip ranges
+* The API Gateway has a ‘Lambda Authoriser’ that ensures our system can only be accessed from whitelisted IP ranges
 * It takes POST requests from our sportsbook, orchestrates the requests to the Opinion store and Model and returns the appropriate response
 
 ## “*Make It Work. Make It Right. Make It Fast.*” 
@@ -48,7 +48,7 @@ However, the latency requirement was a worry – the model alone takes several h
 
 ## Our Test Scenario
 
-We wrote a performance test in Node JS that populates our opinion store with fake fixtures and then sends requests to our pricing service, recording the latency of each request. 
+We wrote a performance test in Node.js that populates our opinion store with fake fixtures and then sends requests to our pricing service, recording the latency of each request. 
 We estimated how our system will be used in the real world, skewed these estimates to give a ‘worst case scenario’ and used these to benchmark against. We also made sure that the dummy request we were making was something that touched all parts of our pricing model.
 
 Running this test for the first time gave us a baseline 95<sup>th</sup> percentile latency of 280ms, a fair way off our target! Time to start optimising…
@@ -110,7 +110,7 @@ We made this change and this took us down to 110ms, excellent news!
 
 ## Uh oh… things aren’t as they seem :-(
 Now under our revised target, we were about to wrap up the project when someone noticed something odd. Our DynamoDB table only had opinion for 1 fixture in despite the test saying it had created 100 :scream: Uh oh!   
-It turns out we had a typo in our node code in the performance test which had slipped through review.   
+It turns out we had a typo in our Node code in the performance test which had slipped through review.   
 This takes me to my second lesson learnt:  
 **Test your performance test code as if it were production code!**  
 
