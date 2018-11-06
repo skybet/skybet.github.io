@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Optimising an AWS microservice - Part 2
-date:       2018-11-03
+date:       2018-11-06
 summary:    In this two part post we'll talk about our learnings from optimising an AWS microservice to reduce latency and hit non-functional targets
 author:     jamie_munro
 image:      optimising-aws-microservice/12-final-design.png

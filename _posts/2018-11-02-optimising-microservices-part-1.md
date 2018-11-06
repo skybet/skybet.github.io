@@ -93,7 +93,7 @@ The API was useful because it included some validation but bypassing it means th
 Whilst combining our two jars we took the opportunity to include a couple of other optimisations to our packaging.  
 Firstly, we shrunk our jar size by adding some packaging filters. AWS Lambda requires you to package all of your dependencies within an 'uber jar' and we found that with the maven-shade plugin you can add filters to trim this down to just the bits you need.   
 More on this can be found here: [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/examples/includes-excludes.html)   
-The other optimisation was including the 'afterburner' module with Jackson serialization. This speeds up serialising/desterilising between POJOs and JSON when handling requests and can be found here: [Afterburner Module](https://github.com/FasterXML/jackson-modules-base/tree/master/afterburner)
+The other optimisation was including the 'afterburner' module with Jackson serialization. This speeds up serialising/deserialising between POJOs and JSON when handling requests and can be found here: [Afterburner Module](https://github.com/FasterXML/jackson-modules-base/tree/master/afterburner)
 
 ## But... what about that network latency? :-O
 After our first round of optimisations we were down from 260 to 140ms, not bad eh? At this point, someone suggested something we hadn't thought to measure yet though - the network latency between AWS and the on-premise datacentre that our service will be accessed from. To test this, we replaced our Pricing Service lambda with a simple 'hello world' app that did no calculations, just returned a dummy 3/1 price back to the API.
@@ -117,4 +117,4 @@ This takes me to my second lesson learnt:
 By only using one fixture in our test, we were regularly hitting the in-memory cache and not performing many model calculations. We fixed the bug and reran the test – we were back up to 260ms from a revised baseline of 320ms :-(     
 Back to the drawing board!
 
-## [Join me in part 2](/2018/11/03/optimising-microservices-part-2/) for a look at AWS X-Ray, the inner workings of Lambda, Elasticache and maybe a happy ending…
+## [Join me in part 2](/2018/11/06/optimising-microservices-part-2/) for a look at AWS X-Ray, the inner workings of Lambda, Elasticache and maybe a happy ending…
