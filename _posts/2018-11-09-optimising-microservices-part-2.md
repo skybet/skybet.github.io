@@ -84,7 +84,7 @@ We couldn't use this before because it requires anything that needs access to th
 
 After adding our improved caching, we reran our test and our latest 95<sup>th</sup> percentile latency is… **92ms!** A 70% decrease on our baseline of 320ms.
 
-AWS X-Ray provides latency histogram data that can be accessed via the AWS Cli. Here's a before and after chart of our internal system latency:
+AWS X-Ray provides latency histogram data that can be accessed via the AWS CLI. Here's a before and after chart of our internal system latency:
 
 ![Latency histogram](/images/optimising-aws-microservice/11-histogram.png)
 
