@@ -21,11 +21,11 @@ disadvantages of the different ways one can interact with Vault, and a personal 
 
 ## Restricting access for Chef and the problems it creates
 
-There are many different ways of interacting with secrets in Hashicorp Vault. When it comes to Chef cookbooks, the Sky Betting and Gaming way of doing it is as follows:
- 1. _include_recipe 'sbg_vault::chef_auth'_ - make sure your recipe includes the wrapper cookbook created to enable our chef runs to access Hashicorp Vault
- 2. use the _sbg_vault_secret_ resource - this resource was designed to be easy to use for the basic needs of a cookbook and at the same time ensure nobody
+There are many different ways of interacting with secrets in Hashicorp Vault. When it comes to Chef cookbooks, the Sky Betting & Gaming way of doing it is as follows:
+ 1. `include_recipe 'sbg_vault::chef_auth'` - make sure your recipe includes the wrapper cookbook created to enable our chef runs to access Hashicorp Vault
+ 2. use the `sbg_vault_secret` resource - this resource was designed to be easy to use for the basic needs of a cookbook and at the same time ensure nobody
  accesses the Vaults at compile time
- 3. get _lazy_ - the complication arising from the attempt to lock down access for chef-client runs
+ 3. get `lazy` - the complication arising from the attempt to lock down access for chef-client runs
 
 For example, to read a secret and use it for a resource property or a template:
 ```ruby
@@ -53,12 +53,12 @@ template '/path/to/template/file' do
     )
 end
 ```
-_lazy_ is necessary because _sbg_vault_secret_ does not allow chef to read secrets at compile time. That means that when it loads all the resources, it must
+`lazy` is necessary because `sbg_vault_secret` does not allow chef to read secrets at compile time. That means that when it loads all the resources, it must
 refrain from actually trying to work out what the secret variable is going to be. This implementation is designed to guard against people extracting secrets from
 the Vault at compile time and storing them in places where they become accessible to unauthorised entities. The most common example of this would be assigning the
 value of a secret to a Chef attribute, which persists on the Chef server in unencrypted form, thus compromising the secret.
 
-The problem with this is, _lazy_ is itself a chef-specific thing, meaning you cannot do:
+The problem with this is, `lazy` is itself a chef-specific thing, meaning you cannot do:
 ```ruby
 include_recipe 'sbg_vault::chef_auth'
 
@@ -77,12 +77,12 @@ lazy {
 # Etc.
 ```
 (There probably is a way to force something like this, but it's well hidden in the depths of internet ruby articles and I could not find it.) If you want to write
-any code to process or do logic on _secret[:key]_ in the above snippet, there is no apparent way of doing so without encountering the dreaded _Chef failed_  
-message.  _sbg_vault_secret_ has been written to fail with an error if a read at compile time is attempted. So if you want to do anything more complex with secrets, this just won't cut it!
+any code to process or do logic on `secret[:key]` in the above snippet, there is no apparent way of doing so without encountering the dreaded _Chef failed_  
+message.  `sbg_vault_secret` has been written to fail with an error if a read at compile time is attempted. So if you want to do anything more complex with secrets, this just won't cut it!
 
 ## Getting around this, and a caveat...
 
-There is a better way! Use the Hashicorp Vault community libraries. This has been documented on the Readme file of _sbg_vault_, as the cookbook required wrapping
+There is a better way! Use the Hashicorp Vault community libraries. This has been documented on the Readme file of `sbg_vault`, as the cookbook required wrapping
 some of the Hashicorp Ruby libraries. Switching from using the chef resource to using pure Ruby has the advantage of more freedom, as this way you can interact
 with the vault client directly. It goes like this:
 
@@ -104,7 +104,7 @@ secret_to_write = { key1: 'value1', key2: 'value2' }
 vault_client.logical.write('secret/path/to/your/secret', secret_to_write) # this is how you write to hashicorp vault
 ```
 
-When presented with such a simple and empowering solution, one may think that the whole _lazy_ hack the Delivery Engineering team has set up was a waste of time,
+When presented with such a simple and empowering solution, one may think that the whole `lazy` hack the Delivery Engineering team has set up was a waste of time,
 or that it is not fit for purpose. But I think this is far from true. Glancing over the above snippet, I cannot help but notice how close that is to a data leak:
 
 ```ruby
@@ -134,7 +134,7 @@ Chef.
 ### The problem
 As documented in places such as [this chef documentation page](https://docs.chef.io/chef_client_overview.html), chef-client does a lot of magic. First thing it
 does is, it gathers data about the existing server config using _ohai_, then it connects to chef server, and it populates attributes and compiles all the
-resources in the _run_list_ (*and runs all ruby code in your recipes!*). This is problematic if you want to stray from using pure chef resources in your recipes,
+resources in the `run_list` (*and runs all ruby code in your recipes!*). This is problematic if you want to stray from using pure chef resources in your recipes,
 because if you try to use Ruby and Chef resources in a sequential manner, you do not end up with the sequence you believe. One example would be if you want some
 Ruby logic based on a piece of configuration for the server, Ruby will get executed but any resources in-between your logic will not, not at compile time. Then,
 at runtime, if the execution of a chef resource changes the state of the server config, the Ruby logic you rely on will not change state. For instance:
@@ -155,8 +155,8 @@ The above is a simplification of a problem I had. I expected to have the report 
 statement is executed before the first file resource.
 
 ### The solution
-The solution to this is to obey our lord and saviour the Chef resource. By that, I mean use the _ruby_block_ resource and have all code run at run time. I think
-it may be worthwhile to consider all ruby code wrapped in _ruby_block_ resources, because it would have saved me loads of headaches with the above. The above
+The solution to this is to obey our lord and saviour the Chef resource. By that, I mean use the `ruby_block` resource and have all code run at run time. I think
+it may be worthwhile to consider all ruby code wrapped in `ruby_block` resources, because it would have saved me loads of headaches with the above. The above
 example is solved as follows:
 
 ```ruby
