@@ -11,12 +11,12 @@ author:     andrei_sandu
 
 It is a company focus to ensure our secrets are secure, and the solution adopted sits with [Hashicorp Vault](https://www.vaultproject.io/).
 Great work has been put by the Delivery Engineering team within Sky Betting & Gaming to formalise the process of storing and retrieving
-secrets in a seamless way, while maintaining it secure and ensuring compatibility with Chef and the use cases and business needs of the
+secrets in a seamless way, while maintaining security and ensuring compatibility with Chef and the use cases and business needs of the
 company. When dealing with Chef runs, which happen all the time on all of our systems, the main concern is the secrets becoming exposed
-by virtue of being loaded on disk during the compile phase. The Delivery Engineering team has put great effort into enforcing that this does not happen
-by creating wrapper cookbook resources and libraries to be used by our configuration management. As I have discovered recently, the main
-side effect of this effort is that it has limited the extent to which one can perform complex logic with Hashicorp Vault secrets. The first
-part of this blog post focuses on the different options available to the DevOps engineers when it comes to Hashicorp Vault, the advantages and
+by virtue of being loaded on disk. The Delivery Engineering team has put great effort into enforcing that this does not happen
+by creating wrapper cookbook resources and libraries to be used by our configuration management. The solution they have implemented for this must restrict loading
+secrets to happen at runtime only. The main side effect of this is that it has limited the extent to which one can perform complex logic with Hashicorp Vault
+secrets. The first part of this blog post focuses on the different options available to the DevOps engineers when it comes to Hashicorp Vault, the advantages and
 disadvantages of the different ways one can interact with Vault, and a personal note on responsibility and freedom when using secure data.
 
 ## Restricting access for Chef and the problems it creates
