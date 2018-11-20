@@ -104,8 +104,8 @@ secret_to_write = { key1: 'value1', key2: 'value2' }
 vault_client.logical.write('secret/path/to/your/secret', secret_to_write) # this is how you write to hashicorp vault
 ```
 
-When presented with such a simple and empowering solution, one may think that the whole `lazy` hack the Delivery Engineering team has set up was a waste of time,
-or that it is not fit for purpose. But I think this is far from true. Glancing over the above snippet, I cannot help but notice how close that is to a data leak:
+While this seems like such a simple and empowering solution, I don't think it should be abused, or used without caution. Glancing over the above snippet, I cannot
+help but notice how close that is to a data leak:
 
 ```ruby
 include_recipe 'sbg_vault::chef_auth'
