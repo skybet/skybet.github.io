@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Ruby vs chef and the siege of Hashicorp Vault
-date:       2018-11-16
+date:       2018-11-21
 summary:    How I discovered the dark secret behind chef and used Ruby to harness the power of Hashicorp Vault
 category:   Devops
 tags:       Hashicorp,chef,Ruby
