@@ -125,7 +125,7 @@ the secret is handled securely or not. I am of the mindset that more freedom is 
 
 ## Chef runs Ruby before Ruby runs Chef
 
-For the second part of my post, I will stray from the world of secrets and vaults to talk about something more mundane in the world of DevOps. it is something
+For the second part of my post, I will stray from the world of secrets and vaults to talk about something more mundane in the world of DevOps. It is something
 that any Chef geek learns at some point, something that I really smashed into head first recently, and learnt the hard way. Yet, it is something that I see worthy
 of being shared in as many places as possible, because it illustrates the nature of Chef as a CM tool, and its difference to Ruby. I put this in the same blog
 post as I have discovered this while working on the same feature that required me sieging down Hashicorp Vault. I have learnt that Chef runs Ruby before Ruby runs
