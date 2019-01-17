@@ -210,6 +210,7 @@ adam_blanchard:
 
 adam_pointer:
     name: Adam Pointer
+    hasLeft: true
     image: adam_pointer.jpg
     role: Principal Automation Engineer
     tribe: Platform Services
