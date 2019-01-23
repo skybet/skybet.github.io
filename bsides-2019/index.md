@@ -9,11 +9,11 @@ It’s probably no great surprise that once again the BSides 2019 Badge is also 
  
 However most people don’t get the chance to have fun with their badges until they get home, but as this years badge is all about interaction, SBG have teamed up with BSidesLeeds to help you actually take part on the day.
  
-## What you need?
+## What do you need?
  
 The heart of the badge is a [LoRa](https://en.wikipedia.org/wiki/LoRa) ESP32 Board. These were originally designed by Heltec as “[ESP32 OLED LoRa Development Boards](http://www.heltec.cn/project/wifi-lora-32/?lang=en)” intended for IoT device/sensor development. For this badge, an original or any of its 23mm pitch pin-compatible copies are fine.
  
-You can get them much cheaper off AliExpress, but to get them in time for the conference, you can get them from here if you're an Amazon Prime customer (though any board with a compatible pin-out is likely to work)
+While you can get them much cheaper from AliExpress, they are unlikely to arrive in time for the conference. If you are an Amazon Prime customer you can use the following links to get them quickly. Alternatively, any board with a compatible pin-out is likely to work.
  
 * [https://www.amazon.co.uk/dp/B078M74NNN](https://www.amazon.co.uk/dp/B078M74NNN)
 * [https://www.amazon.co.uk/dp/B076T28KWG](https://www.amazon.co.uk/dp/B076T28KWG)
