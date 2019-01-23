@@ -1,8 +1,7 @@
 ---
-layout:     raw
+layout:     page
 title:      BSides Leeds ESP32 LoRa Badge - Quick Start Guide
 nav:        false
-className:  jobs
 ---
 ## {{ page.title }}
 

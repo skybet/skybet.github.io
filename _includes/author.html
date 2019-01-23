@@ -1,16 +1,16 @@
 <section class="author">
     <a name="{{ key }}"></a>
     {% if author.image %}
-     {% if page.className != 'authors' %}<a href="/authors#{{ key }}">{% endif %}
+     {% unless page.authorsPage %}<a href="/authors#{{ key }}">{% endunless %}
          <img class="author--image" src="/images/authors/{{ author.image }}" alt="{{ author.name }}">
-     {% if page.className != 'authors' %}</a>{% endif %}
+     {% unless page.authorsPage %}</a>{% endunless %}
     {% endif %}
 
     <header>
         <h1>
-            {% if page.className != 'authors' %}<a href="/authors#{{ key }}">{% endif %}
+            {% unless page.authorsPage %}<a href="/authors#{{ key }}">{% endunless %}
                 {{ author.name }}
-            {% if page.className != 'authors' %}</a>{% endif %}
+            {% unless page.authorsPage %}</a>{% endunless %}
         </h1>
         <h4>{{ author.role }}{% if author.tribe %} · {{ author.tribe }} Tribe{% endif %}</h4>
 
@@ -38,7 +38,7 @@
     </header>
 
 
-    {% if page.className == 'authors' %}
+    {% if page.authorsPage %}
     <h3 class="author-articles">Articles by {{ author.name | truncatewords:1,"" }}</h3>
 
     {% for post in site.posts %}
