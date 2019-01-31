@@ -24,7 +24,7 @@
                     'pageLinks': document.querySelector('.page-links'),
                     'social': document.querySelector('.social'),
                     'menu': document.querySelector('.mobile-menu'),
-                    'authors': document.querySelector('main section .authors'),
+                    'authors': document.querySelector('.authors-page main section .page-content'),
                 },
                 Positions = {
                     'pageLinks': Elements.pageLinks.offsetTop,
