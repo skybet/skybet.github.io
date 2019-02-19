@@ -180,7 +180,7 @@ header.page {
             width: auto;
             justify-content: flex-start;
 
-            @include media-query(s-xl) {
+            @include media-query(m-xl) {
                 margin: -100px 0 0 0;
                 transform: translateY(100%);
                 animation: anim .5s 1;
