@@ -93,11 +93,11 @@ header.page {
 
         .sbg-logo {
             fill: $color-light;
-            max-height: 200px;
+            max-height: 90px;
             display: block;
 
             @include media-query(xs-s) {
-                max-height: 80px;
+                max-height: 60px;
                 margin: 40px auto;
             }
         }
@@ -170,7 +170,7 @@ header.page {
                 height: 55px;
             }
 
-            @include media-query(xs) {
+            @include media-query(xs-s) {
                 background: linear-gradient(135deg, $color-default 0%, $color-primary 100%);
             }
 
@@ -180,7 +180,7 @@ header.page {
             width: auto;
             justify-content: flex-start;
 
-            @include media-query(s-xl) {
+            @include media-query(m-xl) {
                 margin: -100px 0 0 0;
                 transform: translateY(100%);
                 animation: anim .5s 1;
@@ -189,7 +189,7 @@ header.page {
 
             .sbg-logo {
                 height: 55px;
-                max-width: 110px;
+                max-width: 280px;
                 margin: 0;
             }
         }
@@ -197,13 +197,13 @@ header.page {
         .page-links {
             justify-content: flex-end;
 
-            @include media-query(s-xl) {
+            @include media-query(m-xl) {
                 margin: -92px 0 0 0;
                 transform: translateY(100%);
                 animation: anim .5s 1;
             }
 
-            @include media-query(xs) {
+            @include media-query(xs-s) {
                 display: none;
 
                 &.trigger--active {
@@ -224,7 +224,7 @@ header.page {
         .social {
             max-width: 220px;
 
-            @include media-query(xs) {
+            @include media-query(xs-s) {
                 display: none;
 
                 &.trigger--active {
@@ -237,7 +237,7 @@ header.page {
         }
 
         .mobile-menu {
-            @include media-query(xs) {
+            @include media-query(xs-s) {
                 display: inline-block;
             }
         }
