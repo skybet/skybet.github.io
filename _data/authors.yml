@@ -507,3 +507,11 @@ andrei_sandu:
     tribe: Core
     startDate: 05-02-2018
     bio: "Young DevOps Engineer with a thirst for learning and a love of challenge. Grumpy SysAdmin in training."
+
+kevin_bowman:
+    name: Kevin Bowman
+    image: kevin_bowman.jpg
+    role: Head of Technology
+    tribe: Nexus
+    startDate: 01-06-2010
+    bio: "Kevin Bowman has worked on high-traffic websites for over 10 years in a variety of roles. Originally a PHP developer on multimedia systems at Orange UK, he has charted a path through software and solutions architecture before being seduced by the exciting world of DevOps and now finds himself running technical operations teams at Sky Bet. Constantly looking for new ways to support an agile organisation in the heavily regulated world of online betting, he strives for a world where everyone owns what they make, and where everyone can fix what they break."
