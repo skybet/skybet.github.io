@@ -15,8 +15,8 @@ With my other half's support, I took a week off to study and take the exam. I st
 
 I got 699, the main issue for me was time management, I ran out of time with almost 10 questions to go. I had to finish what I started and improve my time management tactics.
 
-Determined to succeed, I took multiple practice test and focused on understanding the what, how and why instead of just getting the right answer. I read multiple white papers every day, summarised key points about when to use a particular AWS service over another and used these notes to revise at the morning of the exam day.
+Determined to succeed, I took multiple practice test and focused on understanding the what, how and why instead of just getting the right answer. I read several white papers every day, summarised key points about when to use a particular AWS service over another and used these notes to revise at the morning of the exam day.
 
-The exam was very long, some questions had scroll bar with only two minutes to answer, but I was absolutely over the moon to have been presented with the Congratulations page upon ending the test with only 2 minutes two spare.
+The exam was very long, some questions had a scroll bar with only two minutes to answer, but I was absolutely over the moon to have been presented with the Congratulations page upon ending the test with only 2 minutes two spare.
 
-I really hope this inspires you to achieve your target and be rewarded with the congratulations you deserve for the efforts you've put towards improving your knowledge and learning the broad range of services available on the cloud.
+I really hope this inspires you to achieve your target and be rewarded with the congratulations you deserve for the efforts you've put towards improving your knowledge and learning the broad range of services available in the cloud.
