@@ -499,7 +499,6 @@ jamie_munro:
     github: jmunro89
     twitter: jamiemunro
 
-
 andrei_sandu:
     name: Andrei Sandu
     image: andrei_sandu.png
@@ -507,3 +506,13 @@ andrei_sandu:
     tribe: Core
     startDate: 05-02-2018
     bio: "Young DevOps Engineer with a thirst for learning and a love of challenge. Grumpy SysAdmin in training."
+
+rami_alnawas:
+    name: Rami Alnawas
+    image: rami_alnawas.jpg
+    role: Senior Platform Automation Engineer
+    tribe: Infrastructure - Platform Services
+    startDate: 01-09-2015
+    bio: A Developer who previously worked with SysAdmins until I joined SB&G where I fully embraced the DevOps movement. Keen problem solver and an objective advocate for Cloud and Serverless architectures.
+    github: silverbadge
+    twitter: oldskool1st
