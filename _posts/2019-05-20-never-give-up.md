@@ -2,9 +2,9 @@
 layout:     post
 title:      Never give up!
 date:       2019-05-20
-summary:    The importance of mental health wellbeing and overcoming adversity
+summary:    The importance of mental wellbeing and overcoming adversity
 author:     rami_alnawas
-tags:       aws, certification, mental, health
+tags:       aws, certification, mental, wellbeing
 category:   Community
 ---
 I'm absolutely ecstatic to have finally achieved the target I've set myself back in 2017. I've just passed the [AWS Certified Solutions Architect - Professional SAP-C01](https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-05-18&ci=AWS00361425) scoring a 859 out of 1000, the passing score is 750.
