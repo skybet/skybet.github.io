@@ -15,7 +15,10 @@
 
  {% if layout.isArticle %}
  <meta property="og:type" content="article" />
- <meta property="article:published_date" content="{{ page.date | date_to_xmlschema }}" />
+ <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+ {% if page.category %}<meta property="article:section" content="{{ page.category }}" />{% endif %}
+ {% if page.tags %}{% for tag in page.tags %}
+ <meta property="article:tag" content="{{ tag | replace: ",","" }}" />{% endfor %}{% endif %}
  {% else %}
  <meta property="og:type" content="website" />
  {% endif %}
@@ -31,6 +34,7 @@
  {% if layout.isArticle %}
  {% if page.author && site.data.authors[page.author].twitter %}
  <meta name="twitter:creator:id" content="@{{ site.data.authors[page.author].twitter }}" />
+ <meta property="article:author" content="https://twitter.com/{{ site.data.authors[page.author].twitter }}" />
  {% endif %}
 
  <meta name="twitter:label1" content="Reading time" />
