@@ -1,7 +1,7 @@
 name: Sky Betting & Gaming Technology
 title: Sky Betting & Gaming Technology
 markdown: kramdown
-url: http://sbg.technology
+url: https://sbg.technology
 host: 0.0.0.0
 permalink: /:year/:month/:day/:title/
 plugins:
