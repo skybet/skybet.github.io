@@ -1,3 +1,6 @@
+{% capture newline %}
+{% endcapture %}
+{% assign description = page.summary | markdownify | strip_html | split: newline | first %}
 <head>
  <meta charset="utf-8">
  <title>{% if layout.isArticle %}Sky Betting &amp; Gaming Technology: {% endif %}{{ page.title }}</title>
@@ -25,7 +28,7 @@
 
  <meta name="twitter:site" content="@SBGTechTeam" />
  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
- <meta name="twitter:description" content="{{ page.summary }}" />
+ <meta name="twitter:description" content="{{ description }}" />
  <meta name="twitter:title" content="{{ page.title }}" />
  <meta name="twitter:card" content="summary{% if page.image %}_large_image{% endif %}" />
  <meta name="twitter:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}favicons/logo.png{% endif %}" />
@@ -43,11 +46,11 @@
 
  <meta property="og:site_name" content="Sky Betting &amp; Gaming Technology Blog" />
  <meta property="og:title" content="{{ page.title }}" />
- <meta property="og:description" content="{{ page.summary }}" />
+ <meta property="og:description" content="{{ description }}" />
  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
  <meta property="og:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}favicons/logo.png{% endif %}" />
 
- <meta property="description" content="{{ page.summary }}" />
+ <meta property="description" content="{{ description }}" />
 
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
  <link rel="stylesheet" href="/css/styles.css" type="text/css">
