@@ -16,24 +16,16 @@ layout: default
         </div>
 
         {% unless page.authorsPage %}
-        {% capture authors %}
-          {% for keyedAuthor in site.data.authors %}
-            {{ keyedAuthor[0] }}
-          {% endfor %}
-        {% endcapture %}
-        {% assign sortedAuthors = authors | split: ' ' | sort %}
-
         <div class="meet-author all">
             <h3><a href="/authors/">Meet the SBG team</a></h3>
 
             <ul>
-            {% for key in sortedAuthors %}
-             {% assign author = site.data.authors[key] %}
+            {% for author in site.authors %}
              {% unless author.hasLeft %}
               {% if author.image %}
-                  <li class="author--image" title="{{author.name}}">
-                      <a href="/authors#{{ key }}">
-                          <img src="/images/authors/{{ author.image }}" alt="{{ author.name }}">
+                  <li class="author--image" title="{{ author.name }}">
+                      <a href="{{ author.url }}">
+                          <img src="/images/authors/{{ author.image }}" alt="Image of {{ author.name }}">
                       </a>
                   </li>
               {% endif %}
