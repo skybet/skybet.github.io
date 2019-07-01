@@ -12,7 +12,13 @@
         <h4>{{ author.role }}{% if author.tribe %} · {{ author.tribe }} Tribe{% endif %}</h4>
 
         {% if author.startDate %}
+        {% assign start = author.startDate | prepend: "01-01-" | slice: -10,10 | date: '%Y' %}
+        {% if author.endDate %}
+        {% assign end = author.endDate | prepend: "01-01-" | slice: -10,10 | date: '%Y' %}
+        <h4>Worked at Sky Betting &amp; Gaming {{ start }}{% unless start == end %}&ndash;{{ end }}{% endunless %}</h4>
+        {% else %}
         <h4>Working at Sky Betting &amp; Gaming since {{ author.startDate | date: '%Y' }}</h4>
+        {% endif %}
         {% endif %}
 
         {% if include.bio %}

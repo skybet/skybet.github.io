@@ -1,6 +1,7 @@
 ---
 name: Craig Andrews
-hasLeft: true
+startDate: 01-2012
+endDate: 09-2015
 image: craig_andrews.jpg
 role: Principal Engineer
 tribe: Data

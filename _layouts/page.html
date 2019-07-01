@@ -21,7 +21,7 @@ layout: default
 
             <ul>
             {% for author in site.authors %}
-             {% unless author.hasLeft %}
+             {% unless author.endDate %}
               {% if author.image %}
                   <li class="author--image" title="{{ author.name }}">
                       <a href="{{ author.url }}">

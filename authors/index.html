@@ -13,5 +13,6 @@ fixedHeader: true
       <div class="author-section">
         {% include author.html link=true bio=true %}
       </div>
+      {% unless forloop.last %}<hr />{% endunless %}
     {% endfor %}
 </div>
