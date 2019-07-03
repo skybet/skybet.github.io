@@ -1,23 +1,21 @@
 <section class="author">
-    <a name="{{ key }}"></a>
     {% if author.image %}
-     {% unless page.authorsPage %}<a href="/authors#{{ key }}">{% endunless %}
-         <img class="author--image" src="/images/authors/{{ author.image }}" alt="{{ author.name }}">
-     {% unless page.authorsPage %}</a>{% endunless %}
+      {% if include.link %}<a href="{{ author.url }}">{% endif %}
+        <img class="author--image" src="/images/authors/{{ author.image }}" alt="{{ author.name }}">
+      {% if include.link %}</a>{% endif %}
     {% endif %}
 
     <header>
-        <h1>
-            {% unless page.authorsPage %}<a href="/authors#{{ key }}">{% endunless %}
-                {{ author.name }}
-            {% unless page.authorsPage %}</a>{% endunless %}
-        </h1>
+        <h1>{% if include.link %}<a href="{{ author.url }}">{% endif %}
+            {{ author.name }}
+        {% if include.link %}</a>{% endif %}</h1>
         <h4>{{ author.role }}{% if author.tribe %} · {{ author.tribe }} Tribe{% endif %}</h4>
 
         {% if author.startDate %}
         <h4>Working at Sky Betting &amp; Gaming since {{ author.startDate | date: '%Y' }}</h4>
         {% endif %}
 
+        {% if include.bio %}
         <p class="bio">{{ author.bio }}</p>
 
         {% if author.interests %}
@@ -35,14 +33,14 @@
             {% if author.github %}<li class="fa fa-github-alt"><a class="author--rels--github" href="https://github.com/{{ author.github }}" rel="author">{{ author.github }}</a></li>{% endif %}
         </ul>
         {% endif %}
+        {% endif %}
     </header>
 
-
-    {% if page.authorsPage %}
+    {% if include.articles %}
     <h3 class="author-articles">Articles by {{ author.name | truncatewords:1,"" }}</h3>
 
     {% for post in site.posts %}
-      {% if post.author contains key %}
+      {% if post.author contains author.slug %}
         {% include postSummary.html %}
       {% endif %}
     {% endfor %}

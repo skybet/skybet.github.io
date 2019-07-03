@@ -5,17 +5,13 @@ summary:     Here are the people who have written the articles.
 nav:         false
 nav_title:   Authors
 nav_weight:  2
-authorsPage: true
 fixedHeader: true
 ---
 
 <div class="meet-author">
-    {% for keyedAuthor in site.data.authors %}
-      {% assign key = keyedAuthor[0] %}
-      {% assign author = keyedAuthor[1] %}
-
-      <div class="author-section hide">
-        {% include author.html %}
+    {% for author in site.authors %}
+      <div class="author-section">
+        {% include author.html link=true bio=true %}
       </div>
     {% endfor %}
 </div>

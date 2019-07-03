@@ -1,12 +1,10 @@
 ---
 layout:      page
-title:       Article Author
 nav:         false
-authorsPage: true
 ---
-
 <div class="meet-author">
   <div class="author-section">
-    {% include author.html %}
+    {% assign author = page %}
+    {% include author.html bio=true articles=true %}
   </div>
 </div>

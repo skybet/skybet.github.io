@@ -1,20 +1,8 @@
 ---
 layout: default
 ---
-
-{% assign minutes = content | number_of_words | divided_by: 120 %}
-{% if minutes == 0 %}
-{% assign minutes = 1 %}
-{% endif %}
-
-{% if page.author %}
-{% assign author = site.data.authors[page.author] %}
-{% endif %}
-
 <article class="grid article">
-
     <section class="grid-xs-s-1-1 grid-m-xl-2-3 details">
-
         <div class="post">
             <header class="grid-1-1">
                 <h1>{{ page.title | markdownify | remove: '<p>' | remove: '</p>' }}</h1>
@@ -61,9 +49,8 @@ layout: default
         <div class="meet-author">
             <h3>Meet the author</h3>
             {% for a in page.author %}
-            {% assign key=a %}
-            {% assign author=site.data.authors[a] %}
-            {% include author.html %}
+            {% assign author=site.authors | where:"slug",a | first %}
+            {% include author.html link=true bio=true %}
             {% endfor %}
         </div>
         {% endif %}

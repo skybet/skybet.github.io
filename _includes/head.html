@@ -36,10 +36,13 @@
  <meta name="twitter:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}favicons/logo.png{% endif %}" />
  <meta name="twitter:dnt" content="on" />
 
- {% if layout.isArticle %}
- {% if page.author && site.data.authors[page.author].twitter %}
- <meta name="twitter:creator:id" content="@{{ site.data.authors[page.author].twitter }}" />
- <meta property="article:author" content="https://twitter.com/{{ site.data.authors[page.author].twitter }}" />
+ {% if page.layout == "post" %}
+ {% if page.author %}
+ {% assign author = site.authors | where:"slug",page.author | first %}
+ {% if author.twitter %}
+ <meta name="twitter:creator:id" content="@{{ author.twitter }}" />
+ <meta property="article:author" content="https://twitter.com/{{ author.twitter }}" />
+ {% endif %}
  {% endif %}
 
  <meta name="twitter:label1" content="Reading time" />

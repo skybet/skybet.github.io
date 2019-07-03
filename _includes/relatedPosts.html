@@ -31,14 +31,9 @@
             No author
             {% else %}
               {% for a in post.author %}
-                {% assign author=site.data.authors[a] %}
-                {% if forloop.first %}
-                  <a href="/authors#{{ a }}">{{ author.name }}</a>
-                {% elsif forloop.last %}
-                  and <a href="/authors#{{ a }}">{{ author.name }}</a>
-                {% else %}
-                  , <a href="/authors#{{ a }}">{{ author.name }}</a>
-                {% endif %}
+                {% assign author=site.authors | where:"slug",a | first %}
+                {% if forloop.first %}{% elsif forloop.last %} and {% else %}, {% endif %}
+                <a href="{{ author.url }}">{{ author.name }}</a>
               {% endfor %}
             {% endif %}
             </p>
