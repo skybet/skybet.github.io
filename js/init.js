@@ -24,7 +24,6 @@
                     'pageLinks': document.querySelector('.page-links'),
                     'social': document.querySelector('.social'),
                     'menu': document.querySelector('.mobile-menu'),
-                    'authors': document.querySelector('.authors-page main section .page-content'),
                 },
                 Positions = {
                     'pageLinks': Elements.pageLinks.offsetTop,
@@ -44,12 +43,10 @@
                     Positions.doc = window.scrollY;
 
                     if (Positions.doc >= Positions.pageLinks) {
-                        if (!Elements.header.classList.contains('headFixed')) {
-                            Elements.header.classList.add('headFixed');
+                        if (!Elements.body.classList.contains('headFixed')) {
                             Elements.body.classList.add('headFixed');
                         }
-                    } else if (Elements.header.classList.contains('headFixed')) {
-                        Elements.header.classList.remove('headFixed');
+                    } else if (Elements.body.classList.contains('headFixed')) {
                         Elements.body.classList.remove('headFixed');
                     }
                 }, false);
@@ -62,34 +59,6 @@
                     Elements.pageLinks.classList.toggle('trigger--active');
                     Elements.social.classList.toggle('trigger--active');
                 }, false);
-            }
-
-            if (!!Elements.authors) {
-                (function() {
-                    var showAll = function() {
-                        [].slice.call(document.querySelectorAll('.author-section')).forEach(function(authorSection) {
-                            authorSection.classList.remove('hide');
-                        });
-                    };
-
-                    if (!!window.location.hash) {
-                        var hash = window.location.hash.replace('#', ''),
-                            selector = ['a[name="', hash, '"]'].join(''),
-                            el = document.querySelector(selector);
-
-                        if (el) {
-                            window.location.hash = '';
-                            Elements.body.setAttribute('name', hash);
-                            el.setAttribute('name', null);
-                            el.parentNode.parentNode.classList.remove('hide');
-                            window.location.hash = '#' + hash;
-
-                            return true;
-                        }
-                    }
-
-                    showAll();
-                })();
             }
 
             if (typeof Function === typeof svg4everybody) {

@@ -17,6 +17,14 @@ body {
     flex-direction: column;
 
     &.headFixed {
+        &.always {
+            margin-top: -370px;
+
+            @include media-query(xs-s) {
+                margin-top: -170px;
+            }
+        }
+
         article.article:before, main.list:before {
             content: "";
             display: block;
@@ -198,14 +206,6 @@ aside {
     }
 }
 
-.authors-page {
-    margin-top: -370px;
-
-    @include media-query(xs-s) {
-        margin-top: -170px;
-    }
-
-}
 .authors {
     margin: $base-line 0;
     box-sizing: border-box;

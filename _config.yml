@@ -33,6 +33,7 @@ defaults:
       type: authors
     values:
       layout: author
+      fixedHeader: true
 
 collections:
   authors:
