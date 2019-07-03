@@ -79,20 +79,19 @@ Videos should be hosted on the [SB&G Engineers YouTube channel](https://www.yout
 
 ### Authors
 
-For the `author` key, if you have not posted before, you should create a corresponding entry in `_data/authors.yml`, using the alias used in the post frontmatter as the key, e.g.
+For the `author` key, if you have not posted before, you should create a corresponding entry in `_authors` folder, using the alias used in the post frontmatter as the file name, e.g. in `_authors/author_name.md`:
 
-    author_name:
-        name: Author Name
-        image: author_name.png
-        role: Author's Role / Squad
-        tribe: Author's Tribe
-        startDate: 01-05-2015
-        bio: Some information about the author, can be as long as you like, but should be written in proper English.
-        interests: Comma, Separated, Interests, List
-        twitter: optional_twitter_handle
-        github: optional_github_account
+    name: Author Name
+    image: author_name.png
+    role: Author's Role / Squad
+    tribe: Author's Tribe
+    startDate: 01-05-2015
+    bio: Some information about the author, can be as long as you like, but should be written in proper English.
+    interests: Comma, Separated, Interests, List
+    twitter: optional_twitter_handle
+    github: optional_github_account
 
-Again, add the author's image to the `images/authors` directory with the same filename as referenced within the author definition, and make sure it's 100x100 pixels: all author information will be included into each of the appropriate posts made by the author, as per `_includes/author.html`.
+Again, add the author's image to the `images/authors` directory with the same filename as referenced within the author definition, and make sure it's 100x100 pixels; all author information will be included into each of the appropriate posts made by the author, as per `_includes/author.html`.
 
 ## Rendering the Site Locally
 
