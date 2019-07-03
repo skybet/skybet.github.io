@@ -13,7 +13,7 @@
 
     <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
 
-    {% if post.image %}
+    {% if post.image and include.fullSummary %}
     <div class="image" style="background-image: url('/images/{{ post.image }}');">
         <a href="{{ post.url }}"></a>
     </div>
@@ -39,9 +39,9 @@
               {% endfor %}
             {% endif %}
             </p>
-            </div>
+        </div>
 
-        {% if post.category %}
+        {% if post.category and include.fullSummary %}
         <div class="categories flex-item">
             <header>Category:</header>
             {% for data_category in site.data.categories %}

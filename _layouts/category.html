@@ -9,7 +9,7 @@ nav_weight: 2
 
 {% if site.categories[page.category] %}
   {% for post in site.categories[page.category] %}
-    {% include postSummary.html %}
+    {% include postSummary.html fullSummary=true %}
   {% endfor %}
 {% else %}
   <p>There are no posts in this category.</p>

@@ -41,7 +41,7 @@
 
     {% for post in site.posts %}
       {% if post.author contains author.slug %}
-        {% include postSummary.html %}
+        {% include postSummary.html fullSummary=true %}
       {% endif %}
     {% endfor %}
 

@@ -32,7 +32,7 @@ layout: default
             <div class="column">
                 {% for post in site.categories[page.category] %}
                 {% if post.title != page.title %}
-                {% include relatedPosts.html %}
+                {% include postSummary.html %}
                 {% endif %}
                 {% endfor %}
             </div>
