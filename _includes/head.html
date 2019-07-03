@@ -1,9 +1,11 @@
 {% capture newline %}
 {% endcapture %}
-{% assign description = page.summary | markdownify | strip_html | split: newline | first %}
+{% assign site_title = site.title | markdownify | strip_html | strip %}
+{% assign page_description = page.bio | default: page.summary | markdownify | strip_html | split: newline | first %}
+{% if page.bio %}{% assign page_title = page.name %}{% endif %}
 <head>
  <meta charset="utf-8">
- <title>{% if layout.isArticle %}Sky Betting &amp; Gaming Technology: {% endif %}{{ page.title }}</title>
+ <title>{{ page_title | default: page.title }}{% if page.title %} - {% endif %}{{ site_title }}</title>
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name=viewport content="width=device-width,initial-scale=1.0">
 
@@ -16,7 +18,7 @@
 
 <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
- {% if layout.isArticle %}
+ {% if page.layout == "post" %}
  <meta property="og:type" content="article" />
  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
  {% if page.category %}<meta property="article:section" content="{{ page.category }}" />{% endif %}
@@ -28,8 +30,8 @@
 
  <meta name="twitter:site" content="@SBGTechTeam" />
  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
- <meta name="twitter:description" content="{{ description }}" />
- <meta name="twitter:title" content="{{ page.title }}" />
+ <meta name="twitter:description" content="{{ page_description }}" />
+ <meta name="twitter:title" content="{{ page_title | default: page.title | default: site_title }}" />
  <meta name="twitter:card" content="summary{% if page.image %}_large_image{% endif %}" />
  <meta name="twitter:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}favicons/logo.png{% endif %}" />
  <meta name="twitter:dnt" content="on" />
@@ -44,13 +46,13 @@
  <meta name="twitter:data1" content="{{ page.content | number_of_words | divided_by: 120 }} min 🕑" />
  {% endif %}
 
- <meta property="og:site_name" content="Sky Betting &amp; Gaming Technology Blog" />
- <meta property="og:title" content="{{ page.title }}" />
- <meta property="og:description" content="{{ description }}" />
+ <meta property="og:site_name" content="{{ site_title }}" />
+ <meta property="og:title" content="{{ page_title | default: page.title | default: site_title }}" />
+ <meta property="og:description" content="{{ page_description }}" />
  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
  <meta property="og:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}favicons/logo.png{% endif %}" />
 
- <meta property="description" content="{{ description }}" />
+ <meta property="description" content="{{ page_description }}" />
 
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
  <link rel="stylesheet" href="/css/styles.css" type="text/css">
