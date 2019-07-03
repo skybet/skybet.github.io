@@ -42,12 +42,12 @@ layout: default
 
     <aside class="grid-xs-s-1-1 grid-m-xl-1-3">
 
-        {% assign authorCount = page.author | size %}
+        {% assign authorCount = page.author | join: "," | split: "," | size %}
         {% if authorCount == 0 %}
         <!-- No author -->
         {% else %}
         <div class="meet-author">
-            <h3>Meet the author</h3>
+            <h3>Meet the author{% if authorCount > 1 %}s{% endif %}</h3>
             {% for a in page.author %}
             {% assign author=site.authors | where:"slug",a | first %}
             {% include author.html link=true bio=true %}

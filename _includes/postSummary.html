@@ -25,12 +25,8 @@
 
     <div class="cta flex">
         <div class="author flex-item">
-            {% assign authorCount = post.author | join: "," | split: "," | size %}
-            {% if authorCount > 1 # pluralize filter not working as expected %}
-            <header>Authors:</header>
-            {% else %}
-            <header>Author:</header>
-            {% endif %}
+            {% assign authorCount = post.author | join: "," | split: "," | size # pluralize not available%}
+            <header>Author{% if authorCount > 1 %}s{% endif %}:</header>
 
             <p>
             {% if post.author == empty %}
