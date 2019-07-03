@@ -30,12 +30,11 @@ ALL_POSTS.each do |post|
     it 'should have a valid author' do
       frontmatter = SafeYAML.load_file post
       post_authors = Array(frontmatter['author'])
-      valid_authors = SafeYAML.load_file('_data/authors.yml').keys
-
       expect(post_authors.length).to be >= 1
 
       post_authors.each do |author|
-        expect(valid_authors).to include(author)
+        valid_authors = SafeYAML.load_file("_authors/#{author}.md")
+        expect(valid_authors).to have_key('name')
       end
     end
 

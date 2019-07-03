@@ -2,12 +2,9 @@ require 'rspec'
 require 'date'
 require 'safe_yaml'
 
-authors_file = SafeYAML.load_file('_data/authors.yml')
-author_names = authors_file.keys
-
-author_names.each do |key|
-  author = authors_file[key]
-  describe key do
+Dir.glob('_authors/*.md') do |author_file|
+  author = SafeYAML.load_file(author_file)
+  describe author_file do
     it 'should have an image' do
       expect(author).to have_key('image')
       image = author['image']
