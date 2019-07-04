@@ -43,10 +43,8 @@
                     Positions.doc = window.scrollY;
 
                     if (Positions.doc >= Positions.pageLinks) {
-                        if (!Elements.body.classList.contains('headFixed')) {
-                            Elements.body.classList.add('headFixed');
-                        }
-                    } else if (Elements.body.classList.contains('headFixed')) {
+                        Elements.body.classList.add('headFixed');
+                    } else if (!Elements.body.classList.contains('always')) {
                         Elements.body.classList.remove('headFixed');
                     }
                 }, false);
