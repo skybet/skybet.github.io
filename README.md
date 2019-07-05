@@ -81,6 +81,7 @@ Videos should be hosted on the [SB&G Engineers YouTube channel](https://www.yout
 
 For the `author` key, if you have not posted before, you should create a corresponding entry in `_authors` folder, using the alias used in the post frontmatter as the file name, e.g. in `_authors/author_name.md`:
 
+    ---
     name: Author Name
     image: author_name.png
     role: Author's Role / Squad
@@ -90,6 +91,7 @@ For the `author` key, if you have not posted before, you should create a corresp
     interests: Comma, Separated, Interests, List
     twitter: optional_twitter_handle
     github: optional_github_account
+    ---
 
 Again, add the author's image to the `images/authors` directory with the same filename as referenced within the author definition, and make sure it's 100x100 pixels; all author information will be included into each of the appropriate posts made by the author, as per `_includes/author.html`.
 
