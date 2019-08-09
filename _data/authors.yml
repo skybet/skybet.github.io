@@ -516,3 +516,13 @@ rami_alnawas:
     bio: A Developer who previously worked with SysAdmins until I joined SB&G where I fully embraced the DevOps movement. Keen problem solver and an objective advocate for Cloud and Serverless architectures.
     github: silverbadge
     twitter: oldskool1st
+
+dave_chaston:
+    name: Dave Chaston
+    image: dave_chaston.png
+    role: Principal Software Engineer
+    tribe: Gaming
+    startDate: 11-05-2015
+    bio: "Principal Software Engineer for Next Gen Promotions squad. Make it work. Make it right. Make it fast."
+    github: CaffeinatedDave
+    twitter: CaffeinatedDave
