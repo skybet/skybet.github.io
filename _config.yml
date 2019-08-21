@@ -27,3 +27,15 @@ exclude:
   - Rakefile
   - spec
   - vendor
+
+defaults:
+  - scope:
+      type: authors
+    values:
+      layout: author
+      fixedHeader: true
+
+collections:
+  authors:
+    output: true
+    permalink: /authors/:name/

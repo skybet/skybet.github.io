@@ -15,25 +15,17 @@ layout: default
             <p>...we bring the excitement of Sports Betting, Casino Games, Poker and Bingo to millions of customers in the UK. We are a modern technology-led company with a 200+ strong engineering team based in Leeds and Sheffield working in small autonomous service teams.</p>
         </div>
 
-        {% unless page.authorsPage %}
-        {% capture authors %}
-          {% for keyedAuthor in site.data.authors %}
-            {{ keyedAuthor[0] }}
-          {% endfor %}
-        {% endcapture %}
-        {% assign sortedAuthors = authors | split: ' ' | sort %}
-
+        {% unless page.url contains "/authors/" %}
         <div class="meet-author all">
             <h3><a href="/authors/">Meet the SBG team</a></h3>
 
             <ul>
-            {% for key in sortedAuthors %}
-             {% assign author = site.data.authors[key] %}
-             {% unless author.hasLeft %}
+            {% for author in site.authors %}
+             {% unless author.endDate %}
               {% if author.image %}
-                  <li class="author--image" title="{{author.name}}">
-                      <a href="/authors#{{ key }}">
-                          <img src="/images/authors/{{ author.image }}" alt="{{ author.name }}">
+                  <li class="author--image" title="{{ author.name }}">
+                      <a href="{{ author.url }}">
+                          <img src="/images/authors/{{ author.image }}" alt="Image of {{ author.name }}">
                       </a>
                   </li>
               {% endif %}
