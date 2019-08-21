@@ -8,7 +8,7 @@ tags:       Leeds, Data, Engineer, Graudate
 author:     marcus_ojerinde_ardalla
 ---
 
-_The following blog post is an informal detailing of the first few months at **Sky Betting & Gaming** (SBG) as a Junior Data Engineer. The intention of this post is to give a brief overview of what to expect when you join as a recent graduate as well as life here at **Sky Betting & Gaming**. An earlier blog post of a similar vein can be found [here](/2016/03/16/life-after-graduation/)_
+_The following blog post is an informal detailing of the first few months at **Sky Betting & Gaming** (SBG) as a Junior Data Engineer. The intention of this post is to give a brief overview of what to expect when you join as a recent graduate as well as life here at **Sky Betting & Gaming**. An earlier blog post of a similar vein can be found [here]({% post_url 2016-03-16-life-after-graduation %})_
 
 
 Sports and Data Engineering! My two passions together in one place. How could I not be excited to start life at this amazing place of work in the city of Leeds! (Leeds is a wonderful place to live but more on that later).
