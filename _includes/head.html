@@ -32,8 +32,8 @@
  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
  <meta name="twitter:description" content="{{ page_description }}" />
  <meta name="twitter:title" content="{{ page_title | default: page.title | default: site_title }}" />
- <meta name="twitter:card" content="summary{% if page.image %}_large_image{% endif %}" />
- <meta name="twitter:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}favicons/logo.png{% endif %}" />
+ <meta name="twitter:card" content="summary{% if page.image %}{% unless page.layout == 'author' %}_large_image{% endunless %}{% endif %}" />
+ <meta name="twitter:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image_dir }}{{ page.image }}{% else %}favicons/logo.png{% endif %}" />
  <meta name="twitter:dnt" content="on" />
 
  {% if page.layout == "post" %}
@@ -53,7 +53,7 @@
  <meta property="og:title" content="{{ page_title | default: page.title | default: site_title }}" />
  <meta property="og:description" content="{{ page_description }}" />
  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
- <meta property="og:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image }}{% else %}favicons/logo.png{% endif %}" />
+ <meta property="og:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image_dir }}{{ page.image }}{% else %}favicons/logo.png{% endif %}" />
 
  <meta property="description" content="{{ page_description }}" />
 
