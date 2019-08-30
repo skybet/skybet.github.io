@@ -2,7 +2,7 @@
 {% endcapture %}
 {% assign site_title = site.title | markdownify | strip_html | strip %}
 {% assign page_description = page.bio | default: page.summary | markdownify | strip_html | split: newline | first %}
-{% if page.bio %}{% assign page_title = page.name %}{% endif %}
+{% if page.layout == 'author' %}{% assign page_title = page.name %}{% endif %}
 <head>
  <meta charset="utf-8">
  <title>{{ page_title | default: page.title }}{% if page.title %} - {% endif %}{{ site_title }}</title>
