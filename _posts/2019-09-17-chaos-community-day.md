@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Chaos Community Day 2019
-date:       2019-09-13
+date:       2019-09-17
 summary:    Our resident chaos monkey ols went to London for the first Chaos and Resilience Community Day held in Europe
 author:     ols
 image:      chaos-community/image.jpg
@@ -43,7 +43,7 @@ Next Olga Hall spoke about the journey the team at Amazon Prime Video made from 
 
 Olga also said that the team wanted to be at the point where high profile title launches would be business as usual. This is a goal we also have at Sky Betting and Gaming; we want our biggest sporting events of the year to not need any additional support or thought around them, because everything just behaves as we expect. We should build a vision and culture of the high bar of reliable systems, that everyone in the company is invested in.
 
-The final speaker of the morning session was [Sylvain Hellegouarch](https://twitter.com/lawouach), one of the creators of the [Chaos Toolkit](https://chaostoolkit.org/) who told the story of an engineer on the Swiss Alps, on their first holiday in a long time, called out because of a change they made the day before they left. The engineer was him, and the change was a simple Kubernetes CluterRole change, which stripped their proxy configuration to the default, resulting in a broken website. 
+The final speaker of the morning session was [Sylvain Hellegouarch](https://twitter.com/lawouach), one of the creators of the [Chaos Toolkit](https://chaostoolkit.org/) who told the story of an engineer on the Swiss Alps, on their first holiday in a long time, called out because of a change they made the day before they left. The engineer was him, and the change was a simple Kubernetes ClusterRole change, which stripped their proxy configuration to the default, resulting in a broken website. 
 
 >You will always find a root cause, if you look long enough. Don't do it  
 >--<em>Sylvain Hellegouarch</em>
@@ -71,11 +71,11 @@ The final speaker was [Charity Majors](https://twitter.com/mipsytipsy) who I was
 
 * _"Operational literacy is no longer a nice to have"_ - this plays in to the whole devops movement, and is such an important part of having a well-rounded team
 
-* _"Any [callout] you receive should be *"Huh, never seen that before"*"_ - if you have recurring alerts that page you out, then there is a big problem with understanding why your systems are failing in that way, or else prioritising work to fix broken systems
+* _"Any [callout] you receive should be **"Huh, never seen that before"**"_ - if you have recurring alerts that page you out, then there is a big problem with understanding why your systems are failing in that way, or else prioritising work to fix broken systems
 
 Charity also spoke on the shift from monitoring to observability. Monitoring is great for answering questions that we ask of it. But we often don't know the question we want to ask. We have an intuition or a rough idea, but are limited by not being able to articulate our thoughts. Observability is great, because each deploy of new code is a unique experiment in itself. That new code, on specific infrastructure, at that specific point in time is unique, so being tuned in to your systems is a massive win.
 
-Of course, testing in production is no excuse to skimp on the testing that should be done as part of a healthy SDLC; testing in production includes things like behavioural tests, load testing, dark launches, and multi-region deploys, of which very few can be reliably testing ahead of a release.
+Of course, testing in production is no excuse to skimp on the testing that should be done as part of a healthy SDLC; testing in production includes things like behavioural tests, load testing, dark launches, and multi-region deploys, of which very few can be reliably tested ahead of a release.
 
 Resilience engineering is not about making a system that doesn't break. It is making a system that breaks a lot, but users don't notice. We need to be less afraid of making mistakes, and just accept that a lot of bugs only surface in production when real traffic is going through it, and edge cases are being hit.
 
