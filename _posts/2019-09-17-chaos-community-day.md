@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Chaos Community Day 2019
+title:      Chaos + Resilience Community Day 2019
 date:       2019-09-17
 summary:    Our resident chaos monkey ols went to London for the first Chaos and Resilience Community Day held in Europe
 author:     ols
