@@ -10,7 +10,7 @@ author:     paul_whitehead
 ---
 
 ### Introduction
-I recently attended the [Performance.Now() conference](https://perfnow.nl/) in Amsterdam courtesy of Sky Betting & Gaming’s [Tech Ninja Fund](https://www.skybetcareers.com/your-learning). Performance.now() was a single-track conference with fourteen world-class speakers, covering today’s most important web performance insights. As a performance test engineer with keen interesting in front-end performance, I was looking forward to catching up on the latest development, ideas, and approaches in the industry and also hoped to pick up some tips along the way.
+I recently attended the [performance.now() conference](https://perfnow.nl/) in Amsterdam courtesy of Sky Betting & Gaming’s [Tech Ninja Fund](https://www.skybetcareers.com/your-learning). performance.now() was a single-track conference with fourteen world-class speakers, covering today’s most important web performance insights. As a performance test engineer with keen interesting in front-end performance, I was looking forward to catching up on the latest development, ideas, and approaches in the industry and also hoped to pick up some tips along the way.
 
 In this blog post, I intend to summarise my key takeaways from the conference and give a summary of some of the less technical talks with links to associated content.
 
