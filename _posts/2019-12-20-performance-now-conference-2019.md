@@ -2,7 +2,7 @@
 layout:     post
 title:      performance.now() Conference 2019.
 date:       2019-12-20
-summary:    Key takeaways from the 2019 Performance.Now conference in Amsterdam
+summary:    Key takeaways from the 2019 performance.now() conference in Amsterdam
 image:      performance-now-conf-01.jpg
 category:   Conferences
 tags:       performance, devops, web development
@@ -93,4 +93,3 @@ As the web continues to evolve, performance engineers and web developers alike n
 Details of [all the talks can be found here](https://perfnow.nl/speakers). I highly recommend the performance.now() conference, not just for those involved in web performance but anyone interested in web development in general and keen to advance their understanding of front-end web performance. It also helps that it is friendly, well organised, and Amsterdam is a great city to visit.
 
 The third edition of performance.now() will take place on the 12th and 13th of November 2020. Sign up here to be notified when ticket sales open: [https://perfnow.nl](https://perfnow.nl)
-
