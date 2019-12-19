@@ -58,7 +58,7 @@ Over the years I’ve made use of many tools to gain a better understanding of s
 
 * [Sitespeed.io](https://www.sitespeed.io): Not mentioned at the conference but one of my favourites. Sitespeed.io is a set of Open Source tools that makes it easy to monitor and measure the performance of your web site. Sitespeed.io is the complete toolbox to test and  monitor your performance or checkout how your competition is doing.
 
-* [WebPageTest](https://www.webpagetest.org): Simple to use and lots of options to play with. WebPagetest is used for measuring and analysing the performance of web pages. A test can be kicked off from a variety of locations with a range of different browsers and test configurations.
+* [WebPageTest](https://www.webpagetest.org): Simple to use and lots of options to play with. WebPageTest is used for measuring and analysing the performance of web pages. A test can be kicked off from a variety of locations with a range of different browsers and test configurations.
 
 * [Pagespeed Insights](https://developers.google.com/speed/pagespeed/insights/): PageSpeed Insights (PSI) reports on the performance of a page on both mobile and desktop devices, and provides suggestions on how that page may be improved. PSI provides both lab and field data about a page. Lab data is useful for debugging performance issues, as it is collected in a controlled environment.
 
