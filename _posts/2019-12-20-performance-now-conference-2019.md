@@ -2,7 +2,7 @@
 layout:     post
 title:      performance.now() Conference 2019.
 date:       2019-12-20
-summary:    Key takeaways from the 2019 Performance.Now conference in Amsterdam
+summary:    Key takeaways from the 2019 performance.now() conference in Amsterdam
 image:      performance-now-conf-01.jpg
 category:   Conferences
 tags:       performance, devops, web development
@@ -10,7 +10,7 @@ author:     paul_whitehead
 ---
 
 ### Introduction
-I recently attended the [Performance.Now() conference](https://perfnow.nl/) in Amsterdam courtesy of Sky Betting & Gaming’s [Tech Ninja Fund](https://www.skybetcareers.com/your-learning). Performance.now() was a single-track conference with fourteen world-class speakers, covering today’s most important web performance insights. As a performance test engineer with keen interesting in front-end performance, I was looking forward to catching up on the latest development, ideas, and approaches in the industry and also hoped to pick up some tips along the way.
+I recently attended the [performance.now() conference](https://perfnow.nl/) in Amsterdam courtesy of Sky Betting & Gaming’s [Tech Ninja Fund](https://www.skybetcareers.com/your-learning). performance.now() was a single-track conference with fourteen world-class speakers, covering today’s most important web performance insights. As a performance test engineer with keen interesting in front-end performance, I was looking forward to catching up on the latest development, ideas, and approaches in the industry and also hoped to pick up some tips along the way.
 
 In this blog post, I intend to summarise my key takeaways from the conference and give a summary of some of the less technical talks with links to associated content.
 
@@ -58,7 +58,7 @@ Over the years I’ve made use of many tools to gain a better understanding of s
 
 * [Sitespeed.io](https://www.sitespeed.io): Not mentioned at the conference but one of my favourites. Sitespeed.io is a set of Open Source tools that makes it easy to monitor and measure the performance of your web site. Sitespeed.io is the complete toolbox to test and  monitor your performance or checkout how your competition is doing.
 
-* [WebPageTest](https://www.webpagetest.org): Simple to use and lots of options to play with. WebPagetest is used for measuring and analysing the performance of web pages. A test can be kicked off from a variety of locations with a range of different browsers and test configurations.
+* [WebPageTest](https://www.webpagetest.org): Simple to use and lots of options to play with. WebPageTest is used for measuring and analysing the performance of web pages. A test can be kicked off from a variety of locations with a range of different browsers and test configurations.
 
 * [Pagespeed Insights](https://developers.google.com/speed/pagespeed/insights/): PageSpeed Insights (PSI) reports on the performance of a page on both mobile and desktop devices, and provides suggestions on how that page may be improved. PSI provides both lab and field data about a page. Lab data is useful for debugging performance issues, as it is collected in a controlled environment.
 
@@ -95,4 +95,3 @@ If you’re interested to learn what the future of web performance might look li
 Details of [all the talks can be found here](https://perfnow.nl/speakers). I highly recommend the performance.now() conference, not just for those involved in web performance but anyone interested in web development in general and keen to advance their understanding of front-end web performance. It also helps that it is friendly, well organised, and Amsterdam is a great city to visit.
 
 The third edition of performance.now() will take place on the 12th and 13th of November 2020. Sign up here to be notified when ticket sales open: [https://perfnow.nl](https://perfnow.nl)
-
