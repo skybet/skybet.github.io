@@ -87,8 +87,10 @@ The 7 habits covered in the talk were as follows:
 Like other speakers, Tammy emphasised the need to set [performance budgets](https://developers.google.com/web/tools/lighthouse/audits/budgets). She recommends that budgets should be clear on what the budget is, when you go out-of-bounds, how long you were out, and when you’re back in credit. With budgets in place, it should never be the responsibility of one person or a single team to act as a performance cop - with the right culture everyone shares ownership and understands the impact of what they do. While it is benificial to have performance specialists, performance must be collectively owned and considered from the outset for all projects and changes, through all stages of development and through into Production.
 
 
-### Concluding thoughts - performance for the many, not the few
+### Final thoughts - performance for the many, not the few
 As the web continues to evolve, performance engineers and web developers alike need to stay on top of their game, adhering to best practice principles while also seeking new opportunities to improve web performance through process, design, and tooling. Web design and development has come a long way over the last decade with mobile-friendly sites and responsive design now the norm. However, as sites continue to grow in size and complexity, alongside increasing mobile device fragmentation - there is a greater need than ever to ensure that we help build a web that performs for the many, and not just the few.
+
+If you’re interested to learn what the future of web performance might look like, it’s worth checking out the final talk of the conference from Vitaly Friedman, Creative lead at Smashing Magazine, entitled ["The Future of Performance"](https://www.youtube.com/watch?v=Jz3Fu1o356g). Amongst other interesting insights, he tells us that 5G will likely widen the gap between the haves and have nots, rather close it.
 
 Details of [all the talks can be found here](https://perfnow.nl/speakers). I highly recommend the performance.now() conference, not just for those involved in web performance but anyone interested in web development in general and keen to advance their understanding of front-end web performance. It also helps that it is friendly, well organised, and Amsterdam is a great city to visit.
 
