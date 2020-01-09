@@ -5,7 +5,7 @@ date:       2017-10-16
 summary:    A look at DevopsDays London 2017
 category:   Devops
 tags:       Devops
-author:     adam stacey 
+author:     adam_stacey
 ---
 ## Introduction
 

@@ -1,4 +1,4 @@
-<header class="page{% if page.fixedHeader %} headFixed{% endif %} {% if page.image %}hasImage{% endif %}" {% if page.image %}style="background-image: url('/images/{{ page.image }}');"{% endif %}>
+<header class="page{% unless page.bio %}{% if page.image %} hasImage" style="background-image: url('/images/{{ page.image }}');{% endif %}{% endunless %}">
 
     <nav class="sticky">
 

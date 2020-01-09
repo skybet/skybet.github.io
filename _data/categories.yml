@@ -72,3 +72,6 @@
 
 - name: Testing
   slug: testing
+
+- name: Web Development
+  slug: web-development

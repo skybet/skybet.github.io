@@ -9,7 +9,7 @@ layout: null
     {% for doc in docs %}
       <url>
         <loc>{{ doc.url | replace:'/index.html','/' | absolute_url | xml_escape }}</loc>
-        <changefreq>monthly</changefreq>
+        <changefreq>{% if collection.label == 'authors' and doc.endDate %}never{% else %}monthly{% endif %}</changefreq>
         <priority>0.6</priority>
         {% if doc.last_modified_at or doc.date %}
           <lastmod>{{ doc.last_modified_at | default: doc.date | date_to_xmlschema }}</lastmod>

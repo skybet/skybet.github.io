@@ -3,7 +3,7 @@ layout:     post
 title:      Crash! Bang! Wallop! Practice makes perfect
 date:       2018-05-04
 summary:    Engineered Chaos, breaking production, and getting away with it. How the Core Tribe in Sky Betting and Gaming break stuff to make things better
-author:     oliver_leaver-smith
+author:     ols
 image:
 category:   Operations
 tags:       chaos engineering, firedrill
@@ -86,7 +86,7 @@ Having done these drills for a couple of years within Core, we have learnt a cou
 And onwards to the future, there are several things we want to change longterm and shortterm to make our firedrills better:
 
 * Automate scenarios. We currently rely on a few orchestrators to plan and execute the drills. They they play the roles of people helping to fix the problem. If they too were surprised about what the actual drill entailed, the process would be a lot more immersive and believable
-* Push some load through the environments during a drill. At the moment we rely on existing transient traffic going through the staging environment in order to pretend to be checking graphs. If we were to put a little bit of simulated login and account browsing load through the stack then our graphs would be a little more realistic looking (as an aside, if you want to see how we do performance testing, check out [this blog post](/2017/10/23/performance-left-right-and-center/) by my colleague Paul Whitehead)
+* Push some load through the environments during a drill. At the moment we rely on existing transient traffic going through the staging environment in order to pretend to be checking graphs. If we were to put a little bit of simulated login and account browsing load through the stack then our graphs would be a little more realistic looking (as an aside, if you want to see how we do performance testing, check out [this blog post]({% post_url 2017-10-23-performance-left-right-and-center %}) by my colleague Paul Whitehead)
 * Get other tribes involved more. We can break more things if we work as a team, that's just maths
 * Have multiple incidents happening at the same time. This occasionally happens in the real world, why shouldn't we have this as a scenario too?
 * Actually break our live environments. To do this we need to be running everything in multiple regions of AWS. Once this is done, we can start killing off entire AWS regions like Netflix do with [Chaos Kong](https://medium.com/netflix-techblog/chaos-engineering-upgraded-878d341f15fa)
