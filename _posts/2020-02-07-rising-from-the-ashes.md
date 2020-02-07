@@ -41,6 +41,6 @@ The facilitating squad's place on the rota was effectively removed, and played a
 
 The drill can be held in whatever environment the team is comfortable running it in. We have traditionally used our Staging and Disaster Recovery environments for drills but with the advent of cloud technologies being used in the tribe, there is nothing to stop other environments being used (or indeed entire mock environments being spun up temporarily).
 
-A big part of letting the squads plan and execute their own drills, is that they can then own the mop up from the drill, including the picking low-hanging fruit of service improvements (mainly documentation, changes to monitoring, logging, and observability, and minor code fixes such as those alluded to earlier)
+A big part of letting the squads plan and execute their own drills is that they can then own the mop-up from the drill, including picking the low-hanging fruit of service improvements (mainly documentation, changes to monitoring, logging, and observability, and minor code fixes such as those alluded to earlier).
 
 This was initially put forward as a trial for a few months, and given the response we have had to it from leadership and those involved in running the drills, I'm sure it will become the new normal. As before though, we need to be mindful not to let the new normal become boring, and so we will be looking to iterate further on the process over time to ensure that people stay engaged, and our incident response drills stay relevant.
