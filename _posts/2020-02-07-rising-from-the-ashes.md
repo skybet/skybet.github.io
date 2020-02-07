@@ -9,7 +9,7 @@ category:   Operations
 tags:       chaos engineering, fire drill
 ---
 
-Just under two years ago, I wrote about [how we run fire drills (incident management role play scenarios) in the Core tribe](https://sbg.technology/2018/05/04/firedrills-in-core/). The post covered the mechanics of planning and running the drills, but also talked a bit about the tools that we were using. Since then, a lot has changed in how our fire drills work, and this post will cover the "what" and "why" of those changes. It is not necessary to read the previous article to understand the points in this one, but I would still recommend it so that you have additional context around what has changed.
+Just under two years ago, I wrote about [how we run fire drills (incident management role play scenarios) in the Core tribe](/2018/05/04/firedrills-in-core/). The post covered the mechanics of planning and running the drills, but also talked a bit about the tools that we were using. Since then, a lot has changed in how our fire drills work, and this post will cover the "what" and "why" of those changes. It is not necessary to read the previous article to understand the points in this one, but I would still recommend it so that you have additional context around what has changed.
 
 Practising your incident response is nothing new or special, and it's certainly not confined to the technology sector. I'm sure many of us remember fire drills at school. I was never really sure what good it was doing, but made the most of the time out of lessons, taking "walk calmly don't run" to a new level of slowness. It's this attitude that has attracted a lot of criticism of fire drills, the thought being that they breed complacency.
 
