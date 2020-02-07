@@ -39,7 +39,7 @@ The facilitating squad's place on the rota was effectively removed, and played a
 
 ![](/images/firedrills/jeff-life-drawing.png)
 
-The drill can be held in whatever environment the team is comfortable running it in. We have traditionally used our Staging and Disaster Recovery environments for drills but with the advent of cloud technologies being used in the tribe, there is nothing to stop other environments being used (or indeed entire mock environments being spun up temporarily)
+The drill can be held in whatever environment the team is comfortable running it in. We have traditionally used our Staging and Disaster Recovery environments for drills but with the advent of cloud technologies being used in the tribe, there is nothing to stop other environments being used (or indeed entire mock environments being spun up temporarily).
 
 A big part of letting the squads plan and execute their own drills, is that they can then own the mop up from the drill, including the picking low-hanging fruit of service improvements (mainly documentation, changes to monitoring, logging, and observability, and minor code fixes such as those alluded to earlier)
 
