@@ -15,7 +15,7 @@ Practising your incident response is nothing new or special, and it's certainly 
 
 ## Complacency
 
-We found ourselves in this situation too, people were becoming complacent. Our fire drills that once had us revered within the company were delivering fewer and fewer positive outcomes, and they were seen as a chore rather than an exciting and useful pastime.
+We found ourselves in this situation too; people were becoming complacent. Our fire drills that previously saw us revered within the company were delivering fewer and fewer positive outcomes, and they were seen as a chore rather than an exciting and useful pastime.
 
 The scenarios that were run each week were primarily designed and run by myself; when other people ran them, they were facilitated by other platform-focused colleagues. This resulted in a lack of diversity in failure scenarios, specifically neglecting the wonderful ways in which applications can fail. This also had the unintended consequence that those running the fire drills very rarely ever took part as a responder, and so missed out on that vital experience.
 
