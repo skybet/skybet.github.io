@@ -15,13 +15,13 @@ So the incident in question was caused by a config change to the JMX settings of
 
 ## How We Perform Changes
 
-Obviously there exceptions to every rule, but mostly actions are taken via the use of Jenkins. A job is defined for many of the common actions we need to take, deploys are all scripted in this way for example. This allows us to perform actions on a large number of servers consistently. If there isn't a specific job in Jenkins to perform an action we have a job that allows us to run a command we define ourselves. When planning a change we write out the steps we will take, and provide evidence that these steps produced the desired result in our test environments. When choosing a Jenkins job to run we choose not only the appropriate job, but also any options we will pass to that job. That plan is then read by another Engineer, generally one of the senior Engineers, and preferably one uninvolved in the change being planned. If the approving Engineer has any doubts then the change needs to be amended to address those doubts.
+Obviously there are exceptions to every rule, but mostly actions are taken via the use of Jenkins. A job is defined for many of the common actions we need to take, deploys are all scripted in this way for example. This allows us to perform actions on a large number of servers consistently. If there isn't a specific job in Jenkins to perform an action we have a job that allows us to run a command we define ourselves. When planning a change we write out the steps we will take, and provide evidence that these steps produced the desired result in our test environments. When choosing a Jenkins job to run we choose not only the appropriate job, but also any options we will pass to that job. That plan is then read by another Engineer, generally one of the Senior Engineers, and preferably one uninvolved in the change being planned. If the approving Engineer has any doubts then the change needs to be amended to address those doubts.
 
 ## What Was the Plan
 
 So onto our change. The plan was reasonably straightforward.
 - Deploy configuration changes to our production environment in Chef
-- Run chef-client on all the Java application servers to make the configuration changes in a consistent manor
+- Run chef-client on all the Java application servers to make the configuration changes in a consistent manner
 - Restart the Java applications in sequence to pick up those changes
 
 It is worth explaining that last step in more detail, as that is where things did not go according to plan. As multiple different applications were being restarted the plan did not use the application restart job that we have scripted in Jenkins. This job is designed to restart a single application. Instead the job mentioned earlier to run commands we define was used. It was planned as:
@@ -36,7 +36,7 @@ These exact steps had worked in all our other environments without issue.
 
 As we all know, mistakes happen, people are imperfect beings, that is why we script as much of our work as we can. In this case the Engineer forgot to set the Concurrency on the job to restart the applications. In the Application Restart job, this would have caused a problem, but not a major one, as it always starts with a single server, and prompts the Engineer to check that the application has started cleanly before moving on. But that job was not used, the job that was used was an older job, it had fewer safe guards, and unfortunately it had a default value for the concurrency.
 ![](/images/jenkins_concurrency.png)
-In this instance that was sufficient to restart the application on all the java application servers at once. These applications handle a number of functions surrounding customer logins, consequently on the 23rd of March, at 10:27am all Customer logins across all Sky Betting and Gaming products failed, for approximately one minute.
+As this job is used widely within the business, and may be used across hundreds of servers at a time it makes sense to have a high default concurrency, however in this instance that was sufficient to restart the application on all the java application servers at once. These applications handle a number of functions surrounding customer logins, consequently on the 23rd of March, at 10:27am all Customer logins across all Sky Betting and Gaming products failed, for approximately one minute.
 
 ## What Went Well
 
@@ -44,7 +44,7 @@ We try to work with a no blame culture. It isn't the fault of the individual, it
 
 It's important not to panic when things go wrong. A natural instinct is to "Do Some Thing!" when things are going wrong, but the wrong thing done quickly can sometimes do more damage than doing nothing. Based on the Engineer's account of what happened during this incident they saw the restart job connect to all the java application servers at once, and nearly killed the job then and there. This would have stopped that job from bringing the applications back up, and would have not been good. Fortunately they paused, and thought about what they wanted to do, and didn't take that action. This is always a useful way to handle the panic you will feel in that situation, pause and reflect on what you want to do, the extra time can bring clarity, it is that clarity that panic robs from us.
 
-They asked for help. This is also important, we are a large organization, individual Engineers are not alone, and are not expected to know everything. The Engineer called for help, and the Developers who were more familiar with the application were able to confirm that they came back up cleanly, and also investigate the extent of the impact. Approximately 500 logins failed in that minute.
+They asked for help. This is also important, we are a large organization, individual Engineers are not alone, and are not expected to know everything. The Engineer called for help, and some other Engineers who were more familiar with the application were able to confirm that they came back up cleanly, and also investigate the extent of the impact. Approximately 500 logins failed in that minute.
 
 We have reviewed the incident after the fact, and the Engineer was open and honest about what they did. This has allowed us to improve our procedures, including adding extra scrutiny over the use of the Jenkins job that failed us in this instance. And further education on how to use the Application Restart job, that would actually have been able to do the job we needed, but the Engineer who planned the change was not familiar with it, as it is most often called as part of a deploy, and not directly.
 
