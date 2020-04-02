@@ -19,7 +19,7 @@ Obviously there are exceptions to every rule, but mostly actions are taken via t
 
 ## What Was the Plan
 
-So onto our change. The plan was reasonably straightforward.
+So, on to our change. The plan was reasonably straightforward.
 - Deploy configuration changes to our production environment in Chef
 - Run chef-client on all the Java application servers to make the configuration changes in a consistent manner
 - Restart the Java applications in sequence to pick up those changes
