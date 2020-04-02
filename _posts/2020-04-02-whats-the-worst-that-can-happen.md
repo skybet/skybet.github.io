@@ -36,7 +36,7 @@ These exact steps had worked in all our other environments without issue.
 
 As we all know, mistakes happen, people are imperfect beings, and that's why we script as much of our work as we can. In this case the Engineer forgot to set the Concurrency on the job to restart the applications. In the Application Restart job, this would have caused a problem, but not a major one, as it always starts with a single server, and prompts the Engineer to check that the application has started cleanly before moving on. But that job was not used; the job that was used was an older job, it had fewer safe guards, and unfortunately it had a default value for the concurrency.
 ![](/images/jenkins_concurrency.png)
-As this job is used widely within the business, and may be used across hundreds of servers at a time it makes sense to have a high default concurrency, however in this instance that was sufficient to restart the application on all the java application servers at once. These applications handle a number of functions surrounding customer logins, consequently on the 23rd of March, at 10:27am all Customer logins across all Sky Betting and Gaming products failed, for approximately one minute.
+As this job is used widely within the business, and may be used across hundreds of servers at a time it makes sense to have a high default concurrency, however in this instance that was sufficient to restart the application on all the Java application servers at once. These applications handle a number of functions surrounding customer logins, and consequently on 23 March at 10:27am all customer logins across all Sky Betting & Gaming products failed, for approximately one minute.
 
 ## What Went Well
 
