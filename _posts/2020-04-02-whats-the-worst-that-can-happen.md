@@ -11,7 +11,7 @@ I am the Principal DevOps Engineer for the Core Customer Tribe at Sky Betting & 
 
 ## Some Background
 
-So the incident in question was caused by a config change to the JMX settings of a number of Java applications we run. We use JMX to gather metrics from these applications, and a previous attempt at this change had already caused an incident that stopped these metrics from being collected. It was not customer impacting, but it did mean this change was already fairly high stress for the Engineer performing it. A fix had been added to the change for the metrics issue, and the change had successfully gone out to our non-production environments more slowly than normal.
+The incident in question was caused by a config change to the JMX settings of a number of Java applications we run. We use JMX to gather metrics from these applications, and a previous attempt at this change had already caused an incident that stopped these metrics from being collected. It was not customer impacting, but it did mean this change was already fairly high stress for the Engineer performing it. A fix had been added to the change for the metrics issue, and the change had successfully gone out to our non-production environments more slowly than normal.
 
 ## How We Perform Changes
 
