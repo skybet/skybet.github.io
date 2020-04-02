@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      '"What&#x27;s the worst that could happen?": A worked example of how we deal with live incidents.'
-date:       2020-03-28
+date:       2020-04-02
 summary:    This post is going to outline roughly how we make changes, and what we should do when those changes go bad. Using an incident that actually occurred as an example of how we should deal with these incidents, and how we did in that specific case.
 category:   Devops
 tags:       incident resolution,
