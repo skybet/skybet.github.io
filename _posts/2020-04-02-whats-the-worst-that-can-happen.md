@@ -52,4 +52,4 @@ We have reviewed the incident after the fact, and the Engineer was open and hone
 
 So I started by saying that I wanted to tell you why mentoring is hard. So many people have told this Engineer that they did the right thing, that it's not their fault, and that everyone makes mistakes. I know that this doesn't make them feel good. I know that the impact this had on the business, on our customers, and on their colleagues fills them with guilt. And I know that whenever something like this happens it is part of my job, to help them pick themselves up, and carry on. I can do my best to try and assuage that guilt, but I know it is always going to be there. I can only tell them it gets better.
 
-I know they feel this guilt, because on this occasion it was my change, and it was my mistake.
+I know they feel this guilt, because on this occasion it was my change, and it was my mistake. Which just goes to show that mistakes can happen no matter how experianced or senior you are, so as I tell the Engineers I work with, and as I try to tell myself, "Don't be so hard on yourself, it could happen to anyone".
