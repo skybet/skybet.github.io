@@ -7,7 +7,7 @@ category:   Devops
 tags:       incident resolution,
 author:     craig_stewart
 ---
-I am the Principal DevOps Engineer for the Core Customer Tribe at Sky Betting and Gaming. One of my duties is to help mentor our DevOps Engineers and help them improve. One of the hardest aspects of that is helping them to deal with failed changes. We make a lot of live changes in Core Customer, and for the most part they go smoothly, but mistakes happen. I'd like to take you through a recent example of where just such a mistake did happen, explain why it was handled well, and why it shows that this aspect of my job is hard.
+I am the Principal DevOps Engineer for the Core Customer Tribe at Sky Betting & Gaming. One of my duties is to help mentor our DevOps Engineers and help them improve. One of the hardest aspects of that is helping them to deal with failed changes. We make a lot of live changes in Core Customer, and for the most part they go smoothly, but mistakes happen. I'd like to take you through a recent example of where just such a mistake did happen, explain why it was handled well, and why it shows that this aspect of my job is hard.
 
 ## Some Background
 
