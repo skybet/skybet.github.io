@@ -2,7 +2,7 @@
 layout:     post
 title:      Visualising Complex Systems
 date:       2020-04-28 09:00:00
-summary:    Last week I gave a Tech Talk called "Beyond Dashboards - Visualising Complex Systems"
+summary:    I recently gave a Tech Talk called "Beyond Dashboards - Visualising Complex Systems"
 author:     andy_burgin
 category:   Community
 tags:       conference, community, tech talk
