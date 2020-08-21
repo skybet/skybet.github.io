@@ -18,13 +18,13 @@ The migration actually went a lot smoother than we anticipated, especially seein
 
 ![](/images/zero-downtime-kubernetes/corbenetes_architecture.png)
 
-Traefik acts as a proxy, handling both TLS-termination and sending requests to the two backends that are available on the host. The upstream load balancer examines the health endpoints of the applications (via traefik) as well as traefik's own `/ping` endpoint. When we do a restart of the application as part of a release, we stop traefik, which allows existing connections to the application to clear down, and takes it out of service in the load balancer so no further requests are sent to this host. Once the applications have finished their dealing with their requests, they too are closed down. Because of this, the shutdown of the application itself doesn't need to be the cleanest, as by the time it receives the shutdown signal there are no requests being served by it.
+Traefik acts as a proxy, handling both TLS-termination and sending requests to the two backends that are available on the host. The upstream load balancer examines the health endpoints of the applications (via traefik) as well as traefik's own `/ping` endpoint. When we do a restart of the application as part of a release, we stop traefik, which allows existing connections to the application to clear down, and takes it out of service in the load balancer so no further requests are sent to this host. Once the applications have finished dealing with their requests, they too are closed down. Because of this, the shutdown of the application itself doesn't need to be the cleanest, as by the time it receives the shutdown signal there are no requests being served by it.
 
 The following image shows our current architecture now we're on Kuberbetes, again very high level. We have traefik and app Pods, each exposed with a Service (essentially a cluster of Pods and a policy allowing access to them). The traefik Service is exposed outside the cluster to allow incoming connections from the load balancer, and we make use of the Ingress resource to direct traffic destined for specific URLs to the app backend Service.
 
 ![](/images/zero-downtime-kubernetes/kubernetes_architecture.png)
 
-## How Kubernetes handles healthchecks
+## How Kubernetes handles health checks
 
 Our health checks are defined as part of our Deployment manifest, for both traefik and the application. Initially we used the same health check endpoints as we had been using previously. Our manifest looked a little like this.
 
@@ -76,8 +76,8 @@ After this first slow response, the application was absolutely fine. Turns out t
 
 It's almost as though the team that built Kubernetes knew this would be a thing, as they specifically define both a `livenessProbe` and a `readinessProbe` that can be applied to the Pods. Their [own documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) explains the difference between the two:
 
-* **livenessProbe** defines when to restart a container, i.e. the `/ping` endpoint returns a bad response
-* **readinessProbe** defines when a container is ready to start accepting traffic, i.e. a script has run to synchronise data in your stateful application
+* **livenessProbe** defines when to restart a container, e.g. the `/ping` endpoint returns a bad response
+* **readinessProbe** defines when a container is ready to start accepting traffic, e.g. a script has run to synchronise data in your stateful application
 
 In our case, we needed to change our `readinessProbe` to try and load the `/login` endpoint, and allow the application to be properly ready for accepting **all** traffic, not just health check traffic.
 
