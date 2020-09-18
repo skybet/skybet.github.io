@@ -42,7 +42,7 @@
     color: $color-default;
 
     @supports (-webkit-background-clip: text) {
-        background: linear-gradient(to right, $color-default 0%, $color-primary 100%);
+        background: linear-gradient(to right, $color-default 0%, $color-complementary 50%, $color-primary 100%);
         background-size: 120% 120%;
 
         -webkit-background-clip: text;
