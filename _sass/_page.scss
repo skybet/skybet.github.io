@@ -77,7 +77,7 @@ a {
     color: $color-default;
 
     &:hover {
-        color: darken($color-default, 20%);
+        color: darken($color-complementary, 20%);
     }
 }
 
@@ -294,7 +294,12 @@ aside {
 }
 
 .comments {
-    background: linear-gradient(135deg, rgba(0, 27, 92, 0.12) 0%, rgba(178, 8, 28, 0.12) 100%);
+    background: linear-gradient(135deg,
+      rgba(37, 56, 126, 0.12) 0%,
+      rgba(140, 30, 110, 0.12) 50%,
+      rgba(212, 35, 33, 0.12) 100%
+    );
+
     color: $color-default;
     padding: 20px 0;
 

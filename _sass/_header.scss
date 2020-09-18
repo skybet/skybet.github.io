@@ -15,7 +15,11 @@ header.page {
         right: 0;
         bottom: 0;
         left: 0;
-        background: linear-gradient(135deg, rgba(0, 27, 92, 0.7) 0%, rgba(178, 8, 28, 0.7) 100%);
+        background: linear-gradient(135deg,
+          rgba(37, 56, 126, 0.7) 0%,
+          rgba(140, 30, 110, 0.7) 50%,
+          rgba(212, 35, 33, 0.7) 100%
+        );
     }
 
     a {
@@ -159,7 +163,11 @@ header.page {
         height: 70px;
 
         &:before {
-            background: linear-gradient(135deg, $color-default 0%, $color-primary 100%);
+          background: linear-gradient(135deg,
+            rgba(37, 56, 126, 1) 0%,
+            rgba(140, 30, 110, 1) 50%,
+            rgba(212, 35, 33, 1) 100%
+          );
         }
 
 
@@ -171,7 +179,11 @@ header.page {
             }
 
             @include media-query(xs-s) {
-                background: linear-gradient(135deg, $color-default 0%, $color-primary 100%);
+              background: linear-gradient(135deg,
+                rgba(37, 56, 126, 1) 0%,
+                rgba(140, 30, 110, 1) 50%,
+                rgba(212, 35, 33, 1) 100%
+              );
             }
 
         }
