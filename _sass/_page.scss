@@ -327,12 +327,12 @@ footer {
 
     .products {
         padding: 10px 0 0px;
-        background: $color-dark;
-        color: $color-light;
+        background: $color-light;
+        color: $color-default;
 
         h4 {
             min-width: 100px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         &--wrap {
