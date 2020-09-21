@@ -14,7 +14,7 @@
 		.st3{font-family: "SkyRegular"; }
 		.st4{font-size:90px;}
 	</style>
-	<line class="st0" x1="1140" y1="0" x2="1140" y2="120"/>
+	<line x1="1140" y1="0" x2="1140" y2="120" style="fill:#FFFFFF;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;" />
 	<rect x="1186.1" y="27.5" class="st1" width="561.3" height="84.5"/>
 	<text transform="matrix(1 0 0 1 1186.0514 88.7139)" class="st2 st3 st4">technology</text>
 	<g id="XMLID_177_">
