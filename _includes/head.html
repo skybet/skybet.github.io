@@ -1,32 +1,32 @@
-{% capture newline %}
-{% endcapture %}
-{% assign site_title = site.title | markdownify | strip_html | strip %}
-{% assign page_description = page.bio | default: page.summary | markdownify | strip_html | split: newline | first %}
-{% if page.layout == 'author' %}{% assign page_title = page.name %}{% endif %}
+{%- capture newline %}
+{% endcapture -%}
+{%- assign site_title = site.title | markdownify | strip_html | strip -%}
+{%- assign page_description = page.bio | default: page.summary | markdownify | strip_html | split: newline | first -%}
+{%- if page.layout == 'author' %}{% assign page_title = page.name %}{% endif -%}
 <head>
  <meta charset="utf-8">
  <title>{{ page_title | default: page.title }}{% if page.title %} - {% endif %}{{ site_title }}</title>
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name=viewport content="width=device-width,initial-scale=1.0">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#4d5055">
-<meta name="theme-color" content="#ffffff">
+ <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+ <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+ <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+ <link rel="manifest" href="/manifest.json">
+ <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#4d5055">
+ <meta name="theme-color" content="#ffffff">
 
-<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+ <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
- {% if page.layout == "post" %}
+ {% if page.layout == "post" -%}
  <meta property="og:type" content="article" />
  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
  {% if page.category %}<meta property="article:section" content="{{ page.category }}" />{% endif %}
- {% if page.tags %}{% for tag in page.tags %}
+ {% if page.tags %}{% for tag in page.tags -%}
  <meta property="article:tag" content="{{ tag | replace: ",","" }}" />{% endfor %}{% endif %}
- {% else %}
+ {%- else -%}
  <meta property="og:type" content="website" />
- {% endif %}
+ {%- endif %}
 
  <meta name="twitter:site" content="@SBGTechTeam" />
  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
@@ -36,14 +36,14 @@
  <meta name="twitter:image" content="{{ site.url }}/images/{% if page.image %}{{ page.image_dir }}{{ page.image }}{% else %}favicons/logo.png{% endif %}" />
  <meta name="twitter:dnt" content="on" />
 
- {% if page.layout == "post" %}
+ {%- if page.layout == "post" %}
  {% if page.author %}
  {% assign author = site.authors | where:"slug",page.author | first %}
  {% if author.twitter %}
- <meta name="twitter:creator:id" content="@{{ author.twitter }}" />
+ <meta name="twitter:creator" content="@{{ author.twitter }}" />
  <meta property="article:author" content="https://twitter.com/{{ author.twitter }}" />
  {% endif %}
- {% endif %}
+ {% endif -%}
 
  <meta name="twitter:label1" content="Reading time" />
  <meta name="twitter:data1" content="{{ page.content | number_of_words | divided_by: 120 }} min 🕑" />
