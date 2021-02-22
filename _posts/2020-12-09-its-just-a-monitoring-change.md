@@ -33,4 +33,4 @@ A number of these improvements are already underway, and changes have been made 
 
 Above all else, this has been a very useful reminder that even what appears to be a simple change to monitoring might in fact be the thing that causes your revenue-generating services to grind to a halt.
 
-**EDIT (2021-02-22): The contents of this blog post have been discussed further on the [Software Misadventures](https://softwaremisadventures.com/podcast/2021/02/ols/) podcast.
+**EDIT (2021-02-22): The contents of this blog post have been discussed further on the [Software Misadventures](https://softwaremisadventures.com/podcast/2021/02/ols/) podcast.**
