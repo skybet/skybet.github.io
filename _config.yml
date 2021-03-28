@@ -40,3 +40,4 @@ collections:
   authors:
     output: true
     permalink: /authors/:name/
+
