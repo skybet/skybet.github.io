@@ -2,7 +2,7 @@
 layout:     post
 title:      If you can describe it, you can automate it
 date:       2021-04-16
-summary:    The truly Agile team never has enough time to make any product the best it can be. Yet there is a difference between "it will have to do" and "this is good enough _for now_". This is the story of automation, of continuous iterative improvement. A story of a horrendous manual process that was rarely used and never properly understood, and the work to turn it into a better, more automated process. Along on this adventure, you will meet a Core design pattern, a lot of Bash, a cunning Chef hack, a dramatic mysql oversight, and a surprising lesson in agility.
+summary:    The truly Agile team never has enough time to make any product the best it can be. Yet there is a difference between "it will have to do" and "this is good enough _for now_". This is the story of automation, of continuous iterative improvement. A story of a horrendous manual process that was rarely used and never properly understood, and the work to turn it into a better, more automated process. Along on this adventure, you will meet a Core design pattern, a lot of Bash, a cunning Chef hack, a dramatic MySQL oversight, and a surprising lesson in agility.
 category:   Devops
 tags:       bash,chef,hashicorp,percona,mysql,backup,automation
 author:     andrei_sandu
@@ -88,7 +88,7 @@ of a Jenkins pipeline, with a literal push-button, but on the other hand it woul
 solid baseline to expand upon).
 
 The decision was made. A couple of coding sessions, and a handful of testing sessions later, the solution was proven and production-ready. A Chef-controlled
-Bash script would be installed on the mysql servers, which takes the backup file paths as parameters and performs the backup restore steps. The brunt of the
+Bash script would be installed on the MySQL servers, which takes the backup file paths as parameters and performs the backup restore steps. The brunt of the
 necessary work was in truth quite uninteresting - the sequence of steps were already there, in the manual runbook, simply awaiting to be translated into Bash.
 I made sure the script fails safely as much as possible, and tested the different failure states on one of the test clusters. I endeavoured to make the script
 as verbose as possible, and included a confirmation step as an extra safety measure. But I would like to focus attention on two aspects that I found surprisingly
