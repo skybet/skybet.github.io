@@ -2,9 +2,9 @@
 layout:     post
 title:      If you can describe it, you can automate it
 date:       2021-04-16
-summary:    TBC
+summary:    The truly Agile team never has enough time to make any product the best it can be. Yet there is a difference between "it will have to do" and "this is good enough _for now_". This is the story of automation, of continuous iterative improvement. A story of a horrendous manual process that was rarely used and never properly understood, and the work to turn it into a better, more automated process. Along on this adventure, you will meet a Core design pattern, a lot of Bash, a cunning Chef hack, a dramatic mysql oversight, and a surprising lesson in agility.
 category:   Devops
-tags:       Percona,pxc,mysql,backup,automation
+tags:       bash,chef,hashicorp,percona,mysql,backup,automation
 author:     andrei_sandu
 ---
 ## The design pattern
