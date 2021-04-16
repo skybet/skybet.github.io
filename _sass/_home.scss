@@ -65,7 +65,11 @@
 
     .date {
         background: $color-default;
-        background: linear-gradient(135deg, $color-default 20%, $color-primary 100%);
+        background: linear-gradient(135deg,
+          rgba(37, 56, 126, 1) 0%,
+          rgba(140, 30, 110, 1) 50%,
+          rgba(212, 35, 33, 1) 100%
+        );
         border-radius: 100%;
         width: 80px;
         height: 80px;
@@ -148,7 +152,7 @@
     }
 }
 
-.jobs, .not-found {
+.page-content {
     @extend .post;
 
     margin-top: $base-line;

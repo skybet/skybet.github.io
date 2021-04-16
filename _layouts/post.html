@@ -1,23 +1,8 @@
 ---
-layout:    default
-isArticle: true
-fixedHeader: true
-className: post
+layout: default
 ---
-
-{% assign minutes = content | number_of_words | divided_by: 120 %}
-{% if minutes == 0 %}
-{% assign minutes = 1 %}
-{% endif %}
-
-{% if page.author %}
-{% assign author = site.data.authors[page.author] %}
-{% endif %}
-
 <article class="grid article">
-
     <section class="grid-xs-s-1-1 grid-m-xl-2-3 details">
-
         <div class="post">
             <header class="grid-1-1">
                 <h1>{{ page.title | markdownify | remove: '<p>' | remove: '</p>' }}</h1>
@@ -47,7 +32,7 @@ className: post
             <div class="column">
                 {% for post in site.categories[page.category] %}
                 {% if post.title != page.title %}
-                {% include relatedPosts.html %}
+                {% include postSummary.html %}
                 {% endif %}
                 {% endfor %}
             </div>
@@ -57,16 +42,15 @@ className: post
 
     <aside class="grid-xs-s-1-1 grid-m-xl-1-3">
 
-        {% assign authorCount = page.author | size %}
+        {% assign authorCount = page.author | join: "," | split: "," | size %}
         {% if authorCount == 0 %}
         <!-- No author -->
         {% else %}
         <div class="meet-author">
-            <h3>Meet the author</h3>
+            <h3>Meet the author{% if authorCount > 1 %}s{% endif %}</h3>
             {% for a in page.author %}
-            {% assign key=a %}
-            {% assign author=site.data.authors[a] %}
-            {% include author.html %}
+            {% assign author=site.authors | where:"slug",a | first %}
+            {% include author.html link=true bio=true %}
             {% endfor %}
         </div>
         {% endif %}

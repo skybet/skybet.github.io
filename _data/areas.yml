@@ -5,46 +5,48 @@
      - name: Mocha
        link: https://mochajs.org/
      - name: Behat
-       link: http://behat.org/
+       link: https://docs.behat.org/
      - name: Cucumber
-       link: https://cucumber.io/docs/reference/javascript
+       link: https://cucumber.io/
      - name: Selenium
-       link: http://www.seleniumhq.org/
+       link: https://www.selenium.dev/
      - name: BrowserMob
        link: http://bmp.lightbody.net/
      - name: Jest
-       link: https://facebook.github.io/jest/
-     - name: Test Kitchen
-       link: http://kitchen.ci/
+       link: https://jestjs.io/
 
 - name: Development
   items:
      - name: Node.js
        link: https://nodejs.org/
      - name: PHP
-       link: http://php.net/
+       link: https://www.php.net/
      - name: MongoDB
-       link: https://www.mongodb.org/
+       link: https://www.mongodb.com/
      - name: MySQL
        link: https://www.mysql.com/
      - name: Express.js
-       link: http://expressjs.com/
+       link: https://expressjs.com/
      - name: AngularJS
        link: https://angularjs.org/
      - name: React
-       link: https://facebook.github.io/react/
+       link: https://reactjs.org/
      - name: Apache
        link: https://httpd.apache.org/
      - name: Chef
-       link: https://www.chef.io/chef/
+       link: https://www.chef.io/products/chef-infra/
      - name: Git
        link: https://git-scm.com/
      - name: Jenkins
-       link: https://jenkins-ci.org/
+       link: https://jenkins.io/
      - name: Vagrant
        link: https://www.vagrantup.com/
      - name: Docker
        link: https://www.docker.com/
+     - name: Kubernetes
+       link: https://kubernetes.io/
+     - name: Kafka
+       link: https://kafka.apache.org/
 
 - name: Design
   items:

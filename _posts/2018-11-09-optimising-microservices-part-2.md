@@ -9,7 +9,7 @@ tags:       aws, serverless, cloud, microservices
 category:   Cloud Computing
 ---
 
-In [my last post I talked about our latest project](/2018/11/02/optimising-microservices-part-1) in Sky Bet's Trading Models Squad to decrease the latency of our new RequestABet<sup>TM</sup> pricing service as we aim to hit our non-functional requirement of 100ms latency at the 95<sup>th</sup> percentile. At the end of part 1 we found out that we weren't as fast as we had first thought and were still some way off our target, despite having made several performance improvements.
+In [my last post I talked about our latest project]({% post_url 2018-11-02-optimising-microservices-part-1 %}) in Sky Bet's Trading Models Squad to decrease the latency of our new RequestABet™️  pricing service as we aim to hit our non-functional requirement of 100ms latency at the 95<sup>th</sup> percentile. At the end of part 1 we found out that we weren't as fast as we had first thought and were still some way off our target, despite having made several performance improvements.
 
 ## Back at the drawing board...
 Upon realising we still had a lot of ground to make up we set about doing some analysis. We wanted to find out more about our system and which parts of it are making up the most time so that we know where to focus our efforts.
@@ -21,7 +21,7 @@ Here is an example of a typical 'slow' request:
 
 ![AWS X-Ray](/images/optimising-aws-microservice/06-xray.png)
 
-As you can see, we've split the execution times in our Lambda function into the interaction with DynamoDB, and then into the different parts of our pricing model. In this particular example, we're spending 360ms calculating the Cards section of the model, whereas everything else is really fast. 
+As you can see, we've split the execution times in our Lambda function into the interaction with DynamoDB, and then into the different parts of our pricing model. In this particular example, we're spending 360ms calculating the Cards section of the model, whereas everything else is really fast.
 
 Our conclusion was that the slow requests were ones that were missing the in-memory caching implemented in our pricing model, forcing it to run large calculations from scratch. These cache misses were happening too often and this was pushing our 95<sup>th</sup> percentile latency up.
 
@@ -43,7 +43,7 @@ We decided to try out ElastiCache as a solution to our caching problems – AWS'
 
 ![AWS Lambda with Elasticache](/images/optimising-aws-microservice/08-lambda-elasticache.png)
 
-We found that this suited our purpose far better and it drastically reduced the amount of processing required by our Lambda function. In fact, it took us almost all the way down to our 100ms latency target, hurrah!  
+We found that this suited our purpose far better and it drastically reduced the amount of processing required by our Lambda function. In fact, it took us almost all the way down to our 100ms latency target, hurrah!
 There were however a few issues that we had to consider when integrating our nice new cache:
 
 ### Serialisation times can be a killer!
@@ -52,7 +52,7 @@ In order to write a java object to an external cache, you need to serialise it. 
 
 ![Slow serialisation times](/images/optimising-aws-microservice/09-slow-serialisation.png)
 
-It turns out that serialising and deserialising large Java objects to JSON is slooooow! 
+It turns out that serialising and deserialising large Java objects to JSON is slooooow!
 After a brief panic, we revisited our code and instead implemented Java's default JVM serialisation, storing our data as raw bytecode. We reran the test and this is what we got:
 
 ![Faster serialisation times](/images/optimising-aws-microservice/10-quick-serialisation.png)
@@ -67,8 +67,8 @@ In order for your Lambdas to have access to an ElastiCache they need to be hoste
 As mentioned earlier, AWS Lambda provisions new containers as it scales out to cope with concurrent executions. One thing worth noting here is that every time a new container is provisioned, it needs to assign itself to an IP. If you haven't given yourself a wide enough range of IP addresses then you could end up throttling yourself so be careful!
 
 #### Lambda cold starts are much worse within a VPC
-Lambdas are infamous for their 'cold starts'. This is where processing times are significantly slower whilst you are waiting for a new container to load up. This is something that we have seen in production before so we have a 'keep warm' function set up that regularly sends dummy requests to our service to ensure that our Lambda is always ready to go.  
-If you see large bursts in traffic on a warm Lambda then it is still possible to see more cold starts as it scales up, but in the past we've just accepted the risk of the occasional 1 second response time.    
+Lambdas are infamous for their 'cold starts'. This is where processing times are significantly slower whilst you are waiting for a new container to load up. This is something that we have seen in production before so we have a 'keep warm' function set up that regularly sends dummy requests to our service to ensure that our Lambda is always ready to go.
+If you see large bursts in traffic on a warm Lambda then it is still possible to see more cold starts as it scales up, but in the past we've just accepted the risk of the occasional 1 second response time.
 However, we had read about cold starts being worse when your Lambda is within a VPC and this is something that we have seen, with occasional 20 second response times from a completely cold Lambda. An interesting article on why this happens can be found here but the gist of it is that it takes longer for your containers to be assigned an IP:
 [About Lambda VPC Cold Starts](https://medium.freecodecamp.org/lambda-vpc-cold-starts-a-latency-killer-5408323278dd)
 
@@ -101,5 +101,5 @@ After increasing our CPU, removing unnecessary components boundaries, streamlini
 * Make sure your performance tests are actually doing what you think they are!
 * Use analytics tools like XRay to better understand your system
 * Experiment and have fun! In AWS it's fast and cheap to try things out.
-    * Once you've got your infrastructure as code set up (we use Terraform), deploying serverless applications in AWS is quick, cheap and easy which makes the cost of failure low. 
+    * Once you've got your infrastructure as code set up (we use Terraform), deploying serverless applications in AWS is quick, cheap and easy which makes the cost of failure low.
     * We even tried out running our stack in a different AWS region to compare network latencies – this was 1 line of Terraform code and a few minutes to deploy

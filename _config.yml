@@ -1,15 +1,42 @@
 name: Sky Betting & Gaming Technology
 title: Sky Betting & Gaming Technology
-markdown: kramdown
-url: https://technology.skybettingandgaming.com
+url: https://sbg.technology
 host: 0.0.0.0
 permalink: /:year/:month/:day/:title/
-plugins:
-    - jekyll-feed
-    - jekyll-paginate
-paginate: 10
 paginate_path: "/:num/"
+repository: skybet/skybet.github.io
+
+paginate: 10
+markdown: kramdown
 kramdown:
-    input: GFM
-    syntax_highlighter: rouge
-exclude: ['vendor', 'node_modules', 'spec']
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - gulpfile.js
+  - node_modules
+  - package.json
+  - README.md
+  - Rakefile
+  - spec
+  - vendor
+
+defaults:
+  - scope:
+      type: authors
+    values:
+      layout: author
+      fixedHeader: true
+      image_dir: authors/
+
+collections:
+  authors:
+    output: true
+    permalink: /authors/:name/
