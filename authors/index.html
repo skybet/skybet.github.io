@@ -6,11 +6,10 @@ nav:         false
 fixedHeader: true
 ---
 
-<div class="meet-author">
+<article>
     {% for author in site.authors %}
       <div class="author-section">
         {% include author.html link=true bio=true %}
       </div>
-      {% unless forloop.last %}<hr />{% endunless %}
     {% endfor %}
-</div>
+</article>

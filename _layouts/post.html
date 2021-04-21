@@ -14,58 +14,18 @@ layout: default
 																																									                                                                                                                    <a href="{{ author.url }}">{{ author.name }}</a>{% endfor %}{% endif %} · {% for data_category in site.data.categories %}{% if data_category.name == page.category %}<a href="/category/{{ data_category.slug }}/">{{ page.category }}</a>{% endif %}{% endfor %}</p>
 					        <main class="post">
 							{{ content }}
+							<hr>
 						</main>
         {% if site.categories[page.category].size > 1 %}
         <div class="related-posts">
-            <h3 class="page-title">Want to read more about {{ page.category }}? Check out these related articles...</h3>
-            <div class="column">
+            <h3 class="page-title">Want to read more about {{ page.category }}? Check out these related articles.</h3>
                 {% for post in site.categories[page.category] %}
                 {% if post.title != page.title %}
                 {% include postSummary.html %}
                 {% endif %}
                 {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
-        {% assign authorCount = page.author | join: "," | split: "," | size %}
-        {% if authorCount == 0 %}
-        <!-- No author -->
-        {% else %}
-        <div class="meet-author">
-            <h3>Meet the author{% if authorCount > 1 %}s{% endif %}</h3>
-            {% for a in page.author %}
-            {% assign author=site.authors | where:"slug",a | first %}
-            {% include author.html link=true bio=true %}
-            {% endfor %}
         </div>
         {% endif %}
 
 </article>
-
-<section class="comments">
-    <div class="grid">
-        <div class="grid-1-1">
-            {% if page.disablecomments %}
-            <div id="disqus_thread">Comments have been disabled for this post</div>
-            {% else %}
-            <div id="disqus_thread"></div>
-            {% endif %}
-        </div>
-    </div>
-</section>
-
-
-{% unless page.disablecomments %}
-<script>
-(function() {
-  var disqus_shortname = 'skybet';
-  var disqus_title = "{{ post.title | escape }}"
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  dsq.src = '//'+disqus_shortname+'.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-{% endunless %}
-
 {% include footer.html %}

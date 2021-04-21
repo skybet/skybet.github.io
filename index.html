@@ -11,27 +11,16 @@ nav_weight: 0
   {% include postSummary.html fullSummary=true %}
 {% endfor %}
 
-<!-- Pagination links -->
 <div class="pagination">
-    <div class="flex flex--center">
-        <div class="flex-item text--left">
             {% if paginator.previous_page %}
-              <a href="{{ paginator.previous_page_path }}" class="btn btn--primary">Previous</a>
+            <a href="{{ paginator.previous_page_path }}">Previous</a>
             {% else %}
-              <a class="btn btn--primary btn--disabled ">Previous</a>
+	    <a class="disabled">Previous</a>
             {% endif %}
-        </div>
-
-        <div class="flex-item text--center">
-            <span class="page_number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-        </div>
-
-        <div class="flex-item text--right">
+            <span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
             {% if paginator.next_page %}
-              <a href="{{ paginator.next_page_path }}" class="btn  btn--primary">Next</a>
+              <a href="{{ paginator.next_page_path }}">Next</a>
             {% else %}
-              <a class="btn btn--primary btn--disabled ">Next</a>
+	    <a class="disabled">Next</a>
             {% endif %}
-        </div>
-    </div>
 </div>

@@ -1,6 +1,18 @@
 		</main>
 		<aside>
+			{% assign authorCount = page.author | join: "," | split: "," | size %}
+			{% if authorCount == 0 %}
+			{% else %}
+			<div class="author-sidebar">
+			{% for a in page.author %}
+			{% assign author=site.authors | where:"slug",a | first %}
+			{% include author.html link=true bio=true %}
+			{% endfor %}
+			</div>
+			<hr>
+			{% endif %}
 			<p><span class="strong">At Sky Betting and Gaming</span> we bring the excitement of Sports Betting, Casino Games, Poker and Bingo to millions of customers in the UK. We are a modern technology-led company with a 200+ strong engineering team based in Leeds and Sheffield working in small autonomous service teams.</p>
+			<hr>
 			<div class="authors">
 				<h3>Our Contributors</h3>
 				<ul>

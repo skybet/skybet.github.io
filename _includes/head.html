@@ -4,19 +4,18 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style type="text/css">
-.wrap{max-width:100em;margin:0 auto;display:flex;flex-wrap:wrap;gap:0em;}
-	body{color:#132C6C;padding:0em;margin:0em;font-family:'Font Awesome 5 Free',-apple-system,blinkmacsystemfont,"Helvetica Neue","Helvetica","Segoe UI",roboto,oxygen-sans,ubuntu,cantarell,"Helvetica Neue",sans-serif;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:1.1em;line-height:1.6em;}
+	.wrap{max-width:80em;margin:0 auto;display:flex;flex-wrap:wrap;gap:0em;}
+	body{background-image:url("https://sbg.technology/images/bg/page-bg.png");background-position:top center;color:#132C6C;padding:0em;margin:0em;font-family:'Font Awesome 5 Free',-apple-system,blinkmacsystemfont,"Helvetica Neue","Helvetica","Segoe UI",roboto,oxygen-sans,ubuntu,cantarell,"Helvetica Neue",sans-serif;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:1.2em;line-height:1.6em;}
 	header,nav,main,aside,footer{padding:1em;flex:1 1 calc(100% - 1em);}
-	header.masthead{text-align:center;}
+	header.masthead{text-align:center;background:#fff;padding-top:3em;}
 	header.masthead h1 a{background: linear-gradient(to right,#25387e 0,#8c1e6e 50%,#d42321 100%);background-size: 120% 120%;-webkit-background-clip: text;-webkit-text-fill-color: transparent;text-decoration:none;font-weight:900;font-size:10vw;padding-bottom:1em;-webkit-box-decoration-break:clone;}
 	a{color:#132C6C;}
 	img{max-width:100%;}
-	pre{border-radius:20px;background:#E8E8E8;padding:10px;white-space:pre-wrap;word-wrap:break-word;word-break:break-all;}
-	nav{background:#132C6C;color:#fff;text-align:center;}
 	nav ul{list-style:none;padding:0em;margin:0em;}
 	nav ul li{display:inline-block;}
 	nav a{color:#fff;font-weight:bold;font-size:2em;}
-	nav{background:#fff;}nav a{color:#132C6C;}
+	nav{background:#fff;text-align:center;}
+	nav a{color:#132C6C;}
 	nav a:hover{color:#D92231;}
 	main.content{background:#E8E8E8;}
 	main article{background:#fff;margin-bottom:1em;padding:1em;}
@@ -29,16 +28,42 @@
 	.authors img{width:3em;height:3em;border-radius: 50%;padding:0.2em;}
 	.authors ul{list-style:none;margin:0;padding:0;}
 	.authors ul li{display:inline;}
+	pre{border-radius:0.5em;background:#E8E8E8;padding:1em;overflow:auto;white-space:pre-wrap;word-wrap:break-word;word-break:break-all;*/}
+	pre,code,kbd,samp,tt{font-family:monospace,monospace;font-size:1em;}
+	code{font-weight:bold;}
+	pre code{font-weight:normal;}
+	.related-posts{display:flex;flex-wrap:wrap;gap:1em;}
+	.related-posts h3{flex:1 0 100%;}
+	.related-posts article{flex:1 1 100%;border:solid 0.2em #132C6C;}
+	.related-posts article header.post{padding:0em;}
+	.related-posts article header.post h1{margin-top:0em;}
 	aside{background:#132C6C;color:#fff}
+	aside a{color:#fff;}
+	aside hr{color:#fff;background:#fff;border:solid 0.1em #fff;margin:1em 0em;}
+	.author img{width:100px;float:left;padding:0.5em;}
+	.author ul{padding:0em;margin:0em;}
+	.author ul li{display:inline-block;}
+	.author h1,.author h4{margin:0em;}
+	.author--image a{text-decoration:none;}
+	.author-section{padding:1em;margin:0em -1em;}
+	.author-section:nth-child(even){background:#F1F1F1;}
 	footer.main{background:#D92231;color:#fff;display:flex;flex-wrap:wrap;}
 	footer.main a{color:#fff;}
 	footer.main div{flex: 1 1 100%;}
 	.strong{font-weight:bold;}
-	blockquote{border-left:solid 4px #132C6C;margin:0.5em;padding:0.5em;font-style:oblique;background:#E8E8E8;}
+	blockquote{border:solid 0.2em #132C6C;border-radius:1em;background:#F9F9F9;padding:1em;margin:1em;box-shadow: 0 1em 2em -1em #aaa;}
+	.pagination{display:flex;justify-items:stretch;width:100%;margin:0 auto;}
+	.pagination > *{flex-grow:1;flex-basis:33%;text-align:center;}
+	.pagination a{font-weight:bold;}
+	.pagination .disabled{color:#bbb;}
+	p.bio{clear:both;}
 	@media (min-width:50em){
-		body{padding-top:3em;}
+		header.masthead h1 a{font-size:6vw;}
 		main.content{flex-basis:calc(75% - 7em);}
+		blockquote{margin:3em;}
+		.related-posts article{flex-basis:calc(50% - 4em);}
 		aside{flex-basis:calc(25% - 7em);}
+		.pagination{width:50%;}
 		footer.main div{flex: 1 1 67%;}
 		footer.main div:nth-child(2){flex-basis:33%;}
 	}

@@ -5,11 +5,10 @@
       {% if include.link %}</a>{% endif %}
     {% endif %}
 
-    <header>
         <h1>{% if include.link %}<a href="{{ author.url }}">{% endif %}
             {{ author.name }}
         {% if include.link %}</a>{% endif %}</h1>
-        <h4>{{ author.role }}{% if author.tribe %} · {{ author.tribe }} Tribe{% endif %}</h4>
+        <h4>{{ author.role }}{% if author.tribe %} ({{ author.tribe }} Tribe){% endif %}</h4>
 
         {% if author.startDate %}
         {% assign start = author.startDate | prepend: "01-01-" | slice: -10,10 | date: '%Y' %}
@@ -25,7 +24,7 @@
         <p class="bio">{{ author.bio }}</p>
 
         {% if author.interests %}
-        <ul class="author--interests fa fa-heart">
+	<ul class="author--interests"><i class="fa fa-heart"></i>
             {% assign interests=author.interests | split:"," %}
             {% for interest in interests %}
             <li>{{ interest }}</li>
@@ -35,12 +34,11 @@
 
         {% if author.twitter or author.github %}
         <ul class="author--rels">
-            {% if author.twitter %}<li class="fa fa-twitter"><a class="author--rels--twitter" href="https://twitter.com/{{ author.twitter }}" rel="author">{{ author.twitter }}</a></li>{% endif %}
-            {% if author.github %}<li class="fa fa-github-alt"><a class="author--rels--github" href="https://github.com/{{ author.github }}" rel="author">{{ author.github }}</a></li>{% endif %}
+		{% if author.twitter %}<li><i class="fab fa-twitter"></i> <a class="author--rels--twitter" href="https://twitter.com/{{ author.twitter }}" rel="author">{{ author.twitter }}</a></li>{% endif %}
+		{% if author.github %}<li><i class="fab fa-github-alt"></i> <a class="author--rels--github" href="https://github.com/{{ author.github }}" rel="author">{{ author.github }}</a></li>{% endif %}
         </ul>
         {% endif %}
         {% endif %}
-    </header>
 
     {% if include.articles %}
     <h3 class="author-articles">Articles by {{ author.name | truncatewords:1,"" }}</h3>
