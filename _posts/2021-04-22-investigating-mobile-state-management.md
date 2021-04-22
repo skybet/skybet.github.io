@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Investigating Mobile State Management: Composable Redux
+title:      Investigating Mobile State Management
 author:     joe_williams
 date:       2021-04-22 14:18:00
 summary:    State Management on any platform is difficult and there are a number of different approaches. One approach we're investigating is one we've coined composable redux. 
