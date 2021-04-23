@@ -223,8 +223,8 @@ This is the most crucial point and goes back to the signature we spoke about ear
 Our investigatons continue and this is just one approach we're looking at. It's heavily inspired by the Swift Composable Architecture, ReSwift and Redux on web. Hopefully we'll continue writing about this as a series as we investigate more. If you'd like to reach out, you can hit me up on Twitter @jrwilliams_ios! 
 
 #### Resources: 
-(The Composable Architecture) [https://www.pointfree.co/collections/composable-architecture]
-(Redux) [https://redux.js.org/tutorials/fundamentals/part-1-overview]
-(ReSwift) [https://github.com/ReSwift/ReSwift]
+The Composable Architecture [https://www.pointfree.co/collections/composable-architecture]
+Redux [https://redux.js.org/tutorials/fundamentals/part-1-overview]
+ReSwift [https://github.com/ReSwift/ReSwift]
 
 
