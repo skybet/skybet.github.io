@@ -23,7 +23,7 @@ That's a good question, and perhaps one that warrants a longer answer than can b
 For every application, there's some state that drives it. In our case, state is things like the user, their balance, the betslip, opportunites and events. All of these things contribute to the successful working of our app. As we build out additional components, the places in which these are shared grows. Consequently, the places in which these states can be modified grows too. 
 
 #### Actions 
-So, as our components grow and the various modifications to state increases, need ways of strictly modifying it. This is where Actions come in. For every change that can be made to state, we dispatch an action - to where will be covered soon. Doing this allows us to easily reason about, debug and, importantly, follow, where changes to state might come from. This makes any change to the global state tree totally _predictable_.
+So, as our components grow and the various modifications to state increases, we need ways of strictly modifying it. This is where Actions come in. For every change that can be made to state, we dispatch an action - to where will be covered soon. Doing this allows us to easily reason about, debug and, importantly, follow, where changes to state might come from. This makes any change to the global state tree totally _predictable_.
 
 #### Reducers 
 Reducers may sound like an intimidating name, but it's likely that you've come across this theory already in Swift. Consider the following: 
