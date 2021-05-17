@@ -114,7 +114,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 ```
 
-There's a lot to unpick here. Firstly we create a store with some initial AppState. We also pass it a reducer. This is a fairly toy example, as you'll naturally have a larger number of reducers in your app. For us, we have a combining function that takes a variadic number of reducers and combines them into one. The LoadingViewController is the object which kicks off any initial tasks that must happen before entering the app and updating state. The primary thing to note on the store is the state is public, so screens may read from it, but its setter is private. Modifications to the state can only be made by dispatching actions to the store. 
+There's a lot to unpick here. Firstly we create a store with some initial AppState. We also pass it a reducer. This is a fairly toy example, as you'll naturally have a larger number of reducers in your app. For us, we have a combining function that takes a variadic reducer parameter and combines them into one. The LoadingViewController is the object which kicks off any initial tasks that must happen before entering the app and updating state. The primary thing to note on the store is the state is public, so screens may read from it, but its setter is private. Modifications to the state can only be made by dispatching actions to the store. 
 
 #### Actions 
 With our actions, we stick to our principles of value types. One solution would be to just fire strings as actions. Instead, we've adopted the, admittedly obvious, approach of using enums. We're able to separate our actions and use associated values to avoid one giant enum: 
@@ -201,28 +201,28 @@ class CounterController: UIViewController {
     }
 }
 ```
-### The Point 
+## The Point 
 Our main aim was to have an approach to state that was sensible and easy to reason about. We're a growing team with a rapidly expanding codebase, so we wanted a way of modifying state that would follow a strict, fundamental pattern. With that in mind, lets re-visit the points raised at the beginning of this post 
 
-1. How do we store global app state? 
+#### How do we store global app state? 
 
 We do this by having state and all of its member properties as value types. These value types enforce immutability. We store this state on what we called a "Store", a generic class which has a state property on it with a public getter, but a private setter. 
 
-2. How do we share state across multiple screens within our app? 
+#### How do we share state across multiple screens within our app? 
 
-Perhaps a sticking point, but functional for our needs. Much of our UI is programmatic or through xibs. This allows us to inject properties into view controllers and initialise xibs through the super.init. 
+Perhaps a sticking point, but functional for our needs. Much of our UI is programmatic or through xibs. This allows us to inject properties into view controllers and initialise xibs through the `super.init`. 
 
 This a sticking point because as you nest deeper and deeper, you have to continue to pass the store through initialisers. This is admittedly a cumbersome step, but for us the trade-off is totally worth it. SwiftUI is a huge step forward in this, because we can take advantage of @EnvironmentObject and the various other features afforded to us. 
 
 This, however, is why we like the redux approach. As you can see, we're taking advantage of Combine and how it lets us be reactive. It's also good because it futureproofs us for SwiftUI, which we're actively exploring. We'll be able to continue to adopt this architecture as the platform changes. 
 
-3. How do we manage state in such a way that modifications to it are purely functional and free of side effects?
+#### How do we manage state in such a way that modifications to it are purely functional and free of side effects?
 
 This is the most crucial point and goes back to the signature we spoke about earlier: `((inout State, Action) -> Void)`. Any and all side effects _must_ and _will_ occur in a reducer. This is the only place an app can be modifying state. It's purely funcational insofar as `Input -> Output`. What this affords us is a place to encompass business logic without having to dig layers deep. For that reason, it's a hugely powerful approach. 
 
 Our investigatons continue and this is just one approach we're looking at. It's heavily inspired by the Swift Composable Architecture, ReSwift and Redux on web. Hopefully we'll continue writing about this as a series as we investigate more. If you'd like to reach out, you can hit me up on Twitter @jrwilliams_ios! 
 
-#### Resources: 
+### Resources: 
 The Composable Architecture [https://www.pointfree.co/collections/composable-architecture]
 Redux [https://redux.js.org/tutorials/fundamentals/part-1-overview]
 ReSwift [https://github.com/ReSwift/ReSwift]
