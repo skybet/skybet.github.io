@@ -20,33 +20,33 @@ GES are responsible for launching games, primarily on Vegas and Bingo Arcade. We
 
 **TL;DR: games worked fine until a user got a error --- then we threw a more critical error making the game unplayable.**
 
-In one of our updates, we made an improvement to some of our error modals, the session expired ones. If there was an error during our pre-launch checks, we would reset the launch config and ask a user to go back to the home page - because we couldn't accurately fix the problem, as we don't fetch the auth tokens ourselves. So by sending someone back to the home page, portals (e.g Vegas/Bingo) could re-auth a user, since we are currently unable to do so.
+In one of our updates, we made an improvement to our "session expired" error messages. If there was an error during our pre-launch checks, we would reset the launch config and ask a user to go back to the home page --- because we couldn't accurately fix the problem, as we don't fetch the auth tokens ourselves. So by sending someone back to the home page, portals (e.g Vegas/Bingo) could re-auth a user for us.
 
-This passed our reviews and testing - as these were pre-launch errors it was fine to wipe the launch config, since a user cant launch a game anyway.
+This passed our reviews and testing --- as these were pre-launch errors it was fine to wipe the launch config, since a user can't launch a game anyway.
 
-The problem was noticed once we deploy to live, we were accidentally wiping the launch config on every error, not just the pre-launch ones. As the service is written in react, whenever the gameName prop is changed (which is part of the launch config), we try to reload the game - as you might be loading a new game.
+The problem was noticed once we deploy to live: we were accidentally wiping the launch config on every error, not just the pre-launch ones. As the service is written in React, whenever the `gameName` prop is changed (which is part of the launch config), we try to reload the game --- as you might be loading a new game.
 
-Removing the gameName counted as changing it, so we tried to reload the game. As we have removed the gameName, we now don't know what to load, so an error was thrown.
+Removing the `gameName` counted as changing it, so we tried to reload the game. As we removed the `gameName`, we now don't know what to load, so an error was thrown.
 
-Lots of things count as an "error" to the game, including insufficient funds - so as soon as any "error" happen the game had to be hard reloaded in order to work.
+Lots of things count as an "error" to the game, including insufficient funds --- so as soon as any "error" happened the game had to be hard reloaded in order to work.
 
 ## How did you first spot the error?
 
-Our monitoring automatically calls us out, but we also watching our graphs when doing a release, so we saw a few seconds before we got the call.
+Our monitoring automatically calls us out, but we also watch our graphs when releasing changes, so we saw a few seconds before we got the call.
 
 ## How did we respond?
 
-At first, we couldn't quickly work out what was causing the error - so we decided to roll back to the last version. This gave us more time to debug the issue and create a proper fix, rather than pushing up a hacky fix, that might not have worked.
+At first, we couldn't quickly work out what was causing the error --- so we decided to roll back to the last version. This gave us more time to debug the issue and create a proper fix, rather than pushing up a hacky fix that might not have worked.
 
 The downside to this was that we were going to have to do a bit of cleaning up of git tags and versions.
 
 ## How long did the incident last?
 
-We rolled back to the last version within about an hour. This would have been quick, but our rollback job failed. As its only ever been run once before it hadn't been updated for a while.
+We rolled back to the last version within about an hour. This would have been quicker, but our rollback job failed. As it's only ever been run once before, it hadn't been updated for a while.
 
 ## Why was it so hard to find the issue?
 
-We don't do small, per ticket, releases like other squads, as we are a service, if we did that then each portal would end up being asked to version bump for each ticket we do. So we bundle up our releases and do them every few weeks to ease the strain on them.
+We don't do small, per-ticket releases like other squads as we are a service provider; if we did that, then each portal would end up being asked to version bump for each ticket we release. So we bundle up our releases and do them every few weeks to ease the strain on other teams.
 
 This means our releases can get rather beefy and so was hard to see what small bit caused the issue.
 
