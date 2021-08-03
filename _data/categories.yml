@@ -75,3 +75,9 @@
 
 - name: Web Development
   slug: web-development
+
+- name: Failure
+  slug: failure
+
+- name: Learning
+  slug: learning
