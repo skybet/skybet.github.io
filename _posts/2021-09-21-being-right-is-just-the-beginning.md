@@ -8,9 +8,9 @@ author: leigh_hall
 summary: "As an industry we’re obsessed with being smart. And that’s ok - good even, in the right context. But to get what we want we need to stop being the smartest person in the room and start being the most helpful in the room"
 ---
 
-On the 8th September I was very grateful to have the opportunity to speak at my local security/hacker conference DC151 in Leeds.
+On the 8th September I was very grateful to have the opportunity to speak at my local security/hacker conference [DC151](https://twitter.com/_dc151) in Leeds.
 
-In the talk I lamented my lack of drive in pursuing purely technical content anymore (there's plenty of that in my [old blog](https://medium.com/@leighhall)) instead reflecting my current career arc and giving a talk on "boring management stuff", as I prefaced.
+In the talk I lamented my lack of drive in pursuing purely technical content any more (there's plenty of that in my [old blog](https://medium.com/@leighhall)) instead reflecting my current career arc and giving a talk on "boring management stuff", as I prefaced.
 
 Of course, I don't think it's boring or particularly constrained to management stuff, but that was the first layer of my subterfuge and was reflected back in the organiser's comment that DC151 hadn't seen a talk like this before.
 
@@ -20,7 +20,7 @@ So anyway, this is a brief outline of my talk. Well, of my point, really, which 
 
 The most succint summary of what I was saying has since come from the co-organiser of DC151, Glenn:
 
-["We need to stop being the smartest in the room and start being the most helpful in the room."](https://twitter.com/GlennPegden/status/1437063162432524290?s=20)
+<blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">We need to stop being the smartest in the room and start being the most helpful in the room.</p>&mdash; Glenn Pegden - ☎️📟💾 Ⓗằ⒞𝓴𝗘ṝ (@GlennPegden) <a href="https://twitter.com/GlennPegden/status/1437063162432524290?ref_src=twsrc%5Etfw">September 12, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 And that really is the main point that I wanted to get across.
 
@@ -46,7 +46,7 @@ And if you fall on the wrong side of that then you're almost never going to get 
 
 So how exactly do you make a non-revenue generating business area like InfoSec not cost money get its own way?
 
-This is where I revealed my final subterfuge for the DC151 crowd - not only was this a boring management talk, this was _also_ and boring Security Architecture talk!
+This is where I revealed my final subterfuge for the DC151 crowd - not only was this a boring management talk, this was _also_ a boring Security Architecture talk!
 
 At Sky Betting & Gaming we've weaponised compliance and used it in what I like to refer to as "selective relieving of friction" - we introduced a very stripped down version of a very old idea - patterns - and made them work for our audience.
 
