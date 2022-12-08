@@ -4,7 +4,8 @@ image: ols.png
 role: Operations Manager
 tribe: Data
 startDate: 01-01-2017
+endDate: 31-11-2022
 bio: "Topics of expertise include OpenBSD, automation, chaos and resilience engineering, and Nerf warfare. He is also interested in security, networking, privacy, opensource, decentralisation and federation, hardware hacking, and cyberdecks."
-github: muggahtee
-twitter: olsWTF
+github: heyitsols
+twitter: heyitsols
 ---
