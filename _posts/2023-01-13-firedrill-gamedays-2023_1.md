@@ -45,7 +45,7 @@ Currently, fire drills have a designated SLM (Service Lifecycle Manager) and IC 
 ### Timetable
 In advance of the GameDay publish a timeline of how the day will be broken down so that everyone involved knows where they need to be and when. Ensure that sufficient time is provided to investigate each scenario and attempt to resolve the problem. It is also advisable to have a break in between each scenario to reset the environment and give those running the GameDay a break as well as time to prep for the next scenario.
 
-![Time Table](/images/gameday_image1.png])
+![Time Table](/images/gameday_image1.png)
 
 ### Intro / Overview
 Kick-off the GameDay by providing an overview of the days' plan and an overview of the system architecture. This is particularly useful if the target system is yet to go live and the support personnel are unfamiliar with it. Having the architect or lead developer provide the overview may be particularly beneficial as is the provision of links to useful resources such as documentation and monitoring. 
@@ -53,7 +53,7 @@ Kick-off the GameDay by providing an overview of the days' plan and an overview 
 ### Scenarios
 The failure scenario to be used during the GameDay should devise and tested well in advance. Multiple scenarios should be devised and kept hidden from those involved in resolving the problem on the day. Devising the scenarios should be a team effort involving analysis of the system architecture, with information on issues experienced during development/testing to pinpoint potential problem areas. With a list of scenarios available they should be broken down as shown in the example below:
 
-![Time Table](/images/gameday_image2.png])
+![Scenarios](/images/gameday_image2.png)
 
 With a list of potential scenarios available, the team should select the best candidates to be taken forward to the GameDay. The selected scenarios should be thoroughly tested in advance to have a clear understanding of how the simulated incident will play out.
 
@@ -86,11 +86,11 @@ Once all the scenarios have been executed those involved should be given time to
 
 A retro board similar to the following may be used to decide which issues are to be fixed now and those which can be left until later:
 
-![Time Table](/images/gameday_image3.png])
+![Retrospective](/images/gameday_image3.png)
 
 We also made use of a Readiness-O-Meter to get a quick view on where people thought we were in regards to our ability to support the service. 
 
-![Time Table](/images/gameday_image4.png])
+![Readiness](/images/gameday_image4.png)
 
 
 ## Lessons Learned
