@@ -1,15 +1,1 @@
 .DS_Store
-_site
-npm-debug.log
-.sass-cache
-.bundle
-vendor
-.idea
-*.iml
-*.sw[op]
-.vendor
-.jekyll-metadata
-node_modules
-.vendor
-.jekyll-metadata
-_vendor
